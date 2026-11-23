@@ -16,3 +16,6 @@ data/raw/daily/
 
 # Partial files of an interrupted agenda capture.
 data/raw/agendas/**/*.tmp
+
+# Temporary files of an atomic write in progress.
+data/**/*.tmp

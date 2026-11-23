@@ -1,0 +1,26 @@
+{
+ "diputados/busqueda": {
+  "url": "https://www.congreso.es/es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_resource_id=searchDiputados&p_p_cacheability=cacheLevelPage",
+  "descargado": "2026-11-23",
+  "bytes": 130640,
+  "sha256": "cd3c28ae1c597e6afc8f18f12e4d58b300150b8065267bfb5b680c3aeded9d87"
+ },
+ "diputados/DiputadosActivos": {
+  "url": "https://www.congreso.es/webpublica/opendata/diputados/DiputadosActivos__20261123050006.json",
+  "descargado": "2026-11-23",
+  "bytes": 85574,
+  "sha256": "1b3889aad7733c817703c2d64e0571c87c146ef3b6af5d8519e1824bbbdf0962"
+ },
+ "diputados/DiputadosDeBaja": {
+  "url": "https://www.congreso.es/webpublica/opendata/diputados/DiputadosDeBaja__20261123050008.json",
+  "descargado": "2026-11-23",
+  "bytes": 184805,
+  "sha256": "9fdd3f39bc5a49a839d606e2b281466a090d9bdc852a67dbb3ea19ee485a8a4e"
+ },
+ "intervenciones/IntervencionesCronologicamente": {
+  "url": "https://www.congreso.es/webpublica/opendata/intervenciones/IntervencionesCronologicamente__20261123050120.json",
+  "descargado": "2026-11-23",
+  "bytes": 56849646,
+  "sha256": "f698b4994bfacd8c29fa5acfd4e354c10aa25a9632c02378e456538c1079e867"
+ }
+}

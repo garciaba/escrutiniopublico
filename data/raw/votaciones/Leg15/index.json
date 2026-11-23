@@ -1,0 +1,587 @@
+{
+ "legislatura": 15,
+ "dias": {
+  "20230919": [
+   {
+    "sesion": 2,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion002/20230919/VOT_20230919152000.zip",
+    "sha256": "92266200f13630bae8ddb6e1f57e6c6177771a34f763ab442a62ed72d08e90fd",
+    "votaciones": 2
+   }
+  ],
+  "20230921": [
+   {
+    "sesion": 3,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion003/20230921/VOT_20230921120042.zip",
+    "sha256": "bda7d02370593960884b668652acc8f3fc667ce94607efe4567fd565458328e5",
+    "votaciones": 4
+   }
+  ],
+  "20230927": [
+   {
+    "sesion": 5,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion005/20230927/VOT_20230927125500.zip",
+    "sha256": "c134dfa4f04291d52739d5c890025227274d5a228aded9b93e2bf4a26ac75a5b",
+    "votaciones": 0
+   }
+  ],
+  "20230929": [
+   {
+    "sesion": 6,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion006/20230929/VOT_20230929125600.zip",
+    "sha256": "bee943fd4ff5076d82bb87c4f4b55ae07e6e9c8c0b35258707b5956d0f88423f",
+    "votaciones": 0
+   }
+  ],
+  "20231116": [
+   {
+    "sesion": 8,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion008/20231116/VOT_20231116125700.zip",
+    "sha256": "6a5abc964adc32166412c38e8d530f4e15671f0fe9f0836e0a9eb48efb57904d",
+    "votaciones": 0
+   }
+  ],
+  "20231128": [
+   {
+    "sesion": 9,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion009/20231128/VOT_20231128183352.zip",
+    "sha256": "4c3b433870e44f96a804df2774e536ef06f16f2b0231a5b4fffda082e23a21ec",
+    "votaciones": 5
+   }
+  ],
+  "20231212": [
+   {
+    "sesion": 11,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion011/20231212/VOT_20231212230015.zip",
+    "sha256": "cf155e3ed5bae54f12c51d1e9d79739e6f61e351e8abf6bc6ee520dc5b1278d5",
+    "votaciones": 7
+   }
+  ],
+  "20231219": [
+   {
+    "sesion": 13,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion013/20231219/VOT_20231219233057.zip",
+    "sha256": "8ec63ba564c655cb94fc3ea4b9b974637109ef91e43d98a91efef99b8a729e61",
+    "votaciones": 14
+   }
+  ],
+  "20240110": [
+   {
+    "sesion": 15,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion015/20240110/VOT_20240111114807.zip",
+    "sha256": "7d277718b699f693754bdb68c74cc6961eee8ec158e681c02cbe5432433fadee",
+    "votaciones": 8
+   }
+  ],
+  "20240116": [
+   {
+    "sesion": 16,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion016/20240116/VOT_20240116165740.zip",
+    "sha256": "af1dca0c97cf4ef8e9a54f94ed0d488e0c9da329962656971095eb87b3468fe5",
+    "votaciones": 2
+   }
+  ],
+  "20240118": [
+   {
+    "sesion": 17,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion017/20240118/VOT_20240517122600.zip",
+    "sha256": "90dd6e94431490e2db502b68686b7c654874007e8def53ede7024dfbb017e85c",
+    "votaciones": 0
+   }
+  ],
+  "20240130": [
+   {
+    "sesion": 18,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion018/20240130/VOT_20240130183848.zip",
+    "sha256": "eeed7e1e08ec229215c03546b289f1f42026e48d856a2dc844287b1f11682067",
+    "votaciones": 9
+   }
+  ],
+  "20240206": [
+   {
+    "sesion": 19,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion019/20240206/VOT_20240206213117.zip",
+    "sha256": "2a9696d13e48c999a8fbf6448e2c2f4a015f44c3caab243c85acc4a989176dfb",
+    "votaciones": 7
+   }
+  ],
+  "20240220": [
+   {
+    "sesion": 21,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion021/20240220/VOT_20240220203626.zip",
+    "sha256": "93d62524d498bc04c906e6f023740d06d7979fbce6e3234852f0f3be49133ccd",
+    "votaciones": 2
+   }
+  ],
+  "20240222": [
+   {
+    "sesion": 23,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion023/20240222/VOT_20240222110726.zip",
+    "sha256": "9424ccfeaa2e2819f9eb9702a46602ad34ab978385b9553b224ebe32bfffed20",
+    "votaciones": 18
+   }
+  ],
+  "20240227": [
+   {
+    "sesion": 24,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion024/20240227/VOT_20240227205806.zip",
+    "sha256": "a11ad52c02a3801dfb3f32a820b15eb8fc5d3b0f5c15ef7ae1b399c06f34ecf0",
+    "votaciones": 2
+   }
+  ],
+  "20240229": [
+   {
+    "sesion": 26,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion026/20240229/VOT_20240229115032.zip",
+    "sha256": "5600d303614d10807b315ae4cfcc2a745a795459ecfab78aebefb961babacd17",
+    "votaciones": 19
+   }
+  ],
+  "20240312": [
+   {
+    "sesion": 27,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion027/20240312/VOT_20240312204245.zip",
+    "sha256": "834c09eca42fc6f63690e78d7629823dee6891bd46887aa197632ed7c2d71dd3",
+    "votaciones": 2
+   }
+  ],
+  "20240314": [
+   {
+    "sesion": 29,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip",
+    "sha256": "5e6b0eadcf5706bcca7e4db2a83c8afe1616adc04a632c1065b897b7a7a174e8",
+    "votaciones": 52
+   },
+   {
+    "sesion": 30,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion030/20240314/VOT_20240314135322.zip",
+    "sha256": "ada59402020928704a0e2134b11bc316fb677ccf06a55aade1163c0cc247bb8a",
+    "votaciones": 1
+   }
+  ],
+  "20240319": [
+   {
+    "sesion": 31,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion031/20240319/VOT_20240319201817.zip",
+    "sha256": "fd1899184d11ddc5e12ee9daea5209c193abf695ec429c946dd642d614fcf340",
+    "votaciones": 2
+   }
+  ],
+  "20240321": [
+   {
+    "sesion": 33,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip",
+    "sha256": "f3f903f784a1eb315699ed4e0ddfcf7293039bad7a7b9a03c43dbd5d3ec86f83",
+    "votaciones": 19
+   }
+  ],
+  "20240409": [
+   {
+    "sesion": 34,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion034/20240409/VOT_20240409210630.zip",
+    "sha256": "56b382ada4adcf7e9278e400648d091c0f3bdbff0fc721615522de5b0be7629f",
+    "votaciones": 19
+   }
+  ],
+  "20240423": [
+   {
+    "sesion": 36,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion036/20240423/VOT_20240423213511.zip",
+    "sha256": "7c3cb730cd083a6c1f044b35a27a111d44add4f11b666f74a7bb8dd7ce4289d4",
+    "votaciones": 38
+   }
+  ],
+  "20240521": [
+   {
+    "sesion": 38,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion038/20240521/VOT_20240521203900.zip",
+    "sha256": "f579cacba5ac1459321325f2c3301afd38b51ec738560d335b1f45321d8812ff",
+    "votaciones": 2
+   }
+  ],
+  "20240523": [
+   {
+    "sesion": 40,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion040/20240523/VOT_20240523140930.zip",
+    "sha256": "eae0c33fa5ead8beca9abb59334cc7c575f3edbe9b1249e4534b41549ede2f69",
+    "votaciones": 61
+   }
+  ],
+  "20240528": [
+   {
+    "sesion": 41,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion041/20240528/VOT_20240528203931.zip",
+    "sha256": "2a0f21bb726342b5833d1e2cfe80192f27e9dfffb426a8afd1361c9ba22c9990",
+    "votaciones": 2
+   }
+  ],
+  "20240530": [
+   {
+    "sesion": 43,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion043/20240530/VOT_20240530115954.zip",
+    "sha256": "df692625c7a52e4f764b736cf93bd3348237fa2784509aa6b139cdf8573feae6",
+    "votaciones": 36
+   }
+  ],
+  "20240611": [
+   {
+    "sesion": 44,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion044/20240611/VOT_20240611203610.zip",
+    "sha256": "0431ffa53e16edb1b10d08a4e3610d07e240009e7eefc8c68f7318dbc6c17b34",
+    "votaciones": 2
+   }
+  ],
+  "20240613": [
+   {
+    "sesion": 46,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion046/20240613/VOT_20240613125212.zip",
+    "sha256": "9d9a9058ea15fc5ad1fcd5e5c3b54cb66758f68c1231a4c3222541544f633169",
+    "votaciones": 25
+   }
+  ],
+  "20240618": [
+   {
+    "sesion": 47,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion047/20240618/VOT_20240618211337.zip",
+    "sha256": "365f845064a54f42b75a8a41b3f0832fdd9cb57b2dee9c0c46f0444d6ded1eb4",
+    "votaciones": 2
+   }
+  ],
+  "20240620": [
+   {
+    "sesion": 49,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion049/20240620/VOT_20240620132723.zip",
+    "sha256": "7270b41dd049330e1a28e9f4471762a27755f918800ac41566df3223159933e7",
+    "votaciones": 25
+   }
+  ],
+  "20240625": [
+   {
+    "sesion": 50,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion050/20240625/VOT_20240625212156.zip",
+    "sha256": "25ec1c77aa26526a58bde0f9048d36cc4be356bb686ac21c5887981c32862932",
+    "votaciones": 2
+   }
+  ],
+  "20240627": [
+   {
+    "sesion": 52,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion052/20240627/VOT_20240627130332.zip",
+    "sha256": "1fa9cdaf549f24322005e6d183e00e11615b9e9deecf475d498b134a00090305",
+    "votaciones": 46
+   }
+  ],
+  "20240704": [
+   {
+    "sesion": 53,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion053/20240704/VOT_20240704135013.zip",
+    "sha256": "2af9a7590af68a94c1ac0fc1ff9787f40b468f3a8af8f1685a58b48304f82e27",
+    "votaciones": 1
+   }
+  ],
+  "20240711": [
+   {
+    "sesion": 54,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion054/20240711/VOT_20240711150619.zip",
+    "sha256": "4a884106f37f09eca9b2d80c66f290c0f8604e98a8a45ebbaa3ec3f062ef3e34",
+    "votaciones": 13
+   }
+  ],
+  "20240723": [
+   {
+    "sesion": 56,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion056/20240723/VOT_20240723221625.zip",
+    "sha256": "29d989160211e279646eed656e4015a09b5331234c3e5e3c3597bc8588c38a7e",
+    "votaciones": 77
+   }
+  ],
+  "20240910": [
+   {
+    "sesion": 57,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion057/20240910/VOT_20240910210834.zip",
+    "sha256": "4331e54c6c002c856fbaf472e1274d7f39a585b62531123a1c16d5bc625158b8",
+    "votaciones": 3
+   }
+  ],
+  "20240911": [
+   {
+    "sesion": 58,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion058/20240911/VOT_20240911151644.zip",
+    "sha256": "da69093b4bde616a968b2f889869b9432b505fc0e9ab9444a36221769616f02d",
+    "votaciones": 11
+   }
+  ],
+  "20240917": [
+   {
+    "sesion": 59,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion059/20240917/VOT_20240917204415.zip",
+    "sha256": "da80c4a2ccfa39492ef06ea086798a36c53a79d1e00a7c7471f7530fd374f2ad",
+    "votaciones": 3
+   }
+  ],
+  "20240918": [
+   {
+    "sesion": 60,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion060/20240918/VOT_20240919102648.zip",
+    "sha256": "054736837eafe7ea2f4177ce65029ed8532d9c5e7ef36f65ff93caafc3a6e09c",
+    "votaciones": 7
+   }
+  ],
+  "20240924": [
+   {
+    "sesion": 61,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion061/20240924/VOT_20240924203508.zip",
+    "sha256": "14b9611604581d3de300c5dfa2458d2cb6d310bdbee5b5c64524090e0e6d3aa5",
+    "votaciones": 2
+   }
+  ],
+  "20240926": [
+   {
+    "sesion": 63,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion063/20240926/VOT_20240926161650.zip",
+    "sha256": "aa1ae1093fe329c3da837e1f7efc0824aafb7332235f7cf8358086ed2ff805a0",
+    "votaciones": 9
+   }
+  ],
+  "20241008": [
+   {
+    "sesion": 64,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion064/20241008/VOT_20241008205541.zip",
+    "sha256": "a59e4616849361d25f8ec508ec9ffe659bc6b271f210eef9de4112b15b550146",
+    "votaciones": 2
+   }
+  ],
+  "20241010": [
+   {
+    "sesion": 66,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion066/20241010/VOT_20241010194915.zip",
+    "sha256": "0df1acca7a65b9d663a934b514b08fec189a9e933a386f43fc5a51add36001e2",
+    "votaciones": 20
+   }
+  ],
+  "20241015": [
+   {
+    "sesion": 67,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion067/20241015/VOT_20241015205430.zip",
+    "sha256": "3aa1652adb59198f475798e0c039513e5a96aecdd87626d9545ec0c48985dd7f",
+    "votaciones": 3
+   }
+  ],
+  "20241016": [
+   {
+    "sesion": 68,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion068/20241016/VOT_20241017130150.zip",
+    "sha256": "555adfb759e8a6e3204b26a39740db35ced8b6af7df1568149135ecad2ffbc13",
+    "votaciones": 14
+   }
+  ],
+  "20241022": [
+   {
+    "sesion": 69,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion069/20241022/VOT_20241022211821.zip",
+    "sha256": "42fe53616c9ab2baadf2c7dab6ec685542e5ba2def4ff7e28ebab9cea172fe00",
+    "votaciones": 3
+   }
+  ],
+  "20241023": [
+   {
+    "sesion": 70,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion070/20241023/VOT_20241023184330.zip",
+    "sha256": "6d6862772627acee7e829c8004ebb82b4c2848723a6a4a4b2e95186a652edda9",
+    "votaciones": 31
+   }
+  ],
+  "20241029": [
+   {
+    "sesion": 71,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion071/20241029/VOT_20241029212329.zip",
+    "sha256": "6613f931c7d5060e18041966c8a4542e39956a194cc0959dc8caf99ed078d3c2",
+    "votaciones": 2
+   }
+  ],
+  "20241030": [
+   {
+    "sesion": 73,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion073/20241030/VOT_20241030123349.zip",
+    "sha256": "6141197c8c199d15141cf0c5b9c35985011bb69126cdd682ba36af75a6fa7a82",
+    "votaciones": 2
+   }
+  ],
+  "20241112": [
+   {
+    "sesion": 74,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion074/20241112/VOT_20241112152833.zip",
+    "sha256": "6817473c7ecab66f00bfdeae9547d213912b2ec07016c1a910d7b909e85df37f",
+    "votaciones": 1
+   }
+  ],
+  "20241114": [
+   {
+    "sesion": 76,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion076/20241114/VOT_20241114151004.zip",
+    "sha256": "6375808a3ec73ea2734bc93adc967c7e61dca75a7d41b653cbdd2012eb3cd727",
+    "votaciones": 44
+   }
+  ],
+  "20241119": [
+   {
+    "sesion": 77,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion077/20241119/VOT_20241119211706.zip",
+    "sha256": "4440317e889f7438d2e23ac55c3f5e64469254e25b2f5609fb3f572cbda7b381",
+    "votaciones": 2
+   }
+  ],
+  "20241121": [
+   {
+    "sesion": 79,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion079/20241121/VOT_20241121173754.zip",
+    "sha256": "3e699468629f0c0402100134d2296bdc908c4753467e802a58f1aaf0c74b2d1e",
+    "votaciones": 65
+   }
+  ],
+  "20241126": [
+   {
+    "sesion": 80,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion080/20241126/VOT_20241126173406.zip",
+    "sha256": "335a16fdb384b26f133fcffb30c6c6de5cd7e83f5b56dea1feb2ba1a3113d5b4",
+    "votaciones": 1
+   }
+  ],
+  "20241128": [
+   {
+    "sesion": 82,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion082/20241128/VOT_20241128143701.zip",
+    "sha256": "d443811eead2e917daadb070bd74e9d70de1bdfb9b5380a8ebe6e71df7fb5b72",
+    "votaciones": 18
+   }
+  ],
+  "20241210": [
+   {
+    "sesion": 83,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion083/20241210/VOT_20241210202030.zip",
+    "sha256": "6ced0ecb716bb7be5c5f0deb3a547d1005bd247749a22a7800e0abe1ee5f16cb",
+    "votaciones": 2
+   }
+  ],
+  "20241212": [
+   {
+    "sesion": 85,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion085/20241212/VOT_20241212130535.zip",
+    "sha256": "b1e46cf04029fa5b2ecb777aa7f2021de9eabf062b151cc4e19798d17e8b7d69",
+    "votaciones": 14
+   }
+  ],
+  "20241217": [
+   {
+    "sesion": 86,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion086/20241217/VOT_20241217205718.zip",
+    "sha256": "d443afe033dfda08d4bd7e0916479f7e43a627cd71a8c215abdf25a8b3e4df8a",
+    "votaciones": 2
+   }
+  ],
+  "20241219": [
+   {
+    "sesion": 88,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip",
+    "sha256": "79b5a3ad4b0f93eeaf4ecb3f5c0c7dd2e6ce0838abd42a2f57724dfb2e2a6db5",
+    "votaciones": 107
+   }
+  ],
+  "20250122": [
+   {
+    "sesion": 89,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion089/20250122/VOT_20250122154424.zip",
+    "sha256": "40def7598bdce36abe548377ff6ef171f8a68830ec662efce4fd9d1775220649",
+    "votaciones": 5
+   }
+  ],
+  "20250211": [
+   {
+    "sesion": 90,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion090/20250211/VOT_20250211202646.zip",
+    "sha256": "de9d08980cebcc3abc8467397fa0aa6adf80bf22377fe0b8a5d7c67dbc896d34",
+    "votaciones": 2
+   }
+  ],
+  "20250212": [
+   {
+    "sesion": 91,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion091/20250212/VOT_20250212154035.zip",
+    "sha256": "ca97d501b50e3228c62a3ec5b34906fd11bd3e98d968ab46ede59bd5c9bf6a5f",
+    "votaciones": 18
+   }
+  ],
+  "20250218": [
+   {
+    "sesion": 92,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion092/20250218/VOT_20250218194303.zip",
+    "sha256": "57aaa254c9ecde776a8edd6136ac06927ad6c1c6411b52f5dd2f001df15f9955",
+    "votaciones": 2
+   }
+  ],
+  "20250219": [
+   {
+    "sesion": 93,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion093/20250219/VOT_20250219135528.zip",
+    "sha256": "ec52a95c460ad53ee428070b1f88f956dac0665d0642a500523e645cd591ead9",
+    "votaciones": 15
+   }
+  ],
+  "20250225": [
+   {
+    "sesion": 94,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion094/20250225/VOT_20250225201643.zip",
+    "sha256": "426740924ce97e85c248d5e1bf6a1e86771f345633662e8747e49067c3100e99",
+    "votaciones": 2
+   }
+  ],
+  "20250226": [
+   {
+    "sesion": 95,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion095/20250226/VOT_20250226151614.zip",
+    "sha256": "7086025f593aa834b1948b170aef482dd4c9cb5efc5009bd883bcb4e50869be6",
+    "votaciones": 22
+   }
+  ],
+  "20250311": [
+   {
+    "sesion": 96,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion096/20250311/VOT_20250311203731.zip",
+    "sha256": "d411816056e5231ab102b4e8a59fea5dcce4272f817b8c768afb0503071d7c28",
+    "votaciones": 2
+   }
+  ],
+  "20250313": [
+   {
+    "sesion": 98,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion098/20250313/VOT_20250313133849.zip",
+    "sha256": "1f6a3463154ba854b37de7576e6532af44b5be667c59df59fdcd729ad125ac4a",
+    "votaciones": 21
+   }
+  ],
+  "20250318": [
+   {
+    "sesion": 99,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion099/20250318/VOT_20250318201319.zip",
+    "sha256": "f9936a585ea50258e3d44ac35f19925cda0cad8db6f60e354ad066286aefaede",
+    "votaciones": 2
+   }
+  ],
+  "20250320": [
+   {
+    "sesion": 101,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion101/20250320/VOT_20250320125659.zip",
+    "sha256": "d038ee29977f0dd6c3d7c446a6011f7c5c9a3c0f42650cbba04b318f82e04956",
+    "votaciones": 65
+   }
+  ],
+  "20250325": [
+   {
+    "sesion": 102,
+    "zip": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion102/20250325/VOT_20250325212229.zip",
+    "sha256": "9f56798e8f425f4e9048be63458e5a06479f747ce7f13a6326d02dd6fb040c14",
+    "votaciones": 3
+   }
+  ]
+ }
+}
