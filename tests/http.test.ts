@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { HttpError, PoliteClient, type HttpOptions } from '../pipeline/ingest/http.ts';
 
 const options: HttpOptions = {
-  userAgent: 'ESCANO/test',
+  userAgent: 'EscrutinioPublico/test',
   minIntervalMs: 1000,
   retries: 3,
   backoffBaseMs: 2000,
@@ -42,7 +42,7 @@ describe('PoliteClient', () => {
     const client = new PoliteClient(options, { ...time, fetch });
     const response = await client.get('https://example.org/a');
     expect(new TextDecoder().decode(response.body)).toBe('body 1');
-    expect((calls[0]?.init?.headers as Record<string, string>)['User-Agent']).toBe('ESCANO/test');
+    expect((calls[0]?.init?.headers as Record<string, string>)['User-Agent']).toBe('EscrutinioPublico/test');
   });
 
   it('waits the minimum interval between consecutive requests', async () => {

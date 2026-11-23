@@ -1,6 +1,6 @@
 /**
  * zod schemas for every official input (docs/data-dictionary.md, section 3). Fields
- * ESCAÑO uses are required and format-checked; extra fields the Congreso may add are
+ * Escrutinio Público uses are required and format-checked; extra fields the Congreso may add are
  * tolerated (looseObject). A file that fails its schema stops the run (section 6).
  */
 import { z } from 'zod';
