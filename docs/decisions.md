@@ -31,6 +31,7 @@ Decisiones del agente de código y propuestas que esperan al propietario. Cada e
 | D-025 | Fecha de cálculo y periodos tras el cierre de la legislatura     | Tomada    | 2, 4          |
 | D-026 | Detalles del cálculo que la especificación no fija               | Tomada    | 2             |
 | D-027 | Correcciones de la ingesta detectadas en el contraste del hito 2 | Tomada    | 1, 2          |
+| D-028 | Nombre y dominio del proyecto                                    | Decidida  | 3–5           |
 
 ## D-001 · Ejecutar TypeScript con Node 22 sin paso de compilación
 
@@ -42,9 +43,9 @@ Decisiones del agente de código y propuestas que esperan al propietario. Cada e
 
 ## D-003 · `User-Agent` frente al cortafuegos del Congreso
 
-**Decidida por el propietario (2026-11-23): se usa `ESCANO/<versión>`.** La especificación pedía identificarse con un `User-Agent` que incluya la URL del proyecto y un contacto. El cortafuegos del Congreso responde 403 a varios valores, entre ellos `escano-discovery/0.1 (+https://github.com/garciaba/escrutiniopublico)`, `curl/…` y `Python-urllib/…`. `ESCANO/0.1` es aceptado. No se ha seguido probando variantes para no tantear el cortafuegos.
+**Decidida por el propietario (2026-11-23): se usa `EscrutinioPublico/<versión>`.** La especificación pedía identificarse con un `User-Agent` que incluya la URL del proyecto y un contacto. El cortafuegos del Congreso responde 403 a varios valores, entre ellos `escano-discovery/0.1 (+https://github.com/garciaba/escrutiniopublico)`, `curl/…` y `Python-urllib/…`. `EscrutinioPublico/0.1` es aceptado. No se ha seguido probando variantes para no tantear el cortafuegos.
 
-- **Decisión:** `ESCANO/<versión>`, honesto y sin imitar a un navegador. Queda como mejora opcional escribir al Congreso (datos abiertos) para pedir que acepte un `User-Agent` con URL y contacto.
+- **Decisión:** `EscrutinioPublico/<versión>`, honesto y sin imitar a un navegador. Queda como mejora opcional escribir al Congreso (datos abiertos) para pedir que acepte un `User-Agent` con URL y contacto.
 - Configurable en `config/project.ts` (`http.userAgent`).
 - Riesgo: si el cortafuegos endurece el filtro, el pipeline fallará con 403 sin reintentos; el runbook debe cubrirlo.
 
@@ -103,7 +104,7 @@ Precisión añadida tras el cruce completo (diccionario, sección 4), necesaria 
 
 ## D-011 · Enlace a la ficha oficial del Congreso
 
-**Decidida por el propietario (2026-11-23), con D-015.** Cada ficha de ESCAÑO enlaza a la ficha oficial: `https://www.congreso.es/es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_diputadomodule_mostrarFicha=true&codParlamentario={código}&idLegislatura=XV`.
+**Decidida por el propietario (2026-11-23), con D-015.** Cada ficha de Escrutinio Público enlaza a la ficha oficial: `https://www.congreso.es/es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_diputadomodule_mostrarFicha=true&codParlamentario={código}&idLegislatura=XV`.
 
 ## D-012 · Exportación de órganos mediante POST
 
@@ -111,7 +112,7 @@ Precisión añadida tras el cruce completo (diccionario, sección 4), necesaria 
 
 ## D-013 · Intervenciones en la Diputación Permanente
 
-**Decidida por el propietario (2026-11-23): la Diputación Permanente queda fuera.** ESCAÑO mide la actividad en periodos ordinarios. Las intervenciones con `ORGANO = Diputación Permanente` (517 filas en la XV, 79 de ellas tras la disolución) no cuentan en ninguna métrica, y sus votaciones tampoco se ingieren. La pertenencia a la Diputación Permanente puede mostrarse en la ficha como cargo, sin efecto en la puntuación.
+**Decidida por el propietario (2026-11-23): la Diputación Permanente queda fuera.** Escrutinio Público mide la actividad en periodos ordinarios. Las intervenciones con `ORGANO = Diputación Permanente` (517 filas en la XV, 79 de ellas tras la disolución) no cuentan en ninguna métrica, y sus votaciones tampoco se ingieren. La pertenencia a la Diputación Permanente puede mostrarse en la ficha como cargo, sin efecto en la puntuación.
 
 ## D-014 · Datos excluidos por la política de datos personales
 
@@ -222,3 +223,63 @@ El adaptador entra en el hito 1, adelantando lo que la especificación dejaba pa
 - **Preguntas escritas:** la ficha oficial suma con las preguntas al Gobierno (tipo 184) las dirigidas a la Corporación RTVE (tipo 179). Se ingieren también: 2.569 preguntas más. La métrica «Preguntas con respuesta escrita» suma los dos tipos.
 - **Firmantes sin código de grupo:** la exportación del buscador escribe a veces un firmante sin su código, solo o pegado al nombre siguiente. Se perdían en silencio 51 firmas de 29 preguntas. El análisis de autores los reconoce ahora contra el censo, y los autores que no son diputados (senadores, grupos) se listan en el registro de la ejecución.
 - Nueva opción `pnpm pipeline --reuse-daily`: reutiliza los volcados ya descargados y baja solo los que faltan, para reanudar una ejecución sin repetir las descargas.
+
+## D-028 · Nombre y dominio del proyecto
+
+**Decidida por el propietario (2026-11-23).** El proyecto se llama **Escrutinio Público** y su dominio es `escrutiniopublico.es`, ya registrado por el propietario. Sustituye al nombre provisional de la especificación.
+
+- El nombre y el dominio viven en `config/site.ts`; el repositorio sigue siendo `garciaba/escrutiniopublico`.
+- El `User-Agent` pasa a ser `EscrutinioPublico/<versión>`. Comprobado el 23/11/2026: el servidor del Congreso lo acepta (D-003).
+- El dominio está registrado fuera de Cloudflare. Para servir la web desde Cloudflare Pages bastará con apuntar el DNS (hito 5).
+
+## D-029 · Web: tecnología y dependencias
+
+**Tomada (hito 3).** La web es un sitio Astro en `web/`, con salida estática, que lee `data/derived/` y `config/` al compilar. `pnpm web:build` genera 418 páginas en unos dos segundos.
+
+| Dependencia             | Versión | Para qué                                                               |
+| ----------------------- | ------- | ---------------------------------------------------------------------- |
+| `astro`                 | 7.4.8   | Generador estático (previsto en la especificación)                     |
+| `@astrojs/preact`       | 6.1.2   | Renderiza los componentes Preact al compilar                           |
+| `preact`                | 11.2.0  | Tabla interactiva de la portada (previsto en la especificación)        |
+| `axe-core` (desarrollo) | 4.14.0  | Reglas de accesibilidad de `pnpm web:check` (previsto en la sección 9) |
+
+- **Sin más dependencias.** El `sitemap.xml` y el `robots.txt` son dos rutas propias de pocas líneas, en lugar de la integración de Astro. No se añaden `@astrojs/check` ni el plugin de Prettier para `.astro`: la lógica vive en ficheros `.ts` y `.tsx` (`web/src/lib`, `web/src/components`), que sí pasan por `tsc`, ESLint, Prettier y los tests; las páginas `.astro` solo componen.
+- **Playwright no es dependencia del proyecto.** `pnpm web:check` usa el que haya en el entorno. En el hito 4 se decidirá cómo ejecutarlo en CI junto a Lighthouse CI.
+- **Vista previa propia.** `pnpm web:preview` sirve `web/dist` con un servidor de 90 líneas que imita a Cloudflare Pages en lo que importa: direcciones sin extensión, `404.html` y las cabeceras de `_headers`. Así la política de seguridad se prueba antes de desplegar.
+- La telemetría de Astro está desactivada en los scripts.
+
+## D-030 · Web: diseño
+
+**Tomada (hito 3)**, dentro de lo que fija la sección 8: tono sobrio, fondo claro, una sola tipografía del sistema y un acento que no sea el color de ningún partido.
+
+- **Color de acento:** bronce oscuro (`#7a5a12`), con contraste 6,1:1 sobre el fondo. Las barras usan un solo tono (`#8c6a1b` sobre `#efe7d3`); no hay rojo ni verde en ninguna puntuación, tampoco en el sentido del voto, que se distingue por relleno y borde.
+- **Colores de grupo:** viven en `config/parties.ts` y aparecen solo como un punto junto al nombre del grupo. Nueve tonos no se distinguen entre sí con seguridad para todas las formas de daltonismo, así que el punto nunca va solo: el nombre siempre está al lado.
+- **Solo tema claro.** Un tema oscuro obligaría a revalidar contrastes y colores de grupo; queda fuera del MVP.
+- **Barras y puntos en SVG.** La política de seguridad prohíbe los estilos en línea, así que las anchuras y los colores viajan como atributos SVG.
+- **Gráficos de evolución:** columnas finas mensuales en SVG, con el valor de cada mes en un `<title>` y un resumen en texto para lectores de pantalla. Las fichas no llevan JavaScript, así que no hay otra capa interactiva.
+- **Imagen para redes:** `web/public/og.png`, generada una vez desde `web/scripts/og.html`.
+
+## D-031 · Web: JavaScript y política de seguridad
+
+**Tomada (hito 3).**
+
+- **Política de seguridad completa en `_headers`,** sin excepciones: `default-src 'none'`, y scripts, estilos e imágenes solo del propio sitio. Ninguna página tiene scripts ni estilos en línea, ni carga nada de terceros. `pnpm web:audit` lo comprueba en las 418 páginas.
+- **La isla de la portada se activa a mano,** no con las directivas `client:*` de Astro, que insertan scripts en línea y serializan los datos con mucho más volumen. Los datos del ranking van en un bloque JSON de 62 kB (16 kB comprimido) y un módulo de 10,4 kB comprimidos los toma cuando el navegador está libre. El límite de la especificación es 60 kB.
+- **El navegador solo toma lo que cambia.** Al cargar se activan los controles y la fila de cabecera; las 396 filas del cuerpo se quedan como llegaron hasta que el visitante busca, filtra u ordena. Resultado: 10 ms de bloqueo en un móvil simulado.
+- **Defecto encontrado y corregido durante la verificación:** al filtrar por primera vez, Preact dejaba en la tabla las filas del HTML estático junto a las suyas. El recuento era correcto y la tabla no. Ahora el cuerpo se vacía antes del primer render del navegador, y `pnpm web:check` compara en cada paso las filas visibles con el recuento.
+- **Aviso de datos antiguos:** lo calcula el navegador con la fecha de la última ejecución (48 horas, en `config/site.ts`), porque una página estática no sabe qué día se la visita. Solo está en la portada, la única página con JavaScript.
+- **Analítica:** no hay ninguna todavía. Cuando se active Cloudflare Web Analytics (hito 5) habrá que añadir sus dos orígenes a la política y decirlo en `/acerca`.
+
+## D-032 · Web: contenido de las páginas
+
+**Tomada (hito 3)**, salvo lo marcado como pendiente del propietario.
+
+- **Filas de la tabla:** los diputados del ranking y, al final y sin posición, los de «periodo insuficiente». Los miembros del Gobierno se añaden con una casilla (`?gobierno=1`), con su índice de referencia y sin posición. Los nombres van como en el censo oficial («Apellidos, Nombre»); el buscador ignora tildes y el orden de las palabras.
+- **Parámetros de la URL:** `periodo`, `q`, `grupo`, `partido`, `circunscripcion`, `orden`, `dir` y `gobierno`. Los valores por defecto no se escriben, y los desconocidos se ignoran.
+- **Ficha de un miembro del Gobierno:** no encabeza con la cifra del índice. Dice «Fuera del ranking general», explica por qué y da el índice como referencia en el texto. Un «9,5 de 100» en grande junto al nombre de un ministro contaría lo contrario de lo que dice la metodología.
+- **Cargos:** con la denominación literal del Congreso («Vocales», «Portavoces»), sin singularizar ni adaptar el género.
+- **Textos oficiales largos** (asuntos de votaciones): se recortan a 240 caracteres en una palabra completa, con enlace al original.
+- **`/datos`:** `ranking.json` y `meta.json` se sirven desde el sitio. Los CSV se enlazan al repositorio, porque Cloudflare Pages no admite ficheros de más de 25 MB y dos tablas los superan (`votos.csv`, 30,9 MB; `iniciativas.csv`, 26,2 MB). Los enlaces apuntan a la rama `main`, así que funcionarán cuando se fusionen los PR.
+- **Licencia:** CC BY 4.0 para lo que elabora el proyecto. La página no afirma nada sobre el uso comercial de los datos de origen, que el aviso legal del Congreso no aclara (sección 12): remite a él. **Pendiente de la revisión jurídica del propietario.**
+- **`/cambios`:** se genera desde `config/scoring.ts` (versiones), `config/cambios.ts` (cambios de datos y rectificaciones, a mano), `config/overrides.ts` (correcciones manuales y miembros del Gobierno) y `meta.json` (incidencias de las fuentes). El registro automático de qué cambia cada día queda para el hito 4, con la ejecución diaria; hasta entonces la página enlaza al historial de `data/` en el repositorio.
+- **`/acerca`:** titular, contacto y financiación aparecen como «pendiente de publicar» hasta que el propietario los dé (`config/site.ts`). Mientras no haya dirección de contacto, la vía de rectificación es una incidencia en el repositorio público. `pnpm web:audit --strict` falla si siguen vacíos: es el control previo al lanzamiento.

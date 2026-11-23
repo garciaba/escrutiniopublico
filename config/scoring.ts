@@ -41,28 +41,33 @@ export const scoring = {
     { id: '1m', nombre: 'Último mes', dias: 30 },
   ],
 
+  /** `nombreCorto` heads the columns of the ranking table. */
   dimensiones: [
     {
       id: 'dedicacion',
       nombre: 'Dedicación',
+      nombreCorto: 'Dedicación',
       peso: 20,
       descripcion: 'Participación en las votaciones del Pleno.',
     },
     {
       id: 'debates',
       nombre: 'Participación en debates',
+      nombreCorto: 'Debates',
       peso: 20,
       descripcion: 'Intervenciones en el Pleno y en las comisiones. Mide cantidad, no calidad.',
     },
     {
       id: 'iniciativa',
       nombre: 'Iniciativa parlamentaria',
+      nombreCorto: 'Iniciativa',
       peso: 20,
       descripcion: 'Preguntas con respuesta escrita y solicitudes de informe firmadas.',
     },
     {
       id: 'resultados',
       nombre: 'Resultados e impacto',
+      nombreCorto: 'Resultados',
       peso: 20,
       descripcion:
         'Iniciativas propias que llegan a aprobarse. Sin fuente oficial que las atribuya a diputados concretos.',
@@ -70,6 +75,7 @@ export const scoring = {
     {
       id: 'representacion',
       nombre: 'Representación ciudadana',
+      nombreCorto: 'Representación',
       peso: 20,
       descripcion: 'Atención a la circunscripción. Sin fuente oficial.',
     },
@@ -91,11 +97,13 @@ export const scoring = {
     },
   },
 
+  /** `objeto` is the counted thing, singular and plural, for the sentences of the profile. */
   metricas: [
     {
       id: 'votaciones_participacion',
       dimension: 'dedicacion',
       nombre: 'Participación en votaciones de Pleno',
+      objeto: ['votación', 'votaciones'],
       calculo:
         'Votos emitidos (sí, no o abstención) ÷ votaciones nominales en cuya lista figura el diputado. No votar no equivale a estar ausente.',
       unidad: 'proporcion',
@@ -106,6 +114,7 @@ export const scoring = {
       id: 'intervenciones_pleno',
       dimension: 'debates',
       nombre: 'Intervenciones en Pleno',
+      objeto: ['intervención', 'intervenciones'],
       calculo: 'Intervenciones como diputado en el Pleno por cada 100 días en activo.',
       unidad: 'por_100_dias',
       estado: 'observado',
@@ -115,6 +124,7 @@ export const scoring = {
       id: 'intervenciones_comision',
       dimension: 'debates',
       nombre: 'Intervenciones en comisión',
+      objeto: ['intervención', 'intervenciones'],
       calculo: 'Intervenciones como diputado en comisiones y subcomisiones por cada 100 días en activo.',
       unidad: 'por_100_dias',
       estado: 'observado',
@@ -124,6 +134,7 @@ export const scoring = {
       id: 'preguntas_escritas',
       dimension: 'iniciativa',
       nombre: 'Preguntas con respuesta escrita',
+      objeto: ['pregunta', 'preguntas'],
       calculo:
         'Preguntas con respuesta escrita al Gobierno y a la Corporación RTVE por cada 100 días en activo. Una pregunta con n firmantes suma 1/n a cada uno.',
       unidad: 'por_100_dias',
@@ -135,6 +146,7 @@ export const scoring = {
       id: 'solicitudes_informe',
       dimension: 'iniciativa',
       nombre: 'Solicitudes de informe',
+      objeto: ['solicitud', 'solicitudes'],
       calculo:
         'Solicitudes de informe (art. 7 del Reglamento) a la Administración del Estado, comunidades autónomas, entidades locales y otras entidades públicas, por cada 100 días en activo. Una solicitud con n firmantes suma 1/n a cada uno.',
       unidad: 'por_100_dias',
@@ -146,6 +158,7 @@ export const scoring = {
       id: 'iniciativas_legislativas',
       dimension: 'iniciativa',
       nombre: 'Iniciativas legislativas firmadas',
+      objeto: ['iniciativa', 'iniciativas'],
       calculo: 'Proposiciones de ley con autoría individual por cada 100 días en activo.',
       unidad: 'por_100_dias',
       estado: 'no_disponible',
@@ -155,6 +168,7 @@ export const scoring = {
       id: 'iniciativas_aprobadas',
       dimension: 'resultados',
       nombre: 'Iniciativas aprobadas',
+      objeto: ['iniciativa', 'iniciativas'],
       calculo: 'Iniciativas firmadas que constan como aprobadas.',
       unidad: 'recuento',
       estado: 'no_disponible',

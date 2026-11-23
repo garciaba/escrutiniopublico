@@ -1,0 +1,13 @@
+---
+import { site } from '../../../config/site.ts';
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Página no encontrada" description={`Esta página no existe en ${site.name}. Vuelve al ranking de actividad parlamentaria de los diputados.`} path="/404" noindex>
+  <div class="wrap error-404">
+    <p class="antetitulo">Error 404</p>
+    <h1 class="titular">Esta página no existe</h1>
+    <p class="entradilla">Puede que la dirección esté mal escrita o que la ficha haya cambiado de nombre.</p>
+    <a class="boton principal" href="/">Ir al ranking</a>
+  </div>
+</Base>

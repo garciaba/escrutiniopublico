@@ -1,0 +1,117 @@
+---
+/**
+ * Page shell: metadata, header, and the footer every page must carry (source, date of
+ * the last update and the notice of no affiliation).
+ */
+import '../styles/global.css';
+import { site } from '../../../config/site.ts';
+import { loadMeta } from '../lib/data.ts';
+import { fechaLarga } from '../lib/format.ts';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Path of the page, starting with a slash; used for the canonical URL and the menu. */
+  path: string;
+  ogType?: 'website' | 'profile' | 'article';
+  jsonLd?: object;
+  noindex?: boolean;
+}
+
+const { title, description, path, ogType = 'website', jsonLd, noindex = false } = Astro.props;
+const meta = loadMeta();
+const canonical = new URL(path, site.url).href;
+const fullTitle = path === '/' ? `${site.name} · ${title}` : `${title} · ${site.name}`;
+const nav = [
+  { href: '/', label: 'Ranking' },
+  { href: '/metodologia', label: 'Metodología' },
+  { href: '/datos', label: 'Datos' },
+  { href: '/cambios', label: 'Cambios' },
+  { href: '/acerca', label: 'Acerca' },
+];
+const esActual = (href: string) => (href === '/' ? path === '/' || path.startsWith('/diputados/') : path === href);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#fbfaf7" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/og.png', site.url).href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.name}. ${site.lema}.`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />}
+  </head>
+  <body>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+    <header class="cabecera">
+      <div class="wrap">
+        <a class="marca" href="/" aria-label={`${site.name}, inicio`}>
+          <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path class="arco" d="M3.5 23a12.5 12.5 0 0 1 25 0"></path>
+            <path class="arco" d="M9.5 23a6.5 6.5 0 0 1 13 0"></path>
+            <circle class="punto" cx="16" cy="22.4" r="2.3"></circle>
+          </svg>
+          <span>{site.name}</span>
+        </a>
+        <nav class="nav" aria-label="Principal">
+          <ul>
+            {
+              nav.map((item) => (
+                <li>
+                  <a href={item.href} aria-current={esActual(item.href) ? 'page' : undefined}>
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="contenido">
+      <slot />
+    </main>
+    <footer class="pie">
+      <div class="wrap">
+        <div>
+          <p>
+            <strong>Fuente: <a href={site.fuente.url} rel="noopener">{site.fuente.nombre}</a></strong>, datos abiertos.
+            Última actualización: <time datetime={meta.ejecutado}>{fechaLarga(meta.ejecutado)}</time>.
+          </p>
+          <p>
+            {site.name} es un proyecto independiente. No tiene vinculación con el Congreso de los Diputados ni con
+            ningún partido político.
+          </p>
+          <p>
+            Código con licencia <a href={site.licencias.codigo.url} rel="noopener">{site.licencias.codigo.nombre}</a> y
+            datos con licencia <a href={site.licencias.datos.url} rel="noopener license">{site.licencias.datos.nombre}</a
+            >.
+          </p>
+        </div>
+        <ul>
+          <li><a href="/metodologia">Metodología</a></li>
+          <li><a href="/datos">Datos</a></li>
+          <li><a href="/cambios">Cambios</a></li>
+          <li><a href="/acerca">Acerca y rectificaciones</a></li>
+          <li><a href={site.repositoryUrl} rel="noopener">Código fuente</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

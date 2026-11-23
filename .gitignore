@@ -19,3 +19,7 @@ data/raw/agendas/**/*.tmp
 
 # Temporary files of an atomic write in progress.
 data/**/*.tmp
+
+# Website build output and Astro cache.
+web/dist/
+web/.astro/

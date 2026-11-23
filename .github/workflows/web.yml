@@ -1,0 +1,53 @@
+# Milestone 3: builds the website and checks the output that can be verified without a
+# browser (footer on every page, profiles without JavaScript, JavaScript budget of the
+# home page, internal links, security headers). It does not deploy anything.
+name: Web
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['claude/**']
+    paths:
+      - 'web/**'
+      - 'config/**'
+      - 'data/derived/**'
+      - 'tests/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/web.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: web-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Type check, lint, format and unit tests
+        run: |
+          pnpm typecheck
+          pnpm lint
+          pnpm format:check
+          pnpm test
+
+      - name: Build the site
+        run: pnpm web:build
+
+      - name: Audit the built site
+        run: pnpm web:audit
