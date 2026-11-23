@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { nameAliases } from '../config/overrides.ts';
+import { governmentMembers, nameAliases } from '../config/overrides.ts';
 import {
   createNameResolver,
   foldName,
@@ -92,5 +92,41 @@ describe('config/overrides.ts nameAliases', () => {
   it('has no duplicated variants', () => {
     const variants = nameAliases.map((alias) => alias.variant);
     expect(new Set(variants).size).toBe(variants.length);
+  });
+});
+
+describe('config/overrides.ts governmentMembers', () => {
+  const DATE = /^\d{4}-\d{2}-\d{2}$/;
+
+  it('has well-formed, half-open periods inside the XV legislature', () => {
+    for (const term of governmentMembers) {
+      expect(term.from).toMatch(DATE);
+      expect(term.from >= '2023-08-17').toBe(true);
+      if (term.inOfficeBeforeLegislature) expect(term.from).toBe('2023-08-17');
+      if (term.until !== undefined) {
+        expect(term.until).toMatch(DATE);
+        expect(term.until > term.from).toBe(true);
+      }
+    }
+  });
+
+  it('cites BOE evidence for every term', () => {
+    for (const term of governmentMembers) {
+      expect(term.evidence.length).toBeGreaterThan(0);
+      for (const reference of term.evidence) expect(reference).toMatch(/^BOE-A-\d{4}-\d+ \(/);
+    }
+  });
+
+  it('pairs each BOE name with a compatible census name', () => {
+    for (const term of governmentMembers) {
+      const tokens = term.boeName.split(' ');
+      const asCensus = tokens.map((_, i) => `${tokens.slice(i).join(' ')}, ${tokens.slice(0, i).join(' ')}`);
+      expect(asCensus.some((candidate) => isCompatibleName(candidate, term.name))).toBe(true);
+    }
+  });
+
+  it('lists each person once', () => {
+    const names = governmentMembers.map((term) => term.name);
+    expect(new Set(names).size).toBe(names.length);
   });
 });

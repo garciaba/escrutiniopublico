@@ -149,7 +149,7 @@ Página índice: [opendata/organos](https://www.congreso.es/es/opendata/organos)
 
 Campos de la exportación: `Nombre` («Apellidos, Nombre»), `Cargo` (Presidente, Vicepresidente Primero, Portavoces, Vocales…), `FechaAlta`, `FechaBaja` (con `compoHistorica=true` incluye a quien ya salió), `NombreOrgano`, `Grupo` (código corto, como en votaciones). La Junta de Portavoces no se ha probado todavía.
 
-La lista de miembros del Gobierno **no está** en ninguna familia. Se puede derivar de `CARGOORADOR` en intervenciones (Presidente del Gobierno, Vicepresidenta…, Ministro/a…) con fecha de cada intervención, como indicador `calculado`.
+La lista de miembros del Gobierno **no está** en ninguna familia, y `CARGOORADOR` en intervenciones no es fiable para obtenerla: contiene cargos ministeriales atribuidos a personas que no lo eran. Se ha construido desde el BOE (D-007): 18 diputados de la XV fueron miembros del Gobierno durante su mandato.
 
 ## 4. Cruce de identidades
 

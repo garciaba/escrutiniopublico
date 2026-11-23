@@ -10,7 +10,7 @@ Decisiones del agente de código y propuestas que esperan al propietario. Cada e
 | D-004 | Guardar los JSON de votaciones en lugar de los ZIP       | Decidida  | 1             |
 | D-005 | Qué legislatura publicar tras la disolución              | Decidida  | 1–3           |
 | D-006 | Índice con cobertura del 40 %                            | Decidida  | 2, 3          |
-| D-007 | Cómo identificar a los miembros del Gobierno             | Propuesta | 2             |
+| D-007 | Cómo identificar a los miembros del Gobierno             | Decidida  | 2             |
 | D-008 | Identificación de los diputados por su nombre            | Decidida  | 1             |
 | D-009 | Recuento de intervenciones                               | Decidida  | 1, 2          |
 | D-010 | Voto telemático                                          | Decidida  | 1             |
@@ -64,7 +64,12 @@ Opciones descartadas por ahora:
 
 ## D-007 · Cómo identificar a los miembros del Gobierno
 
-**Propuesta.** Ninguna familia de datos lista al Gobierno. Se puede derivar de `CARGOORADOR` en intervenciones (Presidente del Gobierno, Vicepresidenta…, Ministro/a…) cuando el orador coincide con un diputado del censo. **Recomendación:** derivarlo así como dato `calculado` y fijarlo en una lista manual de `config/overrides.ts` con fecha de nombramiento y enlace al BOE como evidencia, revisada por el propietario.
+**Decidida por el propietario (2026-11-23): identificarlos por su nombre, con un cruce correcto.** Ninguna familia de datos del Congreso lista al Gobierno, y el cargo que trae el fichero de intervenciones no es fiable. Por ejemplo, atribuye «Ministro de Hacienda» a un diputado raso y cargos ministeriales a personas que nunca lo fueron. La fuente es el BOE:
+
+- Se recorrieron los sumarios diarios del BOE del 13/01/2020 al 06/10/2026 (API de datos abiertos, sin huecos) y se reconstruyeron, decreto a decreto, los periodos de cada presidente, vicepresidente y ministro, incluido el Gobierno en funciones del 17/08 al 20/11/2023.
+- Los nombres del BOE («Nombre Apellidos») se cruzaron con el censo con las reglas estrictas de D-008 y cada par se revisó a mano.
+- Resultado: **18 diputados de la XV fueron miembros del Gobierno durante su mandato**, listados en `governmentMembers` de `config/overrides.ts` con sus fechas y las referencias del BOE. Cinco de ellos lo fueron solo en funciones: Belarra, Miñones, Héctor Gómez, Iceta y Raquel Sánchez. Óscar López y Milagros Tolón no aparecen porque sus etapas de diputado y de ministro no coinciden.
+- El pipeline cruzará esos periodos con el mandato de cada diputado para aplicar la regla de la sección 7 de la especificación.
 
 ## D-008 · Identificación de los diputados por su nombre
 
