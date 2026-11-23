@@ -2,7 +2,16 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
 import { createNameResolver } from '../pipeline/normalize/names.ts';
-import { searchInitiativesFile, voteFile, interventionsFile, billsFile } from '../pipeline/normalize/schemas.ts';
+import {
+  billsFile,
+  censusFile,
+  interventionsFile,
+  organMembersFile,
+  searchInitiativesFile,
+  voteFile,
+} from '../pipeline/normalize/schemas.ts';
+import { buildDiputados } from '../pipeline/normalize/tables/diputados.ts';
+import { buildOrganos, buildPertenencias } from '../pipeline/normalize/tables/organos.ts';
 import { buildIniciativas, expedienteId, splitAuthors } from '../pipeline/normalize/tables/iniciativas.ts';
 import { buildIntervenciones, classifyCargo } from '../pipeline/normalize/tables/intervenciones.ts';
 import { buildVotaciones, votacionId, type Terms } from '../pipeline/normalize/tables/votaciones.ts';
@@ -138,5 +147,70 @@ describe('iniciativas (real reduced samples)', () => {
       idOf,
     );
     expect(iniciativas[0]).toMatchObject({ autor: 'Senado', n_firmantes: 0, tipo_codigo: '124' });
+  });
+});
+
+describe('diputados and organos', () => {
+  const census = censusFile.parse(fixture('congreso/diputados/DiputadosActivos.sample.json'));
+  const search = census.map((row, index) => ({
+    apellidosNombre: row.NOMBRE,
+    codParlamentario: 100 + index,
+    idCircunscripcion: 28,
+    nombreCircunscripcion: row.CIRCUNSCRIPCION,
+    formacion: row.FORMACIONELECTORAL,
+    grupo: row.GRUPOPARLAMENTARIO,
+    fchAlta: row.FECHAALTA,
+    fchBaja: '',
+    idLegislatura: 15,
+  }));
+
+  it('builds deputies with official code, group code, party and profile link', () => {
+    const [first] = buildDiputados(census, search, new Map([[census[0]?.NOMBRE ?? '', ['portavoz']]]));
+    expect(first).toMatchObject({
+      nombre_completo: 'Abascal Conde, Santiago',
+      nombre: 'Santiago',
+      apellidos: 'Abascal Conde',
+      slug: 'santiago-abascal-conde',
+      grupo_id: 'GVOX',
+      partido: 'VOX',
+      cod_parlamentario: 100,
+      rol_especial: 'portavoz',
+    });
+    expect(first?.url_ficha_oficial).toContain('codParlamentario=100');
+  });
+
+  it('stops when the census and the deputy search disagree', () => {
+    expect(() => buildDiputados(census, search.slice(1), new Map())).toThrow(/disagree/);
+  });
+
+  it('keeps deputies, drops senators and legal staff, and stops on unknown names', () => {
+    const miembros = organMembersFile.parse(
+      fixture('congreso/organos/Composicion_Comision_Constitucional_15.sample.json'),
+    );
+    const composition = {
+      organoSup: 1,
+      suborgano: '301',
+      nombre: 'Comisión Constitucional',
+      miembros: [
+        ...miembros,
+        {
+          Nombre: 'Senador Ficticio, Pedro',
+          Cargo: 'Vocales',
+          FechaAlta: '01/01/2024',
+          NombreOrgano: 'X',
+          Grupo: 'SGPP',
+        },
+        { Nombre: 'Letrada Ficticia, Ana', Cargo: 'Letrados', FechaAlta: '01/01/2024', NombreOrgano: 'X', Grupo: '' },
+      ],
+    };
+    const names = miembros.map((member) => member.Nombre);
+    const rows = buildPertenencias([composition], createNameResolver(names, []), idOf);
+    // The real sample already includes two committee lawyers (Letrados), also excluded.
+    expect(rows).toHaveLength(miembros.filter((member) => !/^Letrad/.test(member.Cargo)).length);
+    expect(rows.every((row) => row.organo_id === 'c1-301')).toBe(true);
+    expect(() => buildPertenencias([composition], createNameResolver(names.slice(1), []), idOf)).toThrow(
+      /not in the census/,
+    );
+    expect(buildOrganos([composition]).find((row) => row.organo_id === 'c1-301')?.tipo).toBe('comision');
   });
 });

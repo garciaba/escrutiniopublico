@@ -216,3 +216,67 @@ Cobertura resultante: 2 de 5 dimensiones, 40 %, justo el mínimo para publicar �
 **Las descargas funcionan desde GitHub Actions.** El workflow [`discovery.yml`](../.github/workflows/discovery.yml) ejecuta `pnpm discover` en los servidores de GitHub. La [ejecución n.º 1](https://github.com/garciaba/escrutiniopublico/actions/runs/45141907020), del 23/11/2026, pasó las 19 comprobaciones en 59 segundos: 5 páginas índice, 7 ficheros, calendario y 2 sesiones de votaciones, lista de comisiones y 3 exportaciones de órganos. El mismo resultado se obtuvo en local. El informe queda como artefacto `discovery-report` de la ejecución.
 
 Hallazgo relevante para esa comprobación: el cortafuegos del Congreso responde **403** a algunos `User-Agent` (`curl/…`, `Python-urllib/…`, cabecera vacía y uno que incluía la URL del repositorio). `ESCANO/0.1` es aceptado. Ver D-003.
+
+## 8. Tablas normalizadas (hito 1)
+
+`pnpm pipeline` escribe estas tablas en `data/normalized/`, en CSV UTF-8 con cabecera, ordenadas por su clave para que el diff diario muestre solo cambios reales. Las fechas van en formato `aaaa-mm-dd` y los textos oficiales, sin saltos de línea internos. Una columna vacía significa que el dato oficial no existe.
+
+### diputados (clave `diputado_id`)
+
+| Columna                                             | Origen                                                                                                                         |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `diputado_id`                                       | `L15-` + SHA-256 del nombre normalizado y la legislatura (D-008)                                                               |
+| `legislatura`                                       | `config/project.ts`                                                                                                            |
+| `cod_parlamentario`                                 | `codParlamentario` del buscador de diputados (D-015)                                                                           |
+| `nombre_completo`, `nombre`, `apellidos`            | `NOMBRE` del censo («Apellidos, Nombre»)                                                                                       |
+| `slug`                                              | «nombre-apellidos» sin tildes; si se repite, se añade el código                                                                |
+| `grupo_id`                                          | `GRUPOPARLAMENTARIO` traducido al código corto (`config/parties.ts`)                                                           |
+| `formacion`, `partido`                              | `FORMACIONELECTORAL`; `partido` agrupa federaciones (PSC-PSOE → PSOE)                                                          |
+| `circunscripcion`, `id_circunscripcion`             | `CIRCUNSCRIPCION`; `idCircunscripcion` del buscador (código INE de provincia)                                                  |
+| `fecha_alta`, `fecha_baja`, `fecha_condicion_plena` | `FECHAALTA`, `FECHABAJA`, `FECHACONDICIONPLENA`                                                                                |
+| `fecha_alta_grupo`, `fecha_baja_grupo`              | `FECHAALTAENGRUPOPARLAMENTARIO`, `FECHABAJAENGRUPOPARLAMENTARIO` (solo el último grupo)                                        |
+| `url_ficha_oficial`                                 | Ficha del diputado en congreso.es, construida con el código (D-011)                                                            |
+| `rol_especial`                                      | `gobierno` (BOE, D-007), `mesa` (miembro de la Mesa), `portavoz` (portavoz titular en la Junta de Portavoces), separados por ` | `   |
+
+### grupos (clave `grupo_id`)
+
+`grupo_id`, `nombre` y `nombre_corto` salen de `config/parties.ts`. `miembros_censo` cuenta los diputados del censo cuyo último grupo es ese.
+
+### organos (clave `organo_id`)
+
+`organo_id` vale `pleno`, `mesa`, `junta-portavoces`, `diputacion-permanente` o `sesion-conjunta`, o bien `c<organoSup>-<suborgano>` para comisiones y subcomisiones. `nombre` es el nombre oficial de la exportación y `tipo` lo clasifica (comisión, mixta, de investigación, subcomisión…). `organo_sup` y `suborgano` son los códigos de la exportación. Las etiquetas abreviadas del fichero de intervenciones se traducen con `config/organos.ts`.
+
+### pertenencias (clave `diputado_id + organo_id + fecha_inicio + cargo`)
+
+Una fila por diputado, órgano y cargo, desde la exportación de composición con `compoHistorica=true`: `Cargo` → `cargo`, `FechaAlta` → `fecha_inicio`, `FechaBaja` → `fecha_fin`, `Grupo` → `grupo_id`. Se excluyen senadores (grupos `SG*`) y letrados. El cargo forma parte de la clave porque una misma persona puede tener dos cargos en un órgano desde el mismo día.
+
+### votaciones (clave `votacion_id`)
+
+`votacion_id` = `L15-S<sesión>-V<número>`. Del JSON de cada votación salen fecha, título, texto del expediente, subgrupo, número de votaciones conjuntas, asentimiento y totales (`presentes`, `a_favor`, `en_contra`, `abstenciones`, `no_votan`). `nominal` vale `false` en las secretas. `url_fuente` es el ZIP de la sesión. Las votaciones por llamamiento (sesiones 5 y 203 de la XV) no tienen JSON y no aparecen.
+
+### votos (clave `votacion_id + diputado_id`)
+
+`sentido`: `si`, `no`, `abstencion` o `no_vota`. `telematico` vale `true` cuando `asiento = -1` (D-010). `grupo_id` es el código de grupo que figura en esa votación, de modo que guarda el historial de grupo que el censo no tiene.
+
+### intervenciones (clave `intervencion_id`)
+
+Una fila por intervención distinta (`ENLACEDIFERIDO`) de un diputado del censo; las filas repetidas por debate conjunto se funden y sus expedientes se guardan en `expedientes`, separados por `;`. `intervencion_id` es el identificador del vídeo (ej. `1525087I`).
+
+| Columna                       | Origen                                                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `fecha`, `organo_id`          | `SESION`, `ORGANO`                                                                                      |
+| `cargo_orador`, `clase_cargo` | `CARGOORADOR` y su clase: `diputado`, `cargo_parlamentario`, `investidura`, `gobierno` o `externo`      |
+| `fase`, `tipo_iniciativa`     | `FASE`, `TIPOINICIATIVA`                                                                                |
+| `hora_inicio`, `hora_fin`     | `INICIOINTERVENCION`, `FININTERVENCION`                                                                 |
+| `cuenta`, `motivo_exclusion`  | Regla de D-009 y D-013: `fuera_de_mandato`, `diputacion_permanente`, `cargo_gobierno` o `cargo_externo` |
+| `url_fuente`, `url_video`     | `ENLACETEXTOINTEGRO` (o `ENLACEPDF`) y el primer enlace de `ENLACEDIFERIDO`                             |
+
+Un cargo de Gobierno que el BOE no confirma para esa persona y fecha se trata como error de rotulación y la intervención cuenta como de diputado.
+
+### iniciativas (clave `iniciativa_id`)
+
+`iniciativa_id` es el expediente sin el sufijo `/0000` (ej. `184/044756`), y `tipo_codigo` son sus tres primeras cifras. Salen de los ficheros de proyectos (121), proposiciones (122 a 125) y propuestas de reforma de estatuto (127), y de la exportación del buscador para preguntas escritas (184) y solicitudes de informe (186). `resultado` y `fecha_resultado` separan el texto «Caducado \n04/11/2026». `autor` conserva el autor textual de proyectos y proposiciones (grupos, Gobierno, Senado). `firmantes_incompletos` marca autorías del tipo «… y 45 Diputados». El fichero de leyes aprobadas no se ingiere, porque no trae expediente ni autor.
+
+### firmantes (clave `iniciativa_id + orden`)
+
+Tabla añadida al modelo de la especificación (D-016): una fila por diputado firmante, en el orden de la autoría oficial (`orden = 1` es el primer firmante), con su `grupo_id` y el total `n_firmantes` para el crédito fraccional.

@@ -21,6 +21,10 @@ Decisiones del agente de código y propuestas que esperan al propietario. Cada e
 | D-015 | Código oficial `codParlamentario` junto al nombre        | Decidida | 1             |
 | D-016 | Tercera dimensión con preguntas y solicitudes de informe | Decidida | 1, 2          |
 | D-017 | Capturar las agendas antes de la XVI                     | Decidida | 1             |
+| D-018 | Tabla `firmantes` y crédito por iniciativa               | Tomada   | 1, 2          |
+| D-019 | Historial de grupo desde el voto                         | Tomada   | 1, 2          |
+| D-020 | Intervenciones que no cuentan se conservan con su motivo | Tomada   | 1, 2          |
+| D-021 | Volcados diarios no versionados y ejecución `--offline`  | Tomada   | 1, 4          |
 
 ## D-001 · Ejecutar TypeScript con Node 22 sin paso de compilación
 
@@ -140,3 +144,19 @@ El adaptador entra en el hito 1, adelantando lo que la especificación dejaba pa
 - **Privacidad:** el repositorio guarda, por cita, la fecha, las horas y el tipo. En las institucionales guarda además el órgano; en las personales, nunca el texto, que puede nombrar a terceros. La web publicará solo recuentos (si publica agenda personal y cuántas citas declara).
 - Captura: workflow [`agendas.yml`](../.github/workflows/agendas.yml), todas las semanas desde el 17/08/2023 para los 137 diputados en activo (unas 23.600 peticiones), en tres tramos secuenciales de GitHub Actions. Cada tramo guarda su avance en `data/raw/agendas/XV/` y el siguiente continúa.
 - En la XVI la agenda pasa a ser una fuente diaria del pipeline.
+
+## D-018 · Tabla `firmantes` y crédito por iniciativa
+
+**Tomada (hito 1).** El modelo de la especificación guarda los autores de una iniciativa como texto. Para medir la tercera dimensión (D-016) se añade la tabla `firmantes`: una fila por diputado firmante, con su posición en la autoría (`orden`) y el número total de firmantes (`n_firmantes`). Así el crédito fraccional, el primer firmante y el total firmado salen de la misma tabla. Solo se llena para preguntas escritas, solicitudes de informe y proposiciones de ley «de Diputados»; las de grupo, Gobierno, Senado o comunidades autónomas guardan el autor como texto.
+
+## D-019 · Historial de grupo desde el voto
+
+**Tomada (hito 1).** El censo solo guarda el último grupo de cada diputado. Cada voto trae el código de grupo vigente ese día, así que `votos.grupo_id` conserva el historial (por ejemplo, diputados que pasaron de VOX al Mixto). El percentil por grupo del hito 2 usará el grupo de cada momento, no solo el último.
+
+## D-020 · Intervenciones que no cuentan se conservan con su motivo
+
+**Tomada (hito 1).** La tabla `intervenciones` guarda todas las intervenciones de personas del censo, también las que no cuentan como actividad de diputado. Las columnas `cuenta` y `motivo_exclusion` (`fuera_de_mandato`, `diputacion_permanente`, `cargo_gobierno`, `cargo_externo`) aplican D-009 y D-013. El cálculo del hito 2 filtra por `cuenta`, y la exclusión queda auditable en los datos publicados.
+
+## D-021 · Volcados diarios no versionados y ejecución `--offline`
+
+**Tomada (hito 1).** Los volcados diarios (`data/raw/daily/`) no se versionan, como dice la especificación: el de intervenciones ocupa 57 MB y el buscador de iniciativas, unos 30 MB. Se versionan los JSON de votaciones (D-004), el manifiesto y las tablas normalizadas. `pnpm pipeline --offline` rehace la normalización desde `data/raw/` si existen los volcados del día. En un clon limpio, la reproducibilidad del cálculo (hito 2) parte de `data/normalized/`, que sí está versionado.
