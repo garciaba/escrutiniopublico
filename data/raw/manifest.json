@@ -17,6 +17,18 @@
   "bytes": 184805,
   "sha256": "9fdd3f39bc5a49a839d606e2b281466a090d9bdc852a67dbb3ea19ee485a8a4e"
  },
+ "iniciativas/buscador-184": {
+  "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+  "descargado": "2026-11-23",
+  "bytes": 39695230,
+  "sha256": "1b94d87c2d51652fb9a604f09ac8fc5dc9f08247408d0ece872fe8e4f9f63bb5"
+ },
+ "iniciativas/buscador-186": {
+  "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+  "descargado": "2026-11-23",
+  "bytes": 1801866,
+  "sha256": "f1e8446fe215e01ab374e9c9a1422752ff6fed1a6a920cef448658424e772cd8"
+ },
  "iniciativas/ProposicionesDeLey": {
   "url": "https://www.congreso.es/webpublica/opendata/iniciativas/ProposicionesDeLey__20261123050130.json",
   "descargado": "2026-11-23",
