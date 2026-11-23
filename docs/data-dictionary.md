@@ -188,6 +188,6 @@ Cobertura resultante: 2 de 5 dimensiones, 40 %, justo el mínimo para publicar �
 
 ## 7. Comprobación desde GitHub Actions
 
-El workflow [`discovery.yml`](../.github/workflows/discovery.yml) ejecuta `pnpm discover` en los servidores de GitHub. En local, el 23/11/2026, pasó las 19 comprobaciones (5 páginas índice, 7 ficheros, calendario y 2 sesiones de votaciones, lista de comisiones y 3 exportaciones de órganos). **Pendiente:** la ejecución en GitHub Actions; el primer intento de subir la rama falló porque la sesión no tenía permiso de escritura en el repositorio.
+**Las descargas funcionan desde GitHub Actions.** El workflow [`discovery.yml`](../.github/workflows/discovery.yml) ejecuta `pnpm discover` en los servidores de GitHub. La [ejecución n.º 1](https://github.com/garciaba/escrutiniopublico/actions/runs/45141907020), del 23/11/2026, pasó las 19 comprobaciones en 59 segundos: 5 páginas índice, 7 ficheros, calendario y 2 sesiones de votaciones, lista de comisiones y 3 exportaciones de órganos. El mismo resultado se obtuvo en local. El informe queda como artefacto `discovery-report` de la ejecución.
 
 Hallazgo relevante para esa comprobación: el cortafuegos del Congreso responde **403** a algunos `User-Agent` (`curl/…`, `Python-urllib/…`, cabecera vacía y uno que incluía la URL del repositorio). `ESCANO/0.1` es aceptado. Ver D-003.
