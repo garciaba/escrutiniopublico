@@ -139,7 +139,7 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 34.3,
+   "indice": 34.1,
    "cobertura": 0.6,
    "posicion": 365,
    "total_ranking": 392,
@@ -154,7 +154,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 26
+     "puntuacion": 25.4
     },
     {
      "id": "resultados",
@@ -241,7 +241,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 594,
-     "percentil": 18.1,
+     "percentil": 17.1,
      "percentil_grupo": 33.3,
      "n_grupo": 6,
      "detalle": {

@@ -105,9 +105,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 54.2,
+   "indice": 53.8,
    "cobertura": 0.6,
-   "posicion": 141,
+   "posicion": 145,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -120,7 +120,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 65.9
+     "puntuacion": 64.9
     },
     {
      "id": "resultados",
@@ -184,15 +184,15 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 4.4896,
-     "numerador": 51.4953,
+     "valor": 4.502,
+     "numerador": 51.6382,
      "denominador": 1147,
-     "percentil": 51.9,
-     "percentil_grupo": 15,
+     "percentil": 51.4,
+     "percentil_grupo": 14.3,
      "n_grupo": 150,
      "detalle": {
-      "firmadas": 478,
-      "primer_firmante": 112
+      "firmadas": 479,
+      "primer_firmante": 113
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -207,8 +207,8 @@
      "valor": 0.6184,
      "numerador": 7.0931,
      "denominador": 1147,
-     "percentil": 80,
-     "percentil_grupo": 75,
+     "percentil": 78.4,
+     "percentil_grupo": 74.3,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 15,
@@ -257,9 +257,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 49.2,
+   "indice": 48.6,
    "cobertura": 0.6,
-   "posicion": 176,
+   "posicion": 180,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -272,7 +272,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 55.4
+     "puntuacion": 53.5
     },
     {
      "id": "resultados",
@@ -339,8 +339,8 @@
      "valor": 4.5572,
      "numerador": 14.4462,
      "denominador": 317,
-     "percentil": 51.4,
-     "percentil_grupo": 18.5,
+     "percentil": 50.9,
+     "percentil_grupo": 17.8,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 144,
@@ -359,8 +359,8 @@
      "valor": 0.184,
      "numerador": 0.5833,
      "denominador": 317,
-     "percentil": 59.4,
-     "percentil_grupo": 39.9,
+     "percentil": 56.2,
+     "percentil_grupo": 37.7,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 3,
@@ -594,7 +594,7 @@
     1.754,
     1.1063,
     2.1898,
-    9.7159,
+    9.8588,
     0.1429,
     1.6714,
     0.8825,

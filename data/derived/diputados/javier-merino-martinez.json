@@ -105,9 +105,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 60.9,
+   "indice": 60.4,
    "cobertura": 0.6,
-   "posicion": 75,
+   "posicion": 77,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -120,7 +120,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 89.3
+     "puntuacion": 87.8
     },
     {
      "id": "resultados",
@@ -184,11 +184,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 39.7947,
-     "numerador": 456.4455,
+     "valor": 39.7953,
+     "numerador": 456.4523,
      "denominador": 1147,
-     "percentil": 95.5,
-     "percentil_grupo": 91,
+     "percentil": 94.3,
+     "percentil_grupo": 87.7,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 1766,
@@ -207,8 +207,8 @@
      "valor": 0.7059,
      "numerador": 8.097,
      "denominador": 1147,
-     "percentil": 83,
-     "percentil_grupo": 79,
+     "percentil": 81.3,
+     "percentil_grupo": 77.7,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 15,
@@ -257,9 +257,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 45.4,
+   "indice": 44.8,
    "cobertura": 0.6,
-   "posicion": 212,
+   "posicion": 220,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -272,7 +272,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 85.2
+     "puntuacion": 83.4
     },
     {
      "id": "resultados",
@@ -339,8 +339,8 @@
      "valor": 33.2006,
      "numerador": 105.2459,
      "denominador": 317,
-     "percentil": 93.8,
-     "percentil_grupo": 91.7,
+     "percentil": 92.9,
+     "percentil_grupo": 90.2,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 474,
@@ -359,8 +359,8 @@
      "valor": 0.4942,
      "numerador": 1.5667,
      "denominador": 317,
-     "percentil": 76.5,
-     "percentil_grupo": 68.5,
+     "percentil": 73.9,
+     "percentil_grupo": 67,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 3,
@@ -581,7 +581,7 @@
     2.729,
     1.0993,
     2.7425,
-    11.2589,
+    11.2631,
     48.5485,
     21.4027,
     7.1857,
@@ -594,7 +594,7 @@
     25.2628,
     38.3096,
     6.0907,
-    39.6917,
+    39.6943,
     42.2312,
     10.7183,
     11.106,

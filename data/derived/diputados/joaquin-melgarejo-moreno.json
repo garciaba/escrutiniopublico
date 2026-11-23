@@ -113,9 +113,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 47.9,
+   "indice": 47.4,
    "cobertura": 0.6,
-   "posicion": 230,
+   "posicion": 233,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -128,7 +128,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 87
+     "puntuacion": 85.6
     },
     {
      "id": "resultados",
@@ -192,14 +192,14 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 17.9251,
-     "numerador": 205.6009,
+     "valor": 17.932,
+     "numerador": 205.6805,
      "denominador": 1147,
-     "percentil": 82.3,
-     "percentil_grupo": 71.7,
+     "percentil": 81.5,
+     "percentil_grupo": 69.7,
      "n_grupo": 150,
      "detalle": {
-      "firmadas": 1612,
+      "firmadas": 1613,
       "primer_firmante": 206
      },
      "fuente": {
@@ -215,7 +215,7 @@
      "valor": 1.3471,
      "numerador": 15.4508,
      "denominador": 1147,
-     "percentil": 91.7,
+     "percentil": 89.7,
      "percentil_grupo": 91,
      "n_grupo": 150,
      "detalle": {
@@ -265,9 +265,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 42.2,
+   "indice": 41.5,
    "cobertura": 0.6,
-   "posicion": 244,
+   "posicion": 251,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -280,7 +280,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 86.2
+     "puntuacion": 84.1
     },
     {
      "id": "resultados",
@@ -347,8 +347,8 @@
      "valor": 23.6035,
      "numerador": 74.823,
      "denominador": 317,
-     "percentil": 86.6,
-     "percentil_grupo": 80.1,
+     "percentil": 85.7,
+     "percentil_grupo": 77.9,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 608,
@@ -367,8 +367,8 @@
      "valor": 1.0327,
      "numerador": 3.2736,
      "denominador": 317,
-     "percentil": 85.7,
-     "percentil_grupo": 84.4,
+     "percentil": 82.6,
+     "percentil_grupo": 83.7,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 14,
@@ -602,9 +602,9 @@
     3.6438,
     7.5795,
     2.6147,
-    4.6953,
+    4.6979,
     4.1986,
-    20.3559,
+    20.4329,
     3.6102,
     1.8839,
     4.3162,

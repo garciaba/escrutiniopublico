@@ -161,9 +161,9 @@
    "dias_evaluados": 1147,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 64.5,
+   "indice": 64.1,
    "cobertura": 0.6,
-   "posicion": 50,
+   "posicion": 51,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -176,7 +176,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 64.9
+     "puntuacion": 63.7
     },
     {
      "id": "resultados",
@@ -240,15 +240,15 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 11.9123,
-     "numerador": 136.6345,
+     "valor": 11.9341,
+     "numerador": 136.8845,
      "denominador": 1147,
-     "percentil": 70.3,
+     "percentil": 69.8,
      "percentil_grupo": 70.7,
      "n_grupo": 29,
      "detalle": {
-      "firmadas": 295,
-      "primer_firmante": 95
+      "firmadas": 296,
+      "primer_firmante": 96
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -263,8 +263,8 @@
      "valor": 0.218,
      "numerador": 2.5,
      "denominador": 1147,
-     "percentil": 59.6,
-     "percentil_grupo": 62.1,
+     "percentil": 57.7,
+     "percentil_grupo": 46.6,
      "n_grupo": 29,
      "detalle": {
       "firmadas": 5,
@@ -313,9 +313,9 @@
    "dias_evaluados": 317,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 61.1,
+   "indice": 60.4,
    "cobertura": 0.6,
-   "posicion": 77,
+   "posicion": 79,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -328,7 +328,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 74.6
+     "puntuacion": 72.5
     },
     {
      "id": "resultados",
@@ -395,7 +395,7 @@
      "valor": 14.5798,
      "numerador": 46.2179,
      "denominador": 317,
-     "percentil": 75.4,
+     "percentil": 74.2,
      "percentil_grupo": 74,
      "n_grupo": 25,
      "detalle": {
@@ -415,8 +415,8 @@
      "valor": 0.4206,
      "numerador": 1.3333,
      "denominador": 317,
-     "percentil": 73.9,
-     "percentil_grupo": 78,
+     "percentil": 70.7,
+     "percentil_grupo": 58,
      "n_grupo": 25,
      "detalle": {
       "firmadas": 3,
@@ -644,7 +644,7 @@
     4.6667,
     0.3333,
     2.5333,
-    7.4167,
+    7.6667,
     3.0333,
     3,
     3.3333,

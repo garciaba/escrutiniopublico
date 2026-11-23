@@ -113,9 +113,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 64.7,
+   "indice": 64.5,
    "cobertura": 0.6,
-   "posicion": 48,
+   "posicion": 46,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -128,7 +128,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 80.6
+     "puntuacion": 80
     },
     {
      "id": "resultados",
@@ -192,8 +192,8 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 61.338,
-     "numerador": 703.5472,
+     "valor": 61.3385,
+     "numerador": 703.5527,
      "denominador": 1147,
      "percentil": 99.4,
      "percentil_grupo": 99.7,
@@ -215,8 +215,8 @@
      "valor": 0.2364,
      "numerador": 2.7114,
      "denominador": 1147,
-     "percentil": 61.9,
-     "percentil_grupo": 43,
+     "percentil": 60.6,
+     "percentil_grupo": 42.3,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 17,
@@ -265,9 +265,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 69.5,
+   "indice": 69.1,
    "cobertura": 0.6,
-   "posicion": 27,
+   "posicion": 30,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -280,7 +280,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 88.3
+     "puntuacion": 87
     },
     {
      "id": "resultados",
@@ -344,8 +344,8 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 68.2213,
-     "numerador": 216.2614,
+     "valor": 68.223,
+     "numerador": 216.2669,
      "denominador": 317,
      "percentil": 98.7,
      "percentil_grupo": 98.9,
@@ -367,8 +367,8 @@
      "valor": 0.557,
      "numerador": 1.7656,
      "denominador": 317,
-     "percentil": 78,
-     "percentil_grupo": 72.1,
+     "percentil": 75.4,
+     "percentil_grupo": 69.9,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 11,
@@ -616,7 +616,7 @@
     46.1548,
     16.7852,
     5.9929,
-    19.0405,
+    19.046,
     37.1421,
     34.4524,
     27.2857,

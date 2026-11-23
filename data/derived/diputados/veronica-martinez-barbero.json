@@ -163,9 +163,9 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 40,
+   "indice": 49.4,
    "cobertura": 0.6,
-   "posicion": 308,
+   "posicion": 203,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -178,7 +178,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 29.8
+     "puntuacion": 58
     },
     {
      "id": "resultados",
@@ -242,15 +242,15 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 2.0234,
-     "numerador": 23.2083,
+     "valor": 2.1106,
+     "numerador": 24.2083,
      "denominador": 1147,
-     "percentil": 41.5,
-     "percentil_grupo": 29.3,
+     "percentil": 41.7,
+     "percentil_grupo": 32.8,
      "n_grupo": 29,
      "detalle": {
-      "firmadas": 50,
-      "primer_firmante": 38
+      "firmadas": 52,
+      "primer_firmante": 40
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -262,15 +262,15 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0,
-     "numerador": 0,
+     "valor": 0.5183,
+     "numerador": 5.9444,
      "denominador": 1147,
-     "percentil": 18.1,
-     "percentil_grupo": 19,
+     "percentil": 74.4,
+     "percentil_grupo": 56.9,
      "n_grupo": 29,
      "detalle": {
-      "firmadas": 0,
-      "primer_firmante": 0
+      "firmadas": 21,
+      "primer_firmante": 20
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -317,9 +317,9 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 35.4,
+   "indice": 47,
    "cobertura": 0.6,
-   "posicion": 300,
+   "posicion": 194,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -332,7 +332,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 32.3
+     "puntuacion": 67
     },
     {
      "id": "resultados",
@@ -396,15 +396,15 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 2.3265,
-     "numerador": 7.375,
+     "valor": 2.642,
+     "numerador": 8.375,
      "denominador": 317,
-     "percentil": 42.8,
-     "percentil_grupo": 26,
+     "percentil": 43.1,
+     "percentil_grupo": 30,
      "n_grupo": 25,
      "detalle": {
-      "firmadas": 17,
-      "primer_firmante": 15
+      "firmadas": 19,
+      "primer_firmante": 17
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -416,15 +416,15 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0,
-     "numerador": 0,
+     "valor": 1.8752,
+     "numerador": 5.9444,
      "denominador": 317,
-     "percentil": 21.8,
-     "percentil_grupo": 32,
+     "percentil": 90.9,
+     "percentil_grupo": 78,
      "n_grupo": 25,
      "detalle": {
-      "firmadas": 0,
-      "primer_firmante": 0
+      "firmadas": 21,
+      "primer_firmante": 20
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -662,7 +662,7 @@
     2.5,
     1.3333,
     0,
-    2.75,
+    3.75,
     0.5,
     0.5,
     0.8333,
@@ -703,14 +703,14 @@
     0,
     0,
     0,
+    0.3333,
     0,
     0,
     0,
     0,
     0,
     0,
-    0,
-    0,
+    5.6111,
     0,
     0,
     0

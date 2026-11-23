@@ -89,9 +89,9 @@
    "dias_evaluados": 1147,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 40.3,
+   "indice": 43.2,
    "cobertura": 0.6,
-   "posicion": 305,
+   "posicion": 279,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -104,7 +104,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 20.1
+     "puntuacion": 28.8
     },
     {
      "id": "resultados",
@@ -188,14 +188,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0,
-     "numerador": 0,
+     "valor": 0.0218,
+     "numerador": 0.25,
      "denominador": 1147,
-     "percentil": 18.1,
-     "percentil_grupo": 19,
+     "percentil": 35.5,
+     "percentil_grupo": 22.4,
      "n_grupo": 29,
      "detalle": {
-      "firmadas": 0,
+      "firmadas": 1,
       "primer_firmante": 0
      },
      "fuente": {
@@ -241,9 +241,9 @@
    "dias_evaluados": 317,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 40.2,
+   "indice": 44.4,
    "cobertura": 0.6,
-   "posicion": 263,
+   "posicion": 224,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -256,7 +256,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 26.8
+     "puntuacion": 39.6
     },
     {
      "id": "resultados",
@@ -340,14 +340,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0,
-     "numerador": 0,
+     "valor": 0.0789,
+     "numerador": 0.25,
      "denominador": 317,
-     "percentil": 21.8,
-     "percentil_grupo": 32,
+     "percentil": 47.3,
+     "percentil_grupo": 44,
      "n_grupo": 25,
      "detalle": {
-      "firmadas": 0,
+      "firmadas": 1,
       "primer_firmante": 0
      },
      "fuente": {
@@ -634,7 +634,7 @@
     0,
     0,
     0,
-    0,
+    0.25,
     0,
     0,
     0

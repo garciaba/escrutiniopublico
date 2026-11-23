@@ -97,9 +97,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 55,
+   "indice": 54.5,
    "cobertura": 0.6,
-   "posicion": 132,
+   "posicion": 135,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -112,7 +112,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 77
+     "puntuacion": 75.8
     },
     {
      "id": "resultados",
@@ -176,14 +176,14 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 13.6792,
-     "numerador": 156.9,
+     "valor": 13.6859,
+     "numerador": 156.9769,
      "denominador": 1147,
-     "percentil": 74.9,
-     "percentil_grupo": 57.7,
+     "percentil": 74.1,
+     "percentil_grupo": 55.7,
      "n_grupo": 150,
      "detalle": {
-      "firmadas": 1920,
+      "firmadas": 1921,
       "primer_firmante": 18
      },
      "fuente": {
@@ -199,8 +199,8 @@
      "valor": 0.6079,
      "numerador": 6.9725,
      "denominador": 1147,
-     "percentil": 79.2,
-     "percentil_grupo": 73,
+     "percentil": 77.4,
+     "percentil_grupo": 72.3,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 75,
@@ -249,9 +249,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 42.6,
+   "indice": 42.2,
    "cobertura": 0.6,
-   "posicion": 238,
+   "posicion": 244,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -264,7 +264,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 70.3
+     "puntuacion": 69.2
     },
     {
      "id": "resultados",
@@ -331,8 +331,8 @@
      "valor": 7.5011,
      "numerador": 23.7786,
      "denominador": 317,
-     "percentil": 58.9,
-     "percentil_grupo": 33,
+     "percentil": 58.4,
+     "percentil_grupo": 31.5,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 333,
@@ -351,8 +351,8 @@
      "valor": 0.7976,
      "numerador": 2.5284,
      "denominador": 317,
-     "percentil": 81.7,
-     "percentil_grupo": 77.9,
+     "percentil": 80,
+     "percentil_grupo": 77.2,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 9,
@@ -588,7 +588,7 @@
     5.3029,
     4.9796,
     2.1403,
-    8.0543,
+    8.1312,
     11.6488,
     1.1534,
     7.7549,

@@ -190,9 +190,9 @@
     "gobierno",
     "portavoz"
    ],
-   "indice": 61.8,
+   "indice": 61.7,
    "cobertura": 0.6,
-   "posicion": 68,
+   "posicion": 66,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -205,7 +205,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 86.4
+     "puntuacion": 86.1
     },
     {
      "id": "resultados",
@@ -272,7 +272,7 @@
      "valor": 14.5671,
      "numerador": 153.1,
      "denominador": 1051,
-     "percentil": 76.1,
+     "percentil": 75.4,
      "percentil_grupo": 50,
      "n_grupo": 11,
      "detalle": {
@@ -289,15 +289,15 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 2.2835,
-     "numerador": 24,
+     "valor": 2.9496,
+     "numerador": 31,
      "denominador": 1051,
-     "percentil": 96.6,
+     "percentil": 96.8,
      "percentil_grupo": 68.2,
      "n_grupo": 11,
      "detalle": {
-      "firmadas": 24,
-      "primer_firmante": 24
+      "firmadas": 31,
+      "primer_firmante": 31
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -344,9 +344,9 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 51.8,
+   "indice": 53.3,
    "cobertura": 0.6,
-   "posicion": 152,
+   "posicion": 136,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -359,7 +359,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 75.1
+     "puntuacion": 79.8
     },
     {
      "id": "resultados",
@@ -426,7 +426,7 @@
      "valor": 9.6215,
      "numerador": 30.5,
      "denominador": 317,
-     "percentil": 65.6,
+     "percentil": 64.7,
      "percentil_grupo": 50,
      "n_grupo": 9,
      "detalle": {
@@ -443,15 +443,15 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.9464,
-     "numerador": 3,
+     "valor": 2.5237,
+     "numerador": 8,
      "denominador": 317,
-     "percentil": 84.6,
-     "percentil_grupo": 50,
+     "percentil": 94.8,
+     "percentil_grupo": 61.1,
      "n_grupo": 9,
      "detalle": {
-      "firmadas": 3,
-      "primer_firmante": 3
+      "firmadas": 8,
+      "primer_firmante": 8
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -723,22 +723,22 @@
     1,
     0,
     0,
-    1,
-    1,
-    0,
-    0,
-    0,
-    1,
-    0,
-    0,
-    0,
-    0,
-    1,
+    2,
     2,
     0,
     0,
     0,
+    1,
     0,
+    0,
+    0,
+    0,
+    1,
+    4,
+    0,
+    0,
+    0,
+    3,
     0,
     0
    ]

@@ -217,9 +217,9 @@
    "dias_evaluados": 1147,
    "grupo": "GR",
    "roles": [],
-   "indice": 62.2,
+   "indice": 61.9,
    "cobertura": 0.6,
-   "posicion": 63,
+   "posicion": 64,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -232,7 +232,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 48.9
+     "puntuacion": 48
     },
     {
      "id": "resultados",
@@ -296,15 +296,15 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 4.4101,
-     "numerador": 50.5833,
+     "valor": 4.4972,
+     "numerador": 51.5833,
      "denominador": 1147,
-     "percentil": 51.4,
+     "percentil": 51.1,
      "percentil_grupo": 56.3,
      "n_grupo": 8,
      "detalle": {
-      "firmadas": 71,
-      "primer_firmante": 50
+      "firmadas": 72,
+      "primer_firmante": 51
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -319,7 +319,7 @@
      "valor": 0.0872,
      "numerador": 1,
      "denominador": 1147,
-     "percentil": 46.4,
+     "percentil": 44.8,
      "percentil_grupo": 50,
      "n_grupo": 8,
      "detalle": {
@@ -369,9 +369,9 @@
    "dias_evaluados": 317,
    "grupo": "GR",
    "roles": [],
-   "indice": 69.3,
+   "indice": 68.9,
    "cobertura": 0.6,
-   "posicion": 28,
+   "posicion": 31,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -384,7 +384,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 39.2
+     "puntuacion": 37.9
     },
     {
      "id": "resultados",
@@ -451,7 +451,7 @@
      "valor": 6.1514,
      "numerador": 19.5,
      "denominador": 317,
-     "percentil": 56.6,
+     "percentil": 56.1,
      "percentil_grupo": 50,
      "n_grupo": 7,
      "detalle": {
@@ -471,7 +471,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 317,
-     "percentil": 21.8,
+     "percentil": 19.7,
      "percentil_grupo": 21.4,
      "n_grupo": 7,
      "detalle": {
@@ -706,7 +706,7 @@
     2.5,
     3.5,
     1,
-    2.6667,
+    3.6667,
     0.5,
     1.5,
     2.3333,

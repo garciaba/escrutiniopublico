@@ -105,9 +105,9 @@
    "dias_evaluados": 708,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 42.5,
+   "indice": 53.7,
    "cobertura": 0.6,
-   "posicion": 285,
+   "posicion": 147,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -120,7 +120,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 32.5
+     "puntuacion": 66.2
     },
     {
      "id": "resultados",
@@ -184,14 +184,14 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 2.9002,
-     "numerador": 20.5333,
+     "valor": 2.9708,
+     "numerador": 21.0333,
      "denominador": 708,
      "percentil": 46.8,
      "percentil_grupo": 43.1,
      "n_grupo": 29,
      "detalle": {
-      "firmadas": 43,
+      "firmadas": 44,
       "primer_firmante": 5
      },
      "fuente": {
@@ -204,14 +204,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0,
-     "numerador": 0,
+     "valor": 0.9102,
+     "numerador": 6.4444,
      "denominador": 708,
-     "percentil": 18.1,
-     "percentil_grupo": 19,
+     "percentil": 85.6,
+     "percentil_grupo": 77.6,
      "n_grupo": 29,
      "detalle": {
-      "firmadas": 0,
+      "firmadas": 22,
       "primer_firmante": 0
      },
      "fuente": {
@@ -257,9 +257,9 @@
    "dias_evaluados": 317,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 40.7,
+   "indice": 52.2,
    "cobertura": 0.6,
-   "posicion": 256,
+   "posicion": 146,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -272,7 +272,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 36.9
+     "puntuacion": 71.5
     },
     {
      "id": "resultados",
@@ -339,8 +339,8 @@
      "valor": 4.7161,
      "numerador": 14.95,
      "denominador": 317,
-     "percentil": 52,
-     "percentil_grupo": 58,
+     "percentil": 51.2,
+     "percentil_grupo": 54,
      "n_grupo": 25,
      "detalle": {
       "firmadas": 31,
@@ -356,14 +356,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0,
-     "numerador": 0,
+     "valor": 2.0329,
+     "numerador": 6.4444,
      "denominador": 317,
-     "percentil": 21.8,
-     "percentil_grupo": 32,
+     "percentil": 91.9,
+     "percentil_grupo": 84,
      "n_grupo": 25,
      "detalle": {
-      "firmadas": 0,
+      "firmadas": 22,
       "primer_firmante": 0
      },
      "fuente": {
@@ -599,7 +599,7 @@
     1.3333,
     0.5,
     0,
-    1,
+    1.5,
     0,
     1.5,
     0.5,
@@ -642,15 +642,15 @@
     0,
     0,
     0,
+    0.5,
+    0.3333,
     0,
     0,
     0,
     0,
     0,
     0,
-    0,
-    0,
-    0,
+    5.6111,
     0,
     0,
     0

@@ -227,9 +227,9 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 34.5,
+   "indice": 34,
    "cobertura": 0.6,
-   "posicion": 362,
+   "posicion": 369,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -242,7 +242,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 53.6
+     "puntuacion": 52.3
     },
     {
      "id": "resultados",
@@ -309,7 +309,7 @@
      "valor": 8.0936,
      "numerador": 92.8333,
      "denominador": 1147,
-     "percentil": 60.8,
+     "percentil": 59.8,
      "percentil_grupo": 68.8,
      "n_grupo": 8,
      "detalle": {
@@ -329,7 +329,7 @@
      "valor": 0.0872,
      "numerador": 1,
      "denominador": 1147,
-     "percentil": 46.4,
+     "percentil": 44.8,
      "percentil_grupo": 18.8,
      "n_grupo": 8,
      "detalle": {
@@ -381,9 +381,9 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 34.1,
+   "indice": 33.6,
    "cobertura": 0.6,
-   "posicion": 304,
+   "posicion": 306,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -396,7 +396,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 55.8
+     "puntuacion": 54.2
     },
     {
      "id": "resultados",
@@ -463,7 +463,7 @@
      "valor": 26.2881,
      "numerador": 83.3333,
      "denominador": 317,
-     "percentil": 89.8,
+     "percentil": 88.6,
      "percentil_grupo": 64.3,
      "n_grupo": 7,
      "detalle": {
@@ -483,7 +483,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 317,
-     "percentil": 21.8,
+     "percentil": 19.7,
      "percentil_grupo": 14.3,
      "n_grupo": 7,
      "detalle": {

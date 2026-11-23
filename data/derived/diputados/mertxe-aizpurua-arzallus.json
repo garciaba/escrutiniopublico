@@ -187,9 +187,9 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 37.2,
+   "indice": 36.9,
    "cobertura": 0.6,
-   "posicion": 338,
+   "posicion": 340,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -202,7 +202,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 42.2
+     "puntuacion": 41.1
     },
     {
      "id": "resultados",
@@ -289,8 +289,8 @@
      "valor": 0.2616,
      "numerador": 3,
      "denominador": 1147,
-     "percentil": 64,
-     "percentil_grupo": 57.1,
+     "percentil": 62,
+     "percentil_grupo": 50,
      "n_grupo": 7,
      "detalle": {
       "firmadas": 3,
@@ -341,9 +341,9 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 40.5,
+   "indice": 40.1,
    "cobertura": 0.6,
-   "posicion": 259,
+   "posicion": 262,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -356,7 +356,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 37
+     "puntuacion": 35.6
     },
     {
      "id": "resultados",
@@ -443,8 +443,8 @@
      "valor": 0.3155,
      "numerador": 1,
      "denominador": 317,
-     "percentil": 66.1,
-     "percentil_grupo": 41.7,
+     "percentil": 63.4,
+     "percentil_grupo": 25,
      "n_grupo": 6,
      "detalle": {
       "firmadas": 1,

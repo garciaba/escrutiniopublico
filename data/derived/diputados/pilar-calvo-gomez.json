@@ -321,9 +321,9 @@
    "dias_evaluados": 1147,
    "grupo": "GJxCAT",
    "roles": [],
-   "indice": 57.1,
+   "indice": 56.7,
    "cobertura": 0.6,
-   "posicion": 111,
+   "posicion": 114,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -336,7 +336,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 74.9
+     "puntuacion": 73.7
     },
     {
      "id": "resultados",
@@ -400,15 +400,15 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 10.2296,
-     "numerador": 117.3333,
+     "valor": 10.4911,
+     "numerador": 120.3333,
      "denominador": 1147,
-     "percentil": 67,
+     "percentil": 66.5,
      "percentil_grupo": 81.3,
      "n_grupo": 8,
      "detalle": {
-      "firmadas": 128,
-      "primer_firmante": 112
+      "firmadas": 131,
+      "primer_firmante": 115
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -423,7 +423,7 @@
      "valor": 0.6975,
      "numerador": 8,
      "denominador": 1147,
-     "percentil": 82.8,
+     "percentil": 81,
      "percentil_grupo": 68.8,
      "n_grupo": 8,
      "detalle": {
@@ -473,9 +473,9 @@
    "dias_evaluados": 317,
    "grupo": "GJxCAT",
    "roles": [],
-   "indice": 57.4,
+   "indice": 56.8,
    "cobertura": 0.6,
-   "posicion": 106,
+   "posicion": 110,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -488,7 +488,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 82.1
+     "puntuacion": 80.4
     },
     {
      "id": "resultados",
@@ -555,7 +555,7 @@
      "valor": 21.5562,
      "numerador": 68.3333,
      "denominador": 317,
-     "percentil": 84.9,
+     "percentil": 84,
      "percentil_grupo": 50,
      "n_grupo": 7,
      "detalle": {
@@ -575,7 +575,7 @@
      "valor": 0.6309,
      "numerador": 2,
      "denominador": 317,
-     "percentil": 79.4,
+     "percentil": 76.8,
      "percentil_grupo": 71.4,
      "n_grupo": 7,
      "detalle": {
@@ -796,7 +796,7 @@
     0,
     3,
     0,
-    11,
+    13,
     3,
     1,
     3,
@@ -809,7 +809,7 @@
     0,
     0,
     2,
-    2,
+    3,
     3,
     0,
     1,

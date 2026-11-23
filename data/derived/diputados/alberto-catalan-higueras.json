@@ -291,9 +291,9 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 67.6,
+   "indice": 67.5,
    "cobertura": 0.6,
-   "posicion": 30,
+   "posicion": 33,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -306,7 +306,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 99.6
+     "puntuacion": 99.4
     },
     {
      "id": "resultados",
@@ -370,15 +370,15 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 215.6059,
-     "numerador": 2473,
+     "valor": 216.2162,
+     "numerador": 2480,
      "denominador": 1147,
      "percentil": 99.6,
      "percentil_grupo": 86.4,
      "n_grupo": 11,
      "detalle": {
-      "firmadas": 2473,
-      "primer_firmante": 2473
+      "firmadas": 2480,
+      "primer_firmante": 2480
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -390,15 +390,15 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 5.5798,
-     "numerador": 64,
+     "valor": 5.667,
+     "numerador": 65,
      "denominador": 1147,
-     "percentil": 99.6,
+     "percentil": 99.1,
      "percentil_grupo": 95.5,
      "n_grupo": 11,
      "detalle": {
-      "firmadas": 64,
-      "primer_firmante": 64
+      "firmadas": 65,
+      "primer_firmante": 65
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -445,7 +445,7 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 76.3,
+   "indice": 76.2,
    "cobertura": 0.6,
    "posicion": 11,
    "total_ranking": 347,
@@ -460,7 +460,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 99.1
+     "puntuacion": 98.8
     },
     {
      "id": "resultados",
@@ -547,7 +547,7 @@
      "valor": 4.4164,
      "numerador": 14,
      "denominador": 317,
-     "percentil": 98.7,
+     "percentil": 98.1,
      "percentil_grupo": 83.3,
      "n_grupo": 9,
      "detalle": {
@@ -762,7 +762,7 @@
     0
    ],
    "preguntas_escritas": [
-    1,
+    8,
     9,
     40,
     24,
@@ -811,7 +811,7 @@
     1,
     9,
     2,
-    4,
+    5,
     2,
     4,
     0,

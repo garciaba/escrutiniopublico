@@ -113,9 +113,9 @@
    "dias_evaluados": 1147,
    "grupo": "GS",
    "roles": [],
-   "indice": 74.6,
+   "indice": 74.1,
    "cobertura": 0.6,
-   "posicion": 11,
+   "posicion": 12,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -128,7 +128,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 60.7
+     "puntuacion": 59.2
     },
     {
      "id": "resultados",
@@ -192,15 +192,15 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 3.9183,
-     "numerador": 44.9428,
+     "valor": 3.9473,
+     "numerador": 45.2761,
      "denominador": 1147,
-     "percentil": 49.9,
+     "percentil": 49.1,
      "percentil_grupo": 96.8,
      "n_grupo": 140,
      "detalle": {
-      "firmadas": 128,
-      "primer_firmante": 95
+      "firmadas": 129,
+      "primer_firmante": 96
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -215,7 +215,7 @@
      "valor": 0.3923,
      "numerador": 4.5,
      "denominador": 1147,
-     "percentil": 71.6,
+     "percentil": 69.4,
      "percentil_grupo": 98.9,
      "n_grupo": 140,
      "detalle": {
@@ -265,9 +265,9 @@
    "dias_evaluados": 317,
    "grupo": "GS",
    "roles": [],
-   "indice": 60.5,
+   "indice": 60.1,
    "cobertura": 0.6,
-   "posicion": 79,
+   "posicion": 81,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -280,7 +280,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 47
+     "puntuacion": 45.6
     },
     {
      "id": "resultados",
@@ -347,7 +347,7 @@
      "valor": 1.3933,
      "numerador": 4.4167,
      "denominador": 317,
-     "percentil": 38.9,
+     "percentil": 38.6,
      "percentil_grupo": 91.5,
      "n_grupo": 118,
      "detalle": {
@@ -367,7 +367,7 @@
      "valor": 0.1577,
      "numerador": 0.5,
      "denominador": 317,
-     "percentil": 55.2,
+     "percentil": 52.6,
      "percentil_grupo": 94.5,
      "n_grupo": 118,
      "detalle": {
@@ -603,7 +603,7 @@
     11.5,
     2.5,
     0.5,
-    10.1095,
+    10.4428,
     0.5,
     0,
     0,

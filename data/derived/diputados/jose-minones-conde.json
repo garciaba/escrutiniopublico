@@ -77,7 +77,7 @@
    "roles": [
     "gobierno"
    ],
-   "indice": 6.8,
+   "indice": 6.7,
    "cobertura": 0.6,
    "posicion": 392,
    "total_ranking": 392,
@@ -92,7 +92,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 10.1
+     "puntuacion": 9.6
     },
     {
      "id": "resultados",
@@ -179,7 +179,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 141,
-     "percentil": 18.1,
+     "percentil": 17.1,
      "percentil_grupo": 41.4,
      "n_grupo": 140,
      "detalle": {

@@ -57,9 +57,9 @@
    "dias_evaluados": 1147,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 44.7,
+   "indice": 46.9,
    "cobertura": 0.6,
-   "posicion": 261,
+   "posicion": 240,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -72,7 +72,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 57
+     "puntuacion": 63.6
     },
     {
      "id": "resultados",
@@ -139,8 +139,8 @@
      "valor": 3.6306,
      "numerador": 41.6433,
      "denominador": 1147,
-     "percentil": 49.1,
-     "percentil_grupo": 13.6,
+     "percentil": 48.3,
+     "percentil_grupo": 10.6,
      "n_grupo": 33,
      "detalle": {
       "firmadas": 190,
@@ -156,14 +156,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.2633,
-     "numerador": 3.0206,
+     "valor": 0.6339,
+     "numerador": 7.2706,
      "denominador": 1147,
-     "percentil": 64.9,
-     "percentil_grupo": 13.6,
+     "percentil": 79,
+     "percentil_grupo": 28.8,
      "n_grupo": 33,
      "detalle": {
-      "firmadas": 16,
+      "firmadas": 33,
       "primer_firmante": 2
      },
      "fuente": {
@@ -209,9 +209,9 @@
    "dias_evaluados": 317,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 43.8,
+   "indice": 50.6,
    "cobertura": 0.6,
-   "posicion": 226,
+   "posicion": 157,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -224,7 +224,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 38
+     "puntuacion": 58.5
     },
     {
      "id": "resultados",
@@ -308,14 +308,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.035,
-     "numerador": 0.1111,
+     "valor": 1.3757,
+     "numerador": 4.3611,
      "denominador": 317,
-     "percentil": 46,
-     "percentil_grupo": 7.8,
+     "percentil": 86.9,
+     "percentil_grupo": 42.2,
      "n_grupo": 32,
      "detalle": {
-      "firmadas": 1,
+      "firmadas": 18,
       "primer_firmante": 0
      },
      "fuente": {
@@ -596,7 +596,7 @@
     0,
     0,
     0,
-    0,
+    4.25,
     0.1111,
     0,
     0,

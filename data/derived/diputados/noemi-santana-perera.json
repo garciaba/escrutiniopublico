@@ -185,9 +185,9 @@
    "dias_evaluados": 1147,
    "grupo": "GMx",
    "roles": [],
-   "indice": 46.9,
+   "indice": 46.6,
    "cobertura": 0.6,
-   "posicion": 242,
+   "posicion": 244,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -200,7 +200,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 46.9
+     "puntuacion": 46.1
     },
     {
      "id": "resultados",
@@ -287,7 +287,7 @@
      "valor": 0.1744,
      "numerador": 2,
      "denominador": 1147,
-     "percentil": 56.1,
+     "percentil": 54.6,
      "percentil_grupo": 22.7,
      "n_grupo": 11,
      "detalle": {
@@ -337,7 +337,7 @@
    "dias_evaluados": 317,
    "grupo": "GMx",
    "roles": [],
-   "indice": 36.9,
+   "indice": 36.6,
    "cobertura": 0.6,
    "posicion": 289,
    "total_ranking": 347,
@@ -352,7 +352,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 27.7
+     "puntuacion": 26.7
     },
     {
      "id": "resultados",
@@ -439,7 +439,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 317,
-     "percentil": 21.8,
+     "percentil": 19.7,
      "percentil_grupo": 16.7,
      "n_grupo": 9,
      "detalle": {

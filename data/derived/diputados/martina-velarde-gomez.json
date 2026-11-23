@@ -121,9 +121,9 @@
    "dias_evaluados": 1147,
    "grupo": "GMx",
    "roles": [],
-   "indice": 48.2,
+   "indice": 47.8,
    "cobertura": 0.6,
-   "posicion": 227,
+   "posicion": 230,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -136,7 +136,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 60.7
+     "puntuacion": 59.2
     },
     {
      "id": "resultados",
@@ -203,7 +203,7 @@
      "valor": 6.3949,
      "numerador": 73.35,
      "denominador": 1147,
-     "percentil": 57.3,
+     "percentil": 56.5,
      "percentil_grupo": 31.8,
      "n_grupo": 11,
      "detalle": {
@@ -223,8 +223,8 @@
      "valor": 0.2616,
      "numerador": 3,
      "denominador": 1147,
-     "percentil": 64,
-     "percentil_grupo": 36.4,
+     "percentil": 62,
+     "percentil_grupo": 31.8,
      "n_grupo": 11,
      "detalle": {
       "firmadas": 3,
@@ -273,9 +273,9 @@
    "dias_evaluados": 317,
    "grupo": "GMx",
    "roles": [],
-   "indice": 66.2,
+   "indice": 65.8,
    "cobertura": 0.6,
-   "posicion": 45,
+   "posicion": 50,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -288,7 +288,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 37.9
+     "puntuacion": 36.6
     },
     {
      "id": "resultados",
@@ -355,7 +355,7 @@
      "valor": 5.5205,
      "numerador": 17.5,
      "denominador": 317,
-     "percentil": 54,
+     "percentil": 53.5,
      "percentil_grupo": 27.8,
      "n_grupo": 9,
      "detalle": {
@@ -375,7 +375,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 317,
-     "percentil": 21.8,
+     "percentil": 19.7,
      "percentil_grupo": 16.7,
      "n_grupo": 9,
      "detalle": {

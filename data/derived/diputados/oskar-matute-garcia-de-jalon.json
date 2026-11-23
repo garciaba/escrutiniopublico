@@ -249,9 +249,9 @@
    "dias_evaluados": 1147,
    "grupo": "GEH Bildu",
    "roles": [],
-   "indice": 34.3,
+   "indice": 38.8,
    "cobertura": 0.6,
-   "posicion": 365,
+   "posicion": 319,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -264,7 +264,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 24.2
+     "puntuacion": 37.5
     },
     {
      "id": "resultados",
@@ -348,15 +348,15 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0,
-     "numerador": 0,
+     "valor": 0.0872,
+     "numerador": 1,
      "denominador": 1147,
-     "percentil": 18.1,
-     "percentil_grupo": 14.3,
+     "percentil": 44.8,
+     "percentil_grupo": 28.6,
      "n_grupo": 7,
      "detalle": {
-      "firmadas": 0,
-      "primer_firmante": 0
+      "firmadas": 1,
+      "primer_firmante": 1
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -401,9 +401,9 @@
    "dias_evaluados": 317,
    "grupo": "GEH Bildu",
    "roles": [],
-   "indice": 53,
+   "indice": 59.9,
    "cobertura": 0.6,
-   "posicion": 141,
+   "posicion": 84,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -416,7 +416,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 30.7
+     "puntuacion": 51.4
     },
     {
      "id": "resultados",
@@ -483,7 +483,7 @@
      "valor": 1.5773,
      "numerador": 5,
      "denominador": 317,
-     "percentil": 39.6,
+     "percentil": 39.3,
      "percentil_grupo": 58.3,
      "n_grupo": 6,
      "detalle": {
@@ -500,15 +500,15 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0,
-     "numerador": 0,
+     "valor": 0.3155,
+     "numerador": 1,
      "denominador": 317,
-     "percentil": 21.8,
-     "percentil_grupo": 8.3,
+     "percentil": 63.4,
+     "percentil_grupo": 25,
      "n_grupo": 6,
      "detalle": {
-      "firmadas": 0,
-      "primer_firmante": 0
+      "firmadas": 1,
+      "primer_firmante": 1
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -791,7 +791,7 @@
     0,
     0,
     0,
-    0,
+    1,
     0,
     0,
     0,

@@ -1,8 +1,8 @@
 /**
  * iniciativas and firmantes tables. Bills come from the open-data files; written
- * questions (184) and information requests (186) come from the initiatives search
- * export with every signer (D-016). firmantes is an addition to the model of the
- * specification: one row per deputy who signs an initiative.
+ * questions and information requests come from the initiatives search export with
+ * every signer (D-016). firmantes is an addition to the model of the specification:
+ * one row per deputy who signs an initiative.
  */
 import { groups } from '../../../config/parties.ts';
 import { project } from '../../../config/project.ts';
@@ -39,11 +39,12 @@ export const INICIATIVA_COLUMNS = [
   'url_fuente',
 ] as const;
 
-export interface FirmanteRow extends Record<string, string | number> {
+export interface FirmanteRow extends Record<string, string | number | undefined> {
   iniciativa_id: string;
   orden: number;
   diputado_id: string;
-  grupo_id: string;
+  /** Group code written next to the name; empty when the source omits it. */
+  grupo_id: string | undefined;
   n_firmantes: number;
 }
 
@@ -68,16 +69,50 @@ export function initiativeUrl(iniciativaId: string): string {
   return url.toString();
 }
 
-const AUTHOR = /([^()]+?)\s*\(((?:[^()]|\([^()]*\))*)\)/g;
+export interface AuthorSegment {
+  /** Text before a group code, or left over after the last one. May hold several names. */
+  text: string;
+  group: string | undefined;
+}
 
-/** "A, B (GP) C, D (GV (EAJ-PNV)) y 45 Diputados" -> [{name: "A, B", group: "GP"}, …] */
-export function splitAuthors(text: string): { name: string; group: string }[] {
-  const authors: { name: string; group: string }[] = [];
-  for (const match of clean(text).matchAll(AUTHOR)) {
-    const name = (match[1] ?? '').trim();
-    if (/^[^,]+, [^,]+$/.test(name)) authors.push({ name, group: (match[2] ?? '').trim() });
+const GROUP_CODE = /\s*\(((?:[^()]|\([^()]*\))*)\)\s*/g;
+
+/**
+ * Cuts the author field at each group code:
+ * "A, B (GP) C, D E, F (GV (EAJ-PNV)) y 45 Diputados" ->
+ * [{A, B | GP}, {C, D E, F | GV (EAJ-PNV)}, {y 45 Diputados | -}].
+ * A segment can hold two names when the source omits the code of the first one.
+ */
+export function splitAuthors(text: string): AuthorSegment[] {
+  const value = clean(text);
+  const segments: AuthorSegment[] = [];
+  let position = 0;
+  for (const match of value.matchAll(GROUP_CODE)) {
+    const name = value.slice(position, match.index).trim();
+    position = match.index + match[0].length;
+    if (name) segments.push({ text: name, group: (match[1] ?? '').trim() });
   }
-  return authors;
+  const rest = value.slice(position).trim();
+  if (rest) segments.push({ text: rest, group: undefined });
+  return segments;
+}
+
+/**
+ * Census names written in a segment. One name resolves directly; several names
+ * glued together ("A, B C, D") are split at the space where both sides resolve.
+ * Returns undefined when the text is not made of census names only.
+ */
+export function namesInSegment(text: string, resolve: (name: string) => string | undefined): string[] | undefined {
+  const whole = resolve(text);
+  if (whole) return [whole];
+  const words = text.split(' ');
+  for (let cut = 2; cut <= words.length - 2; cut++) {
+    const first = resolve(words.slice(0, cut).join(' '));
+    if (!first) continue;
+    const others = namesInSegment(words.slice(cut).join(' '), resolve);
+    if (others) return [first, ...others];
+  }
+  return undefined;
 }
 
 /** "Caducado \n04/11/2026" -> { resultado: "Caducado", fecha: "2026-11-04" } */
@@ -88,35 +123,53 @@ function splitResult(text: string | undefined): { resultado: string | undefined;
   return { resultado: match[1] || undefined, fecha: isoDate(match[2]) };
 }
 
+export interface IniciativasResult {
+  iniciativas: IniciativaRow[];
+  firmantes: FirmanteRow[];
+  /** Author texts without a Congreso group code that match no deputy (senators, groups…). */
+  autoresNoDiputados: Map<string, number>;
+}
+
 export function buildIniciativas(
   bills: readonly BillRow[],
   searchRows: ReadonlyMap<string, readonly SearchInitiativeRow[]>,
   resolve: (name: string) => string | undefined,
   idOf: (censusName: string) => string,
-): { iniciativas: IniciativaRow[]; firmantes: FirmanteRow[] } {
+): IniciativasResult {
   const congressGroups = new Set(groups.map((group) => group.code));
   const iniciativas: IniciativaRow[] = [];
   const firmantes: FirmanteRow[] = [];
+  const autoresNoDiputados = new Map<string, number>();
   const problems: string[] = [];
 
   const addSigners = (iniciativaId: string, text: string): number => {
-    const signers: { censusName: string; group: string }[] = [];
-    for (const author of splitAuthors(text)) {
-      const censusName = resolve(author.name);
-      if (censusName) signers.push({ censusName, group: author.group });
-      else if (congressGroups.has(author.group))
-        problems.push(`${iniciativaId}: signer not in the census: ${author.name}`);
+    const signers: { censusName: string; group: string | undefined }[] = [];
+    for (const segment of splitAuthors(text)) {
+      const names = namesInSegment(segment.text, resolve);
+      if (names) {
+        // When two names share a code, it is written after the last one only.
+        names.forEach((censusName, i) =>
+          signers.push({ censusName, group: i === names.length - 1 ? segment.group : undefined }),
+        );
+      } else if (segment.group !== undefined && congressGroups.has(segment.group)) {
+        // A Congreso group code next to a name that is not in the census: never dropped in silence.
+        problems.push(`${iniciativaId}: signer not in the census: ${segment.text}`);
+      } else {
+        const key = segment.group ? `${segment.text} (${segment.group})` : segment.text;
+        autoresNoDiputados.set(key, (autoresNoDiputados.get(key) ?? 0) + 1);
+      }
     }
-    signers.forEach((signer, index) =>
+    const unique = [...new Map(signers.map((signer) => [signer.censusName, signer])).values()];
+    unique.forEach((signer, index) =>
       firmantes.push({
         iniciativa_id: iniciativaId,
         orden: index + 1,
         diputado_id: idOf(signer.censusName),
-        grupo_id: signer.group,
-        n_firmantes: signers.length,
+        grupo_id: signer.group || undefined,
+        n_firmantes: unique.length,
       }),
     );
-    return signers.length;
+    return unique.length;
   };
 
   for (const bill of bills) {
@@ -162,5 +215,5 @@ export function buildIniciativas(
   if (problems.length > 0) {
     throw new Error(`Initiative checks failed (${problems.length}): ${problems.slice(0, 10).join(' | ')}`);
   }
-  return { iniciativas, firmantes };
+  return { iniciativas, firmantes, autoresNoDiputados };
 }

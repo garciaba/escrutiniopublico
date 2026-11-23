@@ -58,7 +58,7 @@ export const scoring = {
       id: 'iniciativa',
       nombre: 'Iniciativa parlamentaria',
       peso: 20,
-      descripcion: 'Preguntas al Gobierno con respuesta escrita y solicitudes de informe firmadas.',
+      descripcion: 'Preguntas con respuesta escrita y solicitudes de informe firmadas.',
     },
     {
       id: 'resultados',
@@ -125,22 +125,22 @@ export const scoring = {
       dimension: 'iniciativa',
       nombre: 'Preguntas con respuesta escrita',
       calculo:
-        'Preguntas al Gobierno con respuesta escrita por cada 100 días en activo. Una pregunta con n firmantes suma 1/n a cada uno.',
+        'Preguntas con respuesta escrita al Gobierno y a la Corporación RTVE por cada 100 días en activo. Una pregunta con n firmantes suma 1/n a cada uno.',
       unidad: 'por_100_dias',
       estado: 'calculado',
       fuente: 'iniciativas',
-      tipoIniciativa: '184',
+      tiposIniciativa: ['184', '179'],
     },
     {
       id: 'solicitudes_informe',
       dimension: 'iniciativa',
       nombre: 'Solicitudes de informe',
       calculo:
-        'Solicitudes de informe a las Administraciones por cada 100 días en activo. Una solicitud con n firmantes suma 1/n a cada uno.',
+        'Solicitudes de informe (art. 7 del Reglamento) a la Administración del Estado, comunidades autónomas, entidades locales y otras entidades públicas, por cada 100 días en activo. Una solicitud con n firmantes suma 1/n a cada uno.',
       unidad: 'por_100_dias',
       estado: 'calculado',
       fuente: 'iniciativas',
-      tipoIniciativa: '186',
+      tiposIniciativa: ['186', '187', '188', '189'],
     },
     {
       id: 'iniciativas_legislativas',

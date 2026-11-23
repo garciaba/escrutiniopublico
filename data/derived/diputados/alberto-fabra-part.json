@@ -105,9 +105,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 40.8,
+   "indice": 40.4,
    "cobertura": 0.6,
-   "posicion": 301,
+   "posicion": 305,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -120,7 +120,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 66.1
+     "puntuacion": 64.8
     },
     {
      "id": "resultados",
@@ -184,14 +184,14 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 9.7499,
-     "numerador": 111.8318,
+     "valor": 9.7566,
+     "numerador": 111.9087,
      "denominador": 1147,
-     "percentil": 64.9,
-     "percentil_grupo": 35.7,
+     "percentil": 64.4,
+     "percentil_grupo": 34.3,
      "n_grupo": 150,
      "detalle": {
-      "firmadas": 921,
+      "firmadas": 922,
       "primer_firmante": 62
      },
      "fuente": {
@@ -207,7 +207,7 @@
      "valor": 0.3036,
      "numerador": 3.4821,
      "denominador": 1147,
-     "percentil": 67.2,
+     "percentil": 65.2,
      "percentil_grupo": 49.7,
      "n_grupo": 150,
      "detalle": {
@@ -257,9 +257,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 33.2,
+   "indice": 32.6,
    "cobertura": 0.6,
-   "posicion": 309,
+   "posicion": 312,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -272,7 +272,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 69.3
+     "puntuacion": 67.6
     },
     {
      "id": "resultados",
@@ -339,8 +339,8 @@
      "valor": 9.0012,
      "numerador": 28.5338,
      "denominador": 317,
-     "percentil": 63.3,
-     "percentil_grupo": 41.7,
+     "percentil": 62.4,
+     "percentil_grupo": 40.2,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 179,
@@ -359,8 +359,8 @@
      "valor": 0.4596,
      "numerador": 1.457,
      "denominador": 317,
-     "percentil": 75.4,
-     "percentil_grupo": 67,
+     "percentil": 72.8,
+     "percentil_grupo": 65.6,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 8,
@@ -596,7 +596,7 @@
     1.9298,
     2.678,
     0.9212,
-    8.1479,
+    8.2248,
     0.951,
     1.115,
     7.1803,

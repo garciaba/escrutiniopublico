@@ -129,9 +129,9 @@
    "dias_evaluados": 1147,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 58.7,
+   "indice": 58.6,
    "cobertura": 0.6,
-   "posicion": 91,
+   "posicion": 92,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -144,7 +144,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 52.1
+     "puntuacion": 51.8
     },
     {
      "id": "resultados",
@@ -208,15 +208,15 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 3.3675,
-     "numerador": 38.625,
+     "valor": 3.4547,
+     "numerador": 39.625,
      "denominador": 1147,
-     "percentil": 48.1,
+     "percentil": 47.6,
      "percentil_grupo": 46.6,
      "n_grupo": 29,
      "detalle": {
-      "firmadas": 49,
-      "primer_firmante": 38
+      "firmadas": 50,
+      "primer_firmante": 39
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -228,14 +228,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.1744,
-     "numerador": 2,
+     "valor": 0.1962,
+     "numerador": 2.25,
      "denominador": 1147,
-     "percentil": 56.1,
-     "percentil_grupo": 51.7,
+     "percentil": 56,
+     "percentil_grupo": 43.1,
      "n_grupo": 29,
      "detalle": {
-      "firmadas": 2,
+      "firmadas": 3,
       "primer_firmante": 2
      },
      "fuente": {
@@ -281,9 +281,9 @@
    "dias_evaluados": 317,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 73.2,
+   "indice": 73,
    "cobertura": 0.6,
-   "posicion": 16,
+   "posicion": 18,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -296,7 +296,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 64.4
+     "puntuacion": 63.8
     },
     {
      "id": "resultados",
@@ -360,15 +360,15 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 4.0352,
-     "numerador": 12.7917,
+     "valor": 4.3507,
+     "numerador": 13.7917,
      "denominador": 317,
-     "percentil": 49.4,
-     "percentil_grupo": 42,
+     "percentil": 49.1,
+     "percentil_grupo": 46,
      "n_grupo": 25,
      "detalle": {
-      "firmadas": 20,
-      "primer_firmante": 14
+      "firmadas": 21,
+      "primer_firmante": 15
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -380,14 +380,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.6309,
-     "numerador": 2,
+     "valor": 0.7098,
+     "numerador": 2.25,
      "denominador": 317,
-     "percentil": 79.4,
-     "percentil_grupo": 86,
+     "percentil": 78.5,
+     "percentil_grupo": 70,
      "n_grupo": 25,
      "detalle": {
-      "firmadas": 2,
+      "firmadas": 3,
       "primer_firmante": 2
      },
      "fuente": {
@@ -628,7 +628,7 @@
     1.3333,
     3,
     0.5,
-    1,
+    2,
     2,
     0.3333,
     0.25,
@@ -674,7 +674,7 @@
     0,
     1,
     0,
-    1,
+    1.25,
     0,
     0,
     0

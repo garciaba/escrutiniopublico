@@ -81,9 +81,9 @@
    "dias_evaluados": 320,
    "grupo": "GP",
    "roles": [],
-   "indice": 45.4,
+   "indice": 44.9,
    "cobertura": 0.6,
-   "posicion": 257,
+   "posicion": 260,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -96,7 +96,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 92.6
+     "puntuacion": 90.9
     },
     {
      "id": "resultados",
@@ -163,8 +163,8 @@
      "valor": 29.2914,
      "numerador": 93.7326,
      "denominador": 320,
-     "percentil": 92,
-     "percentil_grupo": 87,
+     "percentil": 89.9,
+     "percentil_grupo": 81.7,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 442,
@@ -183,7 +183,7 @@
      "valor": 1.7361,
      "numerador": 5.5556,
      "denominador": 320,
-     "percentil": 93.2,
+     "percentil": 92,
      "percentil_grupo": 93.7,
      "n_grupo": 150,
      "detalle": {

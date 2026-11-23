@@ -129,9 +129,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 57.5,
+   "indice": 57.1,
    "cobertura": 0.6,
-   "posicion": 106,
+   "posicion": 110,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -144,7 +144,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 78.2
+     "puntuacion": 77
     },
     {
      "id": "resultados",
@@ -208,11 +208,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 13.6278,
-     "numerador": 156.3103,
+     "valor": 13.628,
+     "numerador": 156.313,
      "denominador": 1147,
-     "percentil": 74.6,
-     "percentil_grupo": 57,
+     "percentil": 73.9,
+     "percentil_grupo": 55,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 1137,
@@ -231,8 +231,8 @@
      "valor": 0.6636,
      "numerador": 7.6113,
      "denominador": 1147,
-     "percentil": 81.8,
-     "percentil_grupo": 77.7,
+     "percentil": 80.2,
+     "percentil_grupo": 77,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 18,
@@ -281,9 +281,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 53.6,
+   "indice": 53,
    "cobertura": 0.6,
-   "posicion": 137,
+   "posicion": 140,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -296,7 +296,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 81.7
+     "puntuacion": 80
     },
     {
      "id": "resultados",
@@ -363,8 +363,8 @@
      "valor": 21.7961,
      "numerador": 69.0936,
      "denominador": 317,
-     "percentil": 85.2,
-     "percentil_grupo": 77.2,
+     "percentil": 84.3,
+     "percentil_grupo": 75,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 509,
@@ -383,8 +383,8 @@
      "valor": 0.6069,
      "numerador": 1.9238,
      "denominador": 317,
-     "percentil": 78.2,
-     "percentil_grupo": 72.8,
+     "percentil": 75.6,
+     "percentil_grupo": 70.7,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 9,
@@ -618,7 +618,7 @@
     1.15,
     2.395,
     1.8205,
-    3.0343,
+    3.037,
     4.169,
     3.0386,
     7.251,

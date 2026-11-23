@@ -121,9 +121,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 43.4,
+   "indice": 43.2,
    "cobertura": 0.6,
-   "posicion": 276,
+   "posicion": 279,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -136,7 +136,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 43.8
+     "puntuacion": 43
     },
     {
      "id": "resultados",
@@ -200,14 +200,14 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 3.6229,
-     "numerador": 41.5549,
+     "valor": 3.6883,
+     "numerador": 42.3049,
      "denominador": 1147,
-     "percentil": 48.9,
-     "percentil_grupo": 12.3,
+     "percentil": 48.6,
+     "percentil_grupo": 11.7,
      "n_grupo": 150,
      "detalle": {
-      "firmadas": 433,
+      "firmadas": 436,
       "primer_firmante": 8
      },
      "fuente": {
@@ -223,7 +223,7 @@
      "valor": 0.0382,
      "numerador": 0.4383,
      "denominador": 1147,
-     "percentil": 38.6,
+     "percentil": 37.4,
      "percentil_grupo": 5.7,
      "n_grupo": 150,
      "detalle": {
@@ -273,9 +273,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 50.8,
+   "indice": 50.4,
    "cobertura": 0.6,
-   "posicion": 155,
+   "posicion": 159,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -288,7 +288,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 33
+     "puntuacion": 31.8
     },
     {
      "id": "resultados",
@@ -355,8 +355,8 @@
      "valor": 2.7558,
      "numerador": 8.7359,
      "denominador": 317,
-     "percentil": 44.2,
-     "percentil_grupo": 9.8,
+     "percentil": 43.9,
+     "percentil_grupo": 9.1,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 80,
@@ -375,7 +375,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 317,
-     "percentil": 21.8,
+     "percentil": 19.7,
      "percentil_grupo": 5.1,
      "n_grupo": 138,
      "detalle": {
@@ -593,7 +593,7 @@
     0,
     0.1667,
     1.3333,
-    1.8333,
+    2.5833,
     2.2826,
     2.5301,
     1.6247,

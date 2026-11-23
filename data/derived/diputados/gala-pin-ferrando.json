@@ -169,9 +169,9 @@
    "dias_evaluados": 544,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 54,
+   "indice": 53.8,
    "cobertura": 0.6,
-   "posicion": 143,
+   "posicion": 145,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -184,7 +184,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 69.3
+     "puntuacion": 68.8
     },
     {
      "id": "resultados",
@@ -251,8 +251,8 @@
      "valor": 1.8982,
      "numerador": 10.3262,
      "denominador": 544,
-     "percentil": 40.2,
-     "percentil_grupo": 25.9,
+     "percentil": 39.9,
+     "percentil_grupo": 22.4,
      "n_grupo": 29,
      "detalle": {
       "firmadas": 29,
@@ -271,7 +271,7 @@
      "valor": 4.2279,
      "numerador": 23,
      "denominador": 544,
-     "percentil": 98.3,
+     "percentil": 97.6,
      "percentil_grupo": 98.3,
      "n_grupo": 29,
      "detalle": {

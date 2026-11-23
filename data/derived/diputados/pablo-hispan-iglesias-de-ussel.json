@@ -105,9 +105,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 36.1,
+   "indice": 35.8,
    "cobertura": 0.6,
-   "posicion": 347,
+   "posicion": 348,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -120,7 +120,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 69
+     "puntuacion": 67.9
     },
     {
      "id": "resultados",
@@ -184,14 +184,14 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 22.4677,
-     "numerador": 257.7043,
+     "valor": 22.4957,
+     "numerador": 258.0257,
      "denominador": 1147,
-     "percentil": 87.1,
-     "percentil_grupo": 80.3,
+     "percentil": 85.8,
+     "percentil_grupo": 77,
      "n_grupo": 150,
      "detalle": {
-      "firmadas": 869,
+      "firmadas": 870,
       "primer_firmante": 245
      },
      "fuente": {
@@ -207,8 +207,8 @@
      "valor": 0.1277,
      "numerador": 1.4648,
      "denominador": 1147,
-     "percentil": 50.9,
-     "percentil_grupo": 24.3,
+     "percentil": 49.9,
+     "percentil_grupo": 23.7,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 9,
@@ -257,9 +257,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 32.1,
+   "indice": 31.5,
    "cobertura": 0.6,
-   "posicion": 314,
+   "posicion": 317,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -272,7 +272,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 76.7
+     "puntuacion": 74.6
     },
     {
      "id": "resultados",
@@ -336,11 +336,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 19.4596,
-     "numerador": 61.6868,
+     "valor": 19.4558,
+     "numerador": 61.6749,
      "denominador": 317,
-     "percentil": 81.7,
-     "percentil_grupo": 71.4,
+     "percentil": 80.5,
+     "percentil_grupo": 68.5,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 259,
@@ -359,8 +359,8 @@
      "valor": 0.3815,
      "numerador": 1.2095,
      "denominador": 317,
-     "percentil": 71.6,
-     "percentil_grupo": 59.8,
+     "percentil": 68.7,
+     "percentil_grupo": 59.1,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 6,
@@ -576,7 +576,7 @@
    "preguntas_escritas": [
     0,
     0.6667,
-    44.6964,
+    45.0298,
     28,
     5.3409,
     2.9755,
@@ -611,7 +611,7 @@
     7.6548,
     2.4768,
     0,
-    1.9142,
+    1.9023,
     0.1538
    ],
    "solicitudes_informe": [

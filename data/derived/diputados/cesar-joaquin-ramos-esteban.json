@@ -81,7 +81,7 @@
    "dias_evaluados": 1147,
    "grupo": "GS",
    "roles": [],
-   "indice": 62.2,
+   "indice": 62,
    "cobertura": 0.6,
    "posicion": 63,
    "total_ranking": 392,
@@ -96,7 +96,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 51.3
+     "puntuacion": 50.6
     },
     {
      "id": "resultados",
@@ -163,7 +163,7 @@
      "valor": 4.2281,
      "numerador": 48.4964,
      "denominador": 1147,
-     "percentil": 50.4,
+     "percentil": 49.9,
      "percentil_grupo": 97.5,
      "n_grupo": 140,
      "detalle": {
@@ -183,7 +183,7 @@
      "valor": 0.1453,
      "numerador": 1.6667,
      "denominador": 1147,
-     "percentil": 52.3,
+     "percentil": 51.3,
      "percentil_grupo": 94.3,
      "n_grupo": 140,
      "detalle": {
@@ -233,9 +233,9 @@
    "dias_evaluados": 317,
    "grupo": "GS",
    "roles": [],
-   "indice": 55.4,
+   "indice": 54.8,
    "cobertura": 0.6,
-   "posicion": 121,
+   "posicion": 124,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -248,7 +248,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 57.1
+     "puntuacion": 55.4
     },
     {
      "id": "resultados",
@@ -315,7 +315,7 @@
      "valor": 3.5311,
      "numerador": 11.1936,
      "denominador": 317,
-     "percentil": 48,
+     "percentil": 47.4,
      "percentil_grupo": 97.9,
      "n_grupo": 118,
      "detalle": {
@@ -335,7 +335,7 @@
      "valor": 0.3155,
      "numerador": 1,
      "denominador": 317,
-     "percentil": 66.1,
+     "percentil": 63.4,
      "percentil_grupo": 98.7,
      "n_grupo": 118,
      "detalle": {

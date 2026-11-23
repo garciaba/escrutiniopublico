@@ -83,7 +83,7 @@ export interface ScoringInput {
     dimension: string;
     estado: MetricEstado;
     motivo?: string;
-    tipoIniciativa?: string;
+    tiposIniciativa?: readonly string[];
   }[];
   organosPorMetrica: Readonly<Record<string, readonly string[]>>;
 }
@@ -266,8 +266,9 @@ function rawMetric(metric: ScoringInput['metricas'][number], scoring: ScoringInp
     const count = e.speeches.filter((s) => organTypes.includes(s.tipoOrgano) && e.accept(s.fecha)).length;
     return { valor: per100(count), numerador: count, denominador: e.baseDays };
   }
-  if (metric.tipoIniciativa) {
-    const signed = e.credits.filter((c) => c.tipo === metric.tipoIniciativa && e.accept(c.fecha));
+  const types = metric.tiposIniciativa;
+  if (types) {
+    const signed = e.credits.filter((c) => types.includes(c.tipo) && e.accept(c.fecha));
     const credit = round(
       signed.reduce((sum, c) => sum + 1 / c.n, 0),
       4,
@@ -298,7 +299,8 @@ function chamberActivity(
   if (metric.id === 'votaciones_participacion') return some(index.votes, () => true);
   const organTypes = scoring.organosPorMetrica[metric.id];
   if (organTypes) return some(index.speeches, (speech) => organTypes.includes(speech.tipoOrgano));
-  if (metric.tipoIniciativa) return some(index.credits, (credit) => credit.tipo === metric.tipoIniciativa);
+  const types = metric.tiposIniciativa;
+  if (types) return some(index.credits, (credit) => types.includes(credit.tipo));
   return false;
 }
 

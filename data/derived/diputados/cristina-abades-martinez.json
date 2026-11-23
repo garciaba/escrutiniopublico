@@ -105,9 +105,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 53.4,
+   "indice": 53,
    "cobertura": 0.6,
-   "posicion": 152,
+   "posicion": 160,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -120,7 +120,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 70.2
+     "puntuacion": 68.9
     },
     {
      "id": "resultados",
@@ -184,14 +184,14 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 7.8045,
-     "numerador": 89.5174,
+     "valor": 7.8202,
+     "numerador": 89.6981,
      "denominador": 1147,
-     "percentil": 60.1,
-     "percentil_grupo": 27.7,
+     "percentil": 59.1,
+     "percentil_grupo": 26.3,
      "n_grupo": 150,
      "detalle": {
-      "firmadas": 733,
+      "firmadas": 738,
       "primer_firmante": 73
      },
      "fuente": {
@@ -207,8 +207,8 @@
      "valor": 0.6195,
      "numerador": 7.1057,
      "denominador": 1147,
-     "percentil": 80.2,
-     "percentil_grupo": 75.7,
+     "percentil": 78.7,
+     "percentil_grupo": 75,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 29,
@@ -257,9 +257,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 53.6,
+   "indice": 53,
    "cobertura": 0.6,
-   "posicion": 137,
+   "posicion": 140,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -272,7 +272,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 69.5
+     "puntuacion": 67.7
     },
     {
      "id": "resultados",
@@ -336,14 +336,14 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 8.8016,
-     "numerador": 27.9011,
+     "valor": 8.8586,
+     "numerador": 28.0818,
      "denominador": 317,
-     "percentil": 62.7,
-     "percentil_grupo": 40.2,
+     "percentil": 61.8,
+     "percentil_grupo": 38.8,
      "n_grupo": 138,
      "detalle": {
-      "firmadas": 196,
+      "firmadas": 201,
       "primer_firmante": 39
      },
      "fuente": {
@@ -359,8 +359,8 @@
      "valor": 0.4882,
      "numerador": 1.5476,
      "denominador": 317,
-     "percentil": 76.2,
-     "percentil_grupo": 67.8,
+     "percentil": 73.6,
+     "percentil_grupo": 66.3,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 7,
@@ -609,7 +609,7 @@
     1.4054,
     0.5736,
     1.2525,
-    3.1319,
+    3.3126,
     4.6667,
     6.5,
     0.2095

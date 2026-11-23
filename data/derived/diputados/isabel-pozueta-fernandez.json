@@ -161,9 +161,9 @@
    "dias_evaluados": 1147,
    "grupo": "GEH Bildu",
    "roles": [],
-   "indice": 40.7,
+   "indice": 41.2,
    "cobertura": 0.6,
-   "posicion": 302,
+   "posicion": 301,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -176,7 +176,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 51.1
+     "puntuacion": 52.4
     },
     {
      "id": "resultados",
@@ -260,15 +260,15 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.2616,
-     "numerador": 3,
+     "valor": 0.3487,
+     "numerador": 4,
      "denominador": 1147,
-     "percentil": 64,
-     "percentil_grupo": 57.1,
+     "percentil": 66.6,
+     "percentil_grupo": 64.3,
      "n_grupo": 7,
      "detalle": {
-      "firmadas": 3,
-      "primer_firmante": 3
+      "firmadas": 4,
+      "primer_firmante": 4
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -313,9 +313,9 @@
    "dias_evaluados": 317,
    "grupo": "GEH Bildu",
    "roles": [],
-   "indice": 41.5,
+   "indice": 43.3,
    "cobertura": 0.6,
-   "posicion": 248,
+   "posicion": 233,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -328,7 +328,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 49.3
+     "puntuacion": 54.6
     },
     {
      "id": "resultados",
@@ -412,15 +412,15 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.3155,
-     "numerador": 1,
+     "valor": 0.6309,
+     "numerador": 2,
      "denominador": 317,
-     "percentil": 66.1,
-     "percentil_grupo": 41.7,
+     "percentil": 76.8,
+     "percentil_grupo": 58.3,
      "n_grupo": 6,
      "detalle": {
-      "firmadas": 1,
-      "primer_firmante": 1
+      "firmadas": 2,
+      "primer_firmante": 2
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -701,7 +701,7 @@
     0,
     0,
     0,
-    1,
+    2,
     0,
     0,
     0,

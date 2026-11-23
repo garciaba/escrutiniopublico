@@ -161,9 +161,9 @@
    "dias_evaluados": 548,
    "grupo": "GEH Bildu",
    "roles": [],
-   "indice": 43.7,
+   "indice": 43.6,
    "cobertura": 0.6,
-   "posicion": 272,
+   "posicion": 273,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -176,7 +176,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 23
+     "puntuacion": 22.5
     },
     {
      "id": "resultados",
@@ -263,8 +263,8 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 548,
-     "percentil": 18.1,
-     "percentil_grupo": 14.3,
+     "percentil": 17.1,
+     "percentil_grupo": 7.1,
      "n_grupo": 7,
      "detalle": {
       "firmadas": 0,

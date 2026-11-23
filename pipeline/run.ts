@@ -2,11 +2,13 @@
  * Pipeline orchestrator (specification, section 6): ingest -> normalize -> metrics.
  * The pre-publication checks arrive with a later milestone.
  *
- * Usage: pnpm pipeline [--offline] [--stage ingest|normalize|metrics] [--date yyyy-mm-dd]
+ * Usage: pnpm pipeline [--offline] [--reuse-daily] [--stage ingest|normalize|metrics] [--date yyyy-mm-dd]
  *   --offline  skips the downloads. Normalization runs only if the daily dumps are
  *              present (they are not versioned); the metrics always run, from the
  *              versioned tables of data/normalized/.
  *   --date     calculation date of the metrics (default: today, UTC).
+ *   --reuse-daily  reuses the daily dumps already on disk and downloads only the missing
+ *              ones (to resume an interrupted run).
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
@@ -22,6 +24,7 @@ const { values: args } = parseArgs({
     offline: { type: 'boolean', default: false },
     stage: { type: 'string' },
     date: { type: 'string' },
+    'reuse-daily': { type: 'boolean', default: false },
   },
 });
 
@@ -48,7 +51,7 @@ const stages = args.stage ? [args.stage] : ['ingest', 'normalize', 'metrics'];
 for (const stage of stages) {
   if (stage === 'ingest') {
     if (args.offline) log('ingest: skipped (--offline)');
-    else await runIngest(today, log);
+    else await runIngest(today, log, { reuseDaily: args['reuse-daily'] });
   } else if (stage === 'normalize') {
     if (args.offline && !existsSync(DAILY_DIR)) {
       log('normalize: skipped (--offline and no daily dumps); using the versioned tables');

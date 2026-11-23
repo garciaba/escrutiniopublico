@@ -13,11 +13,16 @@ import { ingestVotaciones } from './families/votaciones.ts';
 import { PoliteClient } from './http.ts';
 import { loadManifest, saveManifest } from './raw-store.ts';
 
-export async function runIngest(today: string, log: (message: string) => void): Promise<void> {
+export async function runIngest(
+  today: string,
+  log: (message: string) => void,
+  options: { reuseDaily?: boolean } = {},
+): Promise<void> {
   const ctx: IngestContext = {
     client: new PoliteClient(project.http),
     manifest: await loadManifest(),
     today,
+    reuseDaily: options.reuseDaily ?? false,
     log,
   };
   const index: Record<string, string> = {};

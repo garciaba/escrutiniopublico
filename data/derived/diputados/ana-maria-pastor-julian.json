@@ -89,9 +89,9 @@
    "dias_evaluados": 289,
    "grupo": "GP",
    "roles": [],
-   "indice": 39.5,
+   "indice": 39.2,
    "cobertura": 0.6,
-   "posicion": 313,
+   "posicion": 316,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -104,7 +104,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 85.1
+     "puntuacion": 84.2
     },
     {
      "id": "resultados",
@@ -191,7 +191,7 @@
      "valor": 0.4121,
      "numerador": 1.1911,
      "denominador": 289,
-     "percentil": 72.1,
+     "percentil": 70.3,
      "percentil_grupo": 58.3,
      "n_grupo": 150,
      "detalle": {

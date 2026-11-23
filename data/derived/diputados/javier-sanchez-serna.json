@@ -161,7 +161,7 @@
    "dias_evaluados": 1147,
    "grupo": "GMx",
    "roles": [],
-   "indice": 52,
+   "indice": 52.3,
    "cobertura": 0.6,
    "posicion": 170,
    "total_ranking": 392,
@@ -176,7 +176,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 58.9
+     "puntuacion": 59.8
     },
     {
      "id": "resultados",
@@ -243,7 +243,7 @@
      "valor": 5.109,
      "numerador": 58.6,
      "denominador": 1147,
-     "percentil": 53.7,
+     "percentil": 52.9,
      "percentil_grupo": 22.7,
      "n_grupo": 11,
      "detalle": {
@@ -260,15 +260,15 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.2616,
-     "numerador": 3,
+     "valor": 0.3487,
+     "numerador": 4,
      "denominador": 1147,
-     "percentil": 64,
-     "percentil_grupo": 36.4,
+     "percentil": 66.6,
+     "percentil_grupo": 40.9,
      "n_grupo": 11,
      "detalle": {
-      "firmadas": 3,
-      "primer_firmante": 3
+      "firmadas": 4,
+      "primer_firmante": 4
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -313,9 +313,9 @@
    "dias_evaluados": 317,
    "grupo": "GMx",
    "roles": [],
-   "indice": 43.2,
+   "indice": 42.8,
    "cobertura": 0.6,
-   "posicion": 234,
+   "posicion": 240,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -328,7 +328,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 30
+     "puntuacion": 28.8
     },
     {
      "id": "resultados",
@@ -395,7 +395,7 @@
      "valor": 1.2618,
      "numerador": 4,
      "denominador": 317,
-     "percentil": 38.2,
+     "percentil": 37.9,
      "percentil_grupo": 16.7,
      "n_grupo": 9,
      "detalle": {
@@ -415,7 +415,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 317,
-     "percentil": 21.8,
+     "percentil": 19.7,
      "percentil_grupo": 16.7,
      "n_grupo": 9,
      "detalle": {
@@ -673,7 +673,7 @@
    "solicitudes_informe": [
     0,
     0,
-    0,
+    1,
     0,
     0,
     0,

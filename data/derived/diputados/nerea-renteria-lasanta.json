@@ -129,9 +129,9 @@
    "dias_evaluados": 547,
    "grupo": "GV (EAJ-PNV)",
    "roles": [],
-   "indice": 54.8,
+   "indice": 54.4,
    "cobertura": 0.6,
-   "posicion": 135,
+   "posicion": 138,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -144,7 +144,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 53.4
+     "puntuacion": 52.3
     },
     {
      "id": "resultados",
@@ -231,7 +231,7 @@
      "valor": 0.3656,
      "numerador": 2,
      "denominador": 547,
-     "percentil": 70.3,
+     "percentil": 68,
      "percentil_grupo": 91.7,
      "n_grupo": 6,
      "detalle": {
@@ -281,9 +281,9 @@
    "dias_evaluados": 317,
    "grupo": "GV (EAJ-PNV)",
    "roles": [],
-   "indice": 52.1,
+   "indice": 51.7,
    "cobertura": 0.6,
-   "posicion": 149,
+   "posicion": 152,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -296,7 +296,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 59.5
+     "puntuacion": 58.1
     },
     {
      "id": "resultados",
@@ -363,7 +363,7 @@
      "valor": 1.5773,
      "numerador": 5,
      "denominador": 317,
-     "percentil": 39.6,
+     "percentil": 39.3,
      "percentil_grupo": 80,
      "n_grupo": 5,
      "detalle": {
@@ -383,7 +383,7 @@
      "valor": 0.6309,
      "numerador": 2,
      "denominador": 317,
-     "percentil": 79.4,
+     "percentil": 76.8,
      "percentil_grupo": 90,
      "n_grupo": 5,
      "detalle": {

@@ -242,10 +242,11 @@ function evolution(diputado: DiputadoFull, input: DeriveInput) {
         if (organTypes.includes(speech.tipoOrgano)) add(counts, speech.fecha, 1);
       }
       series[metric.id] = counts;
-    } else if (metric.tipoIniciativa) {
+    } else if (metric.tiposIniciativa) {
+      const types = metric.tiposIniciativa;
       const credit = zeros();
       for (const event of index.credits.get(diputado.diputado_id) ?? []) {
-        if (event.tipo === metric.tipoIniciativa) add(credit, event.fecha, 1 / event.n);
+        if (types.includes(event.tipo)) add(credit, event.fecha, 1 / event.n);
       }
       series[metric.id] = credit.map((value) => round(value, 4));
     }

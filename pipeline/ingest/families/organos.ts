@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { project } from '../../../config/project.ts';
 import { decodeText } from '../../discover/profile.ts';
 import { organListFile, organMembersFile, parseOrThrow, type OrganMemberRow } from '../../normalize/schemas.ts';
-import { withQuery, type IngestContext } from '../context.ts';
+import { reusable, withQuery, type IngestContext } from '../context.ts';
 import { DAILY_DIR, recordDownload, writeAtomic } from '../raw-store.ts';
 
 export interface OrganComposition {
@@ -48,6 +48,8 @@ async function listTargets(ctx: IngestContext): Promise<Target[]> {
 }
 
 export async function ingestOrganos(ctx: IngestContext): Promise<void> {
+  const target = join(DAILY_DIR, 'organos', 'composicion.json');
+  if (reusable(ctx, target)) return;
   const { organos, legislatura, baseUrl } = project;
   const compositions: OrganComposition[] = [];
   for (const target of await listTargets(ctx)) {
@@ -68,7 +70,7 @@ export async function ingestOrganos(ctx: IngestContext): Promise<void> {
   }
   compositions.sort((a, b) => a.organoSup - b.organoSup || a.suborgano.localeCompare(b.suborgano));
   const bytes = new TextEncoder().encode(`${JSON.stringify(compositions, null, 1)}\n`);
-  await writeAtomic(join(DAILY_DIR, 'organos', 'composicion.json'), bytes);
+  await writeAtomic(target, bytes);
   recordDownload(ctx.manifest, 'organos/composicion', `${baseUrl}/es/opendata/organos`, bytes, ctx.today);
   ctx.log(
     `organos: ${compositions.length} bodies, ${compositions.reduce((n, c) => n + c.miembros.length, 0)} memberships`,

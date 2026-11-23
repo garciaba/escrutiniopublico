@@ -73,7 +73,7 @@
    "dias_evaluados": 750,
    "grupo": "GP",
    "roles": [],
-   "indice": 39.7,
+   "indice": 39.4,
    "cobertura": 0.6,
    "posicion": 312,
    "total_ranking": 392,
@@ -88,7 +88,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 55.1
+     "puntuacion": 54.1
     },
     {
      "id": "resultados",
@@ -152,11 +152,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 6.1142,
-     "numerador": 45.8568,
+     "valor": 6.1065,
+     "numerador": 45.7984,
      "denominador": 750,
-     "percentil": 56,
-     "percentil_grupo": 20.3,
+     "percentil": 55.2,
+     "percentil_grupo": 19,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 472,
@@ -175,8 +175,8 @@
      "valor": 0.1644,
      "numerador": 1.2333,
      "denominador": 750,
-     "percentil": 54.2,
-     "percentil_grupo": 29.7,
+     "percentil": 52.9,
+     "percentil_grupo": 28.3,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 3,
@@ -225,9 +225,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 41.4,
+   "indice": 40.9,
    "cobertura": 0.6,
-   "posicion": 250,
+   "posicion": 256,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -240,7 +240,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 64.6
+     "puntuacion": 63
     },
     {
      "id": "resultados",
@@ -304,11 +304,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 8.3815,
-     "numerador": 26.5694,
+     "valor": 8.3465,
+     "numerador": 26.4584,
      "denominador": 317,
-     "percentil": 61,
-     "percentil_grupo": 37.3,
+     "percentil": 60.4,
+     "percentil_grupo": 35.9,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 273,
@@ -327,7 +327,7 @@
      "valor": 0.3365,
      "numerador": 1.0667,
      "denominador": 317,
-     "percentil": 68.2,
+     "percentil": 65.6,
      "percentil_grupo": 51.8,
      "n_grupo": 138,
      "detalle": {
@@ -562,12 +562,12 @@
     0.35,
     1.0279,
     1.4069,
-    0.5667,
+    0.5693,
     2.2964,
     1.5917,
     1.5039,
     0.5333,
-    2.5135,
+    2.5635,
     2.975,
     1,
     2.579,
@@ -577,7 +577,7 @@
     1.7955,
     1.7826,
     1.5995,
-    4.3052,
+    4.1942,
     0.6197,
     1.4768,
     0.6667

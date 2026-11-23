@@ -67,9 +67,9 @@
    "roles": [
     "mesa"
    ],
-   "indice": 16.5,
+   "indice": 16.4,
    "cobertura": 0.6,
-   "posicion": 385,
+   "posicion": 386,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -82,7 +82,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 11.5
+     "puntuacion": 11
     },
     {
      "id": "resultados",
@@ -169,7 +169,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 1147,
-     "percentil": 18.1,
+     "percentil": 17.1,
      "percentil_grupo": 41.4,
      "n_grupo": 140,
      "detalle": {
@@ -221,7 +221,7 @@
    "roles": [
     "mesa"
    ],
-   "indice": 18.1,
+   "indice": 17.8,
    "cobertura": 0.6,
    "posicion": 345,
    "total_ranking": 347,
@@ -236,7 +236,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 14.8
+     "puntuacion": 13.8
     },
     {
      "id": "resultados",
@@ -323,7 +323,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 317,
-     "percentil": 21.8,
+     "percentil": 19.7,
      "percentil_grupo": 45.3,
      "n_grupo": 118,
      "detalle": {

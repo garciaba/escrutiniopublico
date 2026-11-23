@@ -65,9 +65,9 @@
    "dias_evaluados": 670,
    "grupo": "GS",
    "roles": [],
-   "indice": 37,
+   "indice": 36.9,
    "cobertura": 0.6,
-   "posicion": 339,
+   "posicion": 340,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -80,7 +80,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 26.1
+     "puntuacion": 25.6
     },
     {
      "id": "resultados",
@@ -167,7 +167,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 670,
-     "percentil": 18.1,
+     "percentil": 17.1,
      "percentil_grupo": 41.4,
      "n_grupo": 140,
      "detalle": {

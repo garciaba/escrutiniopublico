@@ -153,9 +153,9 @@
    "dias_evaluados": 1147,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 55,
+   "indice": 54.7,
    "cobertura": 0.6,
-   "posicion": 132,
+   "posicion": 134,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -168,7 +168,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 68
+     "puntuacion": 66.8
     },
     {
      "id": "resultados",
@@ -235,7 +235,7 @@
      "valor": 15.1506,
      "numerador": 173.7774,
      "denominador": 1147,
-     "percentil": 78.7,
+     "percentil": 77.9,
      "percentil_grupo": 74.1,
      "n_grupo": 29,
      "detalle": {
@@ -255,8 +255,8 @@
      "valor": 0.1889,
      "numerador": 2.1667,
      "denominador": 1147,
-     "percentil": 57.3,
-     "percentil_grupo": 56.9,
+     "percentil": 55.7,
+     "percentil_grupo": 39.7,
      "n_grupo": 29,
      "detalle": {
       "firmadas": 5,
@@ -305,9 +305,9 @@
    "dias_evaluados": 317,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 48.9,
+   "indice": 48.4,
    "cobertura": 0.6,
-   "posicion": 178,
+   "posicion": 184,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -320,7 +320,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 54
+     "puntuacion": 52.6
     },
     {
      "id": "resultados",
@@ -387,7 +387,7 @@
      "valor": 22.6239,
      "numerador": 71.7179,
      "denominador": 317,
-     "percentil": 86.3,
+     "percentil": 85.4,
      "percentil_grupo": 90,
      "n_grupo": 25,
      "detalle": {
@@ -407,8 +407,8 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 317,
-     "percentil": 21.8,
-     "percentil_grupo": 32,
+     "percentil": 19.7,
+     "percentil_grupo": 6,
      "n_grupo": 25,
      "detalle": {
       "firmadas": 0,

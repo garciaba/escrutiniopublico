@@ -81,9 +81,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 45.2,
+   "indice": 44.9,
    "cobertura": 0.6,
-   "posicion": 258,
+   "posicion": 260,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -96,7 +96,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 53.2
+     "puntuacion": 52.3
     },
     {
      "id": "resultados",
@@ -160,11 +160,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 6.1236,
-     "numerador": 70.2379,
+     "valor": 6.1229,
+     "numerador": 70.23,
      "denominador": 1147,
-     "percentil": 56.3,
-     "percentil_grupo": 21,
+     "percentil": 55.5,
+     "percentil_grupo": 19.7,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 761,
@@ -183,7 +183,7 @@
      "valor": 0.1154,
      "numerador": 1.3241,
      "denominador": 1147,
-     "percentil": 50.1,
+     "percentil": 49.1,
      "percentil_grupo": 23,
      "n_grupo": 150,
      "detalle": {
@@ -233,9 +233,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 40.4,
+   "indice": 39.8,
    "cobertura": 0.6,
-   "posicion": 261,
+   "posicion": 265,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -248,7 +248,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 49.4
+     "puntuacion": 47.6
     },
     {
      "id": "resultados",
@@ -312,11 +312,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 4.4609,
-     "numerador": 14.1409,
+     "valor": 4.4584,
+     "numerador": 14.1331,
      "denominador": 317,
-     "percentil": 51.2,
-     "percentil_grupo": 17.8,
+     "percentil": 50.6,
+     "percentil_grupo": 17,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 141,
@@ -335,7 +335,7 @@
      "valor": 0.0451,
      "numerador": 0.1429,
      "denominador": 317,
-     "percentil": 47.7,
+     "percentil": 44.5,
      "percentil_grupo": 19.2,
      "n_grupo": 138,
      "detalle": {
@@ -585,7 +585,7 @@
     0.9207,
     0.9492,
     0.8917,
-    3.6345,
+    3.6267,
     0.1429,
     2.1737,
     0.1883

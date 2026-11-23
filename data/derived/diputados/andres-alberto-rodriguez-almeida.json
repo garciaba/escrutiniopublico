@@ -121,9 +121,9 @@
    "dias_evaluados": 1147,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 64.3,
+   "indice": 63.9,
    "cobertura": 0.6,
-   "posicion": 51,
+   "posicion": 52,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -136,7 +136,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 96.3
+     "puntuacion": 95
     },
     {
      "id": "resultados",
@@ -203,7 +203,7 @@
      "valor": 38.3211,
      "numerador": 439.5429,
      "denominador": 1147,
-     "percentil": 95.3,
+     "percentil": 93.8,
      "percentil_grupo": 95.5,
      "n_grupo": 33,
      "detalle": {
@@ -220,14 +220,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 2.3892,
-     "numerador": 27.4036,
+     "valor": 2.6507,
+     "numerador": 30.4036,
      "denominador": 1147,
-     "percentil": 97.3,
-     "percentil_grupo": 92.4,
+     "percentil": 96.3,
+     "percentil_grupo": 83.3,
      "n_grupo": 33,
      "detalle": {
-      "firmadas": 132,
+      "firmadas": 145,
       "primer_firmante": 0
      },
      "fuente": {
@@ -273,9 +273,9 @@
    "dias_evaluados": 317,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 63.6,
+   "indice": 63.3,
    "cobertura": 0.6,
-   "posicion": 60,
+   "posicion": 64,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -288,7 +288,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 96.8
+     "puntuacion": 95.7
     },
     {
      "id": "resultados",
@@ -355,7 +355,7 @@
      "valor": 35.4699,
      "numerador": 112.4397,
      "denominador": 317,
-     "percentil": 95.2,
+     "percentil": 94.1,
      "percentil_grupo": 85.9,
      "n_grupo": 32,
      "detalle": {
@@ -372,14 +372,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 3.6815,
-     "numerador": 11.6702,
+     "valor": 3.9338,
+     "numerador": 12.4702,
      "denominador": 317,
-     "percentil": 98.4,
-     "percentil_grupo": 95.3,
+     "percentil": 97.3,
+     "percentil_grupo": 85.9,
      "n_grupo": 32,
      "detalle": {
-      "firmadas": 60,
+      "firmadas": 64,
       "primer_firmante": 0
      },
      "fuente": {
@@ -637,10 +637,10 @@
     0,
     0,
     0,
-    0.25,
+    0.5,
     0.25,
     0,
-    0.75,
+    2.5,
     0.75,
     0.25,
     0,
@@ -651,7 +651,7 @@
     1.9667,
     1.7333,
     2.9333,
-    0.25,
+    0.45,
     0,
     0.45,
     1.25,
@@ -659,13 +659,13 @@
     1.45,
     0.5667,
     0.2,
-    1.1429,
+    1.3429,
     1.9095,
     1.5333,
-    0.85,
+    1.25,
     0.6,
     1.2917,
-    1.55,
+    1.75,
     1.9429,
     0,
     0.65,

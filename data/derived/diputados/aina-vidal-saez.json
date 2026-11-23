@@ -145,9 +145,9 @@
    "dias_evaluados": 1147,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 38.6,
+   "indice": 38.4,
    "cobertura": 0.6,
-   "posicion": 321,
+   "posicion": 325,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -160,7 +160,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 35.5
+     "puntuacion": 34.9
     },
     {
      "id": "resultados",
@@ -224,15 +224,15 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 4.8163,
-     "numerador": 55.2429,
+     "valor": 4.9035,
+     "numerador": 56.2429,
      "denominador": 1147,
-     "percentil": 52.9,
-     "percentil_grupo": 56.9,
+     "percentil": 52.7,
+     "percentil_grupo": 60.3,
      "n_grupo": 29,
      "detalle": {
-      "firmadas": 82,
-      "primer_firmante": 49
+      "firmadas": 83,
+      "primer_firmante": 50
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -247,8 +247,8 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 1147,
-     "percentil": 18.1,
-     "percentil_grupo": 19,
+     "percentil": 17.1,
+     "percentil_grupo": 6.9,
      "n_grupo": 29,
      "detalle": {
       "firmadas": 0,
@@ -297,9 +297,9 @@
    "dias_evaluados": 317,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 35.9,
+   "indice": 35.5,
    "cobertura": 0.6,
-   "posicion": 296,
+   "posicion": 297,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -312,7 +312,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 38.5
+     "puntuacion": 37.3
     },
     {
      "id": "resultados",
@@ -379,7 +379,7 @@
      "valor": 5.8622,
      "numerador": 18.5833,
      "denominador": 317,
-     "percentil": 55.2,
+     "percentil": 54.9,
      "percentil_grupo": 66,
      "n_grupo": 25,
      "detalle": {
@@ -399,8 +399,8 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 317,
-     "percentil": 21.8,
-     "percentil_grupo": 32,
+     "percentil": 19.7,
+     "percentil_grupo": 6,
      "n_grupo": 25,
      "detalle": {
       "firmadas": 0,
@@ -616,7 +616,7 @@
    "preguntas_escritas": [
     0,
     0,
-    0,
+    1,
     0,
     4.6667,
     1,

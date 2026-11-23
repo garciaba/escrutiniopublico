@@ -13,7 +13,12 @@ import {
 import { daysBetween, failedBlockDays } from '../pipeline/ingest/families/iniciativas.ts';
 import { buildDiputados } from '../pipeline/normalize/tables/diputados.ts';
 import { buildOrganos, buildPertenencias } from '../pipeline/normalize/tables/organos.ts';
-import { buildIniciativas, expedienteId, splitAuthors } from '../pipeline/normalize/tables/iniciativas.ts';
+import {
+  buildIniciativas,
+  expedienteId,
+  namesInSegment,
+  splitAuthors,
+} from '../pipeline/normalize/tables/iniciativas.ts';
 import { buildIntervenciones, classifyCargo } from '../pipeline/normalize/tables/intervenciones.ts';
 import { buildVotaciones, votacionId, type Terms } from '../pipeline/normalize/tables/votaciones.ts';
 import { diputadoId, isoDate, slugFromName, toCsv } from '../pipeline/normalize/util.ts';
@@ -121,15 +126,58 @@ describe('iniciativas (real reduced samples)', () => {
     expect(
       splitAuthors('Agirretxea Urresti, Joseba Andoni (GV (EAJ-PNV)) Pueyo Sanz, Jorge (GSUMAR)  y 45 Diputados'),
     ).toEqual([
-      { name: 'Agirretxea Urresti, Joseba Andoni', group: 'GV (EAJ-PNV)' },
-      { name: 'Pueyo Sanz, Jorge', group: 'GSUMAR' },
+      { text: 'Agirretxea Urresti, Joseba Andoni', group: 'GV (EAJ-PNV)' },
+      { text: 'Pueyo Sanz, Jorge', group: 'GSUMAR' },
+      { text: 'y 45 Diputados', group: undefined },
     ]);
     expect(expedienteId('122/000001/0000')).toBe('122/000001');
   });
 
+  it('finds signers written without a group code, alone or glued to the next name', () => {
+    // Real patterns of the search export: "Catalán Higueras, Alberto" and
+    // "Fernández Herranz, Sandra Pérez Coronado, Pablo (GP)".
+    const census = ['Catalán Higueras, Alberto', 'Fernández Herranz, Sandra', 'Pérez Coronado, Pablo'];
+    const resolve = createNameResolver(census, []);
+    expect(namesInSegment('Catalán Higueras, Alberto', resolve)).toEqual(['Catalán Higueras, Alberto']);
+    expect(namesInSegment('Fernández Herranz, Sandra Pérez Coronado, Pablo', resolve)).toEqual([
+      'Fernández Herranz, Sandra',
+      'Pérez Coronado, Pablo',
+    ]);
+    expect(namesInSegment('Grupo Parlamentario Ficticio', resolve)).toBeUndefined();
+    const row = (id: string, autor: string) => ({
+      id_iniciativa: id,
+      titulo: '',
+      fecha_presentado: '01/02/2024',
+      fecha_calificado: '',
+      autor,
+      resultado_tram: '',
+    });
+    const { firmantes, autoresNoDiputados } = buildIniciativas(
+      [],
+      new Map([
+        [
+          '184',
+          [
+            row('184/000001', 'Catalán Higueras, Alberto'),
+            row('184/000002', 'Fernández Herranz, Sandra Pérez Coronado, Pablo (GP)'),
+            row('184/000003', 'Senadora Ficticia, Ana (SGPX)'),
+          ],
+        ],
+      ]),
+      resolve,
+      idOf,
+    );
+    expect(firmantes.map((f) => [f.iniciativa_id, f.orden, f.n_firmantes, f.grupo_id])).toEqual([
+      ['184/000001', 1, 1, undefined],
+      ['184/000002', 1, 2, undefined],
+      ['184/000002', 2, 2, 'GP'],
+    ]);
+    expect([...autoresNoDiputados]).toEqual([['Senadora Ficticia, Ana (SGPX)', 1]]);
+  });
+
   it('builds questions with every signer and stops on an unknown deputy', () => {
     const rows = searchInitiativesFile.parse(fixture('congreso/iniciativas/buscador-184.sample.json'));
-    const signers = rows.flatMap((row) => splitAuthors(row.autor).map((author) => author.name));
+    const signers = rows.flatMap((row) => splitAuthors(row.autor).map((author) => author.text));
     const resolve = createNameResolver([...new Set(signers)], []);
     const { iniciativas, firmantes } = buildIniciativas([], new Map([['184', rows]]), resolve, idOf);
     expect(iniciativas).toHaveLength(3);

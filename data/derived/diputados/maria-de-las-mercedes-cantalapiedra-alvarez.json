@@ -105,9 +105,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 49.1,
+   "indice": 48.5,
    "cobertura": 0.6,
-   "posicion": 209,
+   "posicion": 222,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -120,7 +120,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 76.8
+     "puntuacion": 74.9
     },
     {
      "id": "resultados",
@@ -184,11 +184,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 28.3016,
-     "numerador": 324.6197,
+     "valor": 28.302,
+     "numerador": 324.6239,
      "denominador": 1147,
-     "percentil": 91.5,
-     "percentil_grupo": 86.3,
+     "percentil": 88.9,
+     "percentil_grupo": 81,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 1879,
@@ -207,8 +207,8 @@
      "valor": 0.2423,
      "numerador": 2.7796,
      "denominador": 1147,
-     "percentil": 62.1,
-     "percentil_grupo": 43.7,
+     "percentil": 60.8,
+     "percentil_grupo": 43,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 19,
@@ -257,9 +257,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 40.9,
+   "indice": 40.1,
    "cobertura": 0.6,
-   "posicion": 254,
+   "posicion": 262,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -272,7 +272,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 67.5
+     "puntuacion": 65.3
     },
     {
      "id": "resultados",
@@ -339,8 +339,8 @@
      "valor": 24.9923,
      "numerador": 79.2256,
      "denominador": 317,
-     "percentil": 88.3,
-     "percentil_grupo": 83.7,
+     "percentil": 87.2,
+     "percentil_grupo": 80.8,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 445,
@@ -359,7 +359,7 @@
      "valor": 0.0436,
      "numerador": 0.1381,
      "denominador": 317,
-     "percentil": 46.7,
+     "percentil": 43.5,
      "percentil_grupo": 16.7,
      "n_grupo": 138,
      "detalle": {
@@ -581,7 +581,7 @@
     2.029,
     24.1396,
     6.8038,
-    3.8042,
+    3.8083,
     31.5726,
     21.9143,
     8.4714,

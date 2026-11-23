@@ -105,9 +105,9 @@
    "dias_evaluados": 1147,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 62.9,
+   "indice": 62.5,
    "cobertura": 0.6,
-   "posicion": 58,
+   "posicion": 60,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -120,7 +120,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 70.3
+     "puntuacion": 68.9
     },
     {
      "id": "resultados",
@@ -187,7 +187,7 @@
      "valor": 13.3645,
      "numerador": 153.2906,
      "denominador": 1147,
-     "percentil": 73.6,
+     "percentil": 72.8,
      "percentil_grupo": 37.9,
      "n_grupo": 33,
      "detalle": {
@@ -207,8 +207,8 @@
      "valor": 0.3022,
      "numerador": 3.4667,
      "denominador": 1147,
-     "percentil": 67,
-     "percentil_grupo": 16.7,
+     "percentil": 64.9,
+     "percentil_grupo": 10.6,
      "n_grupo": 33,
      "detalle": {
       "firmadas": 10,
@@ -257,9 +257,9 @@
    "dias_evaluados": 317,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 72.2,
+   "indice": 71.6,
    "cobertura": 0.6,
-   "posicion": 19,
+   "posicion": 21,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -272,7 +272,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 71.8
+     "puntuacion": 70
     },
     {
      "id": "resultados",
@@ -339,7 +339,7 @@
      "valor": 12.6012,
      "numerador": 39.9459,
      "denominador": 317,
-     "percentil": 71.6,
+     "percentil": 71,
      "percentil_grupo": 39.1,
      "n_grupo": 32,
      "detalle": {
@@ -359,8 +359,8 @@
      "valor": 0.3891,
      "numerador": 1.2333,
      "denominador": 317,
-     "percentil": 71.9,
-     "percentil_grupo": 26.6,
+     "percentil": 69,
+     "percentil_grupo": 20.3,
      "n_grupo": 32,
      "detalle": {
       "firmadas": 4,

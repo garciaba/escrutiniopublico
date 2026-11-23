@@ -153,9 +153,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 53.3,
+   "indice": 54.5,
    "cobertura": 0.6,
-   "posicion": 155,
+   "posicion": 135,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -168,7 +168,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 75.8
+     "puntuacion": 79.3
     },
     {
      "id": "resultados",
@@ -232,11 +232,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 14.9337,
-     "numerador": 171.2897,
+     "valor": 14.9339,
+     "numerador": 171.2923,
      "denominador": 1147,
-     "percentil": 77.7,
-     "percentil_grupo": 64.3,
+     "percentil": 76.9,
+     "percentil_grupo": 62.3,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 1827,
@@ -252,15 +252,15 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.4729,
-     "numerador": 5.4238,
+     "valor": 0.7344,
+     "numerador": 8.4238,
      "denominador": 1147,
-     "percentil": 73.9,
-     "percentil_grupo": 63,
+     "percentil": 81.8,
+     "percentil_grupo": 78.3,
      "n_grupo": 150,
      "detalle": {
-      "firmadas": 16,
-      "primer_firmante": 3
+      "firmadas": 19,
+      "primer_firmante": 6
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -305,9 +305,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 47.8,
+   "indice": 47.2,
    "cobertura": 0.6,
-   "posicion": 186,
+   "posicion": 192,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -320,7 +320,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 72
+     "puntuacion": 70.2
     },
     {
      "id": "resultados",
@@ -387,8 +387,8 @@
      "valor": 11.7139,
      "numerador": 37.1332,
      "denominador": 317,
-     "percentil": 69.9,
-     "percentil_grupo": 51.8,
+     "percentil": 69.3,
+     "percentil_grupo": 50.4,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 310,
@@ -407,8 +407,8 @@
      "valor": 0.4266,
      "numerador": 1.3524,
      "denominador": 317,
-     "percentil": 74.2,
-     "percentil_grupo": 64.9,
+     "percentil": 71,
+     "percentil_grupo": 63.4,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 5,
@@ -642,7 +642,7 @@
     1.2167,
     2.1736,
     1.879,
-    2.0694,
+    2.0721,
     2.8845,
     7.4011,
     1.2252,
@@ -686,10 +686,10 @@
     0,
     0,
     0,
-    1,
+    2,
     0,
     0.3333,
-    0,
+    2,
     0,
     0,
     0,

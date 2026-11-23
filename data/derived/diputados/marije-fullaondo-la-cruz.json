@@ -145,9 +145,9 @@
    "dias_evaluados": 1147,
    "grupo": "GEH Bildu",
    "roles": [],
-   "indice": 47.9,
+   "indice": 47.6,
    "cobertura": 0.6,
-   "posicion": 230,
+   "posicion": 232,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -160,7 +160,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 36.7
+     "puntuacion": 35.8
     },
     {
      "id": "resultados",
@@ -247,8 +247,8 @@
      "valor": 0.0872,
      "numerador": 1,
      "denominador": 1147,
-     "percentil": 46.4,
-     "percentil_grupo": 35.7,
+     "percentil": 44.8,
+     "percentil_grupo": 28.6,
      "n_grupo": 7,
      "detalle": {
       "firmadas": 1,
@@ -297,9 +297,9 @@
    "dias_evaluados": 317,
    "grupo": "GEH Bildu",
    "roles": [],
-   "indice": 66.7,
+   "indice": 66.2,
    "cobertura": 0.6,
-   "posicion": 42,
+   "posicion": 47,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -312,7 +312,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 49.3
+     "puntuacion": 47.9
     },
     {
      "id": "resultados",
@@ -399,8 +399,8 @@
      "valor": 0.3155,
      "numerador": 1,
      "denominador": 317,
-     "percentil": 66.1,
-     "percentil_grupo": 41.7,
+     "percentil": 63.4,
+     "percentil_grupo": 25,
      "n_grupo": 6,
      "detalle": {
       "firmadas": 1,

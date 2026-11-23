@@ -121,9 +121,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 61,
+   "indice": 60.8,
    "cobertura": 0.6,
-   "posicion": 73,
+   "posicion": 75,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -136,7 +136,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 91.7
+     "puntuacion": 91.2
     },
     {
      "id": "resultados",
@@ -200,8 +200,8 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 53.868,
-     "numerador": 617.8664,
+     "valor": 53.8685,
+     "numerador": 617.8719,
      "denominador": 1147,
      "percentil": 98.9,
      "percentil_grupo": 98.3,
@@ -223,8 +223,8 @@
      "valor": 0.7664,
      "numerador": 8.7904,
      "denominador": 1147,
-     "percentil": 84.6,
-     "percentil_grupo": 83,
+     "percentil": 83.5,
+     "percentil_grupo": 82.3,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 48,
@@ -273,9 +273,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 56,
+   "indice": 55.4,
    "cobertura": 0.6,
-   "posicion": 117,
+   "posicion": 119,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -288,7 +288,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 81.6
+     "puntuacion": 79.7
     },
     {
      "id": "resultados",
@@ -352,11 +352,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 22.3509,
-     "numerador": 70.8524,
+     "valor": 22.3526,
+     "numerador": 70.8579,
      "denominador": 317,
-     "percentil": 86,
-     "percentil_grupo": 79.3,
+     "percentil": 85.2,
+     "percentil_grupo": 77.2,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 701,
@@ -375,8 +375,8 @@
      "valor": 0.5232,
      "numerador": 1.6584,
      "denominador": 317,
-     "percentil": 77.1,
-     "percentil_grupo": 69.9,
+     "percentil": 74.2,
+     "percentil_grupo": 67.8,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 13,
@@ -624,7 +624,7 @@
     1.559,
     7.28,
     6.4012,
-    9.5048,
+    9.5103,
     14.0766,
     5.0226,
     4.3435,

@@ -97,9 +97,9 @@
    "dias_evaluados": 1147,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 48.4,
+   "indice": 60.3,
    "cobertura": 0.6,
-   "posicion": 225,
+   "posicion": 78,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -112,7 +112,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 23.7
+     "puntuacion": 59.3
     },
     {
      "id": "resultados",
@@ -196,15 +196,15 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0,
-     "numerador": 0,
+     "valor": 1.3005,
+     "numerador": 14.9167,
      "denominador": 1147,
-     "percentil": 18.1,
-     "percentil_grupo": 19,
+     "percentil": 89.4,
+     "percentil_grupo": 81,
      "n_grupo": 29,
      "detalle": {
-      "firmadas": 0,
-      "primer_firmante": 0
+      "firmadas": 26,
+      "primer_firmante": 19
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -249,9 +249,9 @@
    "dias_evaluados": 317,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 57.7,
+   "indice": 69.5,
    "cobertura": 0.6,
-   "posicion": 104,
+   "posicion": 28,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -264,7 +264,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 14.8
+     "puntuacion": 50.2
     },
     {
      "id": "resultados",
@@ -348,15 +348,15 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0,
-     "numerador": 0,
+     "valor": 2.1293,
+     "numerador": 6.75,
      "denominador": 317,
-     "percentil": 21.8,
-     "percentil_grupo": 32,
+     "percentil": 92.7,
+     "percentil_grupo": 90,
      "n_grupo": 25,
      "detalle": {
-      "firmadas": 0,
-      "primer_firmante": 0
+      "firmadas": 14,
+      "primer_firmante": 12
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -613,6 +613,10 @@
     0,
     0,
     0,
+    0.3333,
+    0,
+    0,
+    0.3333,
     0,
     0,
     0,
@@ -621,28 +625,24 @@
     0,
     0,
     0,
+    2,
+    1,
+    1.5,
+    1.5,
+    0.5,
     0,
     0,
     0,
+    1,
     0,
     0,
+    0.5,
+    0.5,
+    3.5,
+    0.5,
+    0.5,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1.25,
     0,
     0,
     0

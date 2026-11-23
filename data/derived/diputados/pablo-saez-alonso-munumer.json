@@ -137,7 +137,7 @@
    "dias_evaluados": 1147,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 78.2,
+   "indice": 77.8,
    "cobertura": 0.6,
    "posicion": 6,
    "total_ranking": 392,
@@ -152,7 +152,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 91.2
+     "puntuacion": 89.9
     },
     {
      "id": "resultados",
@@ -216,14 +216,14 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 24.4387,
-     "numerador": 280.3122,
+     "valor": 24.4678,
+     "numerador": 280.6456,
      "denominador": 1147,
-     "percentil": 87.9,
+     "percentil": 86.6,
      "percentil_grupo": 65.2,
      "n_grupo": 33,
      "detalle": {
-      "firmadas": 1192,
+      "firmadas": 1193,
       "primer_firmante": 656
      },
      "fuente": {
@@ -236,14 +236,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 1.8668,
-     "numerador": 21.4119,
+     "valor": 1.9583,
+     "numerador": 22.4619,
      "denominador": 1147,
-     "percentil": 94.5,
-     "percentil_grupo": 80.3,
+     "percentil": 93.2,
+     "percentil_grupo": 65.2,
      "n_grupo": 33,
      "detalle": {
-      "firmadas": 101,
+      "firmadas": 106,
       "primer_firmante": 1
      },
      "fuente": {
@@ -289,7 +289,7 @@
    "dias_evaluados": 317,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 83.8,
+   "indice": 83.4,
    "cobertura": 0.6,
    "posicion": 5,
    "total_ranking": 347,
@@ -304,7 +304,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 91.2
+     "puntuacion": 90.2
     },
     {
      "id": "resultados",
@@ -368,14 +368,14 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 21.0314,
-     "numerador": 66.6694,
+     "valor": 21.1365,
+     "numerador": 67.0028,
      "denominador": 317,
-     "percentil": 84.6,
+     "percentil": 83.4,
      "percentil_grupo": 64.1,
      "n_grupo": 32,
      "detalle": {
-      "firmadas": 283,
+      "firmadas": 284,
       "primer_firmante": 183
      },
      "fuente": {
@@ -388,14 +388,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 3.3236,
-     "numerador": 10.5357,
+     "valor": 3.6548,
+     "numerador": 11.5857,
      "denominador": 317,
-     "percentil": 97.8,
-     "percentil_grupo": 92.2,
+     "percentil": 97,
+     "percentil_grupo": 82.8,
      "n_grupo": 32,
      "detalle": {
-      "firmadas": 54,
+      "firmadas": 59,
       "primer_firmante": 1
      },
      "fuente": {
@@ -635,7 +635,7 @@
     8.4095,
     3.4167,
     5.975,
-    7.3929,
+    7.7262,
     8.6619,
     4.2024,
     10.1667,
@@ -675,14 +675,14 @@
     0.4,
     0.5667,
     0.2,
-    1.1429,
+    1.3429,
     1.9095,
     1.5333,
-    0.6,
+    1,
     0.6,
     1,
-    0.85,
-    2.05,
+    1.05,
+    2.3,
     0.25,
     0.4,
     0

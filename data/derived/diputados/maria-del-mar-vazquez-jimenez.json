@@ -129,7 +129,7 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 66.4,
+   "indice": 66.1,
    "cobertura": 0.6,
    "posicion": 39,
    "total_ranking": 392,
@@ -144,7 +144,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 76.3
+     "puntuacion": 75.4
     },
     {
      "id": "resultados",
@@ -208,11 +208,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 50.7363,
-     "numerador": 581.9452,
+     "valor": 50.7271,
+     "numerador": 581.8393,
      "denominador": 1147,
-     "percentil": 97.6,
-     "percentil_grupo": 95.7,
+     "percentil": 97.1,
+     "percentil_grupo": 94.3,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 6090,
@@ -231,8 +231,8 @@
      "valor": 0.1701,
      "numerador": 1.9505,
      "denominador": 1147,
-     "percentil": 55,
-     "percentil_grupo": 31.7,
+     "percentil": 53.7,
+     "percentil_grupo": 30.3,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 13,
@@ -281,9 +281,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 49.5,
+   "indice": 49.1,
    "cobertura": 0.6,
-   "posicion": 172,
+   "posicion": 177,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -296,7 +296,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 49.3
+     "puntuacion": 47.8
     },
     {
      "id": "resultados",
@@ -360,11 +360,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 15.6652,
-     "numerador": 49.6587,
+     "valor": 15.6305,
+     "numerador": 49.5486,
      "denominador": 317,
-     "percentil": 76.8,
-     "percentil_grupo": 63.4,
+     "percentil": 75.9,
+     "percentil_grupo": 61.2,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 501,
@@ -383,7 +383,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 317,
-     "percentil": 21.8,
+     "percentil": 19.7,
      "percentil_grupo": 5.1,
      "n_grupo": 138,
      "detalle": {
@@ -605,7 +605,7 @@
     7.8419,
     30.594,
     26.512,
-    19.2946,
+    19.2987,
     27.0685,
     24.8526,
     39.7328,
@@ -633,7 +633,7 @@
     5.7526,
     5.1057,
     6.6017,
-    14.5147,
+    14.4046,
     0.2642,
     1.1233,
     0.2

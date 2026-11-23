@@ -89,7 +89,7 @@
    "dias_evaluados": 896,
    "grupo": "GMx",
    "roles": [],
-   "indice": 12.7,
+   "indice": 12.5,
    "cobertura": 0.6,
    "posicion": 390,
    "total_ranking": 392,
@@ -104,7 +104,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 29.3
+     "puntuacion": 28.6
     },
     {
      "id": "resultados",
@@ -171,7 +171,7 @@
      "valor": 1.9075,
      "numerador": 17.0909,
      "denominador": 896,
-     "percentil": 40.4,
+     "percentil": 40.2,
      "percentil_grupo": 13.6,
      "n_grupo": 11,
      "detalle": {
@@ -191,7 +191,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 896,
-     "percentil": 18.1,
+     "percentil": 17.1,
      "percentil_grupo": 9.1,
      "n_grupo": 11,
      "detalle": {

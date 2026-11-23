@@ -2,30 +2,35 @@
 
 Decisiones del agente de código y propuestas que esperan al propietario. Cada entrada indica su estado: **tomada** (aplicada en el código), **decidida** (aprobada por el propietario), **propuesta** (el agente recomienda, el propietario decide) o **pendiente** (sin recomendación cerrada). Los hechos citados están documentados en [data-dictionary.md](data-dictionary.md).
 
-| ID    | Tema                                                     | Estado   | Hito afectado |
-| ----- | -------------------------------------------------------- | -------- | ------------- |
-| D-001 | Ejecutar TypeScript con Node 22 sin paso de compilación  | Tomada   | Todos         |
-| D-002 | Versiones de herramientas y librerías                    | Tomada   | Todos         |
-| D-003 | `User-Agent` frente al cortafuegos del Congreso          | Decidida | 1, 4          |
-| D-004 | Guardar los JSON de votaciones en lugar de los ZIP       | Decidida | 1             |
-| D-005 | Qué legislatura publicar tras la disolución              | Decidida | 1–3           |
-| D-006 | Índice con cobertura del 40 %                            | Decidida | 2, 3          |
-| D-007 | Cómo identificar a los miembros del Gobierno             | Decidida | 2             |
-| D-008 | Identificación de los diputados por su nombre            | Decidida | 1             |
-| D-009 | Recuento de intervenciones                               | Decidida | 1, 2          |
-| D-010 | Voto telemático                                          | Decidida | 1             |
-| D-011 | Enlace a la ficha oficial del Congreso                   | Decidida | 1, 3          |
-| D-012 | Exportación de órganos mediante POST                     | Tomada   | 1             |
-| D-013 | Intervenciones en la Diputación Permanente               | Decidida | 2             |
-| D-014 | Datos excluidos por la política de datos personales      | Tomada   | 1             |
-| D-015 | Código oficial `codParlamentario` junto al nombre        | Decidida | 1             |
-| D-016 | Tercera dimensión con preguntas y solicitudes de informe | Decidida | 1, 2          |
-| D-017 | Capturar las agendas antes de la XVI                     | Decidida | 1             |
-| D-018 | Tabla `firmantes` y crédito por iniciativa               | Tomada   | 1, 2          |
-| D-019 | Historial de grupo desde el voto                         | Tomada   | 1, 2          |
-| D-020 | Intervenciones que no cuentan se conservan con su motivo | Tomada   | 1, 2          |
-| D-021 | Volcados diarios no versionados y ejecución `--offline`  | Tomada   | 1, 4          |
-| D-022 | Iniciativas que el buscador oficial no puede servir      | Tomada   | 1             |
+| ID    | Tema                                                             | Estado    | Hito afectado |
+| ----- | ---------------------------------------------------------------- | --------- | ------------- |
+| D-001 | Ejecutar TypeScript con Node 22 sin paso de compilación          | Tomada    | Todos         |
+| D-002 | Versiones de herramientas y librerías                            | Tomada    | Todos         |
+| D-003 | `User-Agent` frente al cortafuegos del Congreso                  | Decidida  | 1, 4          |
+| D-004 | Guardar los JSON de votaciones en lugar de los ZIP               | Decidida  | 1             |
+| D-005 | Qué legislatura publicar tras la disolución                      | Decidida  | 1–3           |
+| D-006 | Índice con cobertura del 40 %                                    | Decidida  | 2, 3          |
+| D-007 | Cómo identificar a los miembros del Gobierno                     | Decidida  | 2             |
+| D-008 | Identificación de los diputados por su nombre                    | Decidida  | 1             |
+| D-009 | Recuento de intervenciones                                       | Decidida  | 1, 2          |
+| D-010 | Voto telemático                                                  | Decidida  | 1             |
+| D-011 | Enlace a la ficha oficial del Congreso                           | Decidida  | 1, 3          |
+| D-012 | Exportación de órganos mediante POST                             | Tomada    | 1             |
+| D-013 | Intervenciones en la Diputación Permanente                       | Decidida  | 2             |
+| D-014 | Datos excluidos por la política de datos personales              | Tomada    | 1             |
+| D-015 | Código oficial `codParlamentario` junto al nombre                | Decidida  | 1             |
+| D-016 | Tercera dimensión con preguntas y solicitudes de informe         | Decidida  | 1, 2          |
+| D-017 | Capturar las agendas antes de la XVI                             | Decidida  | 1             |
+| D-018 | Tabla `firmantes` y crédito por iniciativa                       | Tomada    | 1, 2          |
+| D-019 | Historial de grupo desde el voto                                 | Tomada    | 1, 2          |
+| D-020 | Intervenciones que no cuentan se conservan con su motivo         | Tomada    | 1, 2          |
+| D-021 | Volcados diarios no versionados y ejecución `--offline`          | Tomada    | 1, 4          |
+| D-022 | Iniciativas que el buscador oficial no puede servir              | Tomada    | 1             |
+| D-023 | Población de referencia en periodos cortos                       | Tomada    | 2             |
+| D-024 | Miembros del Gobierno: evaluación por etapas                     | Propuesta | 2             |
+| D-025 | Fecha de cálculo y periodos tras el cierre de la legislatura     | Tomada    | 2, 4          |
+| D-026 | Detalles del cálculo que la especificación no fija               | Tomada    | 2             |
+| D-027 | Correcciones de la ingesta detectadas en el contraste del hito 2 | Tomada    | 1, 2          |
 
 ## D-001 · Ejecutar TypeScript con Node 22 sin paso de compilación
 
@@ -170,3 +175,50 @@ El adaptador entra en el hito 1, adelantando lo que la especificación dejaba pa
 - **Lo que no se puede servir** se registra en `data/raw/iniciativas-incidencias.json`: total oficial, registros obtenidos, faltantes, bloques fallidos y consultas que siguieron fallando. Ese fichero está versionado y se publicará en `/cambios`.
 - **Umbral:** hasta `maxUnavailable` (50) registros por tipo, la ejecución sigue y lo deja documentado. Por encima, se detiene. Si el Congreso corrige el registro, la ejecución siguiente lo recupera sin cambios en el código.
 - **Efecto en la métrica:** las preguntas que falten quedan fuera del crédito de sus firmantes. El hito 2 contrastará los totales por diputado con el cuadro estadístico de su ficha (D-016) y mostrará la diferencia.
+
+## D-023 · Población de referencia en periodos cortos
+
+**Tomada (hito 2).** La especificación exige 90 días en activo dentro del periodo para entrar en la población de referencia. Aplicado tal cual, «último mes» (30 días) y «último trimestre» (91 días) no tendrían nunca ranking. Se mantienen los 90 días para la legislatura y el último año, y en los periodos de menos de 180 días el mínimo es la mitad del periodo: 46 días en el trimestre y 15 en el mes. Los dos valores están en `config/scoring.ts` (`poblacionReferencia`).
+
+## D-024 · Miembros del Gobierno: evaluación por etapas
+
+**Propuesta, aplicada en el cálculo.** La especificación excluye del ranking general a los miembros del Gobierno, pero no dice qué hacer con quien lo fue solo una parte del periodo. En la XV hay casos en los dos extremos: Ione Belarra fue ministra en funciones 96 días y diputada sin cargo casi tres años; Óscar Puente fue diputado sin cargo 96 días y ministro casi tres años.
+
+- Los días en el Gobierno no se evalúan: no cuentan como días en activo, ni cuentan las votaciones, intervenciones o iniciativas de esas fechas.
+- Entra en el ranking quien reúne los días mínimos fuera del Gobierno (D-023) y no ha pasado en él más días que fuera. Se le evalúa solo por esa etapa y la ficha lo indica.
+- Los demás quedan fuera del ranking general, con sus métricas brutas de todo el periodo. Para que el filtro de la web pueda incluirlos, se calcula su percentil frente a la población de referencia, sin posición.
+- Resultado en la XV: 16 diputados fuera del ranking por Gobierno; Belarra y Miñones, en el ranking por su etapa posterior.
+- Alternativa descartada: excluir a cualquiera que haya sido miembro del Gobierno algún día del periodo. Dejaría fuera a Belarra por tres meses en funciones.
+
+## D-025 · Fecha de cálculo y periodos tras el cierre de la legislatura
+
+**Tomada (hito 2), siguiendo D-005.** La fecha de cálculo es la del día de la ejecución (`pnpm pipeline --date` permite fijar otra) y es el único dato de reloj: entra como parámetro a las funciones de métricas. Cada periodo se recorta a la legislatura.
+
+- Con la XV cerrada el 06/10/2026 y fecha de cálculo 23/11/2026: «Legislatura» abarca del 17/08/2023 al 06/10/2026; «Último año», del 24/11/2025 al 06/10/2026; «Último trimestre» y «Último mes» quedan como «no disponible», como preveía D-005.
+- Consecuencia: mientras la XV sea la legislatura publicada, el «último año» se acorta un día cada día y las salidas cambian a diario aunque no haya datos nuevos.
+- Alternativa, de un cambio pequeño: en una legislatura cerrada, anclar los periodos a su último día («último año de la legislatura»), lo que daría cuatro periodos estables. Queda a criterio del propietario.
+
+## D-026 · Detalles del cálculo que la especificación no fija
+
+**Tomada (hito 2).**
+
+| Detalle                                                     | Regla aplicada                                                                                                                                                                   |
+| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Días en activo                                              | Del alta a la baja, ambos incluidos, dentro del periodo                                                                                                                          |
+| Denominador de votaciones                                   | Votaciones nominales en cuya lista oficial figura el diputado (D-008); no se deduce de las fechas                                                                                |
+| Intervenciones en sesión conjunta de las dos Cámaras        | No cuentan ni como Pleno ni como comisión (2 en la XV)                                                                                                                           |
+| Grupo del diputado en un periodo                            | El que consta en su última votación del periodo (D-019); si no votó, el del censo                                                                                                |
+| Percentil de quien está fuera de la población de referencia | Misma fórmula, contra los valores de la población de referencia                                                                                                                  |
+| Métrica sin oportunidad para un diputado                    | Si no figura en ninguna votación del periodo, esa métrica es «no disponible» para él y su cobertura baja                                                                         |
+| Periodo sin ninguna métrica con actividad                   | El periodo entero es «no disponible»                                                                                                                                             |
+| Redondeo                                                    | Índice y dimensiones, a 1 decimal; las posiciones se asignan sobre el índice redondeado                                                                                          |
+| Etiquetas de rol                                            | `presidencia` y `mesa` por pertenencia a la Mesa; `portavoz` por ser portavoz titular en la Junta de Portavoces; `gobierno` según el BOE (D-007). Con fechas, dentro del periodo |
+
+## D-027 · Correcciones de la ingesta detectadas en el contraste del hito 2
+
+**Tomada (hito 2).** El contraste de diez fichas con la web del Congreso ([verificacion-hito-2.md](verificacion-hito-2.md)) destapó tres defectos del hito 1, corregidos en este:
+
+- **Solicitudes de informe:** D-016 hablaba del tipo 186, pero la ficha oficial suma cuatro tipos. Se ingieren también el 187 (comunidades autónomas), el 188 (entidades locales) y el 189 (otras entidades públicas): 577 solicitudes más. La métrica los suma todos.
+- **Preguntas escritas:** la ficha oficial suma con las preguntas al Gobierno (tipo 184) las dirigidas a la Corporación RTVE (tipo 179). Se ingieren también: 2.569 preguntas más. La métrica «Preguntas con respuesta escrita» suma los dos tipos.
+- **Firmantes sin código de grupo:** la exportación del buscador escribe a veces un firmante sin su código, solo o pegado al nombre siguiente. Se perdían en silencio 51 firmas de 29 preguntas. El análisis de autores los reconoce ahora contra el censo, y los autores que no son diputados (senadores, grupos) se listan en el registro de la ejecución.
+- Nueva opción `pnpm pipeline --reuse-daily`: reutiliza los volcados ya descargados y baja solo los que faltan, para reanudar una ejecución sin repetir las descargas.

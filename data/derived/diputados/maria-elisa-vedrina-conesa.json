@@ -97,9 +97,9 @@
    "dias_evaluados": 848,
    "grupo": "GP",
    "roles": [],
-   "indice": 51.4,
+   "indice": 52.1,
    "cobertura": 0.6,
-   "posicion": 176,
+   "posicion": 175,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -112,7 +112,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 50.1
+     "puntuacion": 52.3
     },
     {
      "id": "resultados",
@@ -179,8 +179,8 @@
      "valor": 6.313,
      "numerador": 53.534,
      "denominador": 848,
-     "percentil": 57,
-     "percentil_grupo": 22.3,
+     "percentil": 56.3,
+     "percentil_grupo": 21,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 521,
@@ -196,14 +196,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.0702,
-     "numerador": 0.5952,
+     "valor": 0.1095,
+     "numerador": 0.9286,
      "denominador": 848,
-     "percentil": 43.2,
-     "percentil_grupo": 12.3,
+     "percentil": 48.3,
+     "percentil_grupo": 21,
      "n_grupo": 150,
      "detalle": {
-      "firmadas": 6,
+      "firmadas": 8,
       "primer_firmante": 0
      },
      "fuente": {
@@ -249,9 +249,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 61.8,
+   "indice": 62.8,
    "cobertura": 0.6,
-   "posicion": 74,
+   "posicion": 65,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -264,7 +264,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 55.6
+     "puntuacion": 58.5
     },
     {
      "id": "resultados",
@@ -331,8 +331,8 @@
      "valor": 7.9275,
      "numerador": 25.1302,
      "denominador": 317,
-     "percentil": 59.8,
-     "percentil_grupo": 35.1,
+     "percentil": 59.2,
+     "percentil_grupo": 33.7,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 205,
@@ -348,14 +348,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.1202,
-     "numerador": 0.381,
+     "valor": 0.2253,
+     "numerador": 0.7143,
      "denominador": 317,
-     "percentil": 51.4,
-     "percentil_grupo": 27.9,
+     "percentil": 57.8,
+     "percentil_grupo": 40.2,
      "n_grupo": 138,
      "detalle": {
-      "firmadas": 4,
+      "firmadas": 6,
       "primer_firmante": 0
      },
      "fuente": {
@@ -640,7 +640,7 @@
     0,
     0,
     0,
-    0.1667,
+    0.5,
     0.0714,
     0,
     0,

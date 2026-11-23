@@ -49,7 +49,7 @@
    "dias_evaluados": 1147,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 26.8,
+   "indice": 26.6,
    "cobertura": 0.6,
    "posicion": 378,
    "total_ranking": 392,
@@ -64,7 +64,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 24.2
+     "puntuacion": 23.5
     },
     {
      "id": "resultados",
@@ -151,7 +151,7 @@
      "valor": 0.0436,
      "numerador": 0.5,
      "denominador": 1147,
-     "percentil": 39.8,
+     "percentil": 38.4,
      "percentil_grupo": 4.5,
      "n_grupo": 33,
      "detalle": {
@@ -201,9 +201,9 @@
    "dias_evaluados": 317,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 26.8,
+   "indice": 26.5,
    "cobertura": 0.6,
-   "posicion": 332,
+   "posicion": 333,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -216,7 +216,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 14.8
+     "puntuacion": 13.8
     },
     {
      "id": "resultados",
@@ -303,7 +303,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 317,
-     "percentil": 21.8,
+     "percentil": 19.7,
      "percentil_grupo": 3.1,
      "n_grupo": 32,
      "detalle": {

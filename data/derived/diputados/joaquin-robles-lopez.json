@@ -97,9 +97,9 @@
    "dias_evaluados": 1147,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 66.6,
+   "indice": 67.9,
    "cobertura": 0.6,
-   "posicion": 37,
+   "posicion": 32,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -112,7 +112,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 83.9
+     "puntuacion": 88
     },
     {
      "id": "resultados",
@@ -179,7 +179,7 @@
      "valor": 22.1069,
      "numerador": 253.566,
      "denominador": 1147,
-     "percentil": 86.6,
+     "percentil": 85.3,
      "percentil_grupo": 59.1,
      "n_grupo": 33,
      "detalle": {
@@ -196,14 +196,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.6576,
-     "numerador": 7.5429,
+     "valor": 1.4859,
+     "numerador": 17.0429,
      "denominador": 1147,
-     "percentil": 81.3,
-     "percentil_grupo": 31.8,
+     "percentil": 90.7,
+     "percentil_grupo": 50,
      "n_grupo": 33,
      "detalle": {
-      "firmadas": 26,
+      "firmadas": 62,
       "primer_firmante": 0
      },
      "fuente": {
@@ -249,9 +249,9 @@
    "dias_evaluados": 317,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 63.4,
+   "indice": 62.7,
    "cobertura": 0.6,
-   "posicion": 62,
+   "posicion": 69,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -264,7 +264,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 74.1
+     "puntuacion": 72.2
     },
     {
      "id": "resultados",
@@ -331,7 +331,7 @@
      "valor": 20.615,
      "numerador": 65.3496,
      "denominador": 317,
-     "percentil": 84,
+     "percentil": 82.9,
      "percentil_grupo": 60.9,
      "n_grupo": 32,
      "detalle": {
@@ -351,8 +351,8 @@
      "valor": 0.3027,
      "numerador": 0.9596,
      "denominador": 317,
-     "percentil": 64.1,
-     "percentil_grupo": 23.4,
+     "percentil": 61.5,
+     "percentil_grupo": 17.2,
      "n_grupo": 32,
      "detalle": {
       "firmadas": 6,
@@ -624,9 +624,9 @@
     0,
     1,
     0.5833,
-    1,
+    6.25,
     0.25,
-    1.5,
+    5.75,
     1,
     0,
     0,

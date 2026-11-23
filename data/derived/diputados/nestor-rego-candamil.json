@@ -475,9 +475,9 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 67.3,
+   "indice": 67.2,
    "cobertura": 0.6,
-   "posicion": 31,
+   "posicion": 35,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -490,7 +490,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 99.2
+     "puntuacion": 98.9
     },
     {
      "id": "resultados",
@@ -554,15 +554,15 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 327.5501,
-     "numerador": 3757,
+     "valor": 328.3348,
+     "numerador": 3766,
      "denominador": 1147,
      "percentil": 99.9,
      "percentil_grupo": 95.5,
      "n_grupo": 11,
      "detalle": {
-      "firmadas": 3757,
-      "primer_firmante": 3757
+      "firmadas": 3766,
+      "primer_firmante": 3766
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -577,7 +577,7 @@
      "valor": 4.272,
      "numerador": 49,
      "denominador": 1147,
-     "percentil": 98.6,
+     "percentil": 97.8,
      "percentil_grupo": 77.3,
      "n_grupo": 11,
      "detalle": {
@@ -629,9 +629,9 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 65,
+   "indice": 64.7,
    "cobertura": 0.6,
-   "posicion": 56,
+   "posicion": 57,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -644,7 +644,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 99
+     "puntuacion": 98.3
     },
     {
      "id": "resultados",
@@ -708,15 +708,15 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 889.9054,
-     "numerador": 2821,
+     "valor": 891.4826,
+     "numerador": 2826,
      "denominador": 317,
      "percentil": 99.9,
      "percentil_grupo": 94.4,
      "n_grupo": 9,
      "detalle": {
-      "firmadas": 2821,
-      "primer_firmante": 2821
+      "firmadas": 2826,
+      "primer_firmante": 2826
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -731,7 +731,7 @@
      "valor": 3.47,
      "numerador": 11,
      "denominador": 317,
-     "percentil": 98.1,
+     "percentil": 96.7,
      "percentil_grupo": 72.2,
      "n_grupo": 9,
      "detalle": {
@@ -947,8 +947,8 @@
    ],
    "preguntas_escritas": [
     3,
-    44,
-    38,
+    45,
+    39,
     17,
     15,
     21,
@@ -960,7 +960,7 @@
     31,
     5,
     42,
-    64,
+    65,
     35,
     10,
     69,
@@ -968,7 +968,7 @@
     25,
     24,
     48,
-    29,
+    30,
     32,
     1,
     28,
@@ -976,14 +976,14 @@
     24,
     15,
     42,
-    1218,
+    1220,
     429,
-    251,
+    252,
     319,
-    46,
+    47,
     123,
     4,
-    298,
+    299,
     68
    ],
    "solicitudes_informe": [

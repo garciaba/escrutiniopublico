@@ -121,7 +121,7 @@
    "dias_evaluados": 239,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 83.9,
+   "indice": 84.2,
    "cobertura": 0.6,
    "posicion": 2,
    "total_ranking": 392,
@@ -136,7 +136,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 75.6
+     "puntuacion": 76.5
     },
     {
      "id": "resultados",
@@ -203,7 +203,7 @@
      "valor": 17.9916,
      "numerador": 43,
      "denominador": 239,
-     "percentil": 82.5,
+     "percentil": 81.8,
      "percentil_grupo": 77.6,
      "n_grupo": 29,
      "detalle": {
@@ -220,14 +220,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.3487,
-     "numerador": 0.8333,
+     "valor": 0.4533,
+     "numerador": 1.0833,
      "denominador": 239,
-     "percentil": 68.8,
-     "percentil_grupo": 67.2,
+     "percentil": 71.3,
+     "percentil_grupo": 53.4,
      "n_grupo": 29,
      "detalle": {
-      "firmadas": 2,
+      "firmadas": 3,
       "primer_firmante": 0
      },
      "fuente": {
@@ -273,9 +273,9 @@
    "dias_evaluados": 239,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 76.8,
+   "indice": 77.2,
    "cobertura": 0.6,
-   "posicion": 10,
+   "posicion": 8,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -288,7 +288,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 74.2
+     "puntuacion": 75.4
     },
     {
      "id": "resultados",
@@ -355,7 +355,7 @@
      "valor": 17.9916,
      "numerador": 43,
      "denominador": 239,
-     "percentil": 79.4,
+     "percentil": 78.2,
      "percentil_grupo": 82,
      "n_grupo": 25,
      "detalle": {
@@ -372,14 +372,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.3487,
-     "numerador": 0.8333,
+     "valor": 0.4533,
+     "numerador": 1.0833,
      "denominador": 239,
-     "percentil": 69,
-     "percentil_grupo": 74,
+     "percentil": 72.5,
+     "percentil_grupo": 62,
      "n_grupo": 25,
      "detalle": {
-      "firmadas": 2,
+      "firmadas": 3,
       "primer_firmante": 0
      },
      "fuente": {
@@ -666,7 +666,7 @@
     0,
     0,
     0,
-    0,
+    0.25,
     0,
     0.8333,
     0

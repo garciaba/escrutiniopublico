@@ -81,7 +81,7 @@
    "dias_evaluados": 148,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 11.5,
+   "indice": 11.4,
    "cobertura": 0.6,
    "posicion": 391,
    "total_ranking": 392,
@@ -96,7 +96,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 28
+     "puntuacion": 27.5
     },
     {
      "id": "resultados",
@@ -183,7 +183,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 148,
-     "percentil": 18.1,
+     "percentil": 17.1,
      "percentil_grupo": 1.5,
      "n_grupo": 33,
      "detalle": {

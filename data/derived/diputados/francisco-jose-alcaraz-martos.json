@@ -113,9 +113,9 @@
    "dias_evaluados": 1147,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 75.6,
+   "indice": 75.3,
    "cobertura": 0.6,
-   "posicion": 10,
+   "posicion": 11,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -128,7 +128,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 85.8
+     "puntuacion": 84.9
     },
     {
      "id": "resultados",
@@ -195,7 +195,7 @@
      "valor": 21.7696,
      "numerador": 249.6976,
      "denominador": 1147,
-     "percentil": 86.4,
+     "percentil": 85.1,
      "percentil_grupo": 56.1,
      "n_grupo": 33,
      "detalle": {
@@ -212,14 +212,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.8127,
-     "numerador": 9.3211,
+     "valor": 0.8417,
+     "numerador": 9.6544,
      "denominador": 1147,
-     "percentil": 85.3,
-     "percentil_grupo": 40.9,
+     "percentil": 84.8,
+     "percentil_grupo": 34.8,
      "n_grupo": 33,
      "detalle": {
-      "firmadas": 37,
+      "firmadas": 39,
       "primer_firmante": 2
      },
      "fuente": {
@@ -265,7 +265,7 @@
    "dias_evaluados": 317,
    "grupo": "GVOX",
    "roles": [],
-   "indice": 80.9,
+   "indice": 80.4,
    "cobertura": 0.6,
    "posicion": 6,
    "total_ranking": 347,
@@ -280,7 +280,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 93.1
+     "puntuacion": 91.4
     },
     {
      "id": "resultados",
@@ -347,7 +347,7 @@
      "valor": 35.9501,
      "numerador": 113.9617,
      "denominador": 317,
-     "percentil": 95.5,
+     "percentil": 94.4,
      "percentil_grupo": 89.1,
      "n_grupo": 32,
      "detalle": {
@@ -367,8 +367,8 @@
      "valor": 1.5126,
      "numerador": 4.7949,
      "denominador": 317,
-     "percentil": 90.6,
-     "percentil_grupo": 57.8,
+     "percentil": 88.3,
+     "percentil_grupo": 48.4,
      "n_grupo": 32,
      "detalle": {
       "firmadas": 20,
@@ -648,7 +648,7 @@
     0.2,
     0.4167,
     0,
-    0.3333,
+    0.6667,
     0,
     0,
     0,

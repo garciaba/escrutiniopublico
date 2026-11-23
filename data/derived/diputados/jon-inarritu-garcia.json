@@ -185,9 +185,9 @@
    "dias_evaluados": 1147,
    "grupo": "GEH Bildu",
    "roles": [],
-   "indice": 58.4,
+   "indice": 58.1,
    "cobertura": 0.6,
-   "posicion": 95,
+   "posicion": 96,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -200,7 +200,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 71.8
+     "puntuacion": 71
     },
     {
      "id": "resultados",
@@ -267,7 +267,7 @@
      "valor": 7.367,
      "numerador": 84.5,
      "denominador": 1147,
-     "percentil": 58.8,
+     "percentil": 58,
      "percentil_grupo": 92.9,
      "n_grupo": 7,
      "detalle": {
@@ -287,7 +287,7 @@
      "valor": 0.7847,
      "numerador": 9,
      "denominador": 1147,
-     "percentil": 84.8,
+     "percentil": 84.1,
      "percentil_grupo": 92.9,
      "n_grupo": 7,
      "detalle": {
@@ -337,9 +337,9 @@
    "dias_evaluados": 317,
    "grupo": "GEH Bildu",
    "roles": [],
-   "indice": 60.4,
+   "indice": 59.9,
    "cobertura": 0.6,
-   "posicion": 82,
+   "posicion": 84,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -352,7 +352,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 80.6
+     "puntuacion": 79.2
     },
     {
      "id": "resultados",
@@ -419,7 +419,7 @@
      "valor": 9.7792,
      "numerador": 31,
      "denominador": 317,
-     "percentil": 66,
+     "percentil": 65.4,
      "percentil_grupo": 91.7,
      "n_grupo": 6,
      "detalle": {
@@ -439,7 +439,7 @@
      "valor": 2.2082,
      "numerador": 7,
      "denominador": 317,
-     "percentil": 95.2,
+     "percentil": 92.9,
      "percentil_grupo": 91.7,
      "n_grupo": 6,
      "detalle": {

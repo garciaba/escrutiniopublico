@@ -113,9 +113,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 49.4,
+   "indice": 49.5,
    "cobertura": 0.6,
-   "posicion": 204,
+   "posicion": 201,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -128,7 +128,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 71
+     "puntuacion": 71.2
     },
     {
      "id": "resultados",
@@ -192,14 +192,14 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 7.6343,
-     "numerador": 87.5656,
+     "valor": 7.641,
+     "numerador": 87.6425,
      "denominador": 1147,
-     "percentil": 59.6,
-     "percentil_grupo": 26.3,
+     "percentil": 58.5,
+     "percentil_grupo": 25,
      "n_grupo": 150,
      "detalle": {
-      "firmadas": 634,
+      "firmadas": 635,
       "primer_firmante": 37
      },
      "fuente": {
@@ -212,14 +212,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.683,
-     "numerador": 7.8335,
+     "valor": 0.7701,
+     "numerador": 8.8335,
      "denominador": 1147,
-     "percentil": 82.5,
-     "percentil_grupo": 78.3,
+     "percentil": 83.8,
+     "percentil_grupo": 83,
      "n_grupo": 150,
      "detalle": {
-      "firmadas": 40,
+      "firmadas": 46,
       "primer_firmante": 4
      },
      "fuente": {
@@ -347,8 +347,8 @@
      "valor": 8.9227,
      "numerador": 28.2851,
      "denominador": 317,
-     "percentil": 63,
-     "percentil_grupo": 40.9,
+     "percentil": 62.1,
+     "percentil_grupo": 39.5,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 212,
@@ -364,14 +364,14 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.9444,
-     "numerador": 2.9936,
+     "valor": 1.2598,
+     "numerador": 3.9936,
      "denominador": 317,
-     "percentil": 84,
-     "percentil_grupo": 83,
+     "percentil": 84.9,
+     "percentil_grupo": 86.6,
      "n_grupo": 138,
      "detalle": {
-      "firmadas": 12,
+      "firmadas": 18,
       "primer_firmante": 2
      },
      "fuente": {
@@ -588,7 +588,7 @@
     0.759,
     1.421,
     2.0297,
-    5.4857,
+    5.5627,
     2.9234,
     5.396,
     0.3817,
@@ -655,7 +655,7 @@
     0.25,
     0,
     1.3333,
-    1,
+    2,
     0,
     0,
     0,

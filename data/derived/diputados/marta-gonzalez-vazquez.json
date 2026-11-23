@@ -107,9 +107,9 @@
    "roles": [
     "mesa"
    ],
-   "indice": 56.2,
+   "indice": 55.7,
    "cobertura": 0.6,
-   "posicion": 117,
+   "posicion": 120,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -122,7 +122,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 67.1
+     "puntuacion": 65.7
     },
     {
      "id": "resultados",
@@ -186,11 +186,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 12.1421,
-     "numerador": 139.2696,
+     "valor": 12.1414,
+     "numerador": 139.2619,
      "denominador": 1147,
-     "percentil": 71.3,
-     "percentil_grupo": 49,
+     "percentil": 70.3,
+     "percentil_grupo": 46.3,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 1285,
@@ -209,8 +209,8 @@
      "valor": 0.2553,
      "numerador": 2.928,
      "denominador": 1147,
-     "percentil": 62.9,
-     "percentil_grupo": 44.3,
+     "percentil": 61.1,
+     "percentil_grupo": 43.7,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 18,
@@ -261,9 +261,9 @@
    "roles": [
     "mesa"
    ],
-   "indice": 60.5,
+   "indice": 59.9,
    "cobertura": 0.6,
-   "posicion": 79,
+   "posicion": 84,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -276,7 +276,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 48.5
+     "puntuacion": 46.6
     },
     {
      "id": "resultados",
@@ -340,11 +340,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 4.3994,
-     "numerador": 13.9462,
+     "valor": 4.3956,
+     "numerador": 13.9342,
      "denominador": 317,
-     "percentil": 50.3,
-     "percentil_grupo": 17,
+     "percentil": 49.7,
+     "percentil_grupo": 16.3,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 117,
@@ -363,7 +363,7 @@
      "valor": 0.0436,
      "numerador": 0.1381,
      "denominador": 317,
-     "percentil": 46.7,
+     "percentil": 43.5,
      "percentil_grupo": 16.7,
      "n_grupo": 138,
      "detalle": {
@@ -585,7 +585,7 @@
     0.748,
     18.1865,
     4.3842,
-    1.0268,
+    1.031,
     0.3309,
     2.7312,
     0.5714,
@@ -615,7 +615,7 @@
     1.0834,
     1.1078,
     0.1213,
-    1.7436,
+    1.7317,
     0.1538
    ],
    "solicitudes_informe": [

@@ -113,9 +113,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 70.3,
+   "indice": 69.8,
    "cobertura": 0.6,
-   "posicion": 18,
+   "posicion": 21,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -128,7 +128,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 92.3
+     "puntuacion": 90.8
     },
     {
      "id": "resultados",
@@ -192,11 +192,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 46.1805,
-     "numerador": 529.6903,
+     "valor": 46.1795,
+     "numerador": 529.6784,
      "denominador": 1147,
-     "percentil": 96.8,
-     "percentil_grupo": 94.3,
+     "percentil": 95.8,
+     "percentil_grupo": 91.7,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 5001,
@@ -215,8 +215,8 @@
      "valor": 0.9478,
      "numerador": 10.8714,
      "denominador": 1147,
-     "percentil": 87.9,
-     "percentil_grupo": 86.3,
+     "percentil": 85.8,
+     "percentil_grupo": 85.7,
      "n_grupo": 150,
      "detalle": {
       "firmadas": 17,
@@ -265,9 +265,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 72.4,
+   "indice": 71.9,
    "cobertura": 0.6,
-   "posicion": 18,
+   "posicion": 20,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -280,7 +280,7 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 88.8
+     "puntuacion": 87.2
     },
     {
      "id": "resultados",
@@ -344,11 +344,11 @@
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 20.1264,
-     "numerador": 63.8008,
+     "valor": 20.1227,
+     "numerador": 63.7889,
      "denominador": 317,
-     "percentil": 82.9,
-     "percentil_grupo": 74.3,
+     "percentil": 82,
+     "percentil_grupo": 72.1,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 488,
@@ -367,8 +367,8 @@
      "valor": 2.0715,
      "numerador": 6.5667,
      "denominador": 317,
-     "percentil": 94.7,
-     "percentil_grupo": 96.7,
+     "percentil": 92.4,
+     "percentil_grupo": 96,
      "n_grupo": 138,
      "detalle": {
       "firmadas": 9,
@@ -619,7 +619,7 @@
     4.3214,
     12.7129,
     1,
-    1.0833,
+    1.0714,
     0.2205
    ],
    "solicitudes_informe": [
