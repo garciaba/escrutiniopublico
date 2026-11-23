@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.0.0",
+ "metodologia_version": "1.1.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -217,9 +217,9 @@
    "dias_evaluados": 1147,
    "grupo": "GR",
    "roles": [],
-   "indice": 61.9,
-   "cobertura": 0.6,
-   "posicion": 64,
+   "indice": 66.1,
+   "cobertura": 0.8,
+   "posicion": 46,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -228,15 +228,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 96.2
+     "puntuacion": 97.4
     },
     {
      "id": "iniciativa",
-     "puntuacion": 48
+     "puntuacion": 63.1
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 62.4
     },
     {
      "id": "representacion",
@@ -264,11 +264,11 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 8.7184,
-     "numerador": 100,
+     "valor": 7.6722,
+     "numerador": 88,
      "denominador": 1147,
-     "percentil": 93.9,
-     "percentil_grupo": 43.8,
+     "percentil": 96,
+     "percentil_grupo": 56.3,
      "n_grupo": 8,
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
@@ -280,10 +280,10 @@
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 15.6931,
-     "numerador": 180,
+     "valor": 14.5597,
+     "numerador": 167,
      "denominador": 1147,
-     "percentil": 98.6,
+     "percentil": 98.9,
      "percentil_grupo": 93.8,
      "n_grupo": 8,
      "fuente": {
@@ -305,6 +305,26 @@
      "detalle": {
       "firmadas": 72,
       "primer_firmante": 51
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 2.5719,
+     "numerador": 29.5,
+     "denominador": 1147,
+     "percentil": 93.5,
+     "percentil_grupo": 93.8,
+     "n_grupo": 8,
+     "detalle": {
+      "firmadas": 30,
+      "primer_firmante": 30
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -345,6 +365,22 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0.0872,
+     "numerador": 1,
+     "denominador": 1147,
+     "percentil": 62.4,
+     "percentil_grupo": 18.8,
+     "n_grupo": 8,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -356,7 +392,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 1799,
+    "intervenciones": 280,
+    "sin_hora": 1
+   }
   },
   "12m": {
    "estado": "disponible",
@@ -369,9 +410,9 @@
    "dias_evaluados": 317,
    "grupo": "GR",
    "roles": [],
-   "indice": 68.9,
-   "cobertura": 0.6,
-   "posicion": 31,
+   "indice": 65.7,
+   "cobertura": 0.8,
+   "posicion": 41,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -384,11 +425,11 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 37.9
+     "puntuacion": 56.8
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 37.5
     },
     {
      "id": "representacion",
@@ -416,10 +457,10 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 11.9874,
-     "numerador": 38,
+     "valor": 10.7256,
+     "numerador": 34,
      "denominador": 317,
-     "percentil": 97,
+     "percentil": 97.8,
      "percentil_grupo": 92.9,
      "n_grupo": 7,
      "fuente": {
@@ -432,11 +473,11 @@
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 17.0347,
-     "numerador": 54,
+     "valor": 16.0883,
+     "numerador": 51,
      "denominador": 317,
-     "percentil": 98,
-     "percentil_grupo": 85.7,
+     "percentil": 97.1,
+     "percentil_grupo": 71.4,
      "n_grupo": 7,
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
@@ -457,6 +498,26 @@
      "detalle": {
       "firmadas": 30,
       "primer_firmante": 22
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 3.47,
+     "numerador": 11,
+     "denominador": 317,
+     "percentil": 94.7,
+     "percentil_grupo": 92.9,
+     "n_grupo": 7,
+     "detalle": {
+      "firmadas": 11,
+      "primer_firmante": 11
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -497,6 +558,22 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 317,
+     "percentil": 37.5,
+     "percentil_grupo": 21.4,
+     "n_grupo": 7,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -508,7 +585,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 604,
+    "intervenciones": 92,
+    "sin_hora": 0
+   }
   },
   "3m": {
    "estado": "no_disponible",
@@ -519,6 +601,48 @@
    "motivo": "sin_dias_en_la_legislatura"
   }
  },
+ "ponencias": [
+  {
+   "iniciativa_id": "121/000013",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley de creación de la Oficina Española de Derechos de Autor y Conexos, O.A.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000013"
+  },
+  {
+   "iniciativa_id": "121/000026",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley del Cine y de la Cultura Audiovisual.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000026"
+  },
+  {
+   "iniciativa_id": "121/000046",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley de transparencia e integridad de las actividades de los grupos de interés.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000046"
+  },
+  {
+   "iniciativa_id": "122/000072",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley sobre concesión de nacionalidad española a las y los saharauis nacidos bajo la administración española.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000072"
+  },
+  {
+   "iniciativa_id": "122/000126",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley Orgánica por la que se modifica la Ley Orgánica 1/2002, de 22 de marzo, reguladora del derecho de asociación.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2025-06-19",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000126"
+  }
+ ],
  "evolucion": {
   "meses": [
    "2023-08",
@@ -614,31 +738,31 @@
     3,
     0,
     4,
-    7,
-    0,
-    0,
-    2,
-    6,
     5,
+    0,
+    0,
+    2,
+    5,
+    3,
     2,
     0,
     2,
-    7,
+    5,
     2,
     2,
     7,
     1,
     0,
     3,
-    2,
+    1,
     2,
     3,
     0,
     4,
     2,
-    6,
     4,
-    9,
+    4,
+    7,
     1,
     0,
     8,
@@ -651,11 +775,11 @@
     0,
     0,
     8,
-    3,
-    7,
     2,
+    7,
+    1,
     8,
-    15,
+    13,
     0,
     0,
     2,
@@ -664,23 +788,23 @@
     10,
     5,
     3,
-    10,
-    2,
+    8,
+    0,
     6,
     9,
     0,
     0,
     2,
-    10,
+    8,
     6,
     2,
     2,
-    4,
+    3,
     7,
     8,
     7,
     6,
-    3,
+    1,
     8,
     4,
     0
@@ -726,6 +850,47 @@
     1.5,
     0
    ],
+   "preguntas_orales": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    2,
+    0,
+    0,
+    1,
+    2,
+    1,
+    0,
+    1,
+    1,
+    2.5,
+    1,
+    0,
+    1,
+    0,
+    0,
+    1,
+    2,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    0,
+    1,
+    0
+   ],
    "solicitudes_informe": [
     0,
     0,
@@ -750,6 +915,47 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "leyes_ponente": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
     0,
     0,
     0,

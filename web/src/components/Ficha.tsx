@@ -7,6 +7,7 @@ import { scoring, type MetricConfig } from '../../../config/scoring.ts';
 import type { Ficha, FichaPeriodo, Metrica } from '../lib/data.ts';
 import { intervalo, periodoPrincipal, recortar, resumenEvolucion, valorBruto, valorMensual } from '../lib/ficha.ts';
 import {
+  duracion,
   fechaCorta,
   fechaLarga,
   iniciales,
@@ -304,6 +305,87 @@ function TarjetaMetrica({ metrica, ficha }: { metrica: Metrica; ficha: Ficha }) 
   );
 }
 
+/** Speaking time: context next to the debate metrics, never part of the score. */
+function TiempoPalabra({ periodo }: { periodo: FichaPeriodo }) {
+  const tiempo = periodo.tiempo_palabra;
+  const contexto = scoring.contexto.find((item) => item.id === 'tiempo_palabra');
+  if (!tiempo || !contexto) return null;
+  return (
+    <article class="metrica tarjeta contexto">
+      <div class="metrica-cabeza">
+        <div>
+          <h3>{contexto.nombre}</h3>
+          <p class="dim">Contexto de la participación en debates</p>
+        </div>
+        <span class="etiqueta rayada" title="Se muestra como contexto; no entra en el índice">
+          No puntúa
+        </span>
+      </div>
+      <p class="bruto">
+        {duracion(tiempo.minutos)}
+        <small>
+          En {num(tiempo.intervenciones)} {plural(tiempo.intervenciones, 'intervención', 'intervenciones')} como
+          diputado en el Pleno y en comisión, preguntas orales incluidas
+          {tiempo.sin_hora > 0
+            ? `; ${num(tiempo.sin_hora)} ${plural(tiempo.sin_hora, 'no tiene', 'no tienen')} hora oficial y no ${plural(tiempo.sin_hora, 'suma', 'suman')}`
+            : ''}
+          .
+        </small>
+      </p>
+      {tiempo.intervenciones > 0 ? (
+        <p class="tiempo-media">
+          {num(tiempo.minutos / Math.max(1, tiempo.intervenciones - tiempo.sin_hora), 1)} minutos de media por
+          intervención
+        </p>
+      ) : null}
+      <p class="metrica-pie">{contexto.calculo}</p>
+    </article>
+  );
+}
+
+function Ponencias({ ficha }: { ficha: Ficha }) {
+  if (ficha.ponencias.length === 0) return null;
+  const aprobadas = ficha.ponencias.filter((ley) => ley.resultado?.startsWith('Aprobado')).length;
+  return (
+    <section class="seccion" aria-labelledby="ponencias-titulo">
+      <h2 id="ponencias-titulo">Ponencias de leyes</h2>
+      <p class="nota">
+        Ponente en {num(ficha.ponencias.length)} {plural(ficha.ponencias.length, 'ley', 'leyes')} de la legislatura, de
+        las que {plural(aprobadas, 'se aprobó', 'se aprobaron')} {num(aprobadas)}. Composición final de cada ponencia
+        según los datos oficiales.
+      </p>
+      <div class="tarjeta">
+        <table class="lista-tabla apilable">
+          <thead>
+            <tr>
+              <th scope="col">Ley</th>
+              <th scope="col">Resultado</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ficha.ponencias.map((ley) => (
+              <tr>
+                <th scope="row">
+                  <a href={ley.url_fuente} rel="noopener">
+                    {recortar(ley.titulo, 200)}
+                  </a>
+                  <span class="secundario">
+                    {ley.tipo} {ley.iniciativa_id}
+                  </span>
+                </th>
+                <td data-label="Resultado">
+                  {ley.resultado ?? 'En tramitación'}
+                  {ley.fecha_resultado ? <span class="secundario">{fechaCorta(ley.fecha_resultado)}</span> : null}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
 function Periodos({ ficha }: { ficha: Ficha }) {
   const conDato = scoring.dimensiones.filter((dimension) =>
     scoring.metricas.some((m) => m.dimension === dimension.id && m.estado !== 'no_disponible'),
@@ -510,7 +592,11 @@ function Intervenciones({ ficha }: { ficha: Ficha }) {
                     {intervencion.tipo_iniciativa ? (
                       <span class="secundario">{intervencion.tipo_iniciativa.replace(/\.$/, '')}</span>
                     ) : null}
-                    {intervencion.cuenta ? null : (
+                    {intervencion.cuenta ? null : intervencion.motivo_exclusion === 'pregunta_oral' ? (
+                      <span class="secundario">
+                        <span class="etiqueta">{motivoExclusion(intervencion.motivo_exclusion)}</span>
+                      </span>
+                    ) : (
                       <span class="secundario">
                         <span class="etiqueta rayada">No puntúa</span> {motivoExclusion(intervencion.motivo_exclusion)}
                       </span>
@@ -557,8 +643,14 @@ export function FichaDiputado({ ficha }: { ficha: Ficha }) {
               es la mediana). El percentil dentro del grupo es contexto y no puntúa.
             </p>
             <div class="metricas">
-              {(principal.periodo.metricas ?? []).map((metrica) => (
-                <TarjetaMetrica metrica={metrica} ficha={ficha} />
+              {(principal.periodo.metricas ?? []).map((metrica, i, todas) => (
+                <>
+                  <TarjetaMetrica metrica={metrica} ficha={ficha} />
+                  {/* Speaking time goes right after the last debate metric. */}
+                  {metrica.dimension === 'debates' && todas[i + 1]?.dimension !== 'debates' ? (
+                    <TiempoPalabra periodo={principal.periodo} />
+                  ) : null}
+                </>
               ))}
             </div>
           </section>
@@ -569,6 +661,7 @@ export function FichaDiputado({ ficha }: { ficha: Ficha }) {
         </p>
       )}
       <Periodos ficha={ficha} />
+      <Ponencias ficha={ficha} />
       <Cargos ficha={ficha} />
       <Votaciones ficha={ficha} />
       <Intervenciones ficha={ficha} />

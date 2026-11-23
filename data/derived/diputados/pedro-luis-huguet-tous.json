@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.0.0",
+ "metodologia_version": "1.1.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -105,9 +105,9 @@
    "dias_evaluados": 296,
    "grupo": "GP",
    "roles": [],
-   "indice": 60,
-   "cobertura": 0.6,
-   "posicion": 82,
+   "indice": 53.7,
+   "cobertura": 0.8,
+   "posicion": 149,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -116,15 +116,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 36.3
+     "puntuacion": 38.2
     },
     {
      "id": "iniciativa",
-     "puntuacion": 53.2
+     "puntuacion": 59.7
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 26.1
     },
     {
      "id": "representacion",
@@ -155,8 +155,8 @@
      "valor": 1.3514,
      "numerador": 4,
      "denominador": 296,
-     "percentil": 69,
-     "percentil_grupo": 79.7,
+     "percentil": 72.8,
+     "percentil_grupo": 89,
      "n_grupo": 150,
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
@@ -201,6 +201,26 @@
      }
     },
     {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0.839,
+     "numerador": 2.4833,
+     "denominador": 296,
+     "percentil": 72.8,
+     "percentil_grupo": 62.3,
+     "n_grupo": 150,
+     "detalle": {
+      "firmadas": 9,
+      "primer_firmante": 7
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
@@ -233,6 +253,22 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 296,
+     "percentil": 26.1,
+     "percentil_grupo": 31,
+     "n_grupo": 150,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -244,7 +280,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 33,
+    "intervenciones": 4,
+    "sin_hora": 0
+   }
   },
   "12m": {
    "estado": "no_disponible",
@@ -259,6 +300,16 @@
    "motivo": "sin_dias_en_la_legislatura"
   }
  },
+ "ponencias": [
+  {
+   "iniciativa_id": "121/000006",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley Orgánica del derecho de defensa.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-10-30",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000006"
+  }
+ ],
  "evolucion": {
   "meses": [
    "2023-08",
@@ -466,6 +517,47 @@
     0,
     0
    ],
+   "preguntas_orales": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1.9833,
+    0.5,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
    "solicitudes_informe": [
     0,
     0,
@@ -477,6 +569,47 @@
     0,
     0,
     0.0667,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "leyes_ponente": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,

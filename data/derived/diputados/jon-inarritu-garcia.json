@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.0.0",
+ "metodologia_version": "1.1.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -185,9 +185,9 @@
    "dias_evaluados": 1147,
    "grupo": "GEH Bildu",
    "roles": [],
-   "indice": 58.1,
-   "cobertura": 0.6,
-   "posicion": 96,
+   "indice": 69.1,
+   "cobertura": 0.8,
+   "posicion": 29,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -196,15 +196,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 93.2
+     "puntuacion": 93.9
     },
     {
      "id": "iniciativa",
-     "puntuacion": 71
+     "puntuacion": 73.9
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 98.6
     },
     {
      "id": "representacion",
@@ -232,10 +232,10 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 7.7594,
-     "numerador": 89,
+     "valor": 6.5388,
+     "numerador": 75,
      "denominador": 1147,
-     "percentil": 92.5,
+     "percentil": 93.5,
      "percentil_grupo": 64.3,
      "n_grupo": 7,
      "fuente": {
@@ -248,10 +248,10 @@
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 11.5955,
-     "numerador": 133,
+     "valor": 11.4211,
+     "numerador": 131,
      "denominador": 1147,
-     "percentil": 93.9,
+     "percentil": 94.4,
      "percentil_grupo": 78.6,
      "n_grupo": 7,
      "fuente": {
@@ -273,6 +273,26 @@
      "detalle": {
       "firmadas": 86,
       "primer_firmante": 83
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 1.2206,
+     "numerador": 14,
+     "denominador": 1147,
+     "percentil": 79.6,
+     "percentil_grupo": 64.3,
+     "n_grupo": 7,
+     "detalle": {
+      "firmadas": 14,
+      "primer_firmante": 14
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -313,6 +333,22 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0.6975,
+     "numerador": 8,
+     "denominador": 1147,
+     "percentil": 98.6,
+     "percentil_grupo": 92.9,
+     "n_grupo": 7,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -324,7 +360,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 1740,
+    "intervenciones": 222,
+    "sin_hora": 0
+   }
   },
   "12m": {
    "estado": "disponible",
@@ -337,9 +378,9 @@
    "dias_evaluados": 317,
    "grupo": "GEH Bildu",
    "roles": [],
-   "indice": 59.9,
-   "cobertura": 0.6,
-   "posicion": 84,
+   "indice": 69.6,
+   "cobertura": 0.8,
+   "posicion": 22,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -348,15 +389,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 90.7
+     "puntuacion": 90.6
     },
     {
      "id": "iniciativa",
-     "puntuacion": 79.2
+     "puntuacion": 82.7
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 95.2
     },
     {
      "id": "representacion",
@@ -384,10 +425,10 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 8.2019,
-     "numerador": 26,
+     "valor": 6.3091,
+     "numerador": 20,
      "denominador": 317,
-     "percentil": 91.6,
+     "percentil": 92.1,
      "percentil_grupo": 58.3,
      "n_grupo": 6,
      "fuente": {
@@ -400,10 +441,10 @@
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 10.7256,
-     "numerador": 34,
+     "valor": 10.0946,
+     "numerador": 32,
      "denominador": 317,
-     "percentil": 89.8,
+     "percentil": 89,
      "percentil_grupo": 75,
      "n_grupo": 6,
      "fuente": {
@@ -425,6 +466,26 @@
      "detalle": {
       "firmadas": 31,
       "primer_firmante": 31
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 2.2082,
+     "numerador": 7,
+     "denominador": 317,
+     "percentil": 89.8,
+     "percentil_grupo": 91.7,
+     "n_grupo": 6,
+     "detalle": {
+      "firmadas": 7,
+      "primer_firmante": 7
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -465,6 +526,22 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0.6309,
+     "numerador": 2,
+     "denominador": 317,
+     "percentil": 95.2,
+     "percentil_grupo": 75,
+     "n_grupo": 6,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -476,7 +553,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 408,
+    "intervenciones": 60,
+    "sin_hora": 0
+   }
   },
   "3m": {
    "estado": "no_disponible",
@@ -487,6 +569,88 @@
    "motivo": "sin_dias_en_la_legislatura"
   }
  },
+ "ponencias": [
+  {
+   "iniciativa_id": "122/000072",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley sobre concesión de nacionalidad española a las y los saharauis nacidos bajo la administración española.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000072"
+  },
+  {
+   "iniciativa_id": "122/000088",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley Orgánica por la que se modifica el artículo ochenta de la Ley Orgánica 1/1979, de 26 de septiembre, General Penitenciaria, para reconocer, a efectos legales, el carácter de agentes de la autoridad a los funcionarios de la Administración Penitenciaria.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2026-10-01",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000088"
+  },
+  {
+   "iniciativa_id": "122/000083",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley Orgánica en materia de multirreincidencia, por la que se modifica la Ley Orgánica 10/1995, de 23 de noviembre, del Código Penal y la Ley de Enjuiciamiento Criminal, aprobada por Real Decreto de 14 de septiembre de 1882.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2026-03-26",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000083"
+  },
+  {
+   "iniciativa_id": "122/000139",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley sobre la reducción de la tasa máxima de alcohol en la conducción y la prohibición de la difusión de la ubicación de controles en redes sociales.",
+   "resultado": "Rechazado",
+   "fecha_resultado": "2026-03-18",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000139"
+  },
+  {
+   "iniciativa_id": "122/000126",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley Orgánica por la que se modifica la Ley Orgánica 1/2002, de 22 de marzo, reguladora del derecho de asociación.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2025-06-19",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000126"
+  },
+  {
+   "iniciativa_id": "121/000016",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley Orgánica de medidas en materia de eficiencia del Servicio Público de Justicia.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-12-19",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000016"
+  },
+  {
+   "iniciativa_id": "121/000006",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley Orgánica del derecho de defensa.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-10-30",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000006"
+  },
+  {
+   "iniciativa_id": "121/000017",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley Orgánica por la que se modifica la Ley Orgánica 7/2014, de 12 de noviembre, sobre intercambio de información de antecedentes penales y consideración de resoluciones judiciales penales en la Unión Europea, para su adecuación a la normativa de la Unión Europea sobre el Sistema Europeo de Información de Antecedentes Penales (ECRIS).",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-10-14",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000017"
+  },
+  {
+   "iniciativa_id": "122/000118",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley Orgánica de reforma de la Ley Orgánica 6/1985, de 1 de julio, del Poder Judicial y de reforma de la Ley 50/1981, de 30 de diciembre, por la que se regula el Estatuto Orgánico del Ministerio Fiscal.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-07-31",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000118"
+  },
+  {
+   "iniciativa_id": "122/000019",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley Orgánica de amnistía para la normalización institucional, política y social en Cataluña.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-05-30",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000019"
+  }
+ ],
  "evolucion": {
   "meses": [
    "2023-08",
@@ -578,35 +742,35 @@
     0,
     4,
     2,
-    5,
+    4,
     2,
-    3,
+    2,
     3,
     5,
     2,
     0,
-    5,
+    3,
     3,
     4,
-    3,
+    2,
     0,
     2,
     1,
     2,
-    2,
-    7,
+    1,
+    5,
     2,
     0,
     4,
     2,
-    2,
+    0,
     1,
     2,
     4,
-    3,
     2,
-    3,
-    3,
+    2,
+    2,
+    1,
     2,
     0,
     4,
@@ -647,7 +811,7 @@
     5,
     4,
     3,
-    5,
+    3,
     1,
     5,
     2,
@@ -694,6 +858,47 @@
     2,
     0
    ],
+   "preguntas_orales": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    2,
+    0,
+    0,
+    2,
+    0
+   ],
    "solicitudes_informe": [
     0,
     0,
@@ -734,6 +939,47 @@
     0,
     0,
     0
+   ],
+   "leyes_ponente": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    2,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
    ]
   }
  },
@@ -1075,8 +1321,8 @@
    "fecha": "2026-06-23",
    "organo": "Comisión Mixta para la Unión Europea",
    "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCG-15-CM-176.CODI.)#(P%C3%A1gina5)",
    "url_video": "https://app.congreso.es/v1/1576571I"
   },
@@ -1085,8 +1331,8 @@
    "fecha": "2026-06-23",
    "organo": "Comisión Mixta para la Unión Europea",
    "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCG-15-CM-176.CODI.)#(P%C3%A1gina3)",
    "url_video": "https://app.congreso.es/v1/1576569I"
   },
@@ -1105,8 +1351,8 @@
    "fecha": "2026-06-17",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-193.CODI.)#(P%C3%A1gina23)",
    "url_video": "https://app.congreso.es/v1/1575575I"
   },
@@ -1115,8 +1361,8 @@
    "fecha": "2026-06-17",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-193.CODI.)#(P%C3%A1gina22)",
    "url_video": "https://app.congreso.es/v1/1575573I"
   }

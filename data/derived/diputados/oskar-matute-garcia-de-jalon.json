@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.0.0",
+ "metodologia_version": "1.1.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -249,9 +249,9 @@
    "dias_evaluados": 1147,
    "grupo": "GEH Bildu",
    "roles": [],
-   "indice": 38.8,
-   "cobertura": 0.6,
-   "posicion": 319,
+   "indice": 57.3,
+   "cobertura": 0.8,
+   "posicion": 114,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -260,15 +260,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 72.3
+     "puntuacion": 71.2
     },
     {
      "id": "iniciativa",
-     "puntuacion": 37.5
+     "puntuacion": 55.2
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 96.3
     },
     {
      "id": "representacion",
@@ -296,11 +296,11 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 11.5083,
-     "numerador": 132,
+     "valor": 8.2825,
+     "numerador": 95,
      "denominador": 1147,
-     "percentil": 97.8,
-     "percentil_grupo": 92.9,
+     "percentil": 96.3,
+     "percentil_grupo": 78.6,
      "n_grupo": 7,
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
@@ -312,10 +312,10 @@
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 2.4412,
-     "numerador": 28,
+     "valor": 2.2668,
+     "numerador": 26,
      "denominador": 1147,
-     "percentil": 46.7,
+     "percentil": 46,
      "percentil_grupo": 21.4,
      "n_grupo": 7,
      "fuente": {
@@ -337,6 +337,26 @@
      "detalle": {
       "firmadas": 7,
       "primer_firmante": 6
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 2.0052,
+     "numerador": 23,
+     "denominador": 1147,
+     "percentil": 90.7,
+     "percentil_grupo": 92.9,
+     "n_grupo": 7,
+     "detalle": {
+      "firmadas": 23,
+      "primer_firmante": 23
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -377,6 +397,22 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0.5231,
+     "numerador": 6,
+     "denominador": 1147,
+     "percentil": 96.3,
+     "percentil_grupo": 64.3,
+     "n_grupo": 7,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -388,7 +424,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 946,
+    "intervenciones": 160,
+    "sin_hora": 0
+   }
   },
   "12m": {
    "estado": "disponible",
@@ -401,9 +442,9 @@
    "dias_evaluados": 317,
    "grupo": "GEH Bildu",
    "roles": [],
-   "indice": 59.9,
-   "cobertura": 0.6,
-   "posicion": 84,
+   "indice": 68.6,
+   "cobertura": 0.8,
+   "posicion": 28,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -412,15 +453,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 57.2
+     "puntuacion": 56.8
     },
     {
      "id": "iniciativa",
-     "puntuacion": 51.4
+     "puntuacion": 62.9
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 83.6
     },
     {
      "id": "representacion",
@@ -448,10 +489,10 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 12.6183,
-     "numerador": 40,
+     "valor": 8.8328,
+     "numerador": 28,
      "denominador": 317,
-     "percentil": 97.4,
+     "percentil": 95.7,
      "percentil_grupo": 91.7,
      "n_grupo": 6,
      "fuente": {
@@ -467,7 +508,7 @@
      "valor": 0.9464,
      "numerador": 3,
      "denominador": 317,
-     "percentil": 17,
+     "percentil": 17.9,
      "percentil_grupo": 16.7,
      "n_grupo": 6,
      "fuente": {
@@ -489,6 +530,26 @@
      "detalle": {
       "firmadas": 5,
       "primer_firmante": 5
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 1.8927,
+     "numerador": 6,
+     "denominador": 317,
+     "percentil": 86,
+     "percentil_grupo": 75,
+     "n_grupo": 6,
+     "detalle": {
+      "firmadas": 6,
+      "primer_firmante": 6
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -529,6 +590,22 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0.3155,
+     "numerador": 1,
+     "denominador": 317,
+     "percentil": 83.6,
+     "percentil_grupo": 41.7,
+     "n_grupo": 6,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -540,7 +617,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 259,
+    "intervenciones": 43,
+    "sin_hora": 0
+   }
   },
   "3m": {
    "estado": "no_disponible",
@@ -551,6 +633,96 @@
    "motivo": "sin_dias_en_la_legislatura"
   }
  },
+ "ponencias": [
+  {
+   "iniciativa_id": "121/000031",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley de la Función Pública de la Administración del Estado.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000031"
+  },
+  {
+   "iniciativa_id": "121/000046",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley de transparencia e integridad de las actividades de los grupos de interés.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000046"
+  },
+  {
+   "iniciativa_id": "121/000060",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley por la que se modifican la Ley 58/2003, de 17 de diciembre, General Tributaria, en materia de prescripción, recaudación, asistencia mutua y obligaciones de información; la Ley 35/2006, de 28 de noviembre, del Impuesto sobre la Renta de las Personas Físicas y de modificación parcial de las leyes de los Impuestos sobre Sociedades, sobre la Renta de no Residentes y sobre el Patrimonio, y la Ley 29/1987, de 18 de diciembre, del Impuesto sobre Sucesiones y Donaciones.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000060"
+  },
+  {
+   "iniciativa_id": "122/000136",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley para la regulación de los contratos de alquiler temporales y alquiler de habitaciones.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000136"
+  },
+  {
+   "iniciativa_id": "121/000036",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley integral de impulso de la economía social.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2026-03-26",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000036"
+  },
+  {
+   "iniciativa_id": "122/000146",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley de modificación de la Ley 19/1994, de 6 de julio, de modificación del Régimen Económico y Fiscal de Canarias, para la regulación de las inversiones en elementos patrimoniales afectos a la actividad de arrendamiento de vivienda en las Islas Canarias.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2025-07-22",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000146"
+  },
+  {
+   "iniciativa_id": "121/000033",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley por la que se modifican el texto refundido de la Ley del Estatuto de los Trabajadores, aprobado por el Real Decreto Legislativo 2/2015, de 23 de octubre, en materia de extinción del contrato de trabajo por incapacidad permanente de las personas trabajadoras, y el texto refundido de la Ley General de la Seguridad Social, aprobado por el Real Decreto Legislativo 8/2015, de 30 de octubre, en materia de incapacidad permanente.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2025-04-22",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000033"
+  },
+  {
+   "iniciativa_id": "121/000025",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley por la que se modifica la Ley 1/2005, de 9 de marzo, por la que se regula el régimen del comercio de derechos de emisión de gases de efecto invernadero.",
+   "resultado": "Retirado",
+   "fecha_resultado": "2025-03-11",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000025"
+  },
+  {
+   "iniciativa_id": "121/000023",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-12-19",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000023"
+  },
+  {
+   "iniciativa_id": "121/000014",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley básica de agentes forestales y medioambientales.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-10-30",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000014"
+  },
+  {
+   "iniciativa_id": "121/000015",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley básica de bomberos forestales.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-10-30",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000015"
+  }
+ ],
  "evolucion": {
   "meses": [
    "2023-08",
@@ -640,40 +812,40 @@
     1,
     0,
     0,
-    3,
     2,
-    6,
+    2,
+    4,
     3,
     6,
     1,
     4,
     2,
     0,
-    5,
-    7,
     3,
-    5,
+    4,
+    3,
+    3,
     1,
-    7,
-    4,
-    2,
-    6,
-    7,
-    1,
-    0,
-    7,
-    5,
-    6,
-    4,
-    1,
-    6,
-    4,
-    4,
     3,
     4,
     2,
+    5,
+    3,
+    1,
     0,
-    8,
+    5,
+    3,
+    4,
+    2,
+    1,
+    6,
+    2,
+    2,
+    3,
+    2,
+    2,
+    0,
+    4,
     2
    ],
    "intervenciones_comision": [
@@ -686,7 +858,7 @@
     2,
     4,
     0,
-    2,
+    0,
     0,
     2,
     0,
@@ -758,6 +930,47 @@
     0,
     0
    ],
+   "preguntas_orales": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    2,
+    2,
+    1,
+    0,
+    0,
+    2,
+    0,
+    1,
+    0,
+    2,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    2,
+    0
+   ],
    "solicitudes_informe": [
     0,
     0,
@@ -792,6 +1005,47 @@
     0,
     0,
     1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "leyes_ponente": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
     0,
     0,
     0,
@@ -1029,8 +1283,8 @@
    "fecha": "2026-09-30",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-209.CODI.)#(P%C3%A1gina41)",
    "url_video": "https://app.congreso.es/v1/1579656I"
   },
@@ -1039,8 +1293,8 @@
    "fecha": "2026-09-30",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-209.CODI.)#(P%C3%A1gina40)",
    "url_video": "https://app.congreso.es/v1/1579654I"
   },
@@ -1089,8 +1343,8 @@
    "fecha": "2026-09-09",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-202.CODI.)#(P%C3%A1gina18)",
    "url_video": "https://app.congreso.es/v1/1577882I"
   },
@@ -1099,8 +1353,8 @@
    "fecha": "2026-09-09",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-202.CODI.)#(P%C3%A1gina17)",
    "url_video": "https://app.congreso.es/v1/1577880I"
   },
@@ -1149,8 +1403,8 @@
    "fecha": "2026-06-24",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-196.CODI.)#(P%C3%A1gina101)",
    "url_video": "https://app.congreso.es/v1/1576283I"
   },
@@ -1159,8 +1413,8 @@
    "fecha": "2026-06-24",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-196.CODI.)#(P%C3%A1gina100)",
    "url_video": "https://app.congreso.es/v1/1576281I"
   },

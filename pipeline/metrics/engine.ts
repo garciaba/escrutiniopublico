@@ -29,6 +29,10 @@ export interface IntervencionIn {
   organo_id: string;
   diputado_id: string;
   cuenta: boolean;
+  motivo_exclusion?: string | undefined;
+  /** "HH:MM", official start and end of the speech; used for the speaking time, which never scores. */
+  hora_inicio?: string | undefined;
+  hora_fin?: string | undefined;
 }
 export interface OrganoIn {
   organo_id: string;
@@ -38,6 +42,15 @@ export interface IniciativaIn {
   iniciativa_id: string;
   tipo_codigo: string;
   fecha_presentacion: string | undefined;
+  resultado?: string | undefined;
+  fecha_resultado?: string | undefined;
+  /** Bills: the Congreso's last vote; preferred to the outcome date, which is when the file closes. */
+  fecha_conclusion?: string | undefined;
+}
+/** A rapporteur of a bill (D-033). */
+export interface PonenteIn {
+  iniciativa_id: string;
+  diputado_id: string;
 }
 export interface FirmanteIn {
   iniciativa_id: string;
@@ -67,6 +80,7 @@ export interface Tables {
   organos: readonly OrganoIn[];
   iniciativas: readonly IniciativaIn[];
   firmantes: readonly FirmanteIn[];
+  ponentes: readonly PonenteIn[];
   pertenencias: readonly PertenenciaIn[];
   gobierno: readonly GobiernoIn[];
 }
@@ -83,7 +97,12 @@ export interface ScoringInput {
     dimension: string;
     estado: MetricEstado;
     motivo?: string;
+    /** Signed initiatives of these types, with credit shared among the signers. */
     tiposIniciativa?: readonly string[];
+    /** Outcomes (prefixes) that leave a signed initiative out of the metric. */
+    excluirResultados?: readonly string[];
+    /** Bills with one of these outcomes (prefixes) in whose ponencia the deputy sits. */
+    resultadosPonencia?: readonly string[];
   }[];
   organosPorMetrica: Readonly<Record<string, readonly string[]>>;
 }
@@ -105,6 +124,15 @@ export interface MetricResult {
   detalle?: Record<string, number>;
 }
 
+/** Context figure of the profile; never part of the score. */
+export interface TiempoPalabra {
+  minutos: number;
+  /** Speeches counted as the deputy's (formulated oral questions included). */
+  intervenciones: number;
+  /** Of those, speeches without official start or end time. */
+  sin_hora: number;
+}
+
 export interface DeputyPeriod {
   diputado_id: string;
   situacion: Situacion;
@@ -120,6 +148,7 @@ export interface DeputyPeriod {
   indice: number | null;
   cobertura: number | null;
   posicion: number | null;
+  tiempo_palabra: TiempoPalabra;
 }
 
 export interface PeriodResult {
@@ -146,11 +175,21 @@ interface SpeechEvent {
   fecha: string;
   tipoOrgano: string;
 }
-interface CreditEvent {
+export interface CreditEvent {
   fecha: string;
   tipo: string;
   n: number;
   primero: boolean;
+  resultado: string;
+}
+/** A bill of the deputy's ponencia, dated by its outcome. */
+export interface LawEvent {
+  fecha: string;
+  resultado: string;
+}
+interface TalkEvent {
+  fecha: string;
+  minutos: number | null;
 }
 
 /** Events grouped by deputy, built once and shared by every period. */
@@ -158,8 +197,40 @@ export interface Index {
   votes: Map<string, VoteEvent[]>;
   speeches: Map<string, SpeechEvent[]>;
   credits: Map<string, CreditEvent[]>;
+  laws: Map<string, LawEvent[]>;
+  talk: Map<string, TalkEvent[]>;
   gov: Map<string, GobiernoIn[]>;
   memberships: Map<string, PertenenciaIn[]>;
+}
+
+type MetricInput = ScoringInput['metricas'][number];
+
+const startsWithAny = (text: string, prefixes: readonly string[]) => prefixes.some((prefix) => text.startsWith(prefix));
+
+/** True when a signed initiative counts for a metric of signed initiatives. */
+export function creditCounts(metric: MetricInput, event: CreditEvent): boolean {
+  return (
+    (metric.tiposIniciativa?.includes(event.tipo) ?? false) &&
+    !startsWithAny(event.resultado, metric.excluirResultados ?? [])
+  );
+}
+
+/** True when a bill of the deputy's ponencia counts for a metric of rapporteurships. */
+export function lawCounts(metric: MetricInput, event: LawEvent): boolean {
+  return metric.resultadosPonencia !== undefined && startsWithAny(event.resultado, metric.resultadosPonencia);
+}
+
+/** Minutes between two official "HH:MM" times; null when either is missing or malformed. */
+export function minutesBetween(inicio: string | undefined, fin: string | undefined): number | null {
+  const parse = (time: string | undefined) => {
+    const match = /^(\d{1,2}):(\d{2})/.exec(time ?? '');
+    return match ? Number(match[1]) * 60 + Number(match[2]) : undefined;
+  };
+  const from = parse(inicio);
+  const to = parse(fin);
+  if (from === undefined || to === undefined) return null;
+  // A speech that crosses midnight ends "earlier" than it starts.
+  return to >= from ? to - from : to + 1440 - from;
 }
 
 function push<K, V>(map: Map<K, V[]>, key: K, value: V): void {
@@ -173,6 +244,8 @@ export function buildIndex(tables: Tables): Index {
     votes: new Map(),
     speeches: new Map(),
     credits: new Map(),
+    laws: new Map(),
+    talk: new Map(),
     gov: new Map(),
     memberships: new Map(),
   };
@@ -187,6 +260,13 @@ export function buildIndex(tables: Tables): Index {
 
   const organType = new Map(tables.organos.map((organo) => [organo.organo_id, organo.tipo]));
   for (const speech of tables.intervenciones) {
+    // Speaking time covers every speech as a deputy, including one's own oral questions.
+    if (speech.cuenta || speech.motivo_exclusion === 'pregunta_oral') {
+      push(index.talk, speech.diputado_id, {
+        fecha: speech.fecha,
+        minutos: minutesBetween(speech.hora_inicio, speech.hora_fin),
+      });
+    }
     if (!speech.cuenta) continue;
     push(index.speeches, speech.diputado_id, {
       fecha: speech.fecha,
@@ -203,7 +283,14 @@ export function buildIndex(tables: Tables): Index {
       tipo: row.tipo_codigo,
       n: signer.n_firmantes,
       primero: signer.orden === 1,
+      resultado: row.resultado ?? '',
     });
+  }
+  for (const ponente of tables.ponentes) {
+    const row = initiative.get(ponente.iniciativa_id);
+    const fecha = row?.fecha_conclusion ?? row?.fecha_resultado;
+    if (!row || !fecha) continue;
+    push(index.laws, ponente.diputado_id, { fecha, resultado: row.resultado ?? '' });
   }
   for (const term of tables.gobierno) push(index.gov, term.diputado_id, term);
   for (const membership of tables.pertenencias) push(index.memberships, membership.diputado_id, membership);
@@ -252,9 +339,10 @@ interface Evaluation {
   votes: readonly VoteEvent[];
   speeches: readonly SpeechEvent[];
   credits: readonly CreditEvent[];
+  laws: readonly LawEvent[];
 }
 
-function rawMetric(metric: ScoringInput['metricas'][number], scoring: ScoringInput, e: Evaluation): Raw {
+function rawMetric(metric: MetricInput, scoring: ScoringInput, e: Evaluation): Raw {
   const per100 = (count: number): number | null => (e.baseDays > 0 ? (100 * count) / e.baseDays : null);
   if (metric.id === 'votaciones_participacion') {
     const votes = e.votes.filter((vote) => e.accept(vote.fecha));
@@ -266,9 +354,12 @@ function rawMetric(metric: ScoringInput['metricas'][number], scoring: ScoringInp
     const count = e.speeches.filter((s) => organTypes.includes(s.tipoOrgano) && e.accept(s.fecha)).length;
     return { valor: per100(count), numerador: count, denominador: e.baseDays };
   }
-  const types = metric.tiposIniciativa;
-  if (types) {
-    const signed = e.credits.filter((c) => types.includes(c.tipo) && e.accept(c.fecha));
+  if (metric.resultadosPonencia) {
+    const count = e.laws.filter((law) => lawCounts(metric, law) && e.accept(law.fecha)).length;
+    return { valor: per100(count), numerador: count, denominador: e.baseDays };
+  }
+  if (metric.tiposIniciativa) {
+    const signed = e.credits.filter((c) => creditCounts(metric, c) && e.accept(c.fecha));
     const credit = round(
       signed.reduce((sum, c) => sum + 1 / c.n, 0),
       4,
@@ -285,7 +376,7 @@ function rawMetric(metric: ScoringInput['metricas'][number], scoring: ScoringInp
 
 /** True when the Chamber had any activity of the kind a metric measures inside the window. */
 function chamberActivity(
-  metric: ScoringInput['metricas'][number],
+  metric: MetricInput,
   scoring: ScoringInput,
   index: Index,
   desde: string,
@@ -299,8 +390,8 @@ function chamberActivity(
   if (metric.id === 'votaciones_participacion') return some(index.votes, () => true);
   const organTypes = scoring.organosPorMetrica[metric.id];
   if (organTypes) return some(index.speeches, (speech) => organTypes.includes(speech.tipoOrgano));
-  const types = metric.tiposIniciativa;
-  if (types) return some(index.credits, (credit) => types.includes(credit.tipo));
+  if (metric.resultadosPonencia) return some(index.laws, (law) => lawCounts(metric, law));
+  if (metric.tiposIniciativa) return some(index.credits, (credit) => creditCounts(metric, credit));
   return false;
 }
 
@@ -384,7 +475,9 @@ export function computePeriod(
       votes,
       speeches: index.speeches.get(diputado.diputado_id) ?? [],
       credits: index.credits.get(diputado.diputado_id) ?? [],
+      laws: index.laws.get(diputado.diputado_id) ?? [],
     };
+    const talk = (index.talk.get(diputado.diputado_id) ?? []).filter((event) => evaluation.accept(event.fecha));
     const raw = new Map(available.map((metric) => [metric.id, rawMetric(metric, scoring, evaluation)]));
     const lastVote = votes.filter((vote) => activeFrom <= vote.fecha && vote.fecha <= activeTo).at(-1);
     working.push({
@@ -402,6 +495,11 @@ export function computePeriod(
       indice: null,
       cobertura: null,
       posicion: null,
+      tiempo_palabra: {
+        minutos: talk.reduce((sum, event) => sum + (event.minutos ?? 0), 0),
+        intervenciones: talk.length,
+        sin_hora: talk.filter((event) => event.minutos === null).length,
+      },
       raw,
       pct: new Map(),
     });
@@ -549,6 +647,7 @@ export function computePeriod(
         indice: deputy.indice,
         cobertura: deputy.cobertura,
         posicion: deputy.posicion,
+        tiempo_palabra: deputy.tiempo_palabra,
       })),
   };
 }

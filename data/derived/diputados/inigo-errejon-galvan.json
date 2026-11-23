@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.0.0",
+ "metodologia_version": "1.1.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -99,9 +99,9 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 54.4,
-   "cobertura": 0.6,
-   "posicion": 138,
+   "indice": 47,
+   "cobertura": 0.8,
+   "posicion": 221,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -110,15 +110,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 46.2
+     "puntuacion": 48.6
     },
     {
      "id": "iniciativa",
-     "puntuacion": 26.5
+     "puntuacion": 22.6
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 26.1
     },
     {
      "id": "representacion",
@@ -149,7 +149,7 @@
      "valor": 2.9885,
      "numerador": 13,
      "denominador": 435,
-     "percentil": 79.5,
+     "percentil": 83.8,
      "percentil_grupo": 60.3,
      "n_grupo": 29,
      "fuente": {
@@ -165,7 +165,7 @@
      "valor": 0.4598,
      "numerador": 2,
      "denominador": 435,
-     "percentil": 12.9,
+     "percentil": 13.4,
      "percentil_grupo": 5.2,
      "n_grupo": 29,
      "fuente": {
@@ -187,6 +187,26 @@
      "detalle": {
       "firmadas": 10,
       "primer_firmante": 7
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 435,
+     "percentil": 14.8,
+     "percentil_grupo": 19,
+     "n_grupo": 29,
+     "detalle": {
+      "firmadas": 0,
+      "primer_firmante": 0
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -227,6 +247,22 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 435,
+     "percentil": 26.1,
+     "percentil_grupo": 17.2,
+     "n_grupo": 29,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -238,7 +274,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 160,
+    "intervenciones": 15,
+    "sin_hora": 0
+   }
   },
   "12m": {
    "estado": "no_disponible",
@@ -253,6 +294,7 @@
    "motivo": "sin_dias_en_la_legislatura"
   }
  },
+ "ponencias": [],
  "evolucion": {
   "meses": [
    "2023-08",
@@ -460,7 +502,89 @@
     0,
     0
    ],
+   "preguntas_orales": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
    "solicitudes_informe": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "leyes_ponente": [
     0,
     0,
     0,

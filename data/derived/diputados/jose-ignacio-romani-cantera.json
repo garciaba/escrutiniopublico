@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.0.0",
+ "metodologia_version": "1.1.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -105,9 +105,9 @@
    "dias_evaluados": 1027,
    "grupo": "GP",
    "roles": [],
-   "indice": 44.1,
-   "cobertura": 0.6,
-   "posicion": 264,
+   "indice": 37.4,
+   "cobertura": 0.8,
+   "posicion": 330,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -116,15 +116,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 32.7
+     "puntuacion": 32.8
     },
     {
      "id": "iniciativa",
-     "puntuacion": 71.9
+     "puntuacion": 63.1
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 26.1
     },
     {
      "id": "representacion",
@@ -155,8 +155,8 @@
      "valor": 0.4869,
      "numerador": 5,
      "denominador": 1027,
-     "percentil": 35.1,
-     "percentil_grupo": 47,
+     "percentil": 38.6,
+     "percentil_grupo": 55.7,
      "n_grupo": 150,
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
@@ -168,11 +168,11 @@
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 1.6553,
-     "numerador": 17,
+     "valor": 1.3632,
+     "numerador": 14,
      "denominador": 1027,
-     "percentil": 30.2,
-     "percentil_grupo": 38.3,
+     "percentil": 26.9,
+     "percentil_grupo": 33,
      "n_grupo": 150,
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
@@ -193,6 +193,26 @@
      "detalle": {
       "firmadas": 1210,
       "primer_firmante": 53
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0.1742,
+     "numerador": 1.7886,
+     "denominador": 1027,
+     "percentil": 45.5,
+     "percentil_grupo": 17.7,
+     "n_grupo": 150,
+     "detalle": {
+      "firmadas": 23,
+      "primer_firmante": 5
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -233,6 +253,22 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 1027,
+     "percentil": 26.1,
+     "percentil_grupo": 31,
+     "n_grupo": 150,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -244,7 +280,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 114,
+    "intervenciones": 22,
+    "sin_hora": 0
+   }
   },
   "12m": {
    "estado": "disponible",
@@ -257,9 +298,9 @@
    "dias_evaluados": 197,
    "grupo": "GP",
    "roles": [],
-   "indice": 41.7,
-   "cobertura": 0.6,
-   "posicion": 249,
+   "indice": 38.2,
+   "cobertura": 0.8,
+   "posicion": 285,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -268,15 +309,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 45
+     "puntuacion": 48
     },
     {
      "id": "iniciativa",
-     "puntuacion": 63.5
+     "puntuacion": 50.7
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 37.5
     },
     {
      "id": "representacion",
@@ -307,8 +348,8 @@
      "valor": 1.5228,
      "numerador": 3,
      "denominador": 197,
-     "percentil": 66.4,
-     "percentil_grupo": 80.1,
+     "percentil": 70.7,
+     "percentil_grupo": 90.9,
      "n_grupo": 138,
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
@@ -323,8 +364,8 @@
      "valor": 1.5228,
      "numerador": 3,
      "denominador": 197,
-     "percentil": 23.5,
-     "percentil_grupo": 28.6,
+     "percentil": 25.2,
+     "percentil_grupo": 31.5,
      "n_grupo": 138,
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
@@ -345,6 +386,26 @@
      "detalle": {
       "firmadas": 155,
       "primer_firmante": 11
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 197,
+     "percentil": 24.9,
+     "percentil_grupo": 13.8,
+     "n_grupo": 138,
+     "detalle": {
+      "firmadas": 0,
+      "primer_firmante": 0
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -385,6 +446,22 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 197,
+     "percentil": 37.5,
+     "percentil_grupo": 42.8,
+     "n_grupo": 138,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -396,7 +473,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 35,
+    "intervenciones": 6,
+    "sin_hora": 0
+   }
   },
   "3m": {
    "estado": "no_disponible",
@@ -407,6 +489,7 @@
    "motivo": "sin_dias_en_la_legislatura"
   }
  },
+ "ponencias": [],
  "evolucion": {
   "meses": [
    "2023-08",
@@ -549,7 +632,7 @@
     2,
     1,
     1,
-    3,
+    0,
     0,
     0,
     1,
@@ -614,6 +697,47 @@
     0,
     0
    ],
+   "preguntas_orales": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.2143,
+    0.1429,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.0833,
+    0,
+    0.5333,
+    0.1875,
+    0,
+    0,
+    0,
+    0.2768,
+    0.2917,
+    0,
+    0,
+    0,
+    0,
+    0.0588,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
    "solicitudes_informe": [
     0,
     0,
@@ -646,6 +770,47 @@
     0.3333,
     0.3333,
     0.0714,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "leyes_ponente": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -935,8 +1100,8 @@
    "fecha": "2024-12-18",
    "organo": "Comisión de Trabajo, Economía Social, Inclusión, Seguridad Social y Migraciones",
    "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-253.CODI.)#(P%C3%A1gina47)",
    "url_video": "https://app.congreso.es/v1/1545143I"
   },
@@ -945,8 +1110,8 @@
    "fecha": "2024-12-12",
    "organo": "Comisión de Industria y Turismo",
    "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-243.CODI.)#(P%C3%A1gina19)",
    "url_video": "https://app.congreso.es/v1/1544411I"
   },
@@ -955,8 +1120,8 @@
    "fecha": "2024-12-12",
    "organo": "Comisión de Industria y Turismo",
    "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-243.CODI.)#(P%C3%A1gina18)",
    "url_video": "https://app.congreso.es/v1/1544406I"
   },

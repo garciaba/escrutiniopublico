@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.0.0",
+ "metodologia_version": "1.1.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -163,9 +163,9 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 49.4,
-   "cobertura": 0.6,
-   "posicion": 203,
+   "indice": 59,
+   "cobertura": 0.8,
+   "posicion": 100,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -174,15 +174,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 84.8
+     "puntuacion": 87.1
     },
     {
      "id": "iniciativa",
-     "puntuacion": 58
+     "puntuacion": 43.6
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 99.7
     },
     {
      "id": "representacion",
@@ -213,7 +213,7 @@
      "valor": 4.0105,
      "numerador": 46,
      "denominador": 1147,
-     "percentil": 84.6,
+     "percentil": 88.9,
      "percentil_grupo": 89.7,
      "n_grupo": 29,
      "fuente": {
@@ -229,7 +229,7 @@
      "valor": 7.2363,
      "numerador": 83,
      "denominador": 1147,
-     "percentil": 85.1,
+     "percentil": 85.3,
      "percentil_grupo": 43.1,
      "n_grupo": 29,
      "fuente": {
@@ -251,6 +251,26 @@
      "detalle": {
       "firmadas": 52,
       "primer_firmante": 40
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 1147,
+     "percentil": 14.8,
+     "percentil_grupo": 19,
+     "n_grupo": 29,
+     "detalle": {
+      "firmadas": 0,
+      "primer_firmante": 0
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -291,6 +311,22 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0.8718,
+     "numerador": 10,
+     "denominador": 1147,
+     "percentil": 99.7,
+     "percentil_grupo": 98.3,
+     "n_grupo": 29,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -302,7 +338,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 700,
+    "intervenciones": 129,
+    "sin_hora": 0
+   }
   },
   "12m": {
    "estado": "disponible",
@@ -317,9 +358,9 @@
    "roles": [
     "portavoz"
    ],
-   "indice": 47,
-   "cobertura": 0.6,
-   "posicion": 194,
+   "indice": 57.5,
+   "cobertura": 0.8,
+   "posicion": 101,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -328,15 +369,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 73.3
+     "puntuacion": 77.2
     },
     {
      "id": "iniciativa",
-     "puntuacion": 67
+     "puntuacion": 53
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 99
     },
     {
      "id": "representacion",
@@ -367,7 +408,7 @@
      "valor": 3.47,
      "numerador": 11,
      "denominador": 317,
-     "percentil": 78.8,
+     "percentil": 84,
      "percentil_grupo": 60,
      "n_grupo": 25,
      "fuente": {
@@ -383,7 +424,7 @@
      "valor": 4.1009,
      "numerador": 13,
      "denominador": 317,
-     "percentil": 67.9,
+     "percentil": 70.3,
      "percentil_grupo": 14,
      "n_grupo": 25,
      "fuente": {
@@ -405,6 +446,26 @@
      "detalle": {
       "firmadas": 19,
       "primer_firmante": 17
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 317,
+     "percentil": 24.9,
+     "percentil_grupo": 30,
+     "n_grupo": 25,
+     "detalle": {
+      "firmadas": 0,
+      "primer_firmante": 0
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -445,6 +506,22 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0.9464,
+     "numerador": 3,
+     "denominador": 317,
+     "percentil": 99,
+     "percentil_grupo": 96,
+     "n_grupo": 25,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -456,7 +533,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 159,
+    "intervenciones": 24,
+    "sin_hora": 0
+   }
   },
   "3m": {
    "estado": "no_disponible",
@@ -467,6 +549,112 @@
    "motivo": "sin_dias_en_la_legislatura"
   }
  },
+ "ponencias": [
+  {
+   "iniciativa_id": "122/000143",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley de modificación del Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social en relación con las mutualidades alternativas reguladas en sus disposiciones adicionales 18ª y 19ª.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2026-07-23",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000143"
+  },
+  {
+   "iniciativa_id": "125/000005",
+   "tipo": "Proposición de ley de Comunidades y Ciudades Autónomas",
+   "titulo": "Proposición de Ley Orgánica de transferencia de la titularidad y competencias de la autopista del Atlántico (AP-9) a la Comunidad Autónoma de Galicia.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2026-07-23",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=125%2F000005"
+  },
+  {
+   "iniciativa_id": "121/000036",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley integral de impulso de la economía social.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2026-03-26",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000036"
+  },
+  {
+   "iniciativa_id": "121/000033",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley por la que se modifican el texto refundido de la Ley del Estatuto de los Trabajadores, aprobado por el Real Decreto Legislativo 2/2015, de 23 de octubre, en materia de extinción del contrato de trabajo por incapacidad permanente de las personas trabajadoras, y el texto refundido de la Ley General de la Seguridad Social, aprobado por el Real Decreto Legislativo 8/2015, de 30 de octubre, en materia de incapacidad permanente.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2025-04-22",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000033"
+  },
+  {
+   "iniciativa_id": "121/000016",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley Orgánica de medidas en materia de eficiencia del Servicio Público de Justicia.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-12-19",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000016"
+  },
+  {
+   "iniciativa_id": "122/000097",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley para la mejora de la protección de las personas donantes en vivo de órganos o tejidos para su posterior trasplante.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-12-12",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000097"
+  },
+  {
+   "iniciativa_id": "121/000014",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley básica de agentes forestales y medioambientales.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-10-30",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000014"
+  },
+  {
+   "iniciativa_id": "121/000015",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley básica de bomberos forestales.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-10-30",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000015"
+  },
+  {
+   "iniciativa_id": "122/000128",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley para mejorar la calidad de vida de personas con Esclerosis Lateral Amiotrófica y otras enfermedades o procesos de alta complejidad y curso irreversible.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-10-23",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000128"
+  },
+  {
+   "iniciativa_id": "121/000017",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley Orgánica por la que se modifica la Ley Orgánica 7/2014, de 12 de noviembre, sobre intercambio de información de antecedentes penales y consideración de resoluciones judiciales penales en la Unión Europea, para su adecuación a la normativa de la Unión Europea sobre el Sistema Europeo de Información de Antecedentes Penales (ECRIS).",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-10-14",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000017"
+  },
+  {
+   "iniciativa_id": "122/000027",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley para la atención integral de las necesidades de las personas afectadas por la Esclerosis Lateral Amiotrófica.",
+   "resultado": "Subsumido en otra iniciativa",
+   "fecha_resultado": "2024-10-08",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000027"
+  },
+  {
+   "iniciativa_id": "122/000058",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley para mejorar la calidad de vida de las personas con esclerosis lateral amiotrófica.",
+   "resultado": "Subsumido en otra iniciativa",
+   "fecha_resultado": "2024-10-08",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000058"
+  },
+  {
+   "iniciativa_id": "122/000070",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley para la atención integral de las personas afectadas por enfermedades neurodegenerativas, como la Esclerosis Lateral Amiotrófica (ELA).",
+   "resultado": "Subsumido en otra iniciativa",
+   "fecha_resultado": "2024-10-08",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000070"
+  }
+ ],
  "evolucion": {
   "meses": [
    "2023-08",
@@ -674,6 +862,47 @@
     0.4583,
     0
    ],
+   "preguntas_orales": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
    "solicitudes_informe": [
     0,
     0,
@@ -711,6 +940,47 @@
     0,
     0,
     5.6111,
+    0,
+    0,
+    0
+   ],
+   "leyes_ponente": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    4,
+    0,
+    2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    2,
     0,
     0,
     0

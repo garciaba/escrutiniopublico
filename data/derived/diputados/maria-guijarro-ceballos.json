@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.0.0",
+ "metodologia_version": "1.1.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -121,9 +121,9 @@
    "dias_evaluados": 658,
    "grupo": "GS",
    "roles": [],
-   "indice": 55.4,
-   "cobertura": 0.6,
-   "posicion": 122,
+   "indice": 63.8,
+   "cobertura": 0.8,
+   "posicion": 66,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -132,15 +132,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 61.5
+     "puntuacion": 64.8
     },
     {
      "id": "iniciativa",
-     "puntuacion": 14.2
+     "puntuacion": 24.3
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 75.6
     },
     {
      "id": "representacion",
@@ -171,7 +171,7 @@
      "valor": 0.9119,
      "numerador": 6,
      "denominador": 658,
-     "percentil": 56.3,
+     "percentil": 60.3,
      "percentil_grupo": 82.5,
      "n_grupo": 140,
      "fuente": {
@@ -187,8 +187,8 @@
      "valor": 3.6474,
      "numerador": 24,
      "denominador": 658,
-     "percentil": 66.7,
-     "percentil_grupo": 82.5,
+     "percentil": 69.3,
+     "percentil_grupo": 83.9,
      "n_grupo": 140,
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
@@ -209,6 +209,26 @@
      "detalle": {
       "firmadas": 6,
       "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0.152,
+     "numerador": 1,
+     "denominador": 658,
+     "percentil": 44.5,
+     "percentil_grupo": 84.6,
+     "n_grupo": 140,
+     "detalle": {
+      "firmadas": 1,
+      "primer_firmante": 1
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -249,6 +269,22 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0.152,
+     "numerador": 1,
+     "denominador": 658,
+     "percentil": 75.6,
+     "percentil_grupo": 84.6,
+     "n_grupo": 140,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -260,7 +296,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 151,
+    "intervenciones": 30,
+    "sin_hora": 0
+   }
   },
   "12m": {
    "estado": "no_disponible",
@@ -275,6 +316,16 @@
    "motivo": "sin_dias_en_la_legislatura"
   }
  },
+ "ponencias": [
+  {
+   "iniciativa_id": "121/000001",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley Orgánica de representación paritaria y presencia equilibrada de mujeres y hombres.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-07-23",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000001"
+  }
+ ],
  "evolucion": {
   "meses": [
    "2023-08",
@@ -482,6 +533,47 @@
     0,
     0
    ],
+   "preguntas_orales": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
    "solicitudes_informe": [
     0,
     0,
@@ -495,6 +587,47 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "leyes_ponente": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
     0,
     0,
     0,

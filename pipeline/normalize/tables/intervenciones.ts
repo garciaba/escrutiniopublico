@@ -1,5 +1,5 @@
 /**
- * intervenciones table (decisions D-009 and D-013). One row per distinct speech
+ * intervenciones table (decisions D-009, D-013 and D-033). One row per distinct speech
  * (ENLACEDIFERIDO) given by a census deputy; joint debates that repeat the same speech
  * for several initiatives are merged. `cuenta` says whether the speech counts as
  * the deputy's parliamentary activity, and `motivo_exclusion` why not.
@@ -90,6 +90,12 @@ export function buildIntervenciones(
   terms: Terms,
   organoIdForLabel: (label: string) => string | undefined,
   isPermanentDeputation: (organoId: string) => boolean,
+  /**
+   * True when the expediente ("180/000123/0000") is an oral question signed by the
+   * deputy: formulating one's own question counts as an initiative, not again as a
+   * speech (D-033).
+   */
+  ownOralQuestion: (expediente: string, diputadoId: string) => boolean = () => false,
 ): IntervencionRow[] {
   const congressGroups = new Set(groups.map((group) => group.code));
   const known = new Set(notDeputies.map((entry) => entry.name));
@@ -137,7 +143,9 @@ export function buildIntervenciones(
           ? 'cargo_gobierno'
           : clase === 'externo'
             ? 'cargo_externo'
-            : undefined;
+            : [...expedientes].some((expediente) => ownOralQuestion(expediente, idOf(censusName)))
+              ? 'pregunta_oral'
+              : undefined;
     const base = videoId(key);
     const seen = usedIds.get(base) ?? 0;
     usedIds.set(base, seen + 1);

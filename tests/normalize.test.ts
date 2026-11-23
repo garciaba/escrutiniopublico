@@ -15,6 +15,7 @@ import { buildDiputados } from '../pipeline/normalize/tables/diputados.ts';
 import { buildOrganos, buildPertenencias } from '../pipeline/normalize/tables/organos.ts';
 import {
   buildIniciativas,
+  splitRapporteurs,
   expedienteId,
   namesInSegment,
   splitAuthors,
@@ -105,6 +106,26 @@ describe('intervenciones (real reduced sample)', () => {
     expect(pueyo[0]?.expedientes).toBe('155/000001/0000;155/000002/0000');
   });
 
+  it('counts the formulation of an own oral question once, as an initiative', () => {
+    const pueyo = idOf('Pueyo Sanz, Jorge');
+    const own = buildIntervenciones(
+      rows,
+      resolve,
+      idOf,
+      terms,
+      organs,
+      (id) => id === 'diputacion-permanente',
+      (expediente, diputadoId) => expediente === '155/000002/0000' && diputadoId === pueyo,
+    );
+    expect(own.find((row) => row.diputado_id === pueyo)).toMatchObject({
+      cuenta: false,
+      motivo_exclusion: 'pregunta_oral',
+    });
+    // Other exclusions come first.
+    const minister = own.find((row) => row.diputado_id === idOf('Albares Bueno, José Manuel'));
+    expect(minister?.motivo_exclusion).toBe('cargo_gobierno');
+  });
+
   it('excludes the Diputación Permanente and government posts', () => {
     const byName = (name: string) => result.find((row) => row.diputado_id === idOf(name));
     expect(byName('Álvarez de Toledo Peralta-Ramos, Cayetana')?.motivo_exclusion).toBe('diputacion_permanente');
@@ -185,6 +206,31 @@ describe('iniciativas (real reduced samples)', () => {
     expect(firmantes.filter((row) => row.iniciativa_id === multi?.iniciativa_id)).toHaveLength(multi?.n_firmantes ?? 0);
     const partial = createNameResolver([...new Set(signers)].slice(1), []);
     expect(() => buildIniciativas([], new Map([['184', rows]]), partial, idOf)).toThrow(/signer not in the census/);
+  });
+
+  it('reads the rapporteurs of a bill and stops on a name outside the census', () => {
+    const bills = billsFile.parse(fixture('congreso/iniciativas/ProyectosDeLey-ponentes.sample.json'));
+    const names = splitRapporteurs(bills[0]?.PONENTES);
+    expect(names).toHaveLength(15);
+    expect(names[0]).toBe('Acedo Reyes, Sofía');
+    const resolve = createNameResolver(names, []);
+    const { iniciativas, ponentes } = buildIniciativas(bills, new Map(), resolve, idOf);
+    expect(iniciativas[0]).toMatchObject({
+      iniciativa_id: '121/000001',
+      resultado: 'Aprobado con modificaciones',
+      fecha_resultado: '2024-09-10',
+      // Start of the "Concluido" phase: the Congreso's last vote, before the file closes.
+      fecha_conclusion: '2024-07-23',
+    });
+    expect(ponentes).toHaveLength(15);
+    expect(ponentes[0]).toEqual({ iniciativa_id: '121/000001', orden: 1, diputado_id: idOf('Acedo Reyes, Sofía') });
+    const partial = createNameResolver(names.slice(1), []);
+    expect(() => buildIniciativas(bills, new Map(), partial, idOf)).toThrow(/rapporteur not in the census/);
+  });
+
+  it('splits the rapporteur field into names', () => {
+    expect(splitRapporteurs('A, B \nC, D \n')).toEqual(['A, B', 'C, D']);
+    expect(splitRapporteurs(undefined)).toEqual([]);
   });
 
   it('keeps group authorship of bills without signers', () => {

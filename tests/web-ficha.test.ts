@@ -91,6 +91,22 @@ describe('valorBruto', () => {
     ).toBe('1 solicitud firmada');
   });
 
+  it('writes approved bills of the ponencia in singular and plural', () => {
+    expect(valorBruto(metrica({ valor: 0.0872, numerador: 1, denominador: 1147 }), config('leyes_ponente'))).toEqual({
+      principal: '1 ley aprobada',
+      secundario: 'En 1.147 días en activo: 0,09 por cada 100 días.',
+    });
+    expect(valorMensual(2, config('leyes_ponente'))).toBe('2 leyes aprobadas');
+  });
+
+  it('writes oral questions like written ones, with the fractional credit', () => {
+    const bruto = valorBruto(
+      metrica({ valor: 3.5, numerador: 40.5, denominador: 1147, detalle: { firmadas: 41, primer_firmante: 40 } }),
+      config('preguntas_orales'),
+    );
+    expect(bruto?.principal).toBe('41 preguntas firmadas');
+  });
+
   it('returns nothing when there is no value: not available is never a zero', () => {
     expect(valorBruto(metrica({ estado: 'no_disponible' }), config('iniciativas_aprobadas'))).toBeUndefined();
     expect(

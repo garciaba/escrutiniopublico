@@ -77,8 +77,17 @@ function input(): DeriveInput {
     votos,
     intervenciones,
     organos,
-    iniciativas: [],
+    iniciativas: [
+      {
+        iniciativa_id: '121/000001',
+        tipo_codigo: '121',
+        fecha_presentacion: '2024-01-10',
+        resultado: 'Aprobado con modificaciones',
+        fecha_resultado: '2024-06-25',
+      },
+    ],
     firmantes: [],
+    ponentes: [{ iniciativa_id: '121/000001', diputado_id: 'D1' }],
     pertenencias,
     gobierno,
   };
@@ -97,6 +106,17 @@ function input(): DeriveInput {
     votos,
     intervenciones,
     gobierno,
+    leyes: [
+      {
+        iniciativa_id: '121/000001',
+        tipo: 'Proyecto de ley',
+        titulo: 'Proyecto de Ley ficticia.',
+        resultado: 'Aprobado con modificaciones',
+        fecha_resultado: '2024-06-25',
+        url_fuente: 'https://example.org/121-1',
+        ponentes: ['D1'],
+      },
+    ],
     fechasFuente: { votaciones: '2024-03-01', intervenciones: '2024-12-30' },
     limites: { ultimasVotaciones: 1, ultimasIntervenciones: 5 },
   };
@@ -132,6 +152,7 @@ describe('buildFichas', () => {
     ultimas_votaciones: { votacion_id: string; sentido: string; telematico: boolean }[];
     ultimas_intervenciones: unknown[];
     cargos: { organo: string }[];
+    ponencias: { iniciativa_id: string; resultado: string | null }[];
   };
 
   it('follows the metric contract, with the source and the date of its data', () => {
@@ -156,6 +177,15 @@ describe('buildFichas', () => {
     ]);
     expect(uno.ultimas_intervenciones).toHaveLength(1);
     expect(uno.cargos[0]?.organo).toBe('Pleno');
+  });
+
+  it('lists the bills of the ponencia and their monthly series, and adds the speaking time', () => {
+    expect(uno.ponencias).toEqual([
+      expect.objectContaining({ iniciativa_id: '121/000001', resultado: 'Aprobado con modificaciones' }),
+    ]);
+    expect(uno.evolucion.series.leyes_ponente?.[5]).toBe(1);
+    expect(uno.periodos.legislatura).toHaveProperty('tiempo_palabra');
+    expect(fichas.get('persona-ficticio-dos')).toMatchObject({ ponencias: [] });
   });
 
   it('lists the Government terms with their evidence', () => {

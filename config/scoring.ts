@@ -9,8 +9,18 @@ export type MetricEstado = 'observado' | 'calculado' | 'no_disponible';
 
 export const scoring = {
   /** Semantic version. Any change of weights, metrics or rules bumps it and is listed in `historial`. */
-  metodologiaVersion: '1.0.0',
+  metodologiaVersion: '1.1.0',
   historial: [
+    {
+      version: '1.1.0',
+      fecha: '2026-11-23',
+      cambios: [
+        'Nueva métrica «Leyes aprobadas en las que fue ponente», primera fuente de la dimensión «Resultados e impacto». El índice pasa a cubrir cuatro dimensiones de cinco: cobertura del 80 %.',
+        'Nueva métrica «Preguntas con respuesta oral» en «Iniciativa parlamentaria»: en Pleno, en comisión y a la Corporación RTVE, con crédito repartido entre firmantes.',
+        'Cada pregunta oral cuenta una vez. La intervención en la que su autor la formula deja de sumar en «Participación en debates», y las que el Congreso convierte en preguntas escritas cuentan solo como escritas.',
+        'La ficha muestra el tiempo de palabra de cada diputado. No puntúa.',
+      ],
+    },
     {
       version: '1.0.0',
       fecha: '2026-11-23',
@@ -55,14 +65,15 @@ export const scoring = {
       nombre: 'Participación en debates',
       nombreCorto: 'Debates',
       peso: 20,
-      descripcion: 'Intervenciones en el Pleno y en las comisiones. Mide cantidad, no calidad.',
+      descripcion:
+        'Intervenciones en el Pleno y en las comisiones, salvo la formulación de las propias preguntas orales. Mide cantidad, no calidad.',
     },
     {
       id: 'iniciativa',
       nombre: 'Iniciativa parlamentaria',
       nombreCorto: 'Iniciativa',
       peso: 20,
-      descripcion: 'Preguntas con respuesta escrita y solicitudes de informe firmadas.',
+      descripcion: 'Preguntas con respuesta escrita y oral y solicitudes de informe firmadas.',
     },
     {
       id: 'resultados',
@@ -70,7 +81,7 @@ export const scoring = {
       nombreCorto: 'Resultados',
       peso: 20,
       descripcion:
-        'Iniciativas propias que llegan a aprobarse. Sin fuente oficial que las atribuya a diputados concretos.',
+        'Leyes aprobadas en cuya ponencia participó. Las iniciativas propias aprobadas no tienen fuente oficial que las atribuya a diputados concretos.',
     },
     {
       id: 'representacion',
@@ -94,6 +105,10 @@ export const scoring = {
     iniciativas: {
       nombre: 'Congreso de los Diputados · Buscador de iniciativas',
       url: 'https://www.congreso.es/es/busqueda-de-iniciativas',
+    },
+    leyes: {
+      nombre: 'Congreso de los Diputados · Iniciativas legislativas',
+      url: 'https://www.congreso.es/es/opendata/iniciativas',
     },
   },
 
@@ -143,6 +158,19 @@ export const scoring = {
       tiposIniciativa: ['184', '179'],
     },
     {
+      id: 'preguntas_orales',
+      dimension: 'iniciativa',
+      nombre: 'Preguntas con respuesta oral',
+      objeto: ['pregunta', 'preguntas'],
+      calculo:
+        'Preguntas con respuesta oral al Gobierno en el Pleno y en comisión, y a la Corporación RTVE, por cada 100 días en activo. Cuentan las presentadas, se formulen o no, como en las escritas; las que el Congreso convierte en preguntas escritas cuentan solo como escritas. Una pregunta con n firmantes suma 1/n a cada uno.',
+      unidad: 'por_100_dias',
+      estado: 'calculado',
+      fuente: 'iniciativas',
+      tiposIniciativa: ['180', '181', '178'],
+      excluirResultados: ['Convertido'],
+    },
+    {
       id: 'solicitudes_informe',
       dimension: 'iniciativa',
       nombre: 'Solicitudes de informe',
@@ -163,6 +191,18 @@ export const scoring = {
       unidad: 'por_100_dias',
       estado: 'no_disponible',
       motivo: 'Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos.',
+    },
+    {
+      id: 'leyes_ponente',
+      dimension: 'resultados',
+      nombre: 'Leyes aprobadas en las que fue ponente',
+      objeto: ['ley aprobada', 'leyes aprobadas'],
+      calculo:
+        'Proyectos y proposiciones de ley aprobados en cuya ponencia figura el diputado, por cada 100 días en activo. Cada ley cuenta en la fecha de su aprobación. La ponencia es el grupo reducido de diputados que estudia las enmiendas y redacta el texto.',
+      unidad: 'por_100_dias',
+      estado: 'observado',
+      fuente: 'leyes',
+      resultadosPonencia: ['Aprobado'],
     },
     {
       id: 'iniciativas_aprobadas',
@@ -220,6 +260,12 @@ export const scoring = {
         'Los días en que un diputado es miembro del Gobierno no se evalúan, porque su actividad en la Cámara responde a otra función. Quien ha pasado en el Gobierno la mayor parte de sus días como diputado en el periodo, o no reúne los días mínimos fuera de él, no entra en el ranking general: tiene ficha con sus métricas brutas y un filtro permite incluirlo. Los demás se evalúan solo por su etapa fuera del Gobierno.',
     },
     {
+      id: 'preguntas_orales',
+      titulo: 'Preguntas orales',
+      texto:
+        'Una pregunta oral cuenta una sola vez, como iniciativa de quien la firma. La intervención en la que su autor la formula no suma también en «Participación en debates», y las que el Congreso convierte en preguntas escritas cuentan solo como escritas.',
+    },
+    {
       id: 'mesa_y_portavoces',
       titulo: 'Presidencia, Mesa y portavoces',
       texto: 'Entran en el ranking con una etiqueta visible, porque su cargo condiciona sus cifras.',
@@ -248,7 +294,7 @@ export const scoring = {
   ],
 
   noMide: [
-    'El trabajo en ponencias a puerta cerrada.',
+    'La aportación de cada ponente: las ponencias son a puerta cerrada y solo consta quién forma parte de ellas.',
     'La negociación política.',
     'La atención a la circunscripción.',
     'La calidad de las intervenciones y de las iniciativas.',
@@ -259,6 +305,18 @@ export const scoring = {
     'Las preguntas al Gobierno y las solicitudes de informe son instrumentos de control: los usan sobre todo los diputados de la oposición. Quien apoya al Gobierno puntúa más bajo en esa dimensión por la función que desempeña, no por menor dedicación.',
     'En los grupos pequeños cada diputado interviene en más debates, y en los grandes los turnos se reparten entre más personas. Por eso cada métrica muestra también el percentil dentro del grupo.',
     'No votar no equivale a estar ausente: hay ausencias justificadas, bajas y pactos de no votación que los datos oficiales no distinguen.',
+    'Los ponentes de cada ley los designa su grupo. Los grupos pequeños reparten las ponencias entre menos diputados, así que cada uno participa en más. Además, los datos oficiales dan la composición final de cada ponencia, no los relevos durante la tramitación.',
+    'Las leyes aprobadas dependen sobre todo de la mayoría de la Cámara: estar en la ponencia de una ley que se aprueba no significa haberla apoyado.',
+  ],
+
+  /** Figures the profile shows as context; they never enter the score. */
+  contexto: [
+    {
+      id: 'tiempo_palabra',
+      nombre: 'Tiempo de palabra',
+      calculo:
+        'Minutos en el uso de la palabra como diputado en el Pleno y en comisión, preguntas orales incluidas, según las horas oficiales de inicio y fin de cada intervención. Esas horas tienen precisión de un minuto: una intervención de menos de un minuto suma cero.',
+    },
   ],
 } as const;
 
