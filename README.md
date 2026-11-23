@@ -15,7 +15,7 @@ ESCAÑO no tiene vinculación con el Congreso de los Diputados ni con ningún pa
 | 4. Automatización y despliegue  | Workflows diarios y Cloudflare Pages                                                                     | Sin empezar                      |
 | 5. Endurecimiento y lanzamiento | Runbook, dominio                                                                                         | Sin empezar                      |
 
-Las decisiones tomadas y las que esperan al propietario están en [docs/decisions.md](docs/decisions.md).
+Las decisiones tomadas y las que esperan al propietario están en [docs/decisions.md](docs/decisions.md). Las fuentes públicas que podrían ampliar el índice están evaluadas en [docs/fuentes-adicionales.md](docs/fuentes-adicionales.md).
 
 ## Uso
 
