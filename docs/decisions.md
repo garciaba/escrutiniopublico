@@ -395,6 +395,7 @@ El mensaje del commit de datos lo escribe el mismo script: sesiones nuevas, fila
 - La primera ejecución crea el proyecto de Pages `escrutiniopublico` (en `config/site.ts`), con `main` como rama de producción.
 - Producción solo se despliega desde `daily.yml`. Así la web siempre corresponde a un conjunto de datos que ha pasado los controles.
 - Los secretos son los dos que fija la especificación: `CLOUDFLARE_API_TOKEN`, con el único permiso «Cloudflare Pages: Edit» sobre la cuenta, y `CLOUDFLARE_ACCOUNT_ID`.
+- Los PR de Dependabot no tienen previsualización: GitHub no da los secretos del repositorio a los flujos que lanza Dependabot. El resto de la CI sí se ejecuta en ellos.
 
 **Calidad:**
 
