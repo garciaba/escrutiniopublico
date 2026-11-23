@@ -6,17 +6,17 @@ Decisiones del agente de código y propuestas que esperan al propietario. Cada e
 | ----- | ------------------------------------------------------- | --------- | ------------- |
 | D-001 | Ejecutar TypeScript con Node 22 sin paso de compilación | Tomada    | Todos         |
 | D-002 | Versiones de herramientas y librerías                   | Tomada    | Todos         |
-| D-003 | `User-Agent` frente al cortafuegos del Congreso         | Propuesta | 1, 4          |
-| D-004 | Guardar los JSON de votaciones en lugar de los ZIP      | Propuesta | 1             |
+| D-003 | `User-Agent` frente al cortafuegos del Congreso         | Decidida  | 1, 4          |
+| D-004 | Guardar los JSON de votaciones en lugar de los ZIP      | Decidida  | 1             |
 | D-005 | Qué legislatura publicar tras la disolución             | Decidida  | 1–3           |
 | D-006 | Índice con cobertura del 40 %                           | Decidida  | 2, 3          |
 | D-007 | Cómo identificar a los miembros del Gobierno            | Propuesta | 2             |
 | D-008 | Identificador de diputado y cruce por nombre            | Tomada    | 1             |
-| D-009 | Recuento de intervenciones                              | Propuesta | 1, 2          |
-| D-010 | Voto telemático                                         | Propuesta | 1             |
+| D-009 | Recuento de intervenciones                              | Decidida  | 1, 2          |
+| D-010 | Voto telemático                                         | Decidida  | 1             |
 | D-011 | Enlace a la ficha oficial del Congreso                  | Pendiente | 3             |
 | D-012 | Exportación de órganos mediante POST                    | Tomada    | 1             |
-| D-013 | Intervenciones en la Diputación Permanente              | Pendiente | 2             |
+| D-013 | Intervenciones en la Diputación Permanente              | Decidida  | 2             |
 | D-014 | Datos excluidos por la política de datos personales     | Tomada    | 1             |
 
 ## D-001 · Ejecutar TypeScript con Node 22 sin paso de compilación
@@ -29,17 +29,17 @@ Decisiones del agente de código y propuestas que esperan al propietario. Cada e
 
 ## D-003 · `User-Agent` frente al cortafuegos del Congreso
 
-**Propuesta.** La especificación pide identificarse con un `User-Agent` que incluya la URL del proyecto y un contacto. El cortafuegos del Congreso responde 403 a varios valores, entre ellos `escano-discovery/0.1 (+https://github.com/garciaba/escrutiniopublico)`, `curl/…` y `Python-urllib/…`. `ESCANO/0.1` es aceptado. No se ha seguido probando variantes para no tantear el cortafuegos.
+**Decidida por el propietario (2026-11-23): se usa `ESCANO/<versión>`.** La especificación pedía identificarse con un `User-Agent` que incluya la URL del proyecto y un contacto. El cortafuegos del Congreso responde 403 a varios valores, entre ellos `escano-discovery/0.1 (+https://github.com/garciaba/escrutiniopublico)`, `curl/…` y `Python-urllib/…`. `ESCANO/0.1` es aceptado. No se ha seguido probando variantes para no tantear el cortafuegos.
 
-- **Recomendación:** usar `ESCANO/<versión>` (honesto, sin imitar a un navegador) y escribir al Congreso (datos abiertos) para pedir que acepte un `User-Agent` con URL y contacto.
+- **Decisión:** `ESCANO/<versión>`, honesto y sin imitar a un navegador. Queda como mejora opcional escribir al Congreso (datos abiertos) para pedir que acepte un `User-Agent` con URL y contacto.
 - Configurable en `config/project.ts` (`http.userAgent`).
 - Riesgo: si el cortafuegos endurece el filtro, el pipeline fallará con 403 sin reintentos; el runbook debe cubrirlo.
 
 ## D-004 · Guardar los JSON de votaciones en lugar de los ZIP
 
-**Propuesta.** La especificación guarda los ZIP en `data/raw/votaciones/`. Cada ZIP incluye, además del JSON, el XML, un PDF y un PNG por votación: la legislatura entera ocuparía de 200 a 300 MB en git. Los JSON son el 5 % de ese tamaño.
+**Decidida por el propietario (2026-11-23).** La especificación guardaba los ZIP en `data/raw/votaciones/`. Cada ZIP incluye, además del JSON, el XML, un PDF y un PNG por votación: la legislatura entera ocuparía de 200 a 300 MB en git. Los JSON son el 5 % de ese tamaño.
 
-- **Recomendación:** guardar solo los `sesion<n>votacion<m>.json` extraídos, sin modificar, en `data/raw/votaciones/Leg15/Sesion<n>/`, y anotar en `manifest.json` la URL y el SHA-256 del ZIP original. La trazabilidad se mantiene y el repositorio crece unos 15 MB por legislatura.
+- **Decisión:** guardar solo los `sesion<n>votacion<m>.json` extraídos, sin modificar, en `data/raw/votaciones/Leg15/Sesion<n>/`, y anotar en `manifest.json` la URL y el SHA-256 del ZIP original. La trazabilidad se mantiene y el repositorio crece unos 15 MB por legislatura.
 
 ## D-005 · Qué legislatura publicar tras la disolución
 
@@ -69,11 +69,11 @@ Opciones descartadas por ahora:
 
 ## D-009 · Recuento de intervenciones
 
-**Propuesta.** Contar una intervención por `ENLACEDIFERIDO` distinto (el fichero repite la misma intervención por cada iniciativa debatida conjuntamente), descartar las filas `TIPOINTERVENCION = Votación` y asignar solo las filas cuyo orador, sin el sufijo de grupo, está en el censo.
+**Decidida por el propietario (2026-11-23), según la recomendación del agente.** Contar una intervención por `ENLACEDIFERIDO` distinto (el fichero repite la misma intervención por cada iniciativa debatida conjuntamente), descartar las filas `TIPOINTERVENCION = Votación` y asignar solo las filas cuyo orador, sin el sufijo de grupo, está en el censo.
 
 ## D-010 · Voto telemático
 
-**Propuesta.** `asiento = -1` aparece en un número fijo de diputados por sesión y casi seguro indica voto telemático, pero no hay documentación oficial. Se guarda como `telematico` con estado `calculado` y no interviene en ninguna puntuación.
+**Decidida por el propietario (2026-11-23), según la recomendación del agente.** `asiento = -1` aparece en un número fijo de diputados por sesión y casi seguro indica voto telemático, pero no hay documentación oficial. Se guarda como `telematico` con estado `calculado` y no interviene en ninguna puntuación.
 
 ## D-011 · Enlace a la ficha oficial del Congreso
 
@@ -85,7 +85,7 @@ Opciones descartadas por ahora:
 
 ## D-013 · Intervenciones en la Diputación Permanente
 
-**Pendiente.** `ORGANO` distingue Pleno, comisiones y Diputación Permanente (517 filas en la XV). La especificación solo define métricas de Pleno y de comisión. Hay que decidir en el hito 2 si la Diputación Permanente cuenta con las comisiones, con el Pleno o queda fuera.
+**Decidida por el propietario (2026-11-23): la Diputación Permanente queda fuera.** ESCAÑO mide la actividad en periodos ordinarios. Las intervenciones con `ORGANO = Diputación Permanente` (517 filas en la XV, 79 de ellas tras la disolución) no cuentan en ninguna métrica, y sus votaciones tampoco se ingieren. La pertenencia a la Diputación Permanente puede mostrarse en la ficha como cargo, sin efecto en la puntuación.
 
 ## D-014 · Datos excluidos por la política de datos personales
 
