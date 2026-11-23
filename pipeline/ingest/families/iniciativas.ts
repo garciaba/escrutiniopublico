@@ -51,6 +51,24 @@ export interface ListFilter {
 
 type ListPage = { ok: true; total: number; rows: SearchInitiativeRow[] } | { ok: false };
 
+/**
+ * Rows of a listing page in the shape of the export. The listing separates signers with
+ * "<br />" (the export, with a space) and leaves out the fields that are empty, which
+ * the export writes as "": an initiative without an outcome has no `resultado_tram`.
+ */
+export function listingRows(
+  lista: Readonly<Record<string, Record<string, unknown>>> | undefined,
+): Record<string, unknown>[] {
+  return Object.values(lista ?? {}).map((entry) => ({
+    ...entry,
+    titulo: entry.titulo ?? '',
+    fecha_presentado: entry.fecha_presentado ?? '',
+    fecha_calificado: entry.fecha_calificado ?? '',
+    resultado_tram: entry.resultado_tram ?? '',
+    autor: String(entry.autor ?? '').replace(/<br\s*\/?>/gi, ' '),
+  }));
+}
+
 async function listPage(ctx: IngestContext, tipo: string, page: number, filter: ListFilter): Promise<ListPage> {
   const response = await ctx.client.postForm(searchUrl(project.iniciativasBuscador.listResource), {
     _iniciativas_legislatura: project.legislatura.roman,
@@ -71,11 +89,7 @@ async function listPage(ctx: IngestContext, tipo: string, page: number, filter: 
   if (parsed.error) return { ok: false };
   const total = Number(parsed.iniciativas_encontradas ?? 0);
   if (!Number.isInteger(total) || total < 0) throw new Error(`Unexpected count for type ${tipo}`);
-  // The listing separates signers with "<br />"; the export with a space.
-  const rows = Object.values(parsed.lista_iniciativas ?? {}).map((entry) => ({
-    ...entry,
-    autor: String(entry.autor ?? '').replace(/<br\s*\/?>/gi, ' '),
-  }));
+  const rows = listingRows(parsed.lista_iniciativas);
   return { ok: true, total, rows: parseOrThrow(searchInitiativesFile, rows, `listing ${tipo} page ${page}`) };
 }
 
