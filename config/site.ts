@@ -24,12 +24,6 @@ export const site = {
     url: 'https://www.congreso.es/es/datos-abiertos',
     avisoLegal: 'https://www.congreso.es/cem/aviso-legal',
   },
-  /** Pending: who is behind the project (natural person, association…). */
-  titular: undefined as string | undefined,
-  /** Pending: contact address for corrections. */
-  contacto: undefined as string | undefined,
-  /** Pending: how the project is funded. */
-  financiacion: undefined as string | undefined,
   /** Hours after which the home page warns that the data may be stale (specification, section 6). */
   horasDatosAntiguos: 48,
 } as const;

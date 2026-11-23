@@ -7,7 +7,7 @@ const incidencias = `${site.repositoryUrl}/issues/new`;
 
 <Base
   title="Acerca del proyecto"
-  description={`Quién está detrás de ${site.name}, cómo se garantiza su independencia, cómo se financia y cómo pedir la rectificación de un dato.`}
+  description={`Qué es ${site.name}, cómo se garantiza su independencia, cómo se tratan los datos y cómo pedir la rectificación de un dato.`}
   path="/acerca"
 >
   <div class="wrap">
@@ -34,18 +34,6 @@ const incidencias = `${site.repositoryUrl}/issues/new`;
         circunscripción.
       </p>
 
-      <h2 id="quien">Quién está detrás</h2>
-      {
-        site.titular ? (
-          <p>{site.titular}</p>
-        ) : (
-          <p>
-            <span class="pendiente">Titularidad pendiente de publicar.</span> Se indicará aquí quién es responsable del
-            proyecto antes de su lanzamiento.
-          </p>
-        )
-      }
-
       <h2 id="independencia">Independencia</h2>
       <ul>
         <li>El proyecto no tiene vinculación con el Congreso de los Diputados ni con ningún partido político.</li>
@@ -60,38 +48,18 @@ const incidencias = `${site.repositoryUrl}/issues/new`;
         </li>
       </ul>
 
-      <h2 id="financiacion">Financiación</h2>
-      {
-        site.financiacion ? (
-          <p>{site.financiacion}</p>
-        ) : (
-          <p>
-            <span class="pendiente">Financiación pendiente de publicar.</span> Se detallará aquí cómo se sostiene el
-            proyecto antes de su lanzamiento.
-          </p>
-        )
-      }
-
       <h2 id="rectificaciones">Contacto y rectificaciones</h2>
       <p>
         Si un dato no coincide con la fuente oficial, o un diputado considera que su ficha contiene un error, se puede
         pedir su revisión. Para tramitarla hacen falta tres cosas: la dirección de la página, el dato que se discute y el
         documento oficial que lo contradice.
       </p>
-      {
-        site.contacto ? (
-          <p>
-            Contacto: <a href={`mailto:${site.contacto}`}>{site.contacto}</a>.
-          </p>
-        ) : (
-          <p>
-            <span class="pendiente">Dirección de contacto pendiente de publicar.</span> Mientras tanto, la vía es abrir una <a
-              href={incidencias}
-              rel="noopener">incidencia en el repositorio público</a
-            >.
-          </p>
-        )
-      }
+      <p>
+        La vía para pedirla, y para cualquier otra consulta, es abrir una <a href={incidencias} rel="noopener"
+          >incidencia en el repositorio público</a
+        > del proyecto. Hace falta una cuenta de GitHub, que es gratuita. Las incidencias son públicas: no incluyas datos
+        personales.
+      </p>
       <p>
         Las rectificaciones aceptadas se corrigen en los datos y quedan anotadas en <a href="/cambios#rectificaciones"
           >Cambios</a
