@@ -44,7 +44,9 @@ const { values: args } = parseArgs({
   },
 });
 const outDir = args.out;
-const votingDaysToSample = Math.max(1, Number(args.days));
+const parsedDays = Number.parseInt(args.days, 10);
+/** Falls back to 2 on invalid input, so a typo never triggers a full-legislature download. */
+const votingDaysToSample = Number.isInteger(parsedDays) && parsedDays > 0 ? parsedDays : 2;
 
 const client = new PoliteClient(project.http);
 const checks: Check[] = [];
