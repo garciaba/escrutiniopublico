@@ -13,6 +13,7 @@ import {
   computeAllPeriods,
   computePeriod,
   minimumDays,
+  minutesBetween,
   type ScoringInput,
   type Tables,
 } from '../pipeline/metrics/engine.ts';
@@ -145,6 +146,7 @@ function tables(overrides: Partial<Tables> = {}): Tables {
       { iniciativa_id: '186/000001', diputado_id: 'C', orden: 1, n_firmantes: 1 },
       { iniciativa_id: '184/000003', diputado_id: 'H', orden: 1, n_firmantes: 1 }, // while in the Government
     ],
+    ponentes: [],
     pertenencias: [
       { diputado_id: 'A', organo_id: 'mesa', cargo: 'Presidenta', fecha_inicio: '2024-01-01', fecha_fin: undefined },
       {
@@ -397,5 +399,156 @@ describe('config/scoring.ts', () => {
     expect(new Set(scoring.metricas.map((metric) => metric.id)).size).toBe(scoring.metricas.length);
     expect(scoring.metodologiaVersion).toMatch(/^\d+\.\d+\.\d+$/);
     expect(scoring.historial[0]?.version).toBe(scoring.metodologiaVersion);
+  });
+});
+
+describe('methodology 1.1: oral questions, rapporteurships and speaking time', () => {
+  const base = tables();
+  const { period, deputy } = legislatura(
+    tables({
+      iniciativas: [
+        ...base.iniciativas,
+        { iniciativa_id: '180/000001', tipo_codigo: '180', fecha_presentacion: '2024-03-15', resultado: 'Tramitado' },
+        { iniciativa_id: '181/000001', tipo_codigo: '181', fecha_presentacion: '2024-04-15', resultado: 'Caducado' },
+        // Turned into a written question: it already counts as one.
+        { iniciativa_id: '181/000002', tipo_codigo: '181', fecha_presentacion: '2024-05-15', resultado: 'Convertido' },
+        {
+          iniciativa_id: '121/000001',
+          tipo_codigo: '121',
+          fecha_presentacion: '2024-01-10',
+          resultado: 'Aprobado con modificaciones',
+          fecha_conclusion: '2024-06-25',
+          // The file closed after the legislature ended; the last vote is what counts.
+          fecha_resultado: '2025-02-01',
+        },
+        {
+          iniciativa_id: '122/000001',
+          tipo_codigo: '122',
+          fecha_presentacion: '2024-01-10',
+          resultado: 'Caducado',
+          fecha_resultado: '2024-12-01',
+        },
+        {
+          iniciativa_id: '121/000002',
+          tipo_codigo: '121',
+          fecha_presentacion: '2023-12-01',
+          resultado: 'Aprobado sin modificaciones',
+          fecha_resultado: '2024-02-20',
+        },
+      ],
+      firmantes: [
+        ...base.firmantes,
+        { iniciativa_id: '180/000001', diputado_id: 'A', orden: 1, n_firmantes: 1 },
+        { iniciativa_id: '181/000001', diputado_id: 'A', orden: 1, n_firmantes: 2 },
+        { iniciativa_id: '181/000001', diputado_id: 'B', orden: 2, n_firmantes: 2 },
+        { iniciativa_id: '181/000002', diputado_id: 'B', orden: 1, n_firmantes: 1 },
+      ],
+      ponentes: [
+        { iniciativa_id: '121/000001', diputado_id: 'A' },
+        { iniciativa_id: '121/000001', diputado_id: 'C' },
+        { iniciativa_id: '122/000001', diputado_id: 'A' },
+        { iniciativa_id: '121/000002', diputado_id: 'H' }, // approved while H was in the Government
+      ],
+      intervenciones: [
+        ...base.intervenciones,
+        {
+          diputado_id: 'D',
+          fecha: '2024-03-20',
+          organo_id: 'pleno',
+          cuenta: true,
+          hora_inicio: '10:00',
+          hora_fin: '10:06',
+        },
+        // D formulates her own oral question: speaking time, but not a debate speech.
+        {
+          diputado_id: 'D',
+          fecha: '2024-03-21',
+          organo_id: 'pleno',
+          cuenta: false,
+          motivo_exclusion: 'pregunta_oral',
+          hora_inicio: '23:58',
+          hora_fin: '00:02',
+        },
+        { diputado_id: 'D', fecha: '2024-03-22', organo_id: 'c1', cuenta: true },
+        {
+          diputado_id: 'D',
+          fecha: '2024-03-23',
+          organo_id: 'pleno',
+          cuenta: false,
+          motivo_exclusion: 'cargo_externo',
+          hora_inicio: '09:00',
+          hora_fin: '09:30',
+        },
+      ],
+    }),
+  );
+
+  it('fills the results dimension and raises the coverage to 80 %', () => {
+    expect(period.cobertura).toBe(0.8);
+    expect(period.metricas_disponibles).toEqual(expect.arrayContaining(['preguntas_orales', 'leyes_ponente']));
+    expect(deputy('A').dimensiones.resultados).not.toBeNull();
+    expect(deputy('A').cobertura).toBe(0.8);
+  });
+
+  it('shares oral questions among their signers and skips those turned into written ones', () => {
+    expect(deputy('A').metric('preguntas_orales')).toMatchObject({
+      estado: 'calculado',
+      numerador: 1.5,
+      detalle: { firmadas: 2, primer_firmante: 2 },
+    });
+    expect(deputy('B').metric('preguntas_orales')).toMatchObject({
+      numerador: 0.5,
+      detalle: { firmadas: 1, primer_firmante: 0 },
+    });
+  });
+
+  it('counts approved bills of the ponencia on their approval date only', () => {
+    expect(deputy('A').metric('leyes_ponente')).toMatchObject({ estado: 'observado', numerador: 1, denominador: 366 });
+    expect(deputy('C').metric('leyes_ponente').numerador).toBe(1);
+    expect(deputy('B').metric('leyes_ponente').numerador).toBe(0);
+    // Approved while H was in the Government: those days are not evaluated.
+    expect(deputy('H').metric('leyes_ponente').numerador).toBe(0);
+  });
+
+  it('scores rapporteurships against the group and still reports the Chamber percentile', () => {
+    // GX reference population: A and C with one law, B with none. GY: D, E and H with none.
+    expect(deputy('A').metric('leyes_ponente')).toMatchObject({ comparacion: 'grupo', n_grupo: 3 });
+    expect(deputy('A').metric('leyes_ponente').percentil).toBeCloseTo(83.3, 1);
+    expect(deputy('A').metric('leyes_ponente').percentil_grupo).toBeCloseTo(66.7, 1);
+    expect(deputy('A').dimensiones.resultados).toBe(66.7);
+    expect(deputy('B').dimensiones.resultados).toBe(16.7);
+    // Nobody in GY sat on an approved bill: all tie at the middle of their group.
+    expect(deputy('D').dimensiones.resultados).toBe(50);
+    // Other metrics keep the Chamber percentile.
+    expect(deputy('A').metric('votaciones_participacion').comparacion).toBe('camara');
+  });
+
+  it('does not count the formulation of an own oral question as a debate speech', () => {
+    expect(deputy('D').metric('intervenciones_pleno').numerador).toBe(1);
+    expect(deputy('D').metric('intervenciones_comision').numerador).toBe(1);
+  });
+
+  it('adds the speaking time as context, oral questions included', () => {
+    expect(deputy('D').tiempo_palabra).toEqual({ minutos: 10, intervenciones: 3, sin_hora: 1 });
+    expect(deputy('F').tiempo_palabra).toEqual({ minutos: 0, intervenciones: 0, sin_hora: 0 });
+  });
+
+  it('leaves the rapporteurship metric unavailable when no bill was approved', () => {
+    const { period: none } = legislatura(tables({ ponentes: [] }));
+    expect(none.cobertura).toBe(0.6);
+    expect(none.metricas_disponibles).not.toContain('leyes_ponente');
+  });
+});
+
+describe('minutesBetween', () => {
+  it('measures official start and end times, also across midnight', () => {
+    expect(minutesBetween('10:00', '10:06')).toBe(6);
+    expect(minutesBetween('10:00', '10:00')).toBe(0);
+    expect(minutesBetween('23:58', '00:02')).toBe(4);
+  });
+
+  it('gives null when a time is missing or malformed', () => {
+    expect(minutesBetween(undefined, '10:00')).toBeNull();
+    expect(minutesBetween('10h', '11:00')).toBeNull();
   });
 });

@@ -58,6 +58,7 @@ export async function runMetrics(options: MetricsOptions, log: (message: string)
     intervencionesRaw,
     iniciativasRaw,
     firmantesRaw,
+    ponentesRaw,
   ] = await Promise.all(
     [
       'diputados',
@@ -69,6 +70,7 @@ export async function runMetrics(options: MetricsOptions, log: (message: string)
       'intervenciones',
       'iniciativas',
       'firmantes',
+      'ponentes',
     ].map(table),
   );
   const rows = (list: Record<string, string>[] | undefined) => list ?? [];
@@ -116,6 +118,8 @@ export async function runMetrics(options: MetricsOptions, log: (message: string)
     organo_id: text(row, 'organo_id'),
     diputado_id: text(row, 'diputado_id'),
     cuenta: row.cuenta === 'true',
+    hora_inicio: optional(row.hora_inicio),
+    hora_fin: optional(row.hora_fin),
     tipo_iniciativa: optional(row.tipo_iniciativa),
     motivo_exclusion: optional(row.motivo_exclusion),
     url_fuente: optional(row.url_fuente),
@@ -143,12 +147,19 @@ export async function runMetrics(options: MetricsOptions, log: (message: string)
       iniciativa_id: text(row, 'iniciativa_id'),
       tipo_codigo: text(row, 'tipo_codigo'),
       fecha_presentacion: optional(row.fecha_presentacion),
+      resultado: optional(row.resultado),
+      fecha_resultado: optional(row.fecha_resultado),
+      fecha_conclusion: optional(row.fecha_conclusion),
     })),
     firmantes: rows(firmantesRaw).map((row) => ({
       iniciativa_id: text(row, 'iniciativa_id'),
       diputado_id: text(row, 'diputado_id'),
       orden: Number(text(row, 'orden')),
       n_firmantes: Number(text(row, 'n_firmantes')),
+    })),
+    ponentes: rows(ponentesRaw).map((row) => ({
+      iniciativa_id: text(row, 'iniciativa_id'),
+      diputado_id: text(row, 'diputado_id'),
     })),
     pertenencias,
     gobierno,
@@ -181,6 +192,28 @@ export async function runMetrics(options: MetricsOptions, log: (message: string)
   if (speechesDate) fechasFuente.intervenciones = speechesDate;
   const initiativesDate = dateOf(`iniciativas/buscador-${project.iniciativasBuscador.tipos[0].codigo}`);
   if (initiativesDate) fechasFuente.iniciativas = initiativesDate;
+  const billsDate = dateOf('iniciativas/ProyectosDeLey');
+  if (billsDate) fechasFuente.leyes = billsDate;
+
+  // Bills with a ponencia, for the list of each profile.
+  const ponentesPorLey = new Map<string, string[]>();
+  for (const ponente of tables.ponentes) {
+    ponentesPorLey.set(ponente.iniciativa_id, [
+      ...(ponentesPorLey.get(ponente.iniciativa_id) ?? []),
+      ponente.diputado_id,
+    ]);
+  }
+  const leyes = rows(iniciativasRaw)
+    .filter((row) => ponentesPorLey.has(text(row, 'iniciativa_id')))
+    .map((row) => ({
+      iniciativa_id: text(row, 'iniciativa_id'),
+      tipo: text(row, 'tipo'),
+      titulo: text(row, 'titulo'),
+      resultado: optional(row.resultado),
+      fecha_resultado: optional(row.fecha_conclusion) ?? optional(row.fecha_resultado),
+      url_fuente: text(row, 'url_fuente'),
+      ponentes: ponentesPorLey.get(text(row, 'iniciativa_id')) ?? [],
+    }));
 
   const input: DeriveInput = {
     scoring,
@@ -200,6 +233,7 @@ export async function runMetrics(options: MetricsOptions, log: (message: string)
     votos,
     intervenciones,
     gobierno,
+    leyes,
     fechasFuente,
     limites: project.ficha,
   };
@@ -239,6 +273,7 @@ export async function runMetrics(options: MetricsOptions, log: (message: string)
       intervenciones: intervenciones.length,
       iniciativas: tables.iniciativas.length,
       firmantes: tables.firmantes.length,
+      ponentes: tables.ponentes.length,
     },
     incidencias,
   });

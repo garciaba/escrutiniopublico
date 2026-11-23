@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.0.0",
+ "metodologia_version": "1.2.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -137,9 +137,9 @@
    "dias_evaluados": 477,
    "grupo": "GS",
    "roles": [],
-   "indice": 47.9,
-   "cobertura": 0.6,
-   "posicion": 229,
+   "indice": 44.5,
+   "cobertura": 0.8,
+   "posicion": 262,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -148,15 +148,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 37.4
+     "puntuacion": 41.2
     },
     {
      "id": "iniciativa",
-     "puntuacion": 15.9
+     "puntuacion": 15.5
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 30.7
     },
     {
      "id": "representacion",
@@ -174,6 +174,7 @@
      "percentil": 90.6,
      "percentil_grupo": 77.5,
      "n_grupo": 140,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Votaciones",
       "url": "https://www.congreso.es/es/opendata/votaciones",
@@ -187,9 +188,10 @@
      "valor": 0.6289,
      "numerador": 3,
      "denominador": 477,
-     "percentil": 43.5,
+     "percentil": 48.3,
      "percentil_grupo": 61.8,
      "n_grupo": 140,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -203,9 +205,10 @@
      "valor": 1.6771,
      "numerador": 8,
      "denominador": 477,
-     "percentil": 31.3,
-     "percentil_grupo": 35.4,
+     "percentil": 34.1,
+     "percentil_grupo": 37.5,
      "n_grupo": 140,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -222,8 +225,30 @@
      "percentil": 14.7,
      "percentil_grupo": 38.2,
      "n_grupo": 140,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 7,
+      "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 477,
+     "percentil": 14.8,
+     "percentil_grupo": 32.1,
+     "n_grupo": 140,
+     "comparacion": "camara",
+     "detalle": {
+      "firmadas": 0,
       "primer_firmante": 0
      },
      "fuente": {
@@ -242,6 +267,7 @@
      "percentil": 17.1,
      "percentil_grupo": 41.4,
      "n_grupo": 140,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 0,
       "primer_firmante": 0
@@ -265,6 +291,23 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 477,
+     "percentil": 26.1,
+     "percentil_grupo": 30.7,
+     "n_grupo": 140,
+     "comparacion": "grupo",
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -276,7 +319,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 40,
+    "intervenciones": 11,
+    "sin_hora": 0
+   }
   },
   "12m": {
    "estado": "no_disponible",
@@ -291,6 +339,16 @@
    "motivo": "sin_dias_en_la_legislatura"
   }
  },
+ "ponencias": [
+  {
+   "iniciativa_id": "121/000004",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley de prevención de las pérdidas y el desperdicio alimentario.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2025-03-20",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000004"
+  }
+ ],
  "evolucion": {
   "meses": [
    "2023-08",
@@ -498,7 +556,89 @@
     0,
     0
    ],
+   "preguntas_orales": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
    "solicitudes_informe": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "leyes_ponente": [
     0,
     0,
     0,

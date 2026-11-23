@@ -1,6 +1,6 @@
 {
- "ejecutado": "2026-11-23T12:56:38.248Z",
- "metodologia_version": "1.0.0",
+ "ejecutado": "2026-11-23T16:05:38.133Z",
+ "metodologia_version": "1.2.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -9,7 +9,7 @@
   "fin": "2026-10-06",
   "finalizada": true
  },
- "commit": "bf2b3132bc347914655672f9d3c63aa745443b6c",
+ "commit": "6947b664a251fc05e77ef7dd0eff021c60e55c24",
  "periodos": [
   {
    "id": "legislatura",
@@ -21,13 +21,15 @@
    "dias_minimos": 90,
    "poblacion_referencia": 392,
    "total_ranking": 392,
-   "cobertura": 0.6,
+   "cobertura": 0.8,
    "metricas_disponibles": [
     "votaciones_participacion",
     "intervenciones_pleno",
     "intervenciones_comision",
     "preguntas_escritas",
-    "solicitudes_informe"
+    "preguntas_orales",
+    "solicitudes_informe",
+    "leyes_ponente"
    ]
   },
   {
@@ -40,13 +42,15 @@
    "dias_minimos": 90,
    "poblacion_referencia": 347,
    "total_ranking": 347,
-   "cobertura": 0.6,
+   "cobertura": 0.8,
    "metricas_disponibles": [
     "votaciones_participacion",
     "intervenciones_pleno",
     "intervenciones_comision",
     "preguntas_escritas",
-    "solicitudes_informe"
+    "preguntas_orales",
+    "solicitudes_informe",
+    "leyes_ponente"
    ]
   },
   {
@@ -96,7 +100,25 @@
    "fecha_fichero": "2026-11-23"
   },
   {
+   "id": "iniciativas/buscador-178",
+   "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+   "descargado": "2026-11-23",
+   "fecha_fichero": null
+  },
+  {
    "id": "iniciativas/buscador-179",
+   "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+   "descargado": "2026-11-23",
+   "fecha_fichero": null
+  },
+  {
+   "id": "iniciativas/buscador-180",
+   "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+   "descargado": "2026-11-23",
+   "fecha_fichero": null
+  },
+  {
+   "id": "iniciativas/buscador-181",
    "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
    "descargado": "2026-11-23",
    "fecha_fichero": null
@@ -165,7 +187,8 @@
  "fechas_dato": {
   "votaciones": "2026-09-30",
   "intervenciones": "2026-11-23",
-  "iniciativas": "2026-11-23"
+  "iniciativas": "2026-11-23",
+  "leyes": "2026-11-23"
  },
  "registros": {
   "diputados": 412,
@@ -175,8 +198,9 @@
   "votaciones": 2175,
   "votos": 760518,
   "intervenciones": 26524,
-  "iniciativas": 50394,
-  "firmantes": 279334
+  "iniciativas": 54182,
+  "firmantes": 288528,
+  "ponentes": 688
  },
  "incidencias": [
   {

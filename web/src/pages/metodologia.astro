@@ -156,6 +156,22 @@ const unidades = { proporcion: 'Proporción', por_100_dias: 'Por cada 100 días 
         índice global.
       </p>
 
+      <h2 id="contexto">Datos que se muestran y no puntúan</h2>
+      <dl class="definiciones">
+        {
+          scoring.contexto.map((item) => (
+            <div id={`contexto-${item.id}`}>
+              <dt>{item.nombre}</dt>
+              <dd>{item.calculo}</dd>
+            </div>
+          ))
+        }
+        <div>
+          <dt>Percentil dentro del grupo</dt>
+          <dd>Se muestra junto a cada métrica porque los turnos de palabra y las ponencias se reparten por grupos.</dd>
+        </div>
+      </dl>
+
       <h2 id="periodos">Periodos</h2>
       <p>
         El ranking se calcula por separado para cada periodo, siempre dentro de la legislatura. Entran en la población de

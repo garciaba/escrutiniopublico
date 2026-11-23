@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.0.0",
+ "metodologia_version": "1.2.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -97,9 +97,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 68.1,
-   "cobertura": 0.6,
-   "posicion": 31,
+   "indice": 69.7,
+   "cobertura": 0.8,
+   "posicion": 20,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -112,11 +112,11 @@
     },
     {
      "id": "iniciativa",
-     "puntuacion": 90.4
+     "puntuacion": 89.8
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 75
     },
     {
      "id": "representacion",
@@ -134,6 +134,7 @@
      "percentil": 49.9,
      "percentil_grupo": 60.3,
      "n_grupo": 150,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Votaciones",
       "url": "https://www.congreso.es/es/opendata/votaciones",
@@ -147,9 +148,10 @@
      "valor": 0.6975,
      "numerador": 8,
      "denominador": 1147,
-     "percentil": 46.6,
-     "percentil_grupo": 56,
+     "percentil": 51.4,
+     "percentil_grupo": 68.7,
      "n_grupo": 150,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -160,12 +162,13 @@
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 5.8413,
-     "numerador": 67,
+     "valor": 4.272,
+     "numerador": 49,
      "denominador": 1147,
-     "percentil": 81.5,
-     "percentil_grupo": 98.7,
+     "percentil": 76.7,
+     "percentil_grupo": 94.3,
      "n_grupo": 150,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -182,9 +185,31 @@
      "percentil": 96.6,
      "percentil_grupo": 93,
      "n_grupo": 150,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 3747,
       "primer_firmante": 77
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 1.7427,
+     "numerador": 19.9891,
+     "denominador": 1147,
+     "percentil": 88.6,
+     "percentil_grupo": 81.7,
+     "n_grupo": 150,
+     "comparacion": "camara",
+     "detalle": {
+      "firmadas": 65,
+      "primer_firmante": 22
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -202,6 +227,7 @@
      "percentil": 84.3,
      "percentil_grupo": 83.7,
      "n_grupo": 150,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 31,
       "primer_firmante": 8
@@ -225,6 +251,23 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0.0872,
+     "numerador": 1,
+     "denominador": 1147,
+     "percentil": 62.4,
+     "percentil_grupo": 75,
+     "n_grupo": 150,
+     "comparacion": "grupo",
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -236,7 +279,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 332,
+    "intervenciones": 75,
+    "sin_hora": 1
+   }
   },
   "12m": {
    "estado": "disponible",
@@ -249,9 +297,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 74,
-   "cobertura": 0.6,
-   "posicion": 13,
+   "indice": 64.9,
+   "cobertura": 0.8,
+   "posicion": 33,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -260,15 +308,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 61
+     "puntuacion": 59.4
     },
     {
      "id": "iniciativa",
-     "puntuacion": 89.9
+     "puntuacion": 86.2
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 42.8
     },
     {
      "id": "representacion",
@@ -286,6 +334,7 @@
      "percentil": 71.2,
      "percentil_grupo": 70.7,
      "n_grupo": 138,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Votaciones",
       "url": "https://www.congreso.es/es/opendata/votaciones",
@@ -299,9 +348,10 @@
      "valor": 0.6309,
      "numerador": 2,
      "denominador": 317,
-     "percentil": 43.2,
-     "percentil_grupo": 55.8,
+     "percentil": 45.1,
+     "percentil_grupo": 60.5,
      "n_grupo": 138,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -312,12 +362,13 @@
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 5.6782,
-     "numerador": 18,
+     "valor": 4.4164,
+     "numerador": 14,
      "denominador": 317,
-     "percentil": 78.7,
-     "percentil_grupo": 96,
+     "percentil": 73.6,
+     "percentil_grupo": 90.6,
      "n_grupo": 138,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -334,9 +385,31 @@
      "percentil": 95.2,
      "percentil_grupo": 92.4,
      "n_grupo": 138,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 723,
       "primer_firmante": 12
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 1.1223,
+     "numerador": 3.5577,
+     "denominador": 317,
+     "percentil": 78.8,
+     "percentil_grupo": 74.3,
+     "n_grupo": 138,
+     "comparacion": "camara",
+     "detalle": {
+      "firmadas": 8,
+      "primer_firmante": 3
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -354,6 +427,7 @@
      "percentil": 84.6,
      "percentil_grupo": 85.9,
      "n_grupo": 138,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 9,
       "primer_firmante": 4
@@ -377,6 +451,23 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 317,
+     "percentil": 37.5,
+     "percentil_grupo": 42.8,
+     "n_grupo": 138,
+     "comparacion": "grupo",
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -388,7 +479,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 103,
+    "intervenciones": 20,
+    "sin_hora": 0
+   }
   },
   "3m": {
    "estado": "no_disponible",
@@ -399,6 +495,32 @@
    "motivo": "sin_dias_en_la_legislatura"
   }
  },
+ "ponencias": [
+  {
+   "iniciativa_id": "121/000013",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley de creación de la Oficina Española de Derechos de Autor y Conexos, O.A.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000013"
+  },
+  {
+   "iniciativa_id": "121/000026",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley del Cine y de la Cultura Audiovisual.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000026"
+  },
+  {
+   "iniciativa_id": "121/000005",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley por la que se regulan las enseñanzas artísticas superiores y se establece la organización y equivalencias de las enseñanzas artísticas profesionales.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-05-23",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000005"
+  }
+ ],
  "evolucion": {
   "meses": [
    "2023-08",
@@ -534,29 +656,29 @@
     0,
     4,
     0,
-    3,
-    5,
+    0,
+    4,
     0,
     0,
-    2,
+    1,
     2,
     1,
     2,
     0,
     3,
+    2,
+    1,
+    3,
+    1,
+    0,
+    0,
+    2,
+    1,
     6,
-    1,
-    4,
-    2,
-    0,
-    0,
-    2,
-    2,
-    10,
     0,
     0,
     3,
-    4,
+    2,
     3,
     2,
     2,
@@ -606,6 +728,47 @@
     10.7631,
     0.1288
    ],
+   "preguntas_orales": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.0714,
+    0.3571,
+    0.4143,
+    1.85,
+    1.1436,
+    1,
+    0,
+    0,
+    1.0625,
+    1.0714,
+    0,
+    0,
+    0.4714,
+    2.0714,
+    2.0917,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0.1255,
+    1.451,
+    1.25,
+    0,
+    0,
+    0.25,
+    1,
+    0,
+    1,
+    0,
+    0.3077,
+    0,
+    1,
+    0
+   ],
    "solicitudes_informe": [
     0,
     0,
@@ -646,6 +809,47 @@
     0,
     0.4325,
     0.0714
+   ],
+   "leyes_ponente": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
    ]
   }
  },
@@ -947,8 +1151,8 @@
    "fecha": "2026-03-23",
    "organo": "Comisión Mixta de Control Parlamentario de la Corporación RTVE y sus Sociedades",
    "tipo_iniciativa": "Pregunta oral a la Corporación RTVE.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCG-15-CM-148.CODI.)#(P%C3%A1gina32)",
    "url_video": "https://app.congreso.es/v1/1569971I"
   },
@@ -957,8 +1161,8 @@
    "fecha": "2026-03-23",
    "organo": "Comisión Mixta de Control Parlamentario de la Corporación RTVE y sus Sociedades",
    "tipo_iniciativa": "Pregunta oral a la Corporación RTVE.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCG-15-CM-148.CODI.)#(P%C3%A1gina31)",
    "url_video": "https://app.congreso.es/v1/1569969I"
   },
@@ -1017,8 +1221,8 @@
    "fecha": "2025-11-25",
    "organo": "Comisión de Vivienda y Agenda Urbana",
    "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-458.CODI.)#(P%C3%A1gina15)",
    "url_video": "https://app.congreso.es/v1/1564367I"
   },
@@ -1027,8 +1231,8 @@
    "fecha": "2025-11-25",
    "organo": "Comisión de Vivienda y Agenda Urbana",
    "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-458.CODI.)#(P%C3%A1gina14)",
    "url_video": "https://app.congreso.es/v1/1564365I"
   }

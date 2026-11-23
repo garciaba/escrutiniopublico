@@ -221,17 +221,18 @@ Hallazgo relevante para esa comprobación: el cortafuegos del Congreso responde 
 
 Resultado de la ejecución completa de la XV (23/11/2026). Una segunda ejecución sin cambios en origen escribe exactamente los mismos bytes.
 
-| Tabla            | Filas   | Notas                                                                                                                                                                                                      |
-| ---------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `diputados`      | 412     | 412 códigos oficiales distintos; 18 con rol `gobierno`, 17 `portavoz`, 9 `mesa`                                                                                                                            |
-| `grupos`         | 9       |                                                                                                                                                                                                            |
-| `organos`        | 67      | 64 de las exportaciones más Pleno, Diputación Permanente y Sesión Conjunta                                                                                                                                 |
-| `pertenencias`   | 3.724   | Sin senadores ni letrados                                                                                                                                                                                  |
-| `votaciones`     | 2.175   | 2.173 nominales; 2 secretas                                                                                                                                                                                |
-| `votos`          | 760.518 | Lista de votantes igual al censo en activo en cada votación                                                                                                                                                |
-| `intervenciones` | 26.524  | 24.121 cuentan; 2.403 excluidas con motivo (D-009, D-013)                                                                                                                                                  |
-| `iniciativas`    | 50.394  | 47.414 preguntas escritas (44.845 al Gobierno, con 4 no servidas por el buscador, D-022; y 2.569 a RTVE), 2.492 solicitudes de informe de cuatro tipos (D-027) y 488 proyectos, proposiciones y propuestas |
-| `firmantes`      | 279.334 | Todos los firmantes cruzan con el censo; los autores que no son diputados se listan en el registro                                                                                                         |
+| Tabla            | Filas   | Notas                                                                                                                                                                                                                                                                                      |
+| ---------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `diputados`      | 412     | 412 códigos oficiales distintos; 18 con rol `gobierno`, 17 `portavoz`, 9 `mesa`                                                                                                                                                                                                            |
+| `grupos`         | 9       |                                                                                                                                                                                                                                                                                            |
+| `organos`        | 67      | 64 de las exportaciones más Pleno, Diputación Permanente y Sesión Conjunta                                                                                                                                                                                                                 |
+| `pertenencias`   | 3.724   | Sin senadores ni letrados                                                                                                                                                                                                                                                                  |
+| `votaciones`     | 2.175   | 2.173 nominales; 2 secretas                                                                                                                                                                                                                                                                |
+| `votos`          | 760.518 | Lista de votantes igual al censo en activo en cada votación                                                                                                                                                                                                                                |
+| `intervenciones` | 26.524  | 21.531 cuentan; 2.590 son la formulación de preguntas orales propias, que cuentan como iniciativa (D-033); 2.403 excluidas con otro motivo (D-009, D-013)                                                                                                                                  |
+| `iniciativas`    | 54.182  | 47.414 preguntas escritas (44.845 al Gobierno, con 4 no servidas por el buscador, D-022; y 2.569 a RTVE), 3.788 preguntas orales (1.205 en Pleno, 1.976 en comisión y 607 a RTVE, D-033), 2.492 solicitudes de informe de cuatro tipos (D-027) y 488 proyectos, proposiciones y propuestas |
+| `firmantes`      | 288.528 | Todos los firmantes cruzan con el censo; los autores que no son diputados (senadores, grupos) se listan en el registro                                                                                                                                                                     |
+| `ponentes`       | 688     | 218 diputados en las ponencias de 46 proyectos y proposiciones de ley; todos los nombres cruzan con el censo (D-033)                                                                                                                                                                       |
 
 `pnpm pipeline` escribe estas tablas en `data/normalized/`, en CSV UTF-8 con cabecera, ordenadas por su clave para que el diff diario muestre solo cambios reales. Las fechas van en formato `aaaa-mm-dd` y los textos oficiales, sin saltos de línea internos. Una columna vacía significa que el dato oficial no existe.
 
@@ -276,35 +277,39 @@ Una fila por diputado, órgano y cargo, desde la exportación de composición co
 
 Una fila por intervención distinta (`ENLACEDIFERIDO`) de un diputado del censo; las filas repetidas por debate conjunto se funden y sus expedientes se guardan en `expedientes`, separados por `;`. `intervencion_id` es el identificador del vídeo (ej. `1525087I`).
 
-| Columna                       | Origen                                                                                                  |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `fecha`, `organo_id`          | `SESION`, `ORGANO`                                                                                      |
-| `cargo_orador`, `clase_cargo` | `CARGOORADOR` y su clase: `diputado`, `cargo_parlamentario`, `investidura`, `gobierno` o `externo`      |
-| `fase`, `tipo_iniciativa`     | `FASE`, `TIPOINICIATIVA`                                                                                |
-| `hora_inicio`, `hora_fin`     | `INICIOINTERVENCION`, `FININTERVENCION`                                                                 |
-| `cuenta`, `motivo_exclusion`  | Regla de D-009 y D-013: `fuera_de_mandato`, `diputacion_permanente`, `cargo_gobierno` o `cargo_externo` |
-| `url_fuente`, `url_video`     | `ENLACETEXTOINTEGRO` (o `ENLACEPDF`) y el primer enlace de `ENLACEDIFERIDO`                             |
+| Columna                       | Origen                                                                                                                                                                                                     |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fecha`, `organo_id`          | `SESION`, `ORGANO`                                                                                                                                                                                         |
+| `cargo_orador`, `clase_cargo` | `CARGOORADOR` y su clase: `diputado`, `cargo_parlamentario`, `investidura`, `gobierno` o `externo`                                                                                                         |
+| `fase`, `tipo_iniciativa`     | `FASE`, `TIPOINICIATIVA`                                                                                                                                                                                   |
+| `hora_inicio`, `hora_fin`     | `INICIOINTERVENCION`, `FININTERVENCION`                                                                                                                                                                    |
+| `cuenta`, `motivo_exclusion`  | Reglas de D-009, D-013 y D-033: `fuera_de_mandato`, `diputacion_permanente`, `cargo_gobierno`, `cargo_externo` o `pregunta_oral` (el diputado formula una pregunta oral que firma; cuenta como iniciativa) |
+| `url_fuente`, `url_video`     | `ENLACETEXTOINTEGRO` (o `ENLACEPDF`) y el primer enlace de `ENLACEDIFERIDO`                                                                                                                                |
 
 Un cargo de Gobierno que el BOE no confirma para esa persona y fecha se trata como error de rotulación y la intervención cuenta como de diputado.
 
 ### iniciativas (clave `iniciativa_id`)
 
-`iniciativa_id` es el expediente sin el sufijo `/0000` (ej. `184/044756`), y `tipo_codigo` son sus tres primeras cifras. Salen de los ficheros de proyectos de ley (121), proposiciones de ley de grupos (122), de diputados (123), del Senado (124) y de comunidades autónomas (125), y propuestas de reforma de estatuto (127), y de la exportación del buscador para preguntas escritas al Gobierno (184) y a la Corporación RTVE (179), y solicitudes de informe a la Administración del Estado (186), comunidades autónomas (187), entidades locales (188) y otras entidades públicas (189). `resultado` y `fecha_resultado` separan el texto «Caducado \n04/11/2026». `autor` conserva el autor textual de proyectos y proposiciones (grupos, Gobierno, Senado). `firmantes_incompletos` marca autorías del tipo «… y 45 Diputados». El fichero de leyes aprobadas no se ingiere, porque no trae expediente ni autor.
+`iniciativa_id` es el expediente sin el sufijo `/0000` (ej. `184/044756`), y `tipo_codigo` son sus tres primeras cifras. Salen de los ficheros de proyectos de ley (121), proposiciones de ley de grupos (122), de diputados (123), del Senado (124) y de comunidades autónomas (125), y propuestas de reforma de estatuto (127), y de la exportación del buscador para preguntas escritas al Gobierno (184) y a la Corporación RTVE (179), preguntas orales al Gobierno en Pleno (180) y en comisión (181) y a la Corporación RTVE (178), y solicitudes de informe a la Administración del Estado (186), comunidades autónomas (187), entidades locales (188) y otras entidades públicas (189). `resultado` y `fecha_resultado` separan el texto «Caducado \n04/11/2026»; esa fecha es la del cierre del expediente. En proyectos y proposiciones, `fecha_conclusion` es el primer día de la fase «Concluido» de la tramitación, es decir, la última votación del Congreso: una ley votada el 16/09/2026 tiene como `fecha_resultado` el 20/10/2026, ya disuelta la Cámara (D-033). Una pregunta oral con `resultado` «Convertido» pasó a tramitarse como pregunta escrita y aparece también con su número de pregunta escrita. `autor` conserva el autor textual de proyectos y proposiciones (grupos, Gobierno, Senado). `firmantes_incompletos` marca autorías del tipo «… y 45 Diputados». El fichero de leyes aprobadas no se ingiere, porque no trae expediente ni autor.
 
 ### firmantes (clave `iniciativa_id + orden`)
 
 Tabla añadida al modelo de la especificación (D-016): una fila por diputado firmante, en el orden de la autoría oficial (`orden = 1` es el primer firmante), con su `grupo_id` y el total `n_firmantes` para el crédito fraccional.
 
+### ponentes (clave `iniciativa_id + orden`)
+
+Tabla añadida al modelo de la especificación (D-033): una fila por diputado de la ponencia de un proyecto o proposición de ley, en el orden del campo oficial `PONENTES` de los ficheros de iniciativas. Solo tienen ponentes las leyes que pasaron por ponencia (46 en la XV). El campo da la composición final de la ponencia, no los relevos durante la tramitación. Un nombre que no esté en el censo detiene la ejecución.
+
 ## 9. Salidas para la web (hito 2)
 
-La etapa `metrics` de `pnpm pipeline` lee las tablas de `data/normalized/` y escribe `data/derived/`. Todo se calcula con `config/scoring.ts` (metodología 1.0.0) para una fecha de cálculo; con las mismas tablas y la misma fecha, `ranking.json` y las fichas salen idénticos byte a byte.
+La etapa `metrics` de `pnpm pipeline` lee las tablas de `data/normalized/` y escribe `data/derived/`. Todo se calcula con `config/scoring.ts` (metodología 1.2.0) para una fecha de cálculo; con las mismas tablas y la misma fecha, `ranking.json` y las fichas salen idénticos byte a byte.
 
 Resultado para la XV con fecha de cálculo 23/11/2026:
 
 | Periodo          | Estado        | Ventana                 | Población de referencia | Cobertura |
 | ---------------- | ------------- | ----------------------- | ----------------------- | --------- |
-| Legislatura      | Disponible    | 17/08/2023 – 06/10/2026 | 392                     | 60 %      |
-| Último año       | Disponible    | 24/11/2025 – 06/10/2026 | 347                     | 60 %      |
+| Legislatura      | Disponible    | 17/08/2023 – 06/10/2026 | 392                     | 80 %      |
+| Último año       | Disponible    | 24/11/2025 – 06/10/2026 | 347                     | 80 %      |
 | Último trimestre | No disponible | —                       | —                       | —         |
 | Último mes       | No disponible | —                       | —                       | —         |
 
@@ -323,23 +328,25 @@ Cada fila: `periodo`, `slug`, `nombre`, `grupo` (el del periodo), `partido`, `ci
 
 ### `diputados/<slug>.json`
 
-| Bloque                     | Contenido                                                                                                                                                            |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `diputado`                 | Identidad: nombre, código oficial, grupo, formación, partido, circunscripción, fechas y enlace a la ficha oficial                                                    |
-| `gobierno[]`               | Etapas en el Gobierno con cargos, fechas y referencias del BOE                                                                                                       |
-| `cargos[]`                 | Pertenencias a órganos: órgano, cargo, desde y hasta                                                                                                                 |
-| `periodos.<id>`            | Situación, días (`dias_activo`, `dias_gobierno`, `dias_evaluados`), grupo, roles, índice, cobertura, posición y `total_ranking`, puntuación por dimensión y métricas |
-| `evolucion`                | Serie mensual de cada métrica disponible: `meses` y `series.<métrica>` alineadas                                                                                     |
-| `ultimas_votaciones[]`     | Las 20 últimas votaciones en lista: fecha, título, asunto, sentido del voto, telemático y enlace                                                                     |
-| `ultimas_intervenciones[]` | Las 20 últimas intervenciones: fecha, órgano, tipo de iniciativa, si cuenta y por qué no, y enlaces                                                                  |
+| Bloque                     | Contenido                                                                                                                                                                                                                                                |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `diputado`                 | Identidad: nombre, código oficial, grupo, formación, partido, circunscripción, fechas y enlace a la ficha oficial                                                                                                                                        |
+| `gobierno[]`               | Etapas en el Gobierno con cargos, fechas y referencias del BOE                                                                                                                                                                                           |
+| `cargos[]`                 | Pertenencias a órganos: órgano, cargo, desde y hasta                                                                                                                                                                                                     |
+| `ponencias[]`              | Leyes de cuya ponencia forma parte: expediente, tipo, título, resultado, fecha (la de conclusión si la tiene) y enlace                                                                                                                                   |
+| `periodos.<id>`            | Situación, días (`dias_activo`, `dias_gobierno`, `dias_evaluados`), grupo, roles, índice, cobertura, posición y `total_ranking`, puntuación por dimensión, métricas y `tiempo_palabra` (contexto que no puntúa: `minutos`, `intervenciones`, `sin_hora`) |
+| `evolucion`                | Serie mensual de cada métrica disponible: `meses` y `series.<métrica>` alineadas                                                                                                                                                                         |
+| `ultimas_votaciones[]`     | Las 20 últimas votaciones en lista: fecha, título, asunto, sentido del voto, telemático y enlace                                                                                                                                                         |
+| `ultimas_intervenciones[]` | Las 20 últimas intervenciones: fecha, órgano, tipo de iniciativa, si cuenta y por qué no, y enlaces                                                                                                                                                      |
 
-Cada métrica sigue el contrato de la especificación: `id`, `dimension`, `estado` (`observado`, `calculado` o `no_disponible`), `valor`, `numerador`, `denominador`, `percentil`, `percentil_grupo` y `fuente` (`nombre`, `url`, `fecha_dato`). Se añaden `n_grupo` (diputados del grupo en la población de referencia), `motivo` cuando no está disponible y `detalle` en las métricas de iniciativas (`firmadas` y `primer_firmante`).
+Cada métrica sigue el contrato de la especificación: `id`, `dimension`, `estado` (`observado`, `calculado` o `no_disponible`), `valor`, `numerador`, `denominador`, `percentil`, `percentil_grupo` y `fuente` (`nombre`, `url`, `fecha_dato`). Se añaden `n_grupo` (diputados del grupo en la población de referencia), `comparacion` (`camara` o `grupo`: qué percentil entra en la puntuación; D-034), `motivo` cuando no está disponible y `detalle` en las métricas de iniciativas (`firmadas` y `primer_firmante`).
 
-| Métrica                                           | `valor`                     | `numerador`                                             | `denominador`                             |
-| ------------------------------------------------- | --------------------------- | ------------------------------------------------------- | ----------------------------------------- |
-| `votaciones_participacion`                        | Proporción de 0 a 1         | Votos emitidos                                          | Votaciones nominales en cuya lista figura |
-| `intervenciones_pleno`, `intervenciones_comision` | Intervenciones por 100 días | Intervenciones que cuentan                              | Días evaluados                            |
-| `preguntas_escritas`, `solicitudes_informe`       | Crédito por 100 días        | Crédito fraccional (1/n por iniciativa con n firmantes) | Días evaluados                            |
+| Métrica                                                         | `valor`                     | `numerador`                                                                                 | `denominador`                             |
+| --------------------------------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| `votaciones_participacion`                                      | Proporción de 0 a 1         | Votos emitidos                                                                              | Votaciones nominales en cuya lista figura |
+| `intervenciones_pleno`, `intervenciones_comision`               | Intervenciones por 100 días | Intervenciones que cuentan                                                                  | Días evaluados                            |
+| `preguntas_escritas`, `preguntas_orales`, `solicitudes_informe` | Crédito por 100 días        | Crédito fraccional (1/n por iniciativa con n firmantes); las orales «Convertido» no cuentan | Días evaluados                            |
+| `leyes_ponente`                                                 | Leyes por 100 días          | Leyes aprobadas en cuya ponencia figura, en su fecha de conclusión                          | Días evaluados                            |
 
 ### `meta.json`
 

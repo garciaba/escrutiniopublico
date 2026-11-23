@@ -103,6 +103,7 @@ const EXCLUSIONES: Readonly<Record<string, string>> = {
   diputacion_permanente: 'Diputación Permanente',
   cargo_gobierno: 'Como miembro del Gobierno',
   cargo_externo: 'Con un cargo externo',
+  pregunta_oral: 'Cuenta como pregunta oral',
 };
 
 export function motivoExclusion(motivo: string | null | undefined): string {
@@ -125,4 +126,12 @@ export function tamano(bytes: number): string {
   if (bytes < 1024) return `${num(bytes)} B`;
   if (bytes < 1024 * 1024) return `${num(Math.round(bytes / 1024))} kB`;
   return `${num(bytes / (1024 * 1024), 1)} MB`;
+}
+
+/** 755 -> "12 h 35 min"; 45 -> "45 min"; 120 -> "2 h". */
+export function duracion(minutos: number): string {
+  const horas = Math.floor(minutos / 60);
+  const resto = minutos % 60;
+  if (horas === 0) return `${num(resto)} min`;
+  return resto === 0 ? `${num(horas)} h` : `${num(horas)} h ${resto} min`;
 }

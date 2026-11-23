@@ -109,6 +109,10 @@ export const billRow = z.looseObject({
   RESULTADOTRAMITACION: z.string().optional(),
   SITUACIONACTUAL: z.string().optional(),
   ENLACESBOCG: z.string().optional(),
+  /** Procedure followed, phase by phase with "desde dd/mm/aaaa hasta dd/mm/aaaa". */
+  TRAMITACIONSEGUIDA: z.string().optional(),
+  /** Rapporteurs of the bill, one "Apellidos, Nombre" per line; only bills that went through a ponencia. */
+  PONENTES: z.string().optional(),
 });
 export const billsFile = z.array(billRow);
 export type BillRow = z.infer<typeof billRow>;

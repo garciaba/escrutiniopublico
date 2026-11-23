@@ -17,6 +17,12 @@ export const registro: readonly EntradaRegistro[] = [
     fecha: '2026-11-23',
     tipo: 'datos',
     texto:
+      'Nuevas fuentes con las metodologías 1.1.0 y 1.2.0: 3.788 preguntas orales (en Pleno, en comisión y a la Corporación RTVE) y los ponentes de 46 proyectos y proposiciones de ley. Cambian las puntuaciones de todos los diputados.',
+  },
+  {
+    fecha: '2026-11-23',
+    tipo: 'datos',
+    texto:
       'Primera carga completa de la XV Legislatura: votaciones nominales del Pleno, intervenciones, preguntas con respuesta escrita, solicitudes de informe y composición de los órganos.',
   },
 ];

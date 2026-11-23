@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.0.0",
+ "metodologia_version": "1.2.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -57,9 +57,9 @@
    "dias_evaluados": 1147,
    "grupo": "GP",
    "roles": [],
-   "indice": 44,
-   "cobertura": 0.6,
-   "posicion": 266,
+   "indice": 39.4,
+   "cobertura": 0.8,
+   "posicion": 317,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -68,15 +68,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 47.3
+     "puntuacion": 34.6
     },
     {
      "id": "iniciativa",
-     "puntuacion": 69.3
+     "puntuacion": 76.5
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 31
     },
     {
      "id": "representacion",
@@ -94,6 +94,7 @@
      "percentil": 15.4,
      "percentil_grupo": 9,
      "n_grupo": 150,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Votaciones",
       "url": "https://www.congreso.es/es/opendata/votaciones",
@@ -104,12 +105,13 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 4.0105,
-     "numerador": 46,
+     "valor": 0.8718,
+     "numerador": 10,
      "denominador": 1147,
-     "percentil": 84.6,
-     "percentil_grupo": 90.7,
+     "percentil": 58.7,
+     "percentil_grupo": 77,
      "n_grupo": 150,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -123,9 +125,10 @@
      "valor": 0.2616,
      "numerador": 3,
      "denominador": 1147,
-     "percentil": 10.1,
-     "percentil_grupo": 10.3,
+     "percentil": 10.6,
+     "percentil_grupo": 10.7,
      "n_grupo": 150,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -142,9 +145,31 @@
      "percentil": 90.7,
      "percentil_grupo": 83.7,
      "n_grupo": 150,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 1435,
       "primer_firmante": 1107
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 2.0174,
+     "numerador": 23.1394,
+     "denominador": 1147,
+     "percentil": 90.9,
+     "percentil_grupo": 84.3,
+     "n_grupo": 150,
+     "comparacion": "camara",
+     "detalle": {
+      "firmadas": 25,
+      "primer_firmante": 23
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -162,6 +187,7 @@
      "percentil": 47.8,
      "percentil_grupo": 19.7,
      "n_grupo": 150,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 7,
       "primer_firmante": 1
@@ -185,6 +211,23 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 1147,
+     "percentil": 26.1,
+     "percentil_grupo": 31,
+     "n_grupo": 150,
+     "comparacion": "grupo",
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -196,7 +239,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 150,
+    "intervenciones": 49,
+    "sin_hora": 0
+   }
   },
   "12m": {
    "estado": "disponible",
@@ -209,9 +257,9 @@
    "dias_evaluados": 317,
    "grupo": "GP",
    "roles": [],
-   "indice": 42.5,
-   "cobertura": 0.6,
-   "posicion": 241,
+   "indice": 35.1,
+   "cobertura": 0.8,
+   "posicion": 310,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -220,15 +268,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 42.8
+     "puntuacion": 8.4
     },
     {
      "id": "iniciativa",
-     "puntuacion": 72.3
+     "puntuacion": 76.8
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 42.8
     },
     {
      "id": "representacion",
@@ -246,6 +294,7 @@
      "percentil": 12.5,
      "percentil_grupo": 7.6,
      "n_grupo": 138,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Votaciones",
       "url": "https://www.congreso.es/es/opendata/votaciones",
@@ -256,12 +305,13 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 3.1546,
-     "numerador": 10,
+     "valor": 0,
+     "numerador": 0,
      "denominador": 317,
-     "percentil": 77.4,
-     "percentil_grupo": 87,
+     "percentil": 8.2,
+     "percentil_grupo": 11.2,
      "n_grupo": 138,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -275,9 +325,10 @@
      "valor": 0.3155,
      "numerador": 1,
      "denominador": 317,
-     "percentil": 8.2,
-     "percentil_grupo": 7.6,
+     "percentil": 8.6,
+     "percentil_grupo": 8.3,
      "n_grupo": 138,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -294,9 +345,31 @@
      "percentil": 88.3,
      "percentil_grupo": 83.7,
      "n_grupo": 138,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 288,
       "primer_firmante": 269
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 1.8927,
+     "numerador": 6,
+     "denominador": 317,
+     "percentil": 86,
+     "percentil_grupo": 80.8,
+     "n_grupo": 138,
+     "comparacion": "camara",
+     "detalle": {
+      "firmadas": 6,
+      "primer_firmante": 6
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -314,6 +387,7 @@
      "percentil": 56.2,
      "percentil_grupo": 37.7,
      "n_grupo": 138,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 3,
       "primer_firmante": 0
@@ -337,6 +411,23 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 317,
+     "percentil": 37.5,
+     "percentil_grupo": 42.8,
+     "n_grupo": 138,
+     "comparacion": "grupo",
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -348,7 +439,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 20,
+    "intervenciones": 11,
+    "sin_hora": 0
+   }
   },
   "3m": {
    "estado": "no_disponible",
@@ -359,6 +455,16 @@
    "motivo": "sin_dias_en_la_legislatura"
   }
  },
+ "ponencias": [
+  {
+   "iniciativa_id": "121/000026",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley del Cine y de la Cultura Audiovisual.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000026"
+  }
+ ],
  "evolucion": {
   "meses": [
    "2023-08",
@@ -450,38 +556,38 @@
     0,
     0,
     0,
-    2,
-    1,
-    0,
-    2,
-    1,
     0,
     0,
-    2,
-    5,
-    2,
-    1,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     3,
-    2,
-    2,
-    3,
-    5,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
     0,
     0,
     0,
     0,
     2,
-    4,
     0,
     0,
-    4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0
    ],
    "intervenciones_comision": [
@@ -566,6 +672,47 @@
     10.5853,
     0
    ],
+   "preguntas_orales": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    1.0769,
+    1,
+    0,
+    0,
+    1.0625,
+    1,
+    1,
+    1,
+    0,
+    2,
+    0,
+    1,
+    2,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    0,
+    0,
+    3,
+    0
+   ],
    "solicitudes_informe": [
     0,
     0,
@@ -605,6 +752,47 @@
     0.3333,
     0,
     0.25,
+    0
+   ],
+   "leyes_ponente": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0
    ]
   }
@@ -797,8 +985,8 @@
    "fecha": "2026-09-30",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-209.CODI.)#(P%C3%A1gina34)",
    "url_video": "https://app.congreso.es/v1/1579636I"
   },
@@ -807,8 +995,8 @@
    "fecha": "2026-09-30",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-209.CODI.)#(P%C3%A1gina33)",
    "url_video": "https://app.congreso.es/v1/1579634I"
   },
@@ -817,8 +1005,8 @@
    "fecha": "2026-09-23",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-207.CODI.)#(P%C3%A1gina26)",
    "url_video": "https://app.congreso.es/v1/1578896I"
   },
@@ -827,8 +1015,8 @@
    "fecha": "2026-09-23",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-207.CODI.)#(P%C3%A1gina24)",
    "url_video": "https://app.congreso.es/v1/1578892I"
   },
@@ -837,8 +1025,8 @@
    "fecha": "2026-06-24",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-196.CODI.)#(P%C3%A1gina103)",
    "url_video": "https://app.congreso.es/v1/1576287I"
   },
@@ -847,8 +1035,8 @@
    "fecha": "2026-06-24",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-196.CODI.)#(P%C3%A1gina101)",
    "url_video": "https://app.congreso.es/v1/1576285I"
   },
@@ -867,8 +1055,8 @@
    "fecha": "2026-06-10",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-190.CODI.)#(P%C3%A1gina32)",
    "url_video": "https://app.congreso.es/v1/1574698I"
   },
@@ -877,8 +1065,8 @@
    "fecha": "2026-06-10",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-190.CODI.)#(P%C3%A1gina31)",
    "url_video": "https://app.congreso.es/v1/1574696I"
   },
@@ -887,8 +1075,8 @@
    "fecha": "2026-05-20",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-186.CODI.)#(P%C3%A1gina28)",
    "url_video": "https://app.congreso.es/v1/1573470I"
   },
@@ -897,8 +1085,8 @@
    "fecha": "2026-05-20",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-186.CODI.)#(P%C3%A1gina27)",
    "url_video": "https://app.congreso.es/v1/1573468I"
   },
@@ -907,8 +1095,8 @@
    "fecha": "2025-06-25",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-127.CODI.)#(P%C3%A1gina25)",
    "url_video": "https://app.congreso.es/v1/1556776I"
   },
@@ -917,8 +1105,8 @@
    "fecha": "2025-06-25",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-127.CODI.)#(P%C3%A1gina24)",
    "url_video": "https://app.congreso.es/v1/1556774I"
   },
@@ -927,8 +1115,8 @@
    "fecha": "2025-06-18",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-124.CODI.)#(P%C3%A1gina33)",
    "url_video": "https://app.congreso.es/v1/1555961I"
   },
@@ -937,8 +1125,8 @@
    "fecha": "2025-06-18",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-124.CODI.)#(P%C3%A1gina32)",
    "url_video": "https://app.congreso.es/v1/1555959I"
   },
@@ -947,8 +1135,8 @@
    "fecha": "2025-06-11",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-121.CODI.)#(P%C3%A1gina27)",
    "url_video": "https://app.congreso.es/v1/1555155I"
   },
@@ -957,8 +1145,8 @@
    "fecha": "2025-05-28",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-119.CODI.)#(P%C3%A1gina19)",
    "url_video": "https://app.congreso.es/v1/1554066I"
   },
@@ -967,8 +1155,8 @@
    "fecha": "2025-05-14",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-115.CODI.)#(P%C3%A1gina19)",
    "url_video": "https://app.congreso.es/v1/1552814I"
   },
@@ -977,8 +1165,8 @@
    "fecha": "2025-05-14",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-115.CODI.)#(P%C3%A1gina18)",
    "url_video": "https://app.congreso.es/v1/1552812I"
   },
@@ -987,8 +1175,8 @@
    "fecha": "2025-04-09",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-109.CODI.)#(P%C3%A1gina27)",
    "url_video": "https://app.congreso.es/v1/1551227I"
   }

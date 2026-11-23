@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.0.0",
+ "metodologia_version": "1.2.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -97,9 +97,9 @@
    "dias_evaluados": 1147,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 60.3,
-   "cobertura": 0.6,
-   "posicion": 78,
+   "indice": 59.8,
+   "cobertura": 0.8,
+   "posicion": 92,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -108,15 +108,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 85.7
+     "puntuacion": 88.1
     },
     {
      "id": "iniciativa",
-     "puntuacion": 59.3
+     "puntuacion": 44.5
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 70.7
     },
     {
      "id": "representacion",
@@ -134,6 +134,7 @@
      "percentil": 36,
      "percentil_grupo": 72.4,
      "n_grupo": 29,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Votaciones",
       "url": "https://www.congreso.es/es/opendata/votaciones",
@@ -147,9 +148,10 @@
      "valor": 3.313,
      "numerador": 38,
      "denominador": 1147,
-     "percentil": 81,
-     "percentil_grupo": 70.7,
+     "percentil": 85.6,
+     "percentil_grupo": 74.1,
      "n_grupo": 29,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -163,9 +165,10 @@
      "valor": 9.5031,
      "numerador": 109,
      "denominador": 1147,
-     "percentil": 90.3,
+     "percentil": 90.7,
      "percentil_grupo": 60.3,
      "n_grupo": 29,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -182,9 +185,31 @@
      "percentil": 29.2,
      "percentil_grupo": 8.6,
      "n_grupo": 29,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 12,
       "primer_firmante": 6
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 1147,
+     "percentil": 14.8,
+     "percentil_grupo": 19,
+     "n_grupo": 29,
+     "comparacion": "camara",
+     "detalle": {
+      "firmadas": 0,
+      "primer_firmante": 0
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -202,6 +227,7 @@
      "percentil": 89.4,
      "percentil_grupo": 81,
      "n_grupo": 29,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 26,
       "primer_firmante": 19
@@ -225,6 +251,23 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0.2616,
+     "numerador": 3,
+     "denominador": 1147,
+     "percentil": 87,
+     "percentil_grupo": 70.7,
+     "n_grupo": 29,
+     "comparacion": "grupo",
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -236,7 +279,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 1029,
+    "intervenciones": 147,
+    "sin_hora": 0
+   }
   },
   "12m": {
    "estado": "disponible",
@@ -249,9 +297,9 @@
    "dias_evaluados": 317,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 69.5,
-   "cobertura": 0.6,
-   "posicion": 28,
+   "indice": 58.2,
+   "cobertura": 0.8,
+   "posicion": 89,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -260,15 +308,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 87.2
+     "puntuacion": 89.7
     },
     {
      "id": "iniciativa",
-     "puntuacion": 50.2
+     "puntuacion": 41.8
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 30
     },
     {
      "id": "representacion",
@@ -286,6 +334,7 @@
      "percentil": 71.2,
      "percentil_grupo": 90,
      "n_grupo": 25,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Votaciones",
       "url": "https://www.congreso.es/es/opendata/votaciones",
@@ -299,9 +348,10 @@
      "valor": 4.7319,
      "numerador": 15,
      "denominador": 317,
-     "percentil": 85.2,
+     "percentil": 89.6,
      "percentil_grupo": 90,
      "n_grupo": 25,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -315,9 +365,10 @@
      "valor": 10.4101,
      "numerador": 33,
      "denominador": 317,
-     "percentil": 89.2,
+     "percentil": 89.8,
      "percentil_grupo": 58,
      "n_grupo": 25,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -334,6 +385,28 @@
      "percentil": 7.8,
      "percentil_grupo": 2,
      "n_grupo": 25,
+     "comparacion": "camara",
+     "detalle": {
+      "firmadas": 0,
+      "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 317,
+     "percentil": 24.9,
+     "percentil_grupo": 30,
+     "n_grupo": 25,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 0,
       "primer_firmante": 0
@@ -354,6 +427,7 @@
      "percentil": 92.7,
      "percentil_grupo": 90,
      "n_grupo": 25,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 14,
       "primer_firmante": 12
@@ -377,6 +451,23 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 317,
+     "percentil": 37.5,
+     "percentil_grupo": 30,
+     "n_grupo": 25,
+     "comparacion": "grupo",
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -388,7 +479,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 324,
+    "intervenciones": 48,
+    "sin_hora": 0
+   }
   },
   "3m": {
    "estado": "no_disponible",
@@ -399,6 +495,56 @@
    "motivo": "sin_dias_en_la_legislatura"
   }
  },
+ "ponencias": [
+  {
+   "iniciativa_id": "121/000031",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley de la Función Pública de la Administración del Estado.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000031"
+  },
+  {
+   "iniciativa_id": "121/000046",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley de transparencia e integridad de las actividades de los grupos de interés.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000046"
+  },
+  {
+   "iniciativa_id": "121/000060",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley por la que se modifican la Ley 58/2003, de 17 de diciembre, General Tributaria, en materia de prescripción, recaudación, asistencia mutua y obligaciones de información; la Ley 35/2006, de 28 de noviembre, del Impuesto sobre la Renta de las Personas Físicas y de modificación parcial de las leyes de los Impuestos sobre Sociedades, sobre la Renta de no Residentes y sobre el Patrimonio, y la Ley 29/1987, de 18 de diciembre, del Impuesto sobre Sucesiones y Donaciones.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000060"
+  },
+  {
+   "iniciativa_id": "121/000022",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley por la que se modifican el texto refundido de la Ley sobre responsabilidad civil y seguro en la circulación de vehículos a motor, aprobado por el Real Decreto Legislativo 8/2004, de 29 de octubre, y la Ley 20/2015, de 14 de julio, de ordenación, supervisión y solvencia de las entidades aseguradoras y reaseguradoras.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2025-07-22",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000022"
+  },
+  {
+   "iniciativa_id": "122/000146",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley de modificación de la Ley 19/1994, de 6 de julio, de modificación del Régimen Económico y Fiscal de Canarias, para la regulación de las inversiones en elementos patrimoniales afectos a la actividad de arrendamiento de vivienda en las Islas Canarias.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2025-07-22",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000146"
+  },
+  {
+   "iniciativa_id": "121/000023",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-12-19",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000023"
+  }
+ ],
  "evolucion": {
   "meses": [
    "2023-08",
@@ -606,6 +752,47 @@
     0,
     0
    ],
+   "preguntas_orales": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
    "solicitudes_informe": [
     0,
     0,
@@ -643,6 +830,47 @@
     0.5,
     0,
     1.25,
+    0,
+    0,
+    0
+   ],
+   "leyes_ponente": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0

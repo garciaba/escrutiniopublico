@@ -2,6 +2,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  duracion,
   fechaCorta,
   fechaLarga,
   iniciales,
@@ -44,6 +45,14 @@ describe('numbers', () => {
     expect(porcentaje(0.964)).toBe('96,4 %');
     expect(porcentaje(0.6, 0)).toBe('60 %');
     expect(porcentaje(1, 0)).toBe('100 %');
+  });
+
+  it('formats speaking time in hours and minutes', () => {
+    expect(duracion(0)).toBe('0 min');
+    expect(duracion(45)).toBe('45 min');
+    expect(duracion(120)).toBe('2 h');
+    expect(duracion(755)).toBe('12 h 35 min');
+    expect(duracion(60_125)).toBe('1.002 h 5 min');
   });
 
   it('formats file sizes', () => {
@@ -92,6 +101,7 @@ describe('names and labels', () => {
     expect(motivoPeriodo('sin_dias_en_activo')).toBe('No fue diputado en este periodo.');
     expect(motivoPeriodo(null)).toBe('No disponible.');
     expect(motivoExclusion('diputacion_permanente')).toBe('Diputación Permanente');
+    expect(motivoExclusion('pregunta_oral')).toBe('Cuenta como pregunta oral');
     expect(motivoExclusion(undefined)).toBe('');
     expect(sentidoVoto('abstencion')).toBe('Abstención');
     expect(sentidoVoto('raro')).toBe('raro');

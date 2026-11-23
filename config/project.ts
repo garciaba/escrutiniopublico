@@ -161,6 +161,9 @@ export const project = {
     tipos: [
       { codigo: '184', nombre: 'Pregunta al Gobierno con respuesta escrita' },
       { codigo: '179', nombre: 'Pregunta a la Corporación RTVE con respuesta escrita' },
+      { codigo: '180', nombre: 'Pregunta oral al Gobierno en Pleno' },
+      { codigo: '181', nombre: 'Pregunta oral al Gobierno en Comisión' },
+      { codigo: '178', nombre: 'Pregunta oral a la Corporación RTVE' },
       { codigo: '186', nombre: 'Solicitud de informe a la Administración del Estado' },
       { codigo: '187', nombre: 'Solicitud de informe a Comunidad Autónoma' },
       { codigo: '188', nombre: 'Solicitud de informe a Entidad Local' },

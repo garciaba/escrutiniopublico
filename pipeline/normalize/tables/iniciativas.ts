@@ -1,8 +1,9 @@
 /**
- * iniciativas and firmantes tables. Bills come from the open-data files; written
+ * iniciativas, firmantes and ponentes tables. Bills come from the open-data files;
  * questions and information requests come from the initiatives search export with
- * every signer (D-016). firmantes is an addition to the model of the specification:
- * one row per deputy who signs an initiative.
+ * every signer (D-016, D-033). firmantes and ponentes are additions to the model of the
+ * specification: one row per deputy who signs an initiative, and one per rapporteur of
+ * a bill.
  */
 import { groups } from '../../../config/parties.ts';
 import { project } from '../../../config/project.ts';
@@ -21,6 +22,11 @@ export interface IniciativaRow extends Record<string, string | number | boolean 
   firmantes_incompletos: boolean;
   resultado: string | undefined;
   fecha_resultado: string | undefined;
+  /**
+   * Bills only: first day of the "Concluido" phase, when the Congreso ends the procedure
+   * (its last vote). The outcome date of the source is later: when the file is closed.
+   */
+  fecha_conclusion: string | undefined;
   url_fuente: string;
 }
 
@@ -36,6 +42,7 @@ export const INICIATIVA_COLUMNS = [
   'firmantes_incompletos',
   'resultado',
   'fecha_resultado',
+  'fecha_conclusion',
   'url_fuente',
 ] as const;
 
@@ -49,6 +56,23 @@ export interface FirmanteRow extends Record<string, string | number | undefined>
 }
 
 export const FIRMANTE_COLUMNS = ['iniciativa_id', 'orden', 'diputado_id', 'grupo_id', 'n_firmantes'] as const;
+
+/** One row per rapporteur of a bill (field PONENTES of the bill files, D-033). */
+export interface PonenteRow extends Record<string, string | number> {
+  iniciativa_id: string;
+  orden: number;
+  diputado_id: string;
+}
+
+export const PONENTE_COLUMNS = ['iniciativa_id', 'orden', 'diputado_id'] as const;
+
+/** "A, B \nC, D \n" -> ["A, B", "C, D"] */
+export function splitRapporteurs(text: string | undefined): string[] {
+  return (text ?? '')
+    .split(/\r?\n/)
+    .map((name) => clean(name))
+    .filter(Boolean);
+}
 
 /** "122/000001/0000" -> "122/000001" */
 export function expedienteId(numero: string): string {
@@ -115,6 +139,15 @@ export function namesInSegment(text: string, resolve: (name: string) => string |
   return undefined;
 }
 
+/**
+ * First day of the "Concluido" phase of a bill's procedure:
+ * "… Concluido - (Aprobado con modificaciones) \ndesde 16/09/2026 hasta 20/10/2026" -> "2026-09-16".
+ */
+export function conclusionDate(tramitacion: string | undefined): string | undefined {
+  const match = /Concluido - \([^)]*\)\s*desde (\d{2}\/\d{2}\/\d{4})/.exec(tramitacion ?? '');
+  return match ? isoDate(match[1]) : undefined;
+}
+
 /** "Caducado \n04/11/2026" -> { resultado: "Caducado", fecha: "2026-11-04" } */
 function splitResult(text: string | undefined): { resultado: string | undefined; fecha: string | undefined } {
   const value = clean(text);
@@ -126,6 +159,7 @@ function splitResult(text: string | undefined): { resultado: string | undefined;
 export interface IniciativasResult {
   iniciativas: IniciativaRow[];
   firmantes: FirmanteRow[];
+  ponentes: PonenteRow[];
   /** Author texts without a Congreso group code that match no deputy (senators, groups…). */
   autoresNoDiputados: Map<string, number>;
 }
@@ -139,6 +173,7 @@ export function buildIniciativas(
   const congressGroups = new Set(groups.map((group) => group.code));
   const iniciativas: IniciativaRow[] = [];
   const firmantes: FirmanteRow[] = [];
+  const ponentes: PonenteRow[] = [];
   const autoresNoDiputados = new Map<string, number>();
   const problems: string[] = [];
 
@@ -188,8 +223,21 @@ export function buildIniciativas(
       firmantes_incompletos: byDeputies && /y \d+ Diputad/.test(clean(bill.AUTOR)),
       resultado,
       fecha_resultado: fecha,
+      fecha_conclusion: conclusionDate(bill.TRAMITACIONSEGUIDA),
       url_fuente: initiativeUrl(id),
     });
+    // Rapporteurs are always deputies of the Congreso: a name outside the census stops the run.
+    const seen = new Set<string>();
+    for (const name of splitRapporteurs(bill.PONENTES)) {
+      const censusName = resolve(name);
+      if (!censusName) {
+        problems.push(`${id}: rapporteur not in the census: ${name}`);
+        continue;
+      }
+      if (seen.has(censusName)) continue;
+      seen.add(censusName);
+      ponentes.push({ iniciativa_id: id, orden: seen.size, diputado_id: idOf(censusName) });
+    }
   }
 
   for (const { codigo, nombre } of project.iniciativasBuscador.tipos) {
@@ -208,6 +256,7 @@ export function buildIniciativas(
         firmantes_incompletos: false,
         resultado,
         fecha_resultado: fecha,
+        fecha_conclusion: undefined,
         url_fuente: initiativeUrl(id),
       });
     }
@@ -215,5 +264,5 @@ export function buildIniciativas(
   if (problems.length > 0) {
     throw new Error(`Initiative checks failed (${problems.length}): ${problems.slice(0, 10).join(' | ')}`);
   }
-  return { iniciativas, firmantes, autoresNoDiputados };
+  return { iniciativas, firmantes, ponentes, autoresNoDiputados };
 }

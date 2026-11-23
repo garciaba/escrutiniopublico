@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.0.0",
+ "metodologia_version": "1.2.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -161,9 +161,9 @@
    "dias_evaluados": 1147,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 64.1,
-   "cobertura": 0.6,
-   "posicion": 51,
+   "indice": 65.5,
+   "cobertura": 0.8,
+   "posicion": 47,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -172,15 +172,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 87
+     "puntuacion": 89.3
     },
     {
      "id": "iniciativa",
-     "puntuacion": 63.7
+     "puntuacion": 60.5
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 70.7
     },
     {
      "id": "representacion",
@@ -198,6 +198,7 @@
      "percentil": 41.6,
      "percentil_grupo": 79.3,
      "n_grupo": 29,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Votaciones",
       "url": "https://www.congreso.es/es/opendata/votaciones",
@@ -208,12 +209,13 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 2.7899,
-     "numerador": 32,
+     "valor": 2.7027,
+     "numerador": 31,
      "denominador": 1147,
-     "percentil": 77.9,
+     "percentil": 82.3,
      "percentil_grupo": 50,
      "n_grupo": 29,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -224,12 +226,13 @@
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 12.816,
-     "numerador": 147,
+     "valor": 12.6417,
+     "numerador": 145,
      "denominador": 1147,
-     "percentil": 96,
+     "percentil": 96.3,
      "percentil_grupo": 81,
      "n_grupo": 29,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -246,9 +249,31 @@
      "percentil": 69.8,
      "percentil_grupo": 70.7,
      "n_grupo": 29,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 296,
       "primer_firmante": 96
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0.3487,
+     "numerador": 4,
+     "denominador": 1147,
+     "percentil": 54,
+     "percentil_grupo": 86.2,
+     "n_grupo": 29,
+     "comparacion": "camara",
+     "detalle": {
+      "firmadas": 4,
+      "primer_firmante": 4
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -266,6 +291,7 @@
      "percentil": 57.7,
      "percentil_grupo": 46.6,
      "n_grupo": 29,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 5,
       "primer_firmante": 1
@@ -289,6 +315,23 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0.2616,
+     "numerador": 3,
+     "denominador": 1147,
+     "percentil": 87,
+     "percentil_grupo": 70.7,
+     "n_grupo": 29,
+     "comparacion": "grupo",
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -300,7 +343,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 924,
+    "intervenciones": 179,
+    "sin_hora": 0
+   }
   },
   "12m": {
    "estado": "disponible",
@@ -313,9 +361,9 @@
    "dias_evaluados": 317,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 60.4,
-   "cobertura": 0.6,
-   "posicion": 79,
+   "indice": 63.3,
+   "cobertura": 0.8,
+   "posicion": 44,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -324,15 +372,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 87.9
+     "puntuacion": 90.9
     },
     {
      "id": "iniciativa",
-     "puntuacion": 72.5
+     "puntuacion": 69.5
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 72
     },
     {
      "id": "representacion",
@@ -350,6 +398,7 @@
      "percentil": 20.7,
      "percentil_grupo": 68,
      "n_grupo": 25,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Votaciones",
       "url": "https://www.congreso.es/es/opendata/votaciones",
@@ -363,9 +412,10 @@
      "valor": 3.1546,
      "numerador": 10,
      "denominador": 317,
-     "percentil": 77.4,
+     "percentil": 83,
      "percentil_grupo": 50,
      "n_grupo": 25,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -379,9 +429,10 @@
      "valor": 17.6656,
      "numerador": 56,
      "denominador": 317,
-     "percentil": 98.4,
+     "percentil": 98.7,
      "percentil_grupo": 86,
      "n_grupo": 25,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -398,9 +449,31 @@
      "percentil": 74.2,
      "percentil_grupo": 74,
      "n_grupo": 25,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 105,
       "primer_firmante": 34
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0.3155,
+     "numerador": 1,
+     "denominador": 317,
+     "percentil": 63.4,
+     "percentil_grupo": 70,
+     "n_grupo": 25,
+     "comparacion": "camara",
+     "detalle": {
+      "firmadas": 1,
+      "primer_firmante": 1
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -418,6 +491,7 @@
      "percentil": 70.7,
      "percentil_grupo": 58,
      "n_grupo": 25,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 3,
       "primer_firmante": 0
@@ -441,6 +515,23 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0.3155,
+     "numerador": 1,
+     "denominador": 317,
+     "percentil": 83.6,
+     "percentil_grupo": 72,
+     "n_grupo": 25,
+     "comparacion": "grupo",
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -452,7 +543,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 430,
+    "intervenciones": 66,
+    "sin_hora": 0
+   }
   },
   "3m": {
    "estado": "no_disponible",
@@ -463,6 +559,56 @@
    "motivo": "sin_dias_en_la_legislatura"
   }
  },
+ "ponencias": [
+  {
+   "iniciativa_id": "121/000013",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley de creación de la Oficina Española de Derechos de Autor y Conexos, O.A.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000013"
+  },
+  {
+   "iniciativa_id": "121/000026",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley del Cine y de la Cultura Audiovisual.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000026"
+  },
+  {
+   "iniciativa_id": "121/000052",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley Orgánica para la protección de las personas menores de edad en los entornos digitales.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000052"
+  },
+  {
+   "iniciativa_id": "121/000064",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley por la que se modifican el Texto Refundido de la Ley General de derechos de las personas con discapacidad y de su inclusión social, aprobado por el Real Decreto Legislativo 1/2013, de 29 de noviembre, y la Ley 39/2006, de 14 de diciembre, de Promoción de la Autonomía Personal y Atención a las personas en situación de dependencia, para la extensión y refuerzo de los derechos de las personas con discapacidad a la inclusión, la autonomía y la accesibilidad universal conforme al artículo 49 de la Constitución Española.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2026-09-16",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000064"
+  },
+  {
+   "iniciativa_id": "122/000126",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley Orgánica por la que se modifica la Ley Orgánica 1/2002, de 22 de marzo, reguladora del derecho de asociación.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2025-06-19",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000126"
+  },
+  {
+   "iniciativa_id": "121/000005",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley por la que se regulan las enseñanzas artísticas superiores y se establece la organización y equivalencias de las enseñanzas artísticas profesionales.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-05-23",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000005"
+  }
+ ],
  "evolucion": {
   "meses": [
    "2023-08",
@@ -574,7 +720,7 @@
     0,
     0,
     2,
-    2,
+    1,
     2,
     0,
     0,
@@ -611,7 +757,7 @@
     4,
     3,
     13,
-    4,
+    2,
     0,
     0,
     2,
@@ -670,6 +816,47 @@
     6.875,
     1.5
    ],
+   "preguntas_orales": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
    "solicitudes_informe": [
     0,
     0,
@@ -709,6 +896,47 @@
     0.5,
     0,
     0.3333,
+    0
+   ],
+   "leyes_ponente": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
     0
    ]
   }

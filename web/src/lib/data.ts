@@ -69,6 +69,8 @@ export interface Metrica {
   percentil: number | null;
   percentil_grupo: number | null;
   n_grupo: number | null;
+  /** Which percentile enters the score (D-034). */
+  comparacion?: 'camara' | 'grupo';
   motivo?: string;
   detalle?: Record<string, number>;
   fuente?: { nombre: string; url: string; fecha_dato: string | null };
@@ -92,6 +94,8 @@ export interface FichaPeriodo {
   total_ranking?: number;
   dimensiones?: { id: string; puntuacion: number | null }[];
   metricas?: Metrica[];
+  /** Context: never part of the score (D-033). */
+  tiempo_palabra?: { minutos: number; intervenciones: number; sin_hora: number };
 }
 
 export interface Ficha {
@@ -114,6 +118,15 @@ export interface Ficha {
     url_ficha_oficial: string;
   };
   gobierno: { cargos: string; desde: string; hasta: string | null; evidencia: string[] }[];
+  /** Bills of the legislature whose ponencia the deputy sat on. */
+  ponencias: {
+    iniciativa_id: string;
+    tipo: string;
+    titulo: string;
+    resultado: string | null;
+    fecha_resultado: string | null;
+    url_fuente: string;
+  }[];
   cargos: {
     organo_id: string;
     organo: string;

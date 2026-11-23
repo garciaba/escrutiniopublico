@@ -1281,6 +1281,10 @@ th[aria-sort='descending'] .orden .baja {
   border-radius: 3px;
 }
 
+.percentil .puntua {
+  font-weight: 650;
+}
+
 .percentil .cifra {
   font-variant-numeric: tabular-nums;
   font-weight: 650;
@@ -1336,6 +1340,18 @@ th[aria-sort='descending'] .orden .baja {
   padding-top: 0.9rem;
   color: var(--muted);
   font-size: 0.82rem;
+}
+
+.metrica.contexto {
+  background: var(--surface-2);
+  box-shadow: none;
+}
+
+.tiempo-media {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .metrica.sin-dato {

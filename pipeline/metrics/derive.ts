@@ -3,19 +3,21 @@
  * profile per deputy and the run metadata. Pure functions over the engine results.
  */
 import { minDate, monthsBetween } from './dates.ts';
-import type {
-  DeputyPeriod,
-  DiputadoIn,
-  GobiernoIn,
-  Index,
-  IntervencionIn,
-  MetricResult,
-  OrganoIn,
-  PeriodResult,
-  PertenenciaIn,
-  ScoringInput,
-  VotacionIn,
-  VotoIn,
+import {
+  creditCounts,
+  lawCounts,
+  type DeputyPeriod,
+  type DiputadoIn,
+  type GobiernoIn,
+  type Index,
+  type IntervencionIn,
+  type MetricResult,
+  type OrganoIn,
+  type PeriodResult,
+  type PertenenciaIn,
+  type ScoringInput,
+  type VotacionIn,
+  type VotoIn,
 } from './engine.ts';
 import { round } from './stats.ts';
 
@@ -56,6 +58,17 @@ export interface GobiernoFull extends GobiernoIn {
   posts: string;
   evidence: readonly string[];
 }
+/** A bill that went through a ponencia, with its rapporteurs (D-033). */
+export interface LeyFull {
+  iniciativa_id: string;
+  tipo: string;
+  titulo: string;
+  resultado: string | undefined;
+  /** Date of the outcome in the Congreso: its last vote when the bill is concluded. */
+  fecha_resultado: string | undefined;
+  url_fuente: string;
+  ponentes: readonly string[];
+}
 
 /** config/scoring.ts with the texts the outputs repeat. */
 export interface ScoringTexts extends ScoringInput {
@@ -78,6 +91,7 @@ export interface DeriveInput {
   votos: readonly VotoFull[];
   intervenciones: readonly IntervencionFull[];
   gobierno: readonly GobiernoFull[];
+  leyes: readonly LeyFull[];
   /** Source id (config/scoring.ts `fuentes`) -> date of its data, yyyy-mm-dd. */
   fechasFuente: Readonly<Record<string, string>>;
   limites: { ultimasVotaciones: number; ultimasIntervenciones: number };
@@ -206,6 +220,7 @@ function deputyPeriodOut(period: PeriodResult, deputy: DeputyPeriod, input: Deri
       puntuacion: deputy.dimensiones[dimension.id] ?? null,
     })),
     metricas: deputy.metricas.map((metric) => metricOut(metric, input)),
+    tiempo_palabra: deputy.tiempo_palabra,
   };
 }
 
@@ -242,11 +257,16 @@ function evolution(diputado: DiputadoFull, input: DeriveInput) {
         if (organTypes.includes(speech.tipoOrgano)) add(counts, speech.fecha, 1);
       }
       series[metric.id] = counts;
+    } else if (metric.resultadosPonencia) {
+      const counts = zeros();
+      for (const law of index.laws.get(diputado.diputado_id) ?? []) {
+        if (lawCounts(metric, law)) add(counts, law.fecha, 1);
+      }
+      series[metric.id] = counts;
     } else if (metric.tiposIniciativa) {
-      const types = metric.tiposIniciativa;
       const credit = zeros();
       for (const event of index.credits.get(diputado.diputado_id) ?? []) {
-        if (types.includes(event.tipo)) add(credit, event.fecha, 1 / event.n);
+        if (creditCounts(metric, event)) add(credit, event.fecha, 1 / event.n);
       }
       series[metric.id] = credit.map((value) => round(value, 4));
     }
@@ -272,6 +292,10 @@ export function buildFichas(input: DeriveInput): Map<string, object> {
   const pertenencias = group(input.pertenencias);
   const gobierno = group(input.gobierno);
   const desc = (a: string, b: string) => (a < b ? 1 : a > b ? -1 : 0);
+  const ponencias = new Map<string, LeyFull[]>();
+  for (const ley of input.leyes) {
+    for (const id of ley.ponentes) ponencias.set(id, [...(ponencias.get(id) ?? []), ley]);
+  }
 
   const fichas = new Map<string, object>();
   for (const diputado of input.diputados) {
@@ -355,6 +379,21 @@ export function buildFichas(input: DeriveInput): Map<string, object> {
             a.cargo.localeCompare(b.cargo, 'es'),
         ),
       periodos,
+      // Every bill of the legislature whose ponencia the deputy sat on, newest outcome first.
+      ponencias: (ponencias.get(id) ?? [])
+        .slice()
+        .sort(
+          (a, b) =>
+            desc(a.fecha_resultado ?? '', b.fecha_resultado ?? '') || a.iniciativa_id.localeCompare(b.iniciativa_id),
+        )
+        .map((ley) => ({
+          iniciativa_id: ley.iniciativa_id,
+          tipo: ley.tipo,
+          titulo: ley.titulo,
+          resultado: ley.resultado ?? null,
+          fecha_resultado: ley.fecha_resultado ?? null,
+          url_fuente: ley.url_fuente,
+        })),
       evolucion: evolution(diputado, input),
       ultimas_votaciones: ultimasVotaciones,
       ultimas_intervenciones: ultimasIntervenciones,

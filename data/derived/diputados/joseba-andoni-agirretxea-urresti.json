@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.0.0",
+ "metodologia_version": "1.2.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -193,9 +193,9 @@
    "dias_evaluados": 1147,
    "grupo": "GV (EAJ-PNV)",
    "roles": [],
-   "indice": 37.1,
-   "cobertura": 0.6,
-   "posicion": 338,
+   "indice": 44,
+   "cobertura": 0.8,
+   "posicion": 271,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -204,15 +204,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 84.4
+     "puntuacion": 86.2
     },
     {
      "id": "iniciativa",
-     "puntuacion": 17.5
+     "puntuacion": 38.7
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 41.7
     },
     {
      "id": "representacion",
@@ -230,6 +230,7 @@
      "percentil": 9.4,
      "percentil_grupo": 58.3,
      "n_grupo": 6,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Votaciones",
       "url": "https://www.congreso.es/es/opendata/votaciones",
@@ -240,12 +241,13 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 8.4568,
-     "numerador": 97,
+     "valor": 6.7132,
+     "numerador": 77,
      "denominador": 1147,
-     "percentil": 93.5,
+     "percentil": 94,
      "percentil_grupo": 41.7,
      "n_grupo": 6,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -259,9 +261,10 @@
      "valor": 4.6207,
      "numerador": 53,
      "denominador": 1147,
-     "percentil": 75.4,
+     "percentil": 78.3,
      "percentil_grupo": 25,
      "n_grupo": 6,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -278,9 +281,31 @@
      "percentil": 17.9,
      "percentil_grupo": 16.7,
      "n_grupo": 6,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 3,
       "primer_firmante": 3
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 1.3078,
+     "numerador": 15,
+     "denominador": 1147,
+     "percentil": 81.3,
+     "percentil_grupo": 41.7,
+     "n_grupo": 6,
+     "comparacion": "camara",
+     "detalle": {
+      "firmadas": 15,
+      "primer_firmante": 15
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -298,6 +323,7 @@
      "percentil": 17.1,
      "percentil_grupo": 33.3,
      "n_grupo": 6,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 0,
       "primer_firmante": 0
@@ -321,6 +347,23 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0.4359,
+     "numerador": 5,
+     "denominador": 1147,
+     "percentil": 95,
+     "percentil_grupo": 41.7,
+     "n_grupo": 6,
+     "comparacion": "grupo",
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -332,7 +375,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 770,
+    "intervenciones": 150,
+    "sin_hora": 0
+   }
   },
   "12m": {
    "estado": "disponible",
@@ -345,9 +393,9 @@
    "dias_evaluados": 317,
    "grupo": "GV (EAJ-PNV)",
    "roles": [],
-   "indice": 29.6,
-   "cobertura": 0.6,
-   "posicion": 328,
+   "indice": 33.2,
+   "cobertura": 0.8,
+   "posicion": 326,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -356,15 +404,15 @@
     },
     {
      "id": "debates",
-     "puntuacion": 60.1
+     "puntuacion": 60.8
     },
     {
      "id": "iniciativa",
-     "puntuacion": 13.8
+     "puntuacion": 37.1
     },
     {
      "id": "resultados",
-     "puntuacion": null
+     "puntuacion": 20
     },
     {
      "id": "representacion",
@@ -382,6 +430,7 @@
      "percentil": 15,
      "percentil_grupo": 90,
      "n_grupo": 5,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Votaciones",
       "url": "https://www.congreso.es/es/opendata/votaciones",
@@ -392,12 +441,13 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 8.8328,
-     "numerador": 28,
+     "valor": 6.9401,
+     "numerador": 22,
      "denominador": 317,
-     "percentil": 93.5,
+     "percentil": 92.9,
      "percentil_grupo": 30,
      "n_grupo": 5,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -411,9 +461,10 @@
      "valor": 1.5773,
      "numerador": 5,
      "denominador": 317,
-     "percentil": 26.7,
+     "percentil": 28.7,
      "percentil_grupo": 10,
      "n_grupo": 5,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -430,9 +481,31 @@
      "percentil": 7.8,
      "percentil_grupo": 10,
      "n_grupo": 5,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 0,
       "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_orales",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 1.5773,
+     "numerador": 5,
+     "denominador": 317,
+     "percentil": 83.9,
+     "percentil_grupo": 60,
+     "n_grupo": 5,
+     "comparacion": "camara",
+     "detalle": {
+      "firmadas": 5,
+      "primer_firmante": 5
      },
      "fuente": {
       "nombre": "Congreso de los Diputados · Buscador de iniciativas",
@@ -450,6 +523,7 @@
      "percentil": 19.7,
      "percentil_grupo": 30,
      "n_grupo": 5,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 0,
       "primer_firmante": 0
@@ -473,6 +547,23 @@
      "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
     },
     {
+     "id": "leyes_ponente",
+     "dimension": "resultados",
+     "estado": "observado",
+     "valor": 0.3155,
+     "numerador": 1,
+     "denominador": 317,
+     "percentil": 83.6,
+     "percentil_grupo": 20,
+     "n_grupo": 5,
+     "comparacion": "grupo",
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Iniciativas legislativas",
+      "url": "https://www.congreso.es/es/opendata/iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
      "id": "iniciativas_aprobadas",
      "dimension": "resultados",
      "estado": "no_disponible",
@@ -484,7 +575,12 @@
      "n_grupo": null,
      "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
     }
-   ]
+   ],
+   "tiempo_palabra": {
+    "minutos": 181,
+    "intervenciones": 33,
+    "sin_hora": 0
+   }
   },
   "3m": {
    "estado": "no_disponible",
@@ -495,6 +591,72 @@
    "motivo": "sin_dias_en_la_legislatura"
   }
  },
+ "ponencias": [
+  {
+   "iniciativa_id": "121/000013",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley de creación de la Oficina Española de Derechos de Autor y Conexos, O.A.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000013"
+  },
+  {
+   "iniciativa_id": "121/000026",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley del Cine y de la Cultura Audiovisual.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000026"
+  },
+  {
+   "iniciativa_id": "122/000201",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley Orgánica por la que se modifica la Ley Orgánica 10/1995, de 23 de noviembre, del Código Penal, para penalizar las terapias de conversión dirigidas a eliminar o negar la orientación sexual, identidad sexual o expresión de género.",
+   "resultado": "Caducado",
+   "fecha_resultado": "2026-10-06",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000201"
+  },
+  {
+   "iniciativa_id": "122/000233",
+   "tipo": "Proposición de ley de Grupos Parlamentarios del Congreso",
+   "titulo": "Proposición de Ley de modificación de normas sobre el programa de cribado neonatal del Sistema Nacional de Salud y de otra normativa.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2026-07-23",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000233"
+  },
+  {
+   "iniciativa_id": "121/000054",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley por la que se crea la Agencia Estatal de Salud Pública y se modifica la Ley 33/2011, de 4 de octubre, General de Salud Pública.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2025-07-22",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000054"
+  },
+  {
+   "iniciativa_id": "121/000004",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley de prevención de las pérdidas y el desperdicio alimentario.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2025-03-20",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000004"
+  },
+  {
+   "iniciativa_id": "121/000001",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley Orgánica de representación paritaria y presencia equilibrada de mujeres y hombres.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-07-23",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000001"
+  },
+  {
+   "iniciativa_id": "121/000005",
+   "tipo": "Proyecto de ley",
+   "titulo": "Proyecto de Ley por la que se regulan las enseñanzas artísticas superiores y se establece la organización y equivalencias de las enseñanzas artísticas profesionales.",
+   "resultado": "Aprobado con modificaciones",
+   "fecha_resultado": "2024-05-23",
+   "url_fuente": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=121%2F000005"
+  }
+ ],
  "evolucion": {
   "meses": [
    "2023-08",
@@ -590,34 +752,34 @@
     4,
     1,
     4,
-    5,
-    1,
-    0,
-    1,
-    5,
-    2,
-    1,
-    0,
-    3,
-    1,
-    3,
-    5,
-    8,
-    1,
-    0,
-    5,
-    7,
-    5,
-    2,
-    0,
-    2,
     4,
+    1,
+    0,
+    1,
     3,
-    6,
+    2,
+    1,
+    0,
+    1,
+    1,
+    3,
+    3,
+    4,
+    1,
+    0,
+    4,
+    7,
+    3,
+    2,
+    0,
+    1,
+    2,
+    3,
+    5,
     5,
     0,
     0,
-    5,
+    3,
     0
    ],
    "intervenciones_comision": [
@@ -702,6 +864,47 @@
     0,
     0
    ],
+   "preguntas_orales": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    2,
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
    "solicitudes_informe": [
     0,
     0,
@@ -739,6 +942,47 @@
     0,
     0,
     0,
+    0,
+    0,
+    0
+   ],
+   "leyes_ponente": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
     0,
     0,
     0
@@ -943,8 +1187,8 @@
    "fecha": "2026-09-23",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-207.CODI.)#(P%C3%A1gina23)",
    "url_video": "https://app.congreso.es/v1/1578883I"
   },
@@ -983,8 +1227,8 @@
    "fecha": "2026-09-09",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-202.CODI.)#(P%C3%A1gina35)",
    "url_video": "https://app.congreso.es/v1/1577927I"
   },
@@ -1093,8 +1337,8 @@
    "fecha": "2026-05-27",
    "organo": "Pleno",
    "tipo_iniciativa": "Pregunta oral en Pleno.",
-   "cuenta": true,
-   "motivo_exclusion": null,
+   "cuenta": false,
+   "motivo_exclusion": "pregunta_oral",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-188.CODI.)#(P%C3%A1gina28)",
    "url_video": "https://app.congreso.es/v1/1574168I"
   },

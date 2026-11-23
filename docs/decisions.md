@@ -283,3 +283,74 @@ El adaptador entra en el hito 1, adelantando lo que la especificación dejaba pa
 - **Licencia:** CC BY 4.0 para lo que elabora el proyecto. La página no afirma nada sobre el uso comercial de los datos de origen, que el aviso legal del Congreso no aclara (sección 12): remite a él. **Pendiente de la revisión jurídica del propietario.**
 - **`/cambios`:** se genera desde `config/scoring.ts` (versiones), `config/cambios.ts` (cambios de datos y rectificaciones, a mano), `config/overrides.ts` (correcciones manuales y miembros del Gobierno) y `meta.json` (incidencias de las fuentes). El registro automático de qué cambia cada día queda para el hito 4, con la ejecución diaria; hasta entonces la página enlaza al historial de `data/` en el repositorio.
 - **`/acerca`:** titular, contacto y financiación aparecen como «pendiente de publicar» hasta que el propietario los dé (`config/site.ts`). Mientras no haya dirección de contacto, la vía de rectificación es una incidencia en el repositorio público. `pnpm web:audit --strict` falla si siguen vacíos: es el control previo al lanzamiento.
+
+## D-033 · Metodología 1.1.0: preguntas orales, ponencias y tiempo de palabra
+
+**Decidida por el propietario (23/11/2026)**, a partir de la revisión de fuentes: «Ponencias de leyes como métrica nueva y como primera fuente de Resultados e impacto; preguntas orales dentro de Iniciativa parlamentaria, resolviendo antes el doble recuento con las intervenciones; tiempo de palabra en la ficha, sin puntuar».
+
+**Ponencias de leyes.** Los ficheros oficiales de proyectos y proposiciones de ley, que ya se descargaban, traen el campo `PONENTES`. Se normaliza en la tabla `ponentes` (688 filas, 218 diputados, 46 leyes; todos los nombres cruzan con el censo).
+
+- Métrica `leyes_ponente`, en «Resultados e impacto»: leyes aprobadas en cuya ponencia figura el diputado, por cada 100 días evaluados. Estado `observado`.
+- Cada ley cuenta en su **fecha de conclusión**: el primer día de la fase «Concluido» de la tramitación oficial, que es la última votación del Congreso. La fecha del campo de resultado es posterior, la del cierre del expediente. En dos leyes cae ya disuelta la Cámara: votadas el 16/09/2026 y el 01/10/2026, cerradas el 20/10/2026 y el 12/11/2026. Con esa fecha habrían quedado fuera de todo periodo. Las 34 leyes aprobadas de la XV tienen fecha de conclusión, en la columna nueva `iniciativas.fecha_conclusion`.
+- Sin crédito fraccional: cada grupo designa uno o dos ponentes por ley, así que todos trabajan en el mismo texto.
+- La ficha lista todas las leyes de su ponencia, aprobadas o no.
+- La cobertura del índice pasa del 60 % al 80 %.
+
+**Preguntas orales.** Se ingieren con la misma exportación del buscador que las escritas: en Pleno (180, 1.205), en comisión (181, 1.976) y a la Corporación RTVE (178, 607). Los senadores que firman preguntas a RTVE se descartan, como ya se hacía con las escritas.
+
+- Métrica `preguntas_orales`, en «Iniciativa parlamentaria», con las mismas reglas que las escritas: cuentan las presentadas, se formulen o no, con crédito 1/n entre firmantes, en su fecha de presentación.
+- **Primer doble recuento, con las preguntas escritas:** 419 preguntas orales en comisión terminaron como «Convertido», porque no se formularon a tiempo y pasaron a tramitarse como escritas. 393 reaparecen con el mismo título y autor como pregunta escrita (tipo 184). Cuentan solo como escritas.
+- **Segundo doble recuento, con las intervenciones:** formular en la sesión una pregunta oral propia generaba también una intervención. Esa intervención queda marcada `pregunta_oral` y no suma en «Participación en debates»: la pregunta cuenta una sola vez, como iniciativa. Son 2.590 intervenciones. Si quien formula la pregunta no la firmó, porque sustituye a un compañero, su intervención sí cuenta como debate.
+- **Contraste con el cuadro de totales de la web del Congreso.** Su cifra de «preguntas orales» coincide en los diez diputados del contraste del Hito 2 y en uno más con preguntas a RTVE. Esa cifra suma los tipos 180, 181 y 178 con todos sus resultados, convertidas incluidas. La ficha de Escrutinio Público da una cifra menor cuando hay convertidas, porque esas ya están en las escritas.
+
+**Tiempo de palabra.** Minutos en el uso de la palabra como diputado, preguntas orales incluidas, calculados con las horas oficiales de inicio y fin de cada intervención.
+
+- Se muestra en la ficha junto a las métricas de debate, con la etiqueta «No puntúa».
+- Las horas tienen precisión de un minuto: de las 24.121 intervenciones que entran en el cálculo, 1.214 empiezan y terminan en el mismo minuto y suman cero.
+- Las 183 intervenciones sin hora se cuentan aparte y se indican en la ficha.
+
+**Efecto en el ranking de la legislatura:**
+
+- La posición mediana se mueve 42 puestos; una de cada diez, más de 117.
+- La dimensión nueva favorece a los grupos pequeños, porque cada grupo pone ponentes en cada ley y los pequeños los reparten entre menos diputados. Media de «Resultados e impacto»:
+
+| Grupo           | Diputados en el ranking | Resultados e impacto | Índice 1.1.0 | Índice 1.0.0 |
+| --------------- | ----------------------- | -------------------- | ------------ | ------------ |
+| Popular         | 150                     | 42,4                 | 48,0         | 51,0         |
+| Socialista      | 140                     | 44,0                 | 45,6         | 45,0         |
+| VOX             | 33                      | 59,0                 | 60,0         | 60,9         |
+| SUMAR           | 29                      | 62,6                 | 56,6         | 56,1         |
+| Mixto           | 11                      | 74,0                 | 58,6         | 56,1         |
+| Republicano     | 8                       | 80,1                 | 61,1         | 51,4         |
+| Junts           | 8                       | 90,5                 | 61,3         | 49,6         |
+| EH Bildu        | 7                       | 89,2                 | 60,2         | 47,2         |
+| Vasco (EAJ-PNV) | 6                       | 84,8                 | 57,5         | 42,6         |
+
+Es el mismo sesgo que ya tenían los debates, documentado en las limitaciones de `/metodologia`. Se corrige en la metodología 1.2.0 (D-034).
+
+## D-034 · Metodología 1.2.0: las ponencias se comparan dentro del grupo
+
+**Decidida por el propietario (23/11/2026).** Con la metodología 1.1.0, «Resultados e impacto» medía sobre todo el tamaño del grupo (D-033).
+
+- **El motivo del sesgo.** Cada grupo tiene sitio en la ponencia de cada ley, así que los grupos pequeños reparten más ponencias entre menos diputados. Ponencias de leyes aprobadas por diputado: Popular 0,58; Socialista 0,62; VOX 1,73; SUMAR 1,93; Mixto 2,91; Republicano 3,50; Junts 3,62; EH Bildu 4,14; Vasco 4,83.
+- **Opción descartada: repartir cada ponencia entre los ponentes de cada grupo.** Se propuso primero y la simulación mostró que agravaba el sesgo: Junts pasaba de 90,3 a 94,2 de media, y el Popular de 42,7 a 41,8. Los grupos grandes ponen más ponentes por ley, así que repartir dentro del grupo les resta mérito justo a ellos.
+- **Regla aplicada.** La métrica `leyes_ponente` puntúa con el **percentil del diputado dentro de su grupo**: compara a cada uno con sus compañeros, que son entre quienes el grupo reparte sus puestos.
+  - El percentil en toda la Cámara se sigue calculando y publicando como referencia.
+  - En la configuración es `comparacion: 'grupo'`. Cada métrica de las fichas indica en el campo `comparacion` qué percentil puntúa.
+  - La ficha muestra primero el percentil que puntúa, con la indicación «puntúa», y después el otro, «referencia».
+- **Consecuencia.** «Resultados e impacto» no distingue entre grupos: la media de cada grupo en esa dimensión es 50. Lo que mide es quién de cada grupo ha participado en más leyes aprobadas. Está en las limitaciones de `/metodologia`.
+- **Efecto en la legislatura.** Media del índice por grupo:
+
+| Grupo           | Diputados en el ranking | 1.0.0 | 1.1.0 | 1.2.0 |
+| --------------- | ----------------------- | ----- | ----- | ----- |
+| Popular         | 150                     | 51,0  | 48,0  | 49,9  |
+| Socialista      | 140                     | 45,0  | 45,6  | 47,1  |
+| VOX             | 33                      | 60,9  | 60,0  | 57,7  |
+| SUMAR           | 29                      | 56,1  | 56,6  | 53,4  |
+| Mixto           | 11                      | 56,1  | 58,6  | 52,6  |
+| Republicano     | 8                       | 51,4  | 61,1  | 53,6  |
+| Junts           | 8                       | 49,6  | 61,3  | 51,2  |
+| EH Bildu        | 7                       | 47,2  | 60,2  | 50,4  |
+| Vasco (EAJ-PNV) | 6                       | 42,6  | 57,5  | 48,8  |
+
+Frente a la metodología 1.0.0, la posición mediana se mueve 45 puestos.
