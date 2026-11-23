@@ -120,27 +120,36 @@ export function monthWindows(from: string, today: string): { desde: string; hast
   return windows;
 }
 
+/** Days (dd/mm/yyyy) of a month window. */
+function daysOf(window: { desde: string; hasta: string }): string[] {
+  const [, month = '', year = ''] = window.desde.split('/');
+  const last = Number(window.hasta.split('/')[0]);
+  return Array.from({ length: last }, (_, index) => `${String(index + 1).padStart(2, '0')}/${month}/${year}`);
+}
+
+/** Largest result set the listing pages through reliably; bigger windows are split by day. */
+const LISTING_SAFE_RESULTS = 900;
+
 /**
  * Some export files fail on the server for every format. The listing still serves those
- * records, so missing ones are recovered month by month: months whose listing count
- * exceeds the exported rows are read in full from the listing (25 per page).
+ * records, so missing ones are recovered from it: months whose listing count exceeds the
+ * exported rows are read from the listing, day by day when the month is large (the
+ * listing does not page through more than about 1,000 results of one query).
  */
 async function recoverFromListing(
   ctx: IngestContext,
   tipo: string,
   rows: Map<string, SearchInitiativeRow>,
 ): Promise<number> {
-  const exportedPerMonth = new Map<string, number>();
+  const exported = new Map<string, number>();
+  const bump = (key: string) => exported.set(key, (exported.get(key) ?? 0) + 1);
   for (const row of rows.values()) {
-    const [, month = '', year = ''] = row.fecha_presentado.split('/');
-    const key = `${year}-${month}`;
-    exportedPerMonth.set(key, (exportedPerMonth.get(key) ?? 0) + 1);
+    const [day = '', month = '', year = ''] = row.fecha_presentado.split('/');
+    bump(`${year}-${month}`);
+    bump(`${day}/${month}/${year}`);
   }
   let recovered = 0;
-  for (const window of monthWindows(project.legislatura.inicio, ctx.today)) {
-    const filter = { fechaDesde: window.desde, fechaHasta: window.hasta };
-    const listed = await countInitiatives(ctx, tipo, filter);
-    if (listed <= (exportedPerMonth.get(window.key) ?? 0)) continue;
+  const readAll = async (filter: ListFilter, listed: number) => {
     for (let page = 1; (page - 1) * 25 < listed; page++) {
       for (const row of (await listPage(ctx, tipo, page, filter)).rows) {
         if (!rows.has(row.id_iniciativa)) {
@@ -149,7 +158,20 @@ async function recoverFromListing(
         }
       }
     }
-    ctx.log(`iniciativas: ${tipo} ${window.key}: listing ${listed}, exported ${exportedPerMonth.get(window.key) ?? 0}`);
+  };
+  for (const window of monthWindows(project.legislatura.inicio, ctx.today)) {
+    const listed = await countInitiatives(ctx, tipo, { fechaDesde: window.desde, fechaHasta: window.hasta });
+    if (listed <= (exported.get(window.key) ?? 0)) continue;
+    ctx.log(`iniciativas: ${tipo} ${window.key}: listing ${listed}, exported ${exported.get(window.key) ?? 0}`);
+    if (listed <= LISTING_SAFE_RESULTS) {
+      await readAll({ fechaDesde: window.desde, fechaHasta: window.hasta }, listed);
+      continue;
+    }
+    for (const day of daysOf(window)) {
+      const filter = { fechaDesde: day, fechaHasta: day };
+      const listedDay = await countInitiatives(ctx, tipo, filter);
+      if (listedDay > (exported.get(day) ?? 0)) await readAll(filter, listedDay);
+    }
   }
   return recovered;
 }
