@@ -25,6 +25,7 @@ Decisiones del agente de código y propuestas que esperan al propietario. Cada e
 | D-019 | Historial de grupo desde el voto                         | Tomada   | 1, 2          |
 | D-020 | Intervenciones que no cuentan se conservan con su motivo | Tomada   | 1, 2          |
 | D-021 | Volcados diarios no versionados y ejecución `--offline`  | Tomada   | 1, 4          |
+| D-022 | Iniciativas que el buscador oficial no puede servir      | Tomada   | 1             |
 
 ## D-001 · Ejecutar TypeScript con Node 22 sin paso de compilación
 
@@ -160,3 +161,12 @@ El adaptador entra en el hito 1, adelantando lo que la especificación dejaba pa
 ## D-021 · Volcados diarios no versionados y ejecución `--offline`
 
 **Tomada (hito 1).** Los volcados diarios (`data/raw/daily/`) no se versionan, como dice la especificación: el de intervenciones ocupa 57 MB y el buscador de iniciativas, unos 30 MB. Se versionan los JSON de votaciones (D-004), el manifiesto y las tablas normalizadas. `pnpm pipeline --offline` rehace la normalización desde `data/raw/` si existen los volcados del día. En un clon limpio, la reproducibilidad del cálculo (hito 2) parte de `data/normalized/`, que sí está versionado.
+
+## D-022 · Iniciativas que el buscador oficial no puede servir
+
+**Tomada (hito 1).** La exportación del buscador de iniciativas sirve bloques de 100, ordenados por fecha de calificación. El 23/11/2026, el bloque 154 de preguntas escritas devolvía vacío en JSON, XML y CSV. El listado paginado (25 por página) responde `{"error": "Error en la consulta"}` en cualquier página donde cae un registro concreto: una pregunta del Grupo Popular registrada el 13/10/2025, calificada el 21/10/2025 y firmada por 14 diputados.
+
+- **Recuperación automática:** se consultan en el listado los días de calificación que cubre el bloque fallido, deducidos de sus vecinos. Si una página falla, la consulta se trocea por grupo y, si hace falta, por diputado. Así se recuperan los registros que comparten página con el roto en unas consultas pero no en otras.
+- **Lo que no se puede servir** se registra en `data/raw/iniciativas-incidencias.json`: total oficial, registros obtenidos, faltantes, bloques fallidos y consultas que siguieron fallando. Ese fichero está versionado y se publicará en `/cambios`.
+- **Umbral:** hasta `maxUnavailable` (50) registros por tipo, la ejecución sigue y lo deja documentado. Por encima, se detiene. Si el Congreso corrige el registro, la ejecución siguiente lo recupera sin cambios en el código.
+- **Efecto en la métrica:** las preguntas que falten quedan fuera del crédito de sus firmantes. El hito 2 contrastará los totales por diputado con el cuadro estadístico de su ficha (D-016) y mostrará la diferencia.

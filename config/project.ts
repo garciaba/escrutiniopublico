@@ -153,6 +153,11 @@ export const project = {
     pageSize: 100,
     /** Base wait before retrying an export file that came back empty (multiplied by the attempt). */
     retryDelayMs: 5000,
+    /**
+     * Records the official search cannot serve at all (a broken record breaks every query
+     * page it falls in) that a run tolerates per type before stopping (D-022).
+     */
+    maxUnavailable: 50,
     tipos: [
       { codigo: '184', nombre: 'Pregunta al Gobierno con respuesta escrita' },
       { codigo: '186', nombre: 'Solicitud de informe' },

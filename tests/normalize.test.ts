@@ -10,7 +10,7 @@ import {
   searchInitiativesFile,
   voteFile,
 } from '../pipeline/normalize/schemas.ts';
-import { monthWindows } from '../pipeline/ingest/families/iniciativas.ts';
+import { daysBetween, failedBlockDays } from '../pipeline/ingest/families/iniciativas.ts';
 import { buildDiputados } from '../pipeline/normalize/tables/diputados.ts';
 import { buildOrganos, buildPertenencias } from '../pipeline/normalize/tables/organos.ts';
 import { buildIniciativas, expedienteId, splitAuthors } from '../pipeline/normalize/tables/iniciativas.ts';
@@ -216,13 +216,27 @@ describe('diputados and organos', () => {
   });
 });
 
-describe('initiatives recovery windows', () => {
-  it('splits the legislature into calendar months, leap years included', () => {
-    const windows = monthWindows('2023-12-05', '2024-02-10');
-    expect(windows).toEqual([
-      { desde: '01/12/2023', hasta: '31/12/2023', key: '2023-12' },
-      { desde: '01/01/2024', hasta: '31/01/2024', key: '2024-01' },
-      { desde: '01/02/2024', hasta: '29/02/2024', key: '2024-02' },
-    ]);
+describe('initiatives recovery', () => {
+  const row = (fecha_calificado: string) => ({
+    id_iniciativa: '184/000001',
+    titulo: '',
+    fecha_presentado: '',
+    fecha_calificado,
+    autor: '',
+    resultado_tram: '',
+  });
+
+  it('lists every day of a range, across months and leap days', () => {
+    expect(daysBetween('28/02/2024', '01/03/2024')).toEqual(['28/02/2024', '29/02/2024', '01/03/2024']);
+  });
+
+  it('dates a failed export block from its neighbours (newest first)', () => {
+    // Real case: block 154 failed between blocks qualified on 21/10/2025 and 14/10/2025.
+    const blocks = [[row('21/10/2025')], undefined, [row('21/10/2025'), row('14/10/2025')]];
+    expect(failedBlockDays(blocks)).toEqual(['21/10/2025']);
+  });
+
+  it('cannot date a failed block without neighbours', () => {
+    expect(() => failedBlockDays([undefined])).toThrow(/Cannot date/);
   });
 });
