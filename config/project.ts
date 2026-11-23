@@ -5,7 +5,7 @@
  */
 
 export const project = {
-  name: 'ESCAÑO',
+  name: 'Escrutinio Público',
   repositoryUrl: 'https://github.com/garciaba/escrutiniopublico',
 
   /** Current legislature: arabic number and the roman numeral the Congreso URLs use. */
@@ -23,9 +23,9 @@ export const project = {
     /**
      * The Congreso web application firewall rejects some User-Agent strings
      * (HTTP 403), including one that carried the repository URL.
-     * `ESCANO/<version>` is accepted. Pending owner decision D-003 in docs/decisions.md.
+     * `EscrutinioPublico/<version>` is accepted. Pending owner decision D-003 in docs/decisions.md.
      */
-    userAgent: 'ESCANO/0.1',
+    userAgent: 'EscrutinioPublico/0.1',
     /** At most one request per second. */
     minIntervalMs: 1000,
     /** Retries after the first attempt, with exponential backoff. */

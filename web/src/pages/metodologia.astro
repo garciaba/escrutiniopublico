@@ -1,0 +1,236 @@
+---
+/** Generated from config/scoring.ts: the text and the calculation cannot diverge. */
+import { scoring } from '../../../config/scoring.ts';
+import { site } from '../../../config/site.ts';
+import Base from '../layouts/Base.astro';
+import { loadRanking } from '../lib/data.ts';
+import { fechaLarga, num, porcentaje } from '../lib/format.ts';
+
+const ranking = loadRanking();
+const estados = {
+  observado: { etiqueta: 'Observado', clase: 'etiqueta solida', texto: 'Dato oficial directo, sin transformar.' },
+  calculado: { etiqueta: 'Calculado', clase: 'etiqueta', texto: 'Indicador derivado de datos oficiales con una regla publicada aquí.' },
+  no_disponible: { etiqueta: 'No disponible', clase: 'etiqueta rayada', texto: 'Sin fuente oficial. No puntúa y nunca se muestra como cero.' },
+} as const;
+const pesoTotal = scoring.dimensiones.reduce((sum, d) => sum + d.peso, 0);
+const conFuente = scoring.dimensiones.filter((d) =>
+  scoring.metricas.some((m) => m.dimension === d.id && m.estado !== 'no_disponible'),
+);
+const pesoConFuente = conFuente.reduce((sum, d) => sum + d.peso, 0);
+const version = scoring.historial[0];
+const { diasMinimos, proporcionMinimaPeriodo } = scoring.poblacionReferencia;
+const fuenteDe = (metrica: (typeof scoring.metricas)[number]) => ('fuente' in metrica ? scoring.fuentes[metrica.fuente] : undefined);
+const unidades = { proporcion: 'Proporción', por_100_dias: 'Por cada 100 días en activo', recuento: 'Recuento' } as const;
+---
+
+<Base
+  title="Metodología"
+  description={`Cómo se calcula el índice de actividad parlamentaria de ${site.name}: dimensiones, métricas, fórmulas, reglas y limitaciones. Versión ${scoring.metodologiaVersion}.`}
+  path="/metodologia"
+  ogType="article"
+>
+  <div class="wrap">
+    <header class="pagina-cabeza">
+      <p class="antetitulo">Versión {scoring.metodologiaVersion}{version ? ` · ${fechaLarga(version.fecha)}` : ''}</p>
+      <h1>Metodología</h1>
+      <p class="entradilla">
+        El índice resume en una cifra de 0 a 100 la actividad parlamentaria registrada de cada diputado. Compara a cada
+        uno con el resto de la Cámara, usa solo datos oficiales y aplica las mismas reglas a todos.
+      </p>
+    </header>
+
+    <div class="prosa">
+      <h2 id="resumen">En resumen</h2>
+      <ul>
+        <li>Cada métrica se convierte en un percentil: la posición del diputado frente a los demás, de 0 a 100.</li>
+        <li>Cada dimensión es la media de los percentiles de sus métricas con dato.</li>
+        <li>El índice global es la media ponderada de las dimensiones con dato.</li>
+        <li>
+          Hoy tienen fuente oficial {conFuente.length} de las {scoring.dimensiones.length} dimensiones: la cobertura es
+          del {porcentaje(pesoConFuente / pesoTotal, 0)} y se muestra siempre junto al índice.
+        </li>
+        <li>Mide cantidad de actividad registrada, no su calidad ni su acierto.</li>
+      </ul>
+
+      <h2 id="dimensiones">Dimensiones y métricas</h2>
+      <p>
+        Las {scoring.dimensiones.length} dimensiones pesan lo mismo. Las que no tienen fuente oficial salen del cálculo y
+        su peso se reparte entre las demás.
+      </p>
+    </div>
+
+    <div class="prosa ancho">
+      {
+        scoring.dimensiones.map((dimension) => {
+          const metricas = scoring.metricas.filter((m) => m.dimension === dimension.id);
+          return (
+            <section class="dimension-bloque">
+              <h3 id={`dimension-${dimension.id}`}>
+                {dimension.nombre}
+                <span class="peso tab">Peso: {porcentaje(dimension.peso / pesoTotal, 0)}</span>
+              </h3>
+              <p class="muted">{dimension.descripcion}</p>
+              {metricas.length === 0 ? (
+                <p class="tarjeta sin-metricas">
+                  <span class={estados.no_disponible.clase}>{estados.no_disponible.etiqueta}</span> Ninguna métrica con fuente
+                  oficial.
+                </p>
+              ) : (
+                <div class="tarjeta desborde">
+                  <table class="lista-tabla apilable">
+                    <thead>
+                      <tr>
+                        <th scope="col">Métrica</th>
+                        <th scope="col">Cálculo</th>
+                        <th scope="col">Estado y fuente</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {metricas.map((metrica) => {
+                        const fuente = fuenteDe(metrica);
+                        return (
+                          <tr id={`metrica-${metrica.id}`}>
+                            <th scope="row">
+                              {metrica.nombre}
+                              <span class="secundario">{unidades[metrica.unidad]}</span>
+                            </th>
+                            <td>{metrica.calculo}</td>
+                            <td>
+                              <span class={estados[metrica.estado].clase}>{estados[metrica.estado].etiqueta}</span>
+                              {fuente && (
+                                <span class="secundario">
+                                  <a href={fuente.url} rel="noopener">
+                                    {fuente.nombre}
+                                  </a>
+                                </span>
+                              )}
+                              {'motivo' in metrica && <span class="secundario">{metrica.motivo}</span>}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </section>
+          );
+        })
+      }
+    </div>
+
+    <div class="prosa">
+      <h3>Estados de un dato</h3>
+      <dl class="definiciones">
+        {
+          Object.values(estados).map((estado) => (
+            <div>
+              <dt>
+                <span class={estado.clase}>{estado.etiqueta}</span>
+              </dt>
+              <dd>{estado.texto}</dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <h2 id="formulas">Fórmulas</h2>
+      <h3>Percentil de una métrica</h3>
+      <code class="formula">{scoring.formulas.percentil}</code>
+      <p>
+        <code>x_i</code> es el valor del diputado <code>i</code> y <code>N</code>, el número de diputados de la población
+        de referencia. Quien iguala a todos queda en 50; los empates comparten percentil.
+      </p>
+      <h3>Puntuación de una dimensión</h3>
+      <code class="formula">{scoring.formulas.dimension}</code>
+      <h3>Índice global</h3>
+      <code class="formula">{scoring.formulas.global}</code>
+      <p>
+        <code>D</code> es el conjunto de dimensiones con dato y <code>w_d</code>, el peso de cada una. El resultado se
+        publica con {scoring.decimales} decimal.
+      </p>
+      <h3>Cobertura</h3>
+      <code class="formula">{scoring.formulas.cobertura}</code>
+      <p>
+        Es la parte del peso total que tiene dato. Por debajo del {porcentaje(scoring.coberturaMinima, 0)} no se publica
+        índice global.
+      </p>
+
+      <h2 id="periodos">Periodos</h2>
+      <p>
+        El ranking se calcula por separado para cada periodo, siempre dentro de la legislatura. Entran en la población de
+        referencia los diputados con al menos {diasMinimos} días en activo en el periodo, o el {
+          porcentaje(proporcionMinimaPeriodo, 0)
+        } de su duración si es más corto que {diasMinimos * 2} días.
+      </p>
+      <div class="tarjeta desborde">
+        <table class="lista-tabla">
+          <thead>
+            <tr>
+              <th scope="col">Periodo</th>
+              <th scope="col">Alcance</th>
+              <th scope="col">Hoy</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              scoring.periodos.map((periodo) => {
+                const actual = ranking.periodos.find((p) => p.id === periodo.id);
+                return (
+                  <tr>
+                    <th scope="row">{periodo.nombre}</th>
+                    <td>
+                      {periodo.dias === undefined
+                        ? 'Desde el primer día de la legislatura'
+                        : `Los últimos ${num(periodo.dias)} días`}
+                    </td>
+                    <td>
+                      {actual?.estado === 'disponible'
+                        ? `${num(actual.total_ranking)} diputados en el ranking`
+                        : 'Sin datos: la legislatura ha terminado'}
+                    </td>
+                  </tr>
+                );
+              })
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="reglas">Reglas</h2>
+      <dl class="definiciones">
+        {
+          scoring.reglas.map((regla) => (
+            <div id={`regla-${regla.id}`}>
+              <dt>{regla.titulo}</dt>
+              <dd>{regla.texto}</dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <h2 id="no-mide">Lo que este índice no mide</h2>
+      <ul>
+        {scoring.noMide.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <h2 id="limitaciones">Limitaciones conocidas</h2>
+      <ul>
+        {scoring.limitaciones.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <h2 id="reproducir">Cómo comprobarlo</h2>
+      <p>
+        El código y los datos son públicos. Cualquiera puede clonar el <a href={site.repositoryUrl} rel="noopener"
+          >repositorio</a
+        > y regenerar todas las puntuaciones con <code>pnpm pipeline --offline</code>. Los pesos, las métricas y las reglas
+        de esta página salen del mismo fichero de configuración que usa el cálculo.
+      </p>
+      <p>
+        Los cambios de metodología se numeran y se publican en <a href="/cambios">Cambios</a>. Los ficheros están en <a
+          href="/datos">Datos</a
+        >.
+      </p>
+    </div>
+  </div>
+</Base>

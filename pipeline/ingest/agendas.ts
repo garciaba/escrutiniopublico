@@ -2,7 +2,7 @@
  * Deputies' agendas (decision D-017). The Congreso publishes, per deputy and week,
  * an institutional agenda generated from the sessions of the bodies they belong to
  * and, if the deputy opts in, a personal agenda typed by hand. Personal entries can
- * name third parties, so ESCAÑO never stores their text: only date, times and type.
+ * name third parties, so Escrutinio Público never stores their text: only date, times and type.
  */
 
 /** Entry as returned by the `agendaDiputados` resource. */

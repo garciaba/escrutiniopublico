@@ -2,7 +2,7 @@
 
 Descubrimiento hecho el 23 de noviembre de 2026 sobre el [portal de datos abiertos del Congreso](https://www.congreso.es/es/datos-abiertos). Se reproduce con `pnpm discover` (ver [README](../README.md)); las muestras reales reducidas de cada fichero están en [`tests/fixtures/congreso/`](../tests/fixtures/congreso/).
 
-**Conclusión:** con los datos abiertos actuales, ESCAÑO puede medir con dato oficial directo dos de las cinco dimensiones (dedicación y participación en debates). Productividad legislativa y resultados no son atribuibles a diputados concretos. Cobertura máxima del índice: 40 %.
+**Conclusión:** con los datos abiertos actuales, Escrutinio Público puede medir con dato oficial directo dos de las cinco dimensiones (dedicación y participación en debates). Productividad legislativa y resultados no son atribuibles a diputados concretos. Cobertura máxima del índice: 40 %.
 
 ## 1. Contexto que condiciona todo el proyecto
 
@@ -40,7 +40,7 @@ Página índice: [opendata/diputados](https://www.congreso.es/es/opendata/diputa
 
 Campos de `DiputadosActivos` y `DiputadosDeBaja`:
 
-| Campo                           | Formato             | Rellenado      | Ejemplo                 | Destino en ESCAÑO                                                                        |
+| Campo                           | Formato             | Rellenado      | Ejemplo                 | Destino en Escrutinio Público                                                            |
 | ------------------------------- | ------------------- | -------------- | ----------------------- | ---------------------------------------------------------------------------------------- |
 | `NOMBRE`                        | «Apellidos, Nombre» | 100 %          | Abascal Conde, Santiago | `diputados.nombre`, `apellidos`, `slug`, `diputado_id`                                   |
 | `CIRCUNSCRIPCION`               | texto               | 100 %          | Madrid                  | `diputados.circunscripcion` (52 valores, con nombres bilingües como «Valencia/València») |
@@ -163,7 +163,7 @@ Recurso JSON `agendaDiputados` de la ficha de cada diputado, una semana por peti
 | Días con agenda      | `diasConAgenda` es igual para todos los diputados: 208 días en 99 semanas, el calendario institucional. No indica qué semanas tienen citas personales.                                     |
 | Disponibilidad       | Responde `tieneAgenda: false` para quienes causaron baja.                                                                                                                                  |
 
-Clasificación que aplica ESCAÑO: una cita es institucional solo si su etiqueta coincide exactamente con el nombre de un órgano oficial (`config/agenda.ts`). Las demás son personales y se guardan sin texto, solo con fecha y horas. Las reuniones de partido con nombres como «Comisión Ejecutiva…» quedan correctamente como personales.
+Clasificación que aplica Escrutinio Público: una cita es institucional solo si su etiqueta coincide exactamente con el nombre de un órgano oficial (`config/agenda.ts`). Las demás son personales y se guardan sin texto, solo con fecha y horas. Las reuniones de partido con nombres como «Comisión Ejecutiva…» quedan correctamente como personales.
 
 ## 4. Cruce de identidades
 
@@ -215,7 +215,7 @@ Cobertura resultante: 2 de 5 dimensiones, 40 %, justo el mínimo para publicar �
 
 **Las descargas funcionan desde GitHub Actions.** El workflow [`discovery.yml`](../.github/workflows/discovery.yml) ejecuta `pnpm discover` en los servidores de GitHub. La [ejecución n.º 1](https://github.com/garciaba/escrutiniopublico/actions/runs/45141907020), del 23/11/2026, pasó las 19 comprobaciones en 59 segundos: 5 páginas índice, 7 ficheros, calendario y 2 sesiones de votaciones, lista de comisiones y 3 exportaciones de órganos. El mismo resultado se obtuvo en local. El informe queda como artefacto `discovery-report` de la ejecución.
 
-Hallazgo relevante para esa comprobación: el cortafuegos del Congreso responde **403** a algunos `User-Agent` (`curl/…`, `Python-urllib/…`, cabecera vacía y uno que incluía la URL del repositorio). `ESCANO/0.1` es aceptado. Ver D-003.
+Hallazgo relevante para esa comprobación: el cortafuegos del Congreso responde **403** a algunos `User-Agent` (`curl/…`, `Python-urllib/…`, cabecera vacía y uno que incluía la URL del repositorio). `EscrutinioPublico/0.1` es aceptado. Ver D-003.
 
 ## 8. Tablas normalizadas (hito 1)
 
