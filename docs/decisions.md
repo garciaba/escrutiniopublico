@@ -11,7 +11,7 @@ Decisiones del agente de código y propuestas que esperan al propietario. Cada e
 | D-005 | Qué legislatura publicar tras la disolución             | Decidida  | 1–3           |
 | D-006 | Índice con cobertura del 40 %                           | Decidida  | 2, 3          |
 | D-007 | Cómo identificar a los miembros del Gobierno            | Propuesta | 2             |
-| D-008 | Identificador de diputado y cruce por nombre            | Tomada    | 1             |
+| D-008 | Identificación de los diputados por su nombre           | Decidida  | 1             |
 | D-009 | Recuento de intervenciones                              | Decidida  | 1, 2          |
 | D-010 | Voto telemático                                         | Decidida  | 1             |
 | D-011 | Enlace a la ficha oficial del Congreso                  | Pendiente | 3             |
@@ -63,13 +63,20 @@ Opciones descartadas por ahora:
 
 **Propuesta.** Ninguna familia de datos lista al Gobierno. Se puede derivar de `CARGOORADOR` en intervenciones (Presidente del Gobierno, Vicepresidenta…, Ministro/a…) cuando el orador coincide con un diputado del censo. **Recomendación:** derivarlo así como dato `calculado` y fijarlo en una lista manual de `config/overrides.ts` con fecha de nombramiento y enlace al BOE como evidencia, revisada por el propietario.
 
-## D-008 · Identificador de diputado y cruce por nombre
+## D-008 · Identificación de los diputados por su nombre
 
-**Tomada.** No hay código oficial (ver diccionario, sección 2). `diputado_id` será un hash estable del nombre normalizado (minúsculas, sin tildes, espacios simples) y la legislatura, como prevé la especificación. El cruce de votos e intervenciones con el censo es por nombre: 99,85 % y 99,93 % de coincidencia exacta. Las variantes (`María del Socorro` / `María`, `Mª Isabel` / `María Isabel`) se resuelven en `config/overrides.ts`, nunca con coincidencia aproximada automática.
+**Decidida por el propietario (2026-11-23): es obligatorio que cada diputado quede identificado por su nombre, con un cruce correcto entre todas las fuentes.**
+
+- La web muestra siempre el nombre completo tal como figura en el censo del Congreso. `diputado_id` (hash estable del nombre normalizado y la legislatura) es solo una clave interna para ficheros y URL; nunca sustituye al nombre.
+- Cruce estricto: un registro se asigna a un diputado si su nombre coincide exactamente con el censo o con un alias revisado a mano en `config/overrides.ts`. No hay coincidencia aproximada automática (`pipeline/normalize/names.ts`).
+- Resultado sobre la XV completa: 100 % de los votos, intervenciones y pertenencias de diputados identificados, con 6 alias (diccionario, sección 4).
+- En el hito 1, un nombre nuevo sin cruzar que lleve grupo del Congreso, o con cargo «Diputado/a», no se descarta en silencio: se lista en el registro del pipeline y abre una incidencia para añadir el alias. El umbral de 0,5 % sin asignar de la especificación queda solo como red de seguridad.
 
 ## D-009 · Recuento de intervenciones
 
-**Decidida por el propietario (2026-11-23), según la recomendación del agente.** Contar una intervención por `ENLACEDIFERIDO` distinto (el fichero repite la misma intervención por cada iniciativa debatida conjuntamente), descartar las filas `TIPOINTERVENCION = Votación` y asignar solo las filas cuyo orador, sin el sufijo de grupo, está en el censo.
+**Decidida por el propietario (2026-11-23), según la recomendación del agente.** Se cuenta una intervención por `ENLACEDIFERIDO` distinto (el fichero repite la misma intervención por cada iniciativa debatida conjuntamente) y se descartan las filas `TIPOINTERVENCION = Votación` y las de la Diputación Permanente (D-013).
+
+Precisión añadida tras el cruce completo (diccionario, sección 4), necesaria para asignar solo a diputados: la intervención cuenta si el orador, tras quitar el sufijo de grupo y aplicar los alias, es un diputado del censo **en activo en esa fecha** y habla **como diputado o con un cargo parlamentario** (presidencia o secretaría de comisión, Mesa, candidato en una investidura). No cuentan las que hace como miembro del Gobierno, secretario de Estado u otro cargo externo, ni las posteriores a su baja.
 
 ## D-010 · Voto telemático
 

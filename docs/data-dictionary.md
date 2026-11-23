@@ -153,12 +153,23 @@ La lista de miembros del Gobierno **no está** en ninguna familia. Se puede deri
 
 ## 4. Cruce de identidades
 
-| Fuente                                   | Filas de diputados | Cruzan exacto con el censo               | Sin cruzar                                                                             |
-| ---------------------------------------- | ------------------ | ---------------------------------------- | -------------------------------------------------------------------------------------- |
-| Votos nominales (muestra de 16 sesiones) | 66.498             | 99,85 %                                  | 1 persona: «Cuesta Rodríguez, María del Socorro» (censo: «Cuesta Rodríguez, María»)    |
-| Intervenciones con cargo Diputado/a      | 32.210             | 99,93 % (tras quitar el sufijo de grupo) | 8 nombres, 24 filas, ej. «Moreno Fernández, María Isabel» (en votaciones: «Mª Isabel») |
+**Todos los registros de diputados de la XV Legislatura quedan identificados por su nombre**: 100 % en votaciones, intervenciones y órganos, con 6 alias revisados a mano en [`config/overrides.ts`](../config/overrides.ts). Comprobado sobre el corpus completo el 23/11/2026, no sobre muestras.
 
-Ambas fuentes quedan por debajo del umbral de 0,5 % sin asignar. Las discrepancias se resuelven con la tabla de correcciones manual (`config/overrides.ts`).
+| Fuente                                                    | Registros revisados             | Cruzan exacto          | Con alias              | Sin cruzar, y por qué                                                                       |
+| --------------------------------------------------------- | ------------------------------- | ---------------------- | ---------------------- | ------------------------------------------------------------------------------------------- |
+| Votos nominales (las 2.173 votaciones nominales de la XV) | 760.518                         | 758.915                | 1.603 (1 variante)     | Ninguno                                                                                     |
+| Intervenciones, sin Diputación Permanente                 | 31.051 intervenciones distintas | Todas las de diputados | 51 filas (5 variantes) | Oradores que no son diputados del Congreso: senadores, ministros sin escaño, comparecientes |
+| Composición de órganos (64 exportaciones)                 | 3.890 pertenencias              | 3.514                  | —                      | 252 senadores (comisiones mixtas) y 124 letrados de las comisiones                          |
+
+Comprobaciones que respaldan el cruce:
+
+- **Lista de cada votación = censo en activo ese día.** En las 2.173 votaciones nominales, el conjunto de votantes coincide exactamente con los diputados del censo en activo en esa fecha. La única ambigüedad es el día de la baja: 6 diputados ya no figuran en la lista ese día y 1 todavía vota. Por eso el denominador de participación se toma de la lista de cada votación, no de las fechas del censo.
+- **Ningún diputado del censo desaparece.** Los 412 aparecen en las votaciones salvo 2 que causaron baja antes de la primera votación (Batet Lamaña y Marín González, septiembre de 2023).
+- **Ningún orador con grupo del Congreso queda sin cruzar.** Todos los oradores con sufijo `GP`, `GS`, `GVOX`, `GSUMAR`, `GMx`, `GR`, `GJxCAT`, `GEH Bildu` o `GV (EAJ-PNV)` están en el censo o en la tabla de alias.
+- **Falsos parecidos descartados.** El fichero rotula «Diputado» a 4 senadores de comisiones mixtas y a un compareciente; los mismos apellidos no bastan para unir (ej. la senadora «Moreno Fernández, Cristina» no es la diputada «Moreno Fernández, Mª Isabel»). Están listados en `notDeputies`.
+- **Cargo y fecha importan en intervenciones.** 796 intervenciones de personas del censo ocurren fuera de su mandato: ministros que renunciaron al escaño y siguieron interviniendo como ministros, o exdiputados que comparecen en otro cargo. Solo cuentan las de diputados en activo que hablan como diputados o con un cargo parlamentario (presidencia de comisión, Mesa).
+
+Cómo se encuentran y validan los alias: se normalizan los nombres (sin tildes, «Mª» = «María», sin conectores como «i» o «de») y se proponen pares con los mismos apellidos y nombres de pila compatibles («Pilar» ⊂ «María Pilar»). Cada propuesta se confirma a mano con fechas de mandato, grupo y tipo de actividad, y se anota con su evidencia. El pipeline nunca une nombres por parecido.
 
 ## 5. Correspondencia con el modelo de datos (sección 5)
 
