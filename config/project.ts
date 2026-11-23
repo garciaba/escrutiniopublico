@@ -9,7 +9,13 @@ export const project = {
   repositoryUrl: 'https://github.com/garciaba/escrutiniopublico',
 
   /** Current legislature: arabic number and the roman numeral the Congreso URLs use. */
-  legislatura: { number: 15, roman: 'XV' },
+  legislatura: {
+    number: 15,
+    roman: 'XV',
+    /** First day of the legislature and day of the dissolution (RD 806/2026), yyyy-mm-dd. */
+    inicio: '2023-08-17',
+    fin: '2026-10-06' as string | undefined,
+  },
 
   baseUrl: 'https://www.congreso.es',
 
@@ -95,21 +101,23 @@ export const project = {
       p_p_resource_id: 'opendataExport',
       p_p_cacheability: 'cacheLevelPage',
     },
+    /** `tipoConsulta` values of the list resource: 3 = committees, 4 = subcommittees and working groups. */
+    listTipos: ['3', '4'],
     /** `selectedOrganoSup` of committees; each committee has its own `selectedSuborgano`. */
     comisionesOrganoSup: 1,
     /**
      * Governing bodies export from their own page path with an empty `selectedSuborgano`.
-     * Codes read from those pages; the Junta de Portavoces one is still unverified.
+     * Codes read from those pages (Junta de Portavoces: 300, read on 23/11/2026).
      */
     superiores: {
       mesa: { path: '/es/mesa', organoSup: 100 },
       diputacionPermanente: { path: '/es/diputacion-permanente', organoSup: 500 },
+      juntaPortavoces: { path: '/es/junta-de-portavoces', organoSup: 300 },
     },
   },
 
   /** Deputy search and agenda resources of the deputy profile (decisions D-015 and D-017). */
-  agendas: {
-    legislatureStart: '2023-08-17',
+  fichaDiputado: {
     path: '/es/busqueda-de-diputados',
     searchQuery: {
       p_p_id: 'diputadomodule',
@@ -128,6 +136,25 @@ export const project = {
       p_p_cacheability: 'cacheLevelPage',
       _diputadomodule_mostrarFicha: 'true',
     },
+  },
+
+  /** Initiatives search export (decision D-016): signers of each initiative. */
+  iniciativasBuscador: {
+    path: '/es/busqueda-de-iniciativas',
+    query: {
+      p_p_id: 'iniciativas',
+      p_p_lifecycle: '2',
+      p_p_state: 'normal',
+      p_p_mode: 'view',
+      p_p_cacheability: 'cacheLevelPage',
+    },
+    listResource: 'filtrarListado',
+    exportResource: 'resourceIDopendataExport',
+    pageSize: 100,
+    tipos: [
+      { codigo: '184', nombre: 'Pregunta al Gobierno con respuesta escrita' },
+      { codigo: '186', nombre: 'Solicitud de informe' },
+    ],
   },
 
   /** Pre-publication sanity checks (section 6 of the specification). */

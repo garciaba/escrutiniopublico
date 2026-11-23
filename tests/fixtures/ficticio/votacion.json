@@ -1,0 +1,10 @@
+{
+ "_ficticio": "Datos inventados para tests. No corresponden a ninguna votación real.",
+ "informacion": {"sesion": 999, "numeroVotacion": 1, "fecha": "5/3/2024", "titulo": "Votación ficticia.", "textoExpediente": "Expediente ficticio.", "tituloSubGrupo": "", "textoSubGrupo": "", "votacionesConjuntas": []},
+ "totales": {"asentimiento": "No", "presentes": 2, "afavor": 1, "enContra": 1, "abstenciones": 0, "noVotan": 1},
+ "votaciones": [
+  {"asiento": "1", "diputado": "Ficticia Uno, Ana", "grupo": "GX", "voto": "Sí"},
+  {"asiento": "-1", "diputado": "Ficticio Dos, Luis", "grupo": "GY", "voto": "No"},
+  {"asiento": "3", "diputado": "Ficticia Tres, Eva", "grupo": "GX", "voto": "No vota"}
+ ]
+}
