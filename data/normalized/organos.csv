@@ -1,0 +1,68 @@
+organo_id,nombre,tipo,organo_sup,suborgano
+c1-150,Comisión Consultiva de Nombramientos,comision,1,150
+c1-151,Comisión de control de los créditos destinados a gastos reservados,comision,1,151
+c1-301,Comisión Constitucional,comision,1,301
+c1-302,Comisión de Asuntos Exteriores,comision,1,302
+c1-303,Comisión de Justicia,comision,1,303
+c1-304,Comisión de Defensa,comision,1,304
+c1-305,Comisión de Hacienda y Función Pública,comision,1,305
+c1-307,Comisión de Presupuestos,comision,1,307
+c1-311,Comisión del Estatuto,comision,1,311
+c1-312,Comisión de Reglamento,comision,1,312
+c1-313,Comisión del Estatuto de los Diputados,comision,1,313
+c1-314,Comisión de Peticiones,comision,1,314
+c1-315,Comisión Mixta para la Coordinación y Seguimiento de la Estrategia Española para alcanzar los Objetivos de Desarrollo Sostenible (ODS),comision_mixta,1,315
+c1-316,Comisión Mixta de Relaciones con el Defensor del Pueblo,comision_mixta,1,316
+c1-317,Comisión Mixta para las Relaciones con el Tribunal de Cuentas,comision_mixta,1,317
+c1-318,Comisión Mixta para la Unión Europea,comision_mixta,1,318
+c1-319,Comisión Mixta de Seguridad Nacional,comision_mixta,1,319
+c1-320,Comisión de Igualdad,comision,1,320
+c1-322,Comisión Mixta para el Estudio de los Problemas de las Adicciones,comision_mixta,1,322
+c1-323,Comisión Mixta sobre Insularidad,comision_mixta,1,323
+c1-326,Comisión de Cooperación Internacional para el Desarrollo,comision,1,326
+c1-327,Comisión de Transportes y Movilidad Sostenible,comision,1,327
+c1-329,Comisión de Interior,comision,1,329
+c1-330,Comisión de Política Territorial,comision,1,330
+c1-331,"Comisión para la auditoría de la calidad democrática, la lucha contra la corrupción y las reformas institucionales y legales",comision,1,331
+c1-332,Comisión de Juventud e Infancia,comision,1,332
+c1-333,Comisión de Vivienda y Agenda Urbana,comision,1,333
+c1-338,Comisión de seguimiento y evaluación de los acuerdos del Pacto de Estado en materia de Violencia de Género,comision,1,338
+c1-343,Comisión de seguimiento y evaluación de los acuerdos del Pacto de Toledo,comision,1,343
+c1-344,Comisión sobre Seguridad Vial,comision,1,344
+c1-345,Comisión de Derechos Sociales y Consumo,comision,1,345
+c1-346,Comisión para las Políticas Integrales de la Discapacidad,comision,1,346
+c1-358,Comisión Mixta de Control Parlamentario de la Corporación RTVE y sus Sociedades,comision_mixta,1,358
+c1-362,Comisión de Investigación de la interrupción del suministro eléctrico el 28 de abril de 2025,comision_investigacion,1,362
+c1-363,"Comisión de Investigación sobre la interrupción del suministro eléctrico y de las comunicaciones el 28 de abril de 2025 que afectó al territorio nacional, con el fin de analizar las causas del grave incidente, la eficacia de las medidas de prevención que lo hubieran evitado, las graves consecuencias de la emergencia nacional y promover las medidas legales y de todo tipo que deban adoptarse para garantizar que en el futuro no vuelvan a producirse hechos similares",comision_investigacion,1,363
+c1-364,"Comisión de Investigación sobre los hechos, las causas, las responsabilidades y las enseñanzas a extraer acerca de la crisis de suministro eléctrico que tuvo lugar el día 28 de abril de 2025",comision_investigacion,1,364
+c1-365,"Comisión de Investigación sobre la gestión de la crisis derivada de la DANA que tuvo lugar el 29 de octubre de 2024, así como para el estudio y propuesta de medidas de mejora destinadas a paliar los efectos de estos fenómenos adversos en el futuro",comision_investigacion,1,365
+c1-366,"Comisión de Investigación sobre los hechos, responsabilidades y enseñanzas en torno a los procesos de contratación para la adquisición de material sanitario por parte de las Administraciones públicas durante la crisis pandémica ocasionada por la COVID-19",comision_investigacion,1,366
+c1-367,"Comisión de Investigación sobre la denominada ""Operación Cataluña"" y las actuaciones del Ministerio del Interior durante los gobiernos del Partido Popular en relación con las presuntas irregularidades que vinculan a altos cargos y mandos policiales con la existencia de una trama parapolicial",comision_investigacion,1,367
+c1-368,Comisión de Investigación sobre el derecho a saber la verdad y las implicaciones derivadas de los atentados de Barcelona y Cambrils del 17 de agosto de 2017,comision_investigacion,1,368
+c1-369,"Comisión de Investigación sobre el espionaje e intromisión a la privacidad e intimidad, a través de los malware Pegasus y Candiru, a líderes políticos, activistas, abogados, periodistas, instituciones y sus familiares y allegados",comision_investigacion,1,369
+c1-371,"Comisión de Educación, Formación Profesional y Deportes",comision,1,371
+c1-372,"Comisión de Trabajo, Economía Social, Inclusión, Seguridad Social y Migraciones",comision,1,372
+c1-373,Comisión de Industria y Turismo,comision,1,373
+c1-374,"Comisión de Agricultura, Pesca y Alimentación",comision,1,374
+c1-376,Comisión de Transición Ecológica y Reto Demográfico,comision,1,376
+c1-377,Comisión de Cultura,comision,1,377
+c1-378,"Comisión de Economía, Comercio y Transformación Digital",comision,1,378
+c1-379,Comisión de Sanidad,comision,1,379
+c1-380,"Comisión de Ciencia, Innovación y Universidades",comision,1,380
+c317-317102,Ponencia de carácter permanente encargada de recibir de la Oficina Independiente de Regulación y Supervisión de la Contratación la más amplia información para hacer posible el control y la vigilancia de la contratación pública y la participación en las iniciativas de mejora normativa que se adopten en esta materia (154/4),subcomision,317,317102
+c319-319101,"Ponencia de análisis de las amenazas en el ciberespacio, en la era de la Inteligencia Artificial y la Computación Cuántica, para la elaboración de un informe de riesgos y recomendaciones de mejora (154/7)",subcomision,319,319101
+c319-319102,Ponencia para el análisis en el marco de la política de Seguridad Nacional del proceso de regularización extraordinaria de personas extranjeras iniciado por el Gobierno (154/11),subcomision,319,319102
+c320-320201,Subcomisión relativa a la lucha contra los discursos de odio (154/6),subcomision,320,320201
+c329-329201,Subcomisión para la elaboración de un Estatuto jurídico básico de las personas desaparecidas sin causa aparente (154/13),subcomision,329,329201
+c332-332201,Subcomisión sobre el estudio de un Pacto de Estado para la erradicación de la Pobreza Infantil (154/8),subcomision,332,332201
+c338-338201,Subcomisión para la renovación y actualización del Pacto de Estado en materia de violencia de género (154/3),subcomision,338,338201
+c358-358201,"Subcomisión encargada de redactar la propuesta de mandato-marco a la Corporación RTVE previsto en el artículo 4 de la Ley 17/2006, de 5 de junio, de la radio y la televisión de titularidad estatal (154/9)",subcomision,358,358201
+c371-371201,Subcomisión relativa al Estatuto del Deportista (154/5),subcomision,371,371201
+c376-376101,Ponencia encargada de las relaciones con el Consejo de Seguridad Nuclear (154/1),subcomision,376,376101
+c379-379201,"Subcomisión para mejorar la protección, la promoción y la atención integral de la salud mental (154/2)",subcomision,379,379201
+c379-379202,Subcomisión relativa al estudio de la situación del sector veterinario en el Estado español (154/10),subcomision,379,379202
+diputacion-permanente,Diputación Permanente,diputacion_permanente,500,
+junta-portavoces,Junta de Portavoces,junta_portavoces,300,
+mesa,Mesa del Congreso,mesa,100,
+pleno,Pleno,pleno,,
+sesion-conjunta,Sesión Conjunta,sesion_conjunta,,

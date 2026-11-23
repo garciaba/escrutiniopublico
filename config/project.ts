@@ -151,6 +151,8 @@ export const project = {
     listResource: 'filtrarListado',
     exportResource: 'resourceIDopendataExport',
     pageSize: 100,
+    /** Base wait before retrying an export file that came back empty (multiplied by the attempt). */
+    retryDelayMs: 5000,
     tipos: [
       { codigo: '184', nombre: 'Pregunta al Gobierno con respuesta escrita' },
       { codigo: '186', nombre: 'Solicitud de informe' },

@@ -33,10 +33,17 @@ async function countInitiatives(ctx: IngestContext, tipo: string): Promise<numbe
   return total;
 }
 
-async function exportInitiatives(ctx: IngestContext, tipo: string, total: number): Promise<SearchInitiativeRow[]> {
-  const { pageSize, exportResource } = project.iniciativasBuscador;
-  const rows: SearchInitiativeRow[] = [];
-  for (let fileIndex = 1; (fileIndex - 1) * pageSize < total; fileIndex++) {
+/** Attempts per export file: the resource sometimes answers 200 with an empty body. */
+const EXPORT_ATTEMPTS = 4;
+
+async function exportFile(
+  ctx: IngestContext,
+  tipo: string,
+  fileIndex: number,
+  total: number,
+): Promise<SearchInitiativeRow[]> {
+  const { pageSize, exportResource, retryDelayMs } = project.iniciativasBuscador;
+  for (let attempt = 1; ; attempt++) {
     const response = await ctx.client.postForm(searchUrl(exportResource), {
       _iniciativas_legislatura: project.legislatura.roman,
       _iniciativas_tipo: tipo,
@@ -44,9 +51,28 @@ async function exportInitiatives(ctx: IngestContext, tipo: string, total: number
       _iniciativas_fileType: 'json',
       _iniciativas_lastResult: String(Math.min(fileIndex * pageSize, total)),
     });
-    rows.push(
-      ...parseOrThrow(searchInitiativesFile, JSON.parse(decodeText(response.body)), `export ${tipo} #${fileIndex}`),
-    );
+    const text = decodeText(response.body).trim();
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(text);
+    } catch {
+      if (attempt >= EXPORT_ATTEMPTS) {
+        throw new Error(`Export ${tipo} #${fileIndex}: no valid JSON after ${attempt} attempts (${text.length} bytes)`);
+      }
+      ctx.log(`iniciativas: export ${tipo} #${fileIndex} returned invalid JSON (${text.length} bytes), retrying`);
+      await new Promise((resolve) => setTimeout(resolve, retryDelayMs * attempt));
+      continue;
+    }
+    // A schema failure is a format change, not a transient error: no retry.
+    return parseOrThrow(searchInitiativesFile, parsed, `export ${tipo} #${fileIndex}`);
+  }
+}
+
+async function exportInitiatives(ctx: IngestContext, tipo: string, total: number): Promise<SearchInitiativeRow[]> {
+  const { pageSize } = project.iniciativasBuscador;
+  const rows: SearchInitiativeRow[] = [];
+  for (let fileIndex = 1; (fileIndex - 1) * pageSize < total; fileIndex++) {
+    rows.push(...(await exportFile(ctx, tipo, fileIndex, total)));
   }
   return rows;
 }
