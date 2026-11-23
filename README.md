@@ -42,7 +42,7 @@ Cómo se tratan:
 
 ## Cómo se calcula el índice
 
-El índice compara a cada diputado con el resto de la Cámara en cuatro aspectos, que pesan lo mismo:
+El índice compara a cada diputado con los demás en cuatro aspectos, que pesan lo mismo:
 
 | Dimensión                | Qué mira                                                               |
 | ------------------------ | ---------------------------------------------------------------------- |
@@ -51,7 +51,7 @@ El índice compara a cada diputado con el resto de la Cámara en cuatro aspectos
 | Iniciativa parlamentaria | Las preguntas escritas y orales y las solicitudes de informe que firma |
 | Resultados e impacto     | Las leyes aprobadas en cuya ponencia participó                         |
 
-Una quinta dimensión, la atención a la circunscripción, no tiene fuente oficial y por eso no entra en el cálculo.
+La comparación se hace con toda la Cámara, salvo en las ponencias de leyes, que se comparan dentro de cada grupo parlamentario porque los grupos grandes reparten muchas más. Una quinta dimensión, la atención a la circunscripción, no tiene fuente oficial y por eso no entra en el cálculo.
 
 El índice mide cantidad de actividad registrada, no su calidad ni su acierto. Deja fuera buena parte del trabajo de un diputado, como la negociación o lo que ocurre a puerta cerrada. Las reglas son las mismas para todos, y los miembros del Gobierno no entran en el ranking. El detalle está en la [metodología](https://escrutiniopublico.es/metodologia).
 
