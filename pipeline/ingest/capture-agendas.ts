@@ -54,7 +54,7 @@ const { values: args } = parseArgs({
 });
 
 const { legislatura, baseUrl } = project;
-const from = args.from ?? project.agendas.legislatureStart;
+const from = args.from ?? project.legislatura.inicio;
 const to = args.to ?? new Date().toISOString().slice(0, 10);
 const deadline = Date.now() + Number(args['deadline-minutes']) * 60_000;
 const only = args.only ? new Set(args.only.split(',').map(Number)) : undefined;
@@ -63,13 +63,13 @@ const client = new PoliteClient(project.http);
 const bodies = new Set(agendaOfficialBodies);
 
 function resourceUrl(query: Record<string, string>): string {
-  const url = new URL(project.agendas.path, baseUrl);
+  const url = new URL(project.fichaDiputado.path, baseUrl);
   for (const [key, value] of Object.entries(query)) url.searchParams.set(key, value);
   return url.toString();
 }
 
 async function currentDeputies(): Promise<SearchDeputy[]> {
-  const response = await client.postForm(resourceUrl(project.agendas.searchQuery), {
+  const response = await client.postForm(resourceUrl(project.fichaDiputado.searchQuery), {
     _diputadomodule_idLegislatura: String(legislatura.number),
     _diputadomodule_genero: '0',
     _diputadomodule_grupo: 'all',
@@ -87,7 +87,7 @@ async function currentDeputies(): Promise<SearchDeputy[]> {
 async function fetchWeek(cod: number, monday: string): Promise<RawAgendaWeek> {
   const response = await client.postForm(
     resourceUrl({
-      ...project.agendas.agendaQuery,
+      ...project.fichaDiputado.agendaQuery,
       _diputadomodule_idLegislatura: legislatura.roman,
       _diputadomodule_codParlamentario: String(cod),
     }),

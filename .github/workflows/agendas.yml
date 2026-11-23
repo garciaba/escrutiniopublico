@@ -3,6 +3,7 @@
 # 1 request per second; about 23,600 requests for the whole XV legislature, so the
 # capture runs as three sequential parts. Each part commits what it completed and the
 # next one resumes from there. Only sanitized entries are stored (no personal text).
+# Manual trigger only, so that pushing code never restarts the capture.
 name: Agenda capture
 
 on:
@@ -12,13 +13,6 @@ on:
         description: Last day to capture (yyyy-mm-dd)
         required: false
         default: '2026-11-23'
-  push:
-    branches: ['claude/**']
-    paths:
-      - 'pipeline/ingest/capture-agendas.ts'
-      - 'pipeline/ingest/agendas.ts'
-      - 'config/agenda.ts'
-      - '.github/workflows/agendas.yml'
 
 permissions:
   contents: write
