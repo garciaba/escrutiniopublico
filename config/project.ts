@@ -107,6 +107,29 @@ export const project = {
     },
   },
 
+  /** Deputy search and agenda resources of the deputy profile (decisions D-015 and D-017). */
+  agendas: {
+    legislatureStart: '2023-08-17',
+    path: '/es/busqueda-de-diputados',
+    searchQuery: {
+      p_p_id: 'diputadomodule',
+      p_p_lifecycle: '2',
+      p_p_state: 'normal',
+      p_p_mode: 'view',
+      p_p_resource_id: 'searchDiputados',
+      p_p_cacheability: 'cacheLevelPage',
+    },
+    agendaQuery: {
+      p_p_id: 'diputadomodule',
+      p_p_lifecycle: '2',
+      p_p_state: 'normal',
+      p_p_mode: 'view',
+      p_p_resource_id: 'agendaDiputados',
+      p_p_cacheability: 'cacheLevelPage',
+      _diputadomodule_mostrarFicha: 'true',
+    },
+  },
+
   /** Pre-publication sanity checks (section 6 of the specification). */
   sanity: {
     activeDeputiesMin: 340,
