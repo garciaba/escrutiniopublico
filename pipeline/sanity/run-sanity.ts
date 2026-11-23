@@ -46,6 +46,15 @@ const read = (path: string) => readFile(path, 'utf-8');
 
 type MetaJson = Snapshot['meta'] & { fecha_calculo: string };
 
+/** Normalized tables whose file differs from the one committed at HEAD. */
+function changedTables(): string[] {
+  const output = execFileSync('git', ['status', '--porcelain', '--', NORMALIZED_DIR], { encoding: 'utf-8' });
+  return output
+    .split('\n')
+    .flatMap((line) => /([^/]+)\.csv$/.exec(line.trim())?.[1] ?? [])
+    .sort();
+}
+
 function summaryInput(meta: MetaJson, votaciones: string, diputados: string): SummaryInput {
   return {
     fecha: meta.fecha_calculo,
@@ -102,7 +111,7 @@ if (args['commit-message']) {
   const previousVotaciones = committed(`${NORMALIZED_DIR}/votaciones.csv`);
   const previousDiputados = committed(`${NORMALIZED_DIR}/diputados.csv`);
   const message = dailySummary(
-    summaryInput(meta, await read(csvPath('votaciones')), diputadosText),
+    { ...summaryInput(meta, await read(csvPath('votaciones')), diputadosText), modificadas: changedTables() },
     previous && previousVotaciones && previousDiputados
       ? summaryInput(previous.meta as MetaJson, previousVotaciones, previousDiputados)
       : undefined,
