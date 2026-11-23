@@ -37,12 +37,22 @@ La primera ejecución de `daily.yml` (run 45242540422, lanzada a mano el 23/11/2
   - Se abrió la incidencia #10, «Fallo del pipeline diario», con el enlace a la ejecución y el registro.
 - **Corrección.** Un campo ausente en el listado se lee como vacío, igual que lo da la exportación (nota en D-022), con una muestra real del caso como test.
 
-Este fallo real cubre el criterio «fallo de esquema: no despliega y abre incidencia» sin necesidad de simularlo. Falta ver que la siguiente ejecución correcta cierra la incidencia.
+Este fallo real cubre el criterio «fallo de esquema: no despliega y abre incidencia» sin necesidad de simularlo.
 
-## Pendiente: requiere los PR fusionados en `main`
+## Segunda ejecución diaria en `main`: correcta, con producción publicada
 
-| Criterio de aceptación                                    | Cómo se comprobará                                                                                                                                                                                            |
-| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Tres ejecuciones diarias seguidas sin intervención        | El `cron` de GitHub solo corre en la rama por defecto. Bastará con revisar las tres primeras ejecuciones de `daily.yml` tras la fusión                                                                        |
-| Fallo simulado de esquema: no despliega y abre incidencia | Ejecutar a mano «Daily pipeline» con `simular_fallo` marcado. Debe fallar en la normalización, no hacer commit ni desplegar, y abrir «Fallo del pipeline diario». La siguiente ejecución normal debe cerrarla |
-| Aviso de datos antiguos                                   | Ya verificado en el navegador por `pnpm web:check`, con el reloj fijado a 1 h y a 49 h de la última ejecución. Sobre producción se verá si un día falla la ejecución                                          |
+La segunda ejecución (run 45252730532, lanzada a mano el 23/11/2026 a las 19:48 UTC, ya con la corrección) terminó bien en 23 minutos, 22 de ellos de descarga:
+
+- **Datos.** Commit `67138d6` en `main`: dos solicitudes de informe (187/000452 y 187/000488) pasan de «Caducado» a no tener resultado, tal como las da ahora el Congreso. Ningún índice cambia.
+- **Publicación.** Primer despliegue de producción en Cloudflare Pages. Comprobado desde fuera en `https://escrutiniopublico.es`: portada, grupos, metodología, datos, cambios, acerca, una ficha, los JSON de datos, `sitemap.xml` (418 direcciones) y `robots.txt` responden 200, una ruta inexistente responde 404 y `www` redirige (301) al dominio sin `www` conservando la ruta. Las cabeceras de seguridad de `_headers` llegan al navegador.
+- **Incidencia.** La #10 se cerró sola al terminar.
+
+Un defecto, ya corregido: el mensaje del commit decía «no changes in the official data» porque solo miraba el número de filas, y las dos solicitudes cambiaron sin que la tabla creciera. Ahora el resumen compara además el contenido de cada tabla con el de la víspera y lo indica («Records revised, same number of rows: iniciativas»).
+
+## Pendiente
+
+| Criterio de aceptación                                    | Cómo se comprobará                                                                                                                                                                                     |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Tres ejecuciones diarias seguidas sin intervención        | Una hecha (run 45252730532, lanzada a mano). Faltan las dos siguientes, ya por el `cron` de las 05:40 UTC                                                                                              |
+| Fallo simulado de esquema: no despliega y abre incidencia | Cubierto por el fallo real de la primera ejecución y el cierre automático de la incidencia en la segunda. La entrada `simular_fallo` de «Daily pipeline» queda para repetir la prueba cuando se quiera |
+| Aviso de datos antiguos                                   | Ya verificado en el navegador por `pnpm web:check`, con el reloj fijado a 1 h y a 49 h de la última ejecución. Sobre producción se verá si un día falla la ejecución                                   |

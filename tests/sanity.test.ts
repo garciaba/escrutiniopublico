@@ -143,6 +143,28 @@ describe('dailySummary', () => {
     );
   });
 
+  it('reports tables the source revised in place, without a change in their size', () => {
+    expect(dailySummary(day({ modificadas: ['iniciativas'] }), day({ fecha: '2024-12-30' }))).toBe(
+      ['Daily data update 2024-12-31', '', '- Records revised, same number of rows: iniciativas', ''].join('\n'),
+    );
+  });
+
+  it('does not repeat as revised a table whose number of rows changed', () => {
+    const message = dailySummary(
+      day({ registros: { intervenciones: 101, iniciativas: 50 }, modificadas: ['iniciativas', 'intervenciones'] }),
+      day({ fecha: '2024-12-30' }),
+    );
+    expect(message).toBe(
+      [
+        'Daily data update 2024-12-31',
+        '',
+        '- Rows: intervenciones +1',
+        '- Records revised, same number of rows: iniciativas',
+        '',
+      ].join('\n'),
+    );
+  });
+
   it('marks the first run', () => {
     expect(dailySummary(day({}), undefined)).toBe('Daily data update 2024-12-31: first run\n');
   });

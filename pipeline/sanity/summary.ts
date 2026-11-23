@@ -11,6 +11,8 @@ export interface SummaryInput {
   votaciones: ReadonlyMap<string, string>;
   /** diputado_id -> fecha_baja ('' while in office). */
   diputados: ReadonlyMap<string, string>;
+  /** Normalized tables whose content differs from yesterday's (today's input only). */
+  modificadas?: readonly string[];
 }
 
 const plural = (count: number, one: string, many: string) => `${count} ${count === 1 ? one : many}`;
@@ -32,6 +34,12 @@ export function dailySummary(current: SummaryInput, previous: SummaryInput | und
     return delta === 0 ? [] : [`${table} ${delta > 0 ? '+' : ''}${delta}`];
   });
   if (deltas.length > 0) lines.push(`Rows: ${deltas.join(', ')}`);
+
+  // A record the Congreso edits in place changes a table without changing its size.
+  const revised = (current.modificadas ?? []).filter(
+    (table) => (current.registros[table] ?? 0) === (previous.registros[table] ?? 0),
+  );
+  if (revised.length > 0) lines.push(`Records revised, same number of rows: ${revised.join(', ')}`);
 
   const joined = [...current.diputados.keys()].filter((id) => !previous.diputados.has(id));
   const left = [...current.diputados].filter(([id, baja]) => baja !== '' && previous.diputados.get(id) === '');
