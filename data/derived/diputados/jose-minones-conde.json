@@ -1,0 +1,667 @@
+{
+ "metodologia_version": "1.0.0",
+ "fecha_calculo": "2026-11-23",
+ "legislatura": {
+  "numero": 15,
+  "nombre": "XV",
+  "inicio": "2023-08-17",
+  "fin": "2026-10-06",
+  "finalizada": true
+ },
+ "diputado": {
+  "diputado_id": "L15-f3c7c3fba6",
+  "cod_parlamentario": 280,
+  "nombre_completo": "Miñones Conde, José",
+  "nombre": "José",
+  "apellidos": "Miñones Conde",
+  "slug": "jose-minones-conde",
+  "grupo": {
+   "id": "GS",
+   "nombre": "Grupo Parlamentario Socialista"
+  },
+  "formacion": "PsdeG-PSOE",
+  "partido": "PSOE",
+  "circunscripcion": "Coruña (A)",
+  "fecha_alta": "2023-08-14",
+  "fecha_baja": "2024-04-09",
+  "url_ficha_oficial": "https://www.congreso.es/es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_diputadomodule_mostrarFicha=true&codParlamentario=280&idLegislatura=XV"
+ },
+ "gobierno": [
+  {
+   "cargos": "Ministro de Sanidad (en funciones)",
+   "desde": "2023-08-17",
+   "hasta": "2023-11-21",
+   "evidencia": [
+    "BOE-A-2023-7888 (RD 203/2023)",
+    "BOE-A-2023-23543 (RD 835/2023, nombra a su sucesora)"
+   ]
+  }
+ ],
+ "cargos": [
+  {
+   "organo_id": "c1-380",
+   "organo": "Comisión de Ciencia, Innovación y Universidades",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-12-04",
+   "hasta": "2024-01-19"
+  },
+  {
+   "organo_id": "c1-371",
+   "organo": "Comisión de Educación, Formación Profesional y Deportes",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-12-04",
+   "hasta": "2023-12-15"
+  },
+  {
+   "organo_id": "c1-312",
+   "organo": "Comisión de Reglamento",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2024-01-19",
+   "hasta": "2024-04-09"
+  }
+ ],
+ "periodos": {
+  "legislatura": {
+   "estado": "disponible",
+   "situacion": "ranking",
+   "etapa_gobierno_excluida": true,
+   "desde": "2023-08-17",
+   "hasta": "2026-10-06",
+   "dias_activo": 237,
+   "dias_gobierno": 96,
+   "dias_evaluados": 141,
+   "grupo": "GS",
+   "roles": [
+    "gobierno"
+   ],
+   "indice": 6.8,
+   "cobertura": 0.6,
+   "posicion": 392,
+   "total_ranking": 392,
+   "dimensiones": [
+    {
+     "id": "dedicacion",
+     "puntuacion": 7.3
+    },
+    {
+     "id": "debates",
+     "puntuacion": 3.1
+    },
+    {
+     "id": "iniciativa",
+     "puntuacion": 10.1
+    },
+    {
+     "id": "resultados",
+     "puntuacion": null
+    },
+    {
+     "id": "representacion",
+     "puntuacion": null
+    }
+   ],
+   "metricas": [
+    {
+     "id": "votaciones_participacion",
+     "dimension": "dedicacion",
+     "estado": "observado",
+     "valor": 0.9763,
+     "numerador": 165,
+     "denominador": 169,
+     "percentil": 7.3,
+     "percentil_grupo": 1.1,
+     "n_grupo": 140,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Votaciones",
+      "url": "https://www.congreso.es/es/opendata/votaciones",
+      "fecha_dato": "2026-09-30"
+     }
+    },
+    {
+     "id": "intervenciones_pleno",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 141,
+     "percentil": 2.7,
+     "percentil_grupo": 4.3,
+     "n_grupo": 140,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "intervenciones_comision",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 141,
+     "percentil": 3.6,
+     "percentil_grupo": 4.6,
+     "n_grupo": 140,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_escritas",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 141,
+     "percentil": 2.2,
+     "percentil_grupo": 5,
+     "n_grupo": 140,
+     "detalle": {
+      "firmadas": 0,
+      "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "solicitudes_informe",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 141,
+     "percentil": 18.1,
+     "percentil_grupo": 41.4,
+     "n_grupo": 140,
+     "detalle": {
+      "firmadas": 0,
+      "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "iniciativas_legislativas",
+     "dimension": "iniciativa",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
+    },
+    {
+     "id": "iniciativas_aprobadas",
+     "dimension": "resultados",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
+    }
+   ]
+  },
+  "12m": {
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_activo"
+  },
+  "3m": {
+   "estado": "no_disponible",
+   "motivo": "periodo_demasiado_corto"
+  },
+  "1m": {
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_la_legislatura"
+  }
+ },
+ "evolucion": {
+  "meses": [
+   "2023-08",
+   "2023-09",
+   "2023-10",
+   "2023-11",
+   "2023-12",
+   "2024-01",
+   "2024-02",
+   "2024-03",
+   "2024-04",
+   "2024-05",
+   "2024-06",
+   "2024-07",
+   "2024-08",
+   "2024-09",
+   "2024-10",
+   "2024-11",
+   "2024-12",
+   "2025-01",
+   "2025-02",
+   "2025-03",
+   "2025-04",
+   "2025-05",
+   "2025-06",
+   "2025-07",
+   "2025-08",
+   "2025-09",
+   "2025-10",
+   "2025-11",
+   "2025-12",
+   "2026-01",
+   "2026-02",
+   "2026-03",
+   "2026-04",
+   "2026-05",
+   "2026-06",
+   "2026-07",
+   "2026-08",
+   "2026-09",
+   "2026-10"
+  ],
+  "series": {
+   "votaciones_participacion": [
+    null,
+    1,
+    null,
+    0.6,
+    1,
+    1,
+    1,
+    0.9737,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "intervenciones_pleno": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "intervenciones_comision": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "preguntas_escritas": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "solicitudes_informe": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ },
+ "ultimas_votaciones": [
+  {
+   "votacion_id": "L15-S033-V019",
+   "fecha": "2024-03-21",
+   "titulo": "Dictámenes de la Comisión del Estatuto de los Diputados.",
+   "asunto": "Dictamen de la Comisión del Estatuto de los Diputados sobre declaración de actividades de Excmos. Sres. Diputados.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V018",
+   "fecha": "2024-03-21",
+   "titulo": "Avocación de iniciativas legislativas.",
+   "asunto": "Votación de la solicitud de avocación por el Pleno de la Cámara de la deliberación y votación final del Proyecto de Ley por la que se modifican el texto refundido de la Ley del Estatuto de los Trabajadores, aprobado por el Real Decreto Legislativo 2/2015, de 23 de octubre, y otras disposiciones en materia laboral, para la transposición de la Directiva (UE) 2019/1152 del Parlamento Europeo y del Consejo, de 20 de junio de 2019, relativa a unas condiciones laborales transparentes y previsibles en la Unión Europea, presentada por el Grupo Parlamentario VOX.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V017",
+   "fecha": "2024-03-21",
+   "titulo": "Avocación de iniciativas legislativas.",
+   "asunto": "Votación de la solicitud de avocación por el Pleno de la Cámara de la deliberación y votación final del Proyecto de Ley por la que se adoptan medidas para afrontar las consecuencias económicas y sociales derivadas de los conflictos en Ucrania y Oriente Próximo, así como para paliar los efectos de la sequía (procedente del Real Decreto-ley 8/2023, de 27 de diciembre), presentada por el Grupo Parlamentario Popular en el Congreso.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V016",
+   "fecha": "2024-03-21",
+   "titulo": "Avocación de iniciativas legislativas.",
+   "asunto": "Votación de la solicitud de avocación por el Pleno de la Cámara de la deliberación y votación final del Proyecto de Ley por la que se aprueban medidas urgentes para la ejecución del Plan de Recuperación, Transformación y Resiliencia en materia de servicio público de justicia, función pública, régimen local y mecenazgo (procedente del Real Decreto-ley 6/2023, de 19 de diciembre), presentada por el Grupo Parlamentario Popular en el Congreso.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V015",
+   "fecha": "2024-03-21",
+   "titulo": "Propuestas de creación de Subcomisiones.",
+   "asunto": "Propuesta de la Comisión de Sanidad, de creación de una Subcomisión para mejorar la protección, la promoción y la atención integral de la salud mental.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V014",
+   "fecha": "2024-03-21",
+   "titulo": "Solicitudes de creación de Comisiones de Investigación.",
+   "asunto": "Solicitud del Sr. López Álvarez y otros 72 Diputados, de creación de una Comisión de Investigación sobre los hechos, responsabilidades y enseñanzas en torno a los procesos de contratación para la adquisición de material sanitario por parte de las Administraciones públicas durante la crisis pandémica ocasionada por la COVID-19.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V013",
+   "fecha": "2024-03-21",
+   "titulo": "Dictámenes de la Comisión de Asuntos Exteriores sobre Convenios internacionales.",
+   "asunto": "Convenio sobre seguridad y salud en la construcción, hecho en Ginebra el 22 de junio de 1988.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V012",
+   "fecha": "2024-03-21",
+   "titulo": "Dictámenes de la Comisión de Asuntos Exteriores sobre Convenios internacionales.",
+   "asunto": "Actas del XXVII Congreso de la Unión Postal Universal (UPU), adoptadas en Abidjan el 27 de agosto de 2021.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V011",
+   "fecha": "2024-03-21",
+   "titulo": "Dictámenes de la Comisión de Asuntos Exteriores sobre Convenios internacionales.",
+   "asunto": "Acuerdo sobre la conservación de las poblaciones de murciélagos en Europa, hecho en Londres el 4 de diciembre de 1991, y de las Enmiendas de dicho Acuerdo adoptadas en Bristol el 20 de julio de 1995 y el 26 de julio de 2000.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V010",
+   "fecha": "2024-03-21",
+   "titulo": "Dictámenes de la Comisión de Asuntos Exteriores sobre Convenios internacionales.",
+   "asunto": "Convenio de Seguridad Social entre el Reino de España y la República de Moldavia, hecho en Madrid el 21 de julio de 2022.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V009",
+   "fecha": "2024-03-21",
+   "titulo": "Dictámenes de la Comisión de Asuntos Exteriores sobre Convenios internacionales.",
+   "asunto": "Denuncia del Tratado de la Carta de la Energía, hecho en Lisboa el 17 de diciembre de 1994.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V008",
+   "fecha": "2024-03-21",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario VOX, sobre las medidas que el Ministerio de Hacienda aplicará para perseguir el fraude y luchar contra la corrupción.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V007",
+   "fecha": "2024-03-21",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario VOX, sobre las medidas que el Ministerio de Hacienda aplicará para perseguir el fraude y luchar contra la corrupción.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V006",
+   "fecha": "2024-03-21",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario VOX, sobre las medidas que el Ministerio de Hacienda aplicará para perseguir el fraude y luchar contra la corrupción.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V005",
+   "fecha": "2024-03-21",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario VOX, sobre las medidas que el Ministerio de Hacienda aplicará para perseguir el fraude y luchar contra la corrupción.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V004",
+   "fecha": "2024-03-21",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Popular en el Congreso, sobre las medidas que va a adoptar el Ministerio de Política Territorial y Memoria Democrática para no verse afectado por la responsabilidad de su Ministro en la gestión y control de la compra de material sanitario durante la pandemia derivada de la COVID-19 que está siendo investigada por la Fiscalía Europea.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V003",
+   "fecha": "2024-03-21",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Republicano, sobre la rendición de cuentas por las negligencias cometidas contra trabajadoras y trabajadores de los órganos pertenecientes al Ministerio de Ciencia, Innovación y Universidades.\n\nSe vota en los términos de la enmienda transaccional presentada por el Grupo Parlamentario Socialista, el Grupo Parlamentario Plurinacional SUMAR y el Grupo Parlamentario Republicano.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V002",
+   "fecha": "2024-03-21",
+   "titulo": "Proposiciones no de Ley.",
+   "asunto": "Proposición no de Ley del Grupo Parlamentario Socialista, sobre una Estrategia Nacional frente a la soledad no deseada.\n\nSe vota en los términos de la enmienda transaccional presentada por el Grupo Parlamentario Popular en el Congreso y el Grupo Parlamentario Socialista.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S033-V001",
+   "fecha": "2024-03-21",
+   "titulo": "Proposiciones no de Ley.",
+   "asunto": "Proposición no de Ley del Grupo Parlamentario Popular en el Congreso, sobre la adopción de medidas para garantizar unas condiciones de jubilación digna de abogados y procuradores adscritos a sus mutualidades de protección social.",
+   "sentido": "abstencion",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion033/20240321/VOT_20240321105707.zip"
+  },
+  {
+   "votacion_id": "L15-S031-V002",
+   "fecha": "2024-03-19",
+   "titulo": "Toma en consideración de Proposiciones de Ley.",
+   "asunto": "Proposición de Ley del Grupo Parlamentario Junts per Catalunya, para mejorar la calidad de vida de las personas con esclerosis lateral amiotrófica.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion031/20240319/VOT_20240319201817.zip"
+  }
+ ],
+ "ultimas_intervenciones": []
+}

@@ -1,0 +1,798 @@
+{
+ "metodologia_version": "1.0.0",
+ "fecha_calculo": "2026-11-23",
+ "legislatura": {
+  "numero": 15,
+  "nombre": "XV",
+  "inicio": "2023-08-17",
+  "fin": "2026-10-06",
+  "finalizada": true
+ },
+ "diputado": {
+  "diputado_id": "L15-e5daa973e5",
+  "cod_parlamentario": 230,
+  "nombre_completo": "Lucas Ayala, Francisco",
+  "nombre": "Francisco",
+  "apellidos": "Lucas Ayala",
+  "slug": "francisco-lucas-ayala",
+  "grupo": {
+   "id": "GS",
+   "nombre": "Grupo Parlamentario Socialista"
+  },
+  "formacion": "PSOE",
+  "partido": "PSOE",
+  "circunscripcion": "Murcia",
+  "fecha_alta": "2023-08-10",
+  "fecha_baja": "2025-09-02",
+  "url_ficha_oficial": "https://www.congreso.es/es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_diputadomodule_mostrarFicha=true&codParlamentario=230&idLegislatura=XV"
+ },
+ "gobierno": [],
+ "cargos": [
+  {
+   "organo_id": "c1-329",
+   "organo": "Comisión de Interior",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-12-04",
+   "hasta": "2025-09-02"
+  },
+  {
+   "organo_id": "c1-303",
+   "organo": "Comisión de Justicia",
+   "tipo": "comision",
+   "cargo": "Presidentes",
+   "desde": "2023-12-04",
+   "hasta": "2025-09-02"
+  },
+  {
+   "organo_id": "c1-330",
+   "organo": "Comisión de Política Territorial",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-12-04",
+   "hasta": "2023-12-05"
+  },
+  {
+   "organo_id": "c1-330",
+   "organo": "Comisión de Política Territorial",
+   "tipo": "comision",
+   "cargo": "Portavoces",
+   "desde": "2023-12-05",
+   "hasta": "2025-09-02"
+  },
+  {
+   "organo_id": "c1-327",
+   "organo": "Comisión de Transportes y Movilidad Sostenible",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-12-04",
+   "hasta": "2024-01-19"
+  },
+  {
+   "organo_id": "c1-331",
+   "organo": "Comisión para la auditoría de la calidad democrática, la lucha contra la corrupción y las reformas institucionales y legales",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-12-04",
+   "hasta": "2025-09-02"
+  },
+  {
+   "organo_id": "diputacion-permanente",
+   "organo": "Diputación Permanente",
+   "tipo": "diputacion_permanente",
+   "cargo": "Vocales",
+   "desde": "2023-11-21",
+   "hasta": "2025-09-02"
+  }
+ ],
+ "periodos": {
+  "legislatura": {
+   "estado": "disponible",
+   "situacion": "ranking",
+   "etapa_gobierno_excluida": false,
+   "desde": "2023-08-17",
+   "hasta": "2026-10-06",
+   "dias_activo": 748,
+   "dias_gobierno": 0,
+   "dias_evaluados": 748,
+   "grupo": "GS",
+   "roles": [],
+   "indice": 49.9,
+   "cobertura": 0.6,
+   "posicion": 195,
+   "total_ranking": 392,
+   "dimensiones": [
+    {
+     "id": "dedicacion",
+     "puntuacion": 90.6
+    },
+    {
+     "id": "debates",
+     "puntuacion": 21.4
+    },
+    {
+     "id": "iniciativa",
+     "puntuacion": 37.6
+    },
+    {
+     "id": "resultados",
+     "puntuacion": null
+    },
+    {
+     "id": "representacion",
+     "puntuacion": null
+    }
+   ],
+   "metricas": [
+    {
+     "id": "votaciones_participacion",
+     "dimension": "dedicacion",
+     "estado": "observado",
+     "valor": 1,
+     "numerador": 1218,
+     "denominador": 1218,
+     "percentil": 90.6,
+     "percentil_grupo": 77.5,
+     "n_grupo": 140,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Votaciones",
+      "url": "https://www.congreso.es/es/opendata/votaciones",
+      "fecha_dato": "2026-09-30"
+     }
+    },
+    {
+     "id": "intervenciones_pleno",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 0.2674,
+     "numerador": 2,
+     "denominador": 748,
+     "percentil": 22.1,
+     "percentil_grupo": 24.6,
+     "n_grupo": 140,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "intervenciones_comision",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 1.2032,
+     "numerador": 9,
+     "denominador": 748,
+     "percentil": 20.8,
+     "percentil_grupo": 27.5,
+     "n_grupo": 140,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_escritas",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0.7277,
+     "numerador": 5.4429,
+     "denominador": 748,
+     "percentil": 32.5,
+     "percentil_grupo": 81.1,
+     "n_grupo": 140,
+     "detalle": {
+      "firmadas": 19,
+      "primer_firmante": 13
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "solicitudes_informe",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0.0668,
+     "numerador": 0.5,
+     "denominador": 748,
+     "percentil": 42.7,
+     "percentil_grupo": 88.2,
+     "n_grupo": 140,
+     "detalle": {
+      "firmadas": 2,
+      "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "iniciativas_legislativas",
+     "dimension": "iniciativa",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
+    },
+    {
+     "id": "iniciativas_aprobadas",
+     "dimension": "resultados",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
+    }
+   ]
+  },
+  "12m": {
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_activo"
+  },
+  "3m": {
+   "estado": "no_disponible",
+   "motivo": "periodo_demasiado_corto"
+  },
+  "1m": {
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_la_legislatura"
+  }
+ },
+ "evolucion": {
+  "meses": [
+   "2023-08",
+   "2023-09",
+   "2023-10",
+   "2023-11",
+   "2023-12",
+   "2024-01",
+   "2024-02",
+   "2024-03",
+   "2024-04",
+   "2024-05",
+   "2024-06",
+   "2024-07",
+   "2024-08",
+   "2024-09",
+   "2024-10",
+   "2024-11",
+   "2024-12",
+   "2025-01",
+   "2025-02",
+   "2025-03",
+   "2025-04",
+   "2025-05",
+   "2025-06",
+   "2025-07",
+   "2025-08",
+   "2025-09",
+   "2025-10",
+   "2025-11",
+   "2025-12",
+   "2026-01",
+   "2026-02",
+   "2026-03",
+   "2026-04",
+   "2026-05",
+   "2026-06",
+   "2026-07",
+   "2026-08",
+   "2026-09",
+   "2026-10"
+  ],
+  "series": {
+   "votaciones_participacion": [
+    null,
+    1,
+    null,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    null,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "intervenciones_pleno": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "intervenciones_comision": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    2,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "preguntas_escritas": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    3.8095,
+    0,
+    0,
+    0.7,
+    0.7333,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "solicitudes_informe": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.25,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.25,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ },
+ "ultimas_votaciones": [
+  {
+   "votacion_id": "L15-S128-V019",
+   "fecha": "2025-07-22",
+   "titulo": "Convalidación o derogación de Reales Decretos-leyes.",
+   "asunto": "Tramitación como Proyecto de Ley por el procedimiento de urgencia del Real Decreto-ley 8/2025, de 8 de julio, por el que se declaran diversas iniciativas y programas como acontecimientos de excepcional interés público.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V018",
+   "fecha": "2025-07-22",
+   "titulo": "Convalidación o derogación de Reales Decretos-leyes.",
+   "asunto": "Real Decreto-ley 8/2025, de 8 de julio, por el que se declaran diversas iniciativas y programas como acontecimientos de excepcional interés público.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V017",
+   "fecha": "2025-07-22",
+   "titulo": "Convalidación o derogación de Reales Decretos-leyes.",
+   "asunto": "Real Decreto-ley 7/2025, de 24 de junio, por el que se aprueban medidas urgentes para el refuerzo del sistema eléctrico.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V016",
+   "fecha": "2025-07-22",
+   "titulo": "Convalidación o derogación de Reales Decretos-leyes.",
+   "asunto": "Tramitación como Proyecto de Ley por el procedimiento de urgencia del Real Decreto-ley 6/2025, de 17 de junio, por el que se adoptan medidas relativas a los recursos de los sistemas de financiación territorial.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V015",
+   "fecha": "2025-07-22",
+   "titulo": "Convalidación o derogación de Reales Decretos-leyes.",
+   "asunto": "Real Decreto-ley 6/2025, de 17 de junio, por el que se adoptan medidas relativas a los recursos de los sistemas de financiación territorial.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V014",
+   "fecha": "2025-07-22",
+   "titulo": "Dictámenes de Comisiones sobre iniciativas de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V013",
+   "fecha": "2025-07-22",
+   "titulo": "Dictámenes de Comisiones sobre iniciativas de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V012",
+   "fecha": "2025-07-22",
+   "titulo": "Dictámenes de Comisiones sobre iniciativas de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V011",
+   "fecha": "2025-07-22",
+   "titulo": "Dictámenes de Comisiones sobre iniciativas de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V010",
+   "fecha": "2025-07-22",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proposición de Ley de modificación de la Ley 19/1994, de 6 de julio, de modificación del Régimen Económico y Fiscal de Canarias, para la regulación de las inversiones en elementos patrimoniales afectos a la actividad de arrendamiento de vivienda en las Islas Canarias.\nVotación en bloque de las enmiendas.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V009",
+   "fecha": "2025-07-22",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se crea la Agencia Estatal de Salud Pública y se modifica la Ley 33/2011, de 4 de octubre, General de Salud Pública.",
+   "sentido": "abstencion",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V008",
+   "fecha": "2025-07-22",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se crea la Agencia Estatal de Salud Pública y se modifica la Ley 33/2011, de 4 de octubre, General de Salud Pública.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V007",
+   "fecha": "2025-07-22",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se crea la Agencia Estatal de Salud Pública y se modifica la Ley 33/2011, de 4 de octubre, General de Salud Pública.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V006",
+   "fecha": "2025-07-22",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se crea la Agencia Estatal de Salud Pública y se modifica la Ley 33/2011, de 4 de octubre, General de Salud Pública.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V005",
+   "fecha": "2025-07-22",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se crea la Agencia Estatal de Salud Pública y se modifica la Ley 33/2011, de 4 de octubre, General de Salud Pública.",
+   "sentido": "abstencion",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V004",
+   "fecha": "2025-07-22",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se modifican el texto refundido de la Ley sobre responsabilidad civil y seguro en la circulación de vehículos a motor, aprobado por el Real Decreto Legislativo 8/2004, de 29 de octubre, y la Ley 20/2015, de 14 de julio, de ordenación, supervisión y solvencia de las entidades aseguradoras y reaseguradoras.\nVotación de la enmienda.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V003",
+   "fecha": "2025-07-22",
+   "titulo": "Dictámenes de Comisiones sobre iniciativas de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V002",
+   "fecha": "2025-07-22",
+   "titulo": "Dictámenes de Comisiones sobre iniciativas de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S128-V001",
+   "fecha": "2025-07-22",
+   "titulo": "Dictámenes de Comisiones sobre iniciativas de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion128/20250722/VOT_20250722200811.zip"
+  },
+  {
+   "votacion_id": "L15-S125-V002",
+   "fecha": "2025-07-08",
+   "titulo": "Debates de totalidad de iniciativas de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion125/20250708/VOT_20250708193304.zip"
+  }
+ ],
+ "ultimas_intervenciones": [
+  {
+   "intervencion_id": "1553406I",
+   "fecha": "2025-05-21",
+   "organo": "Comisión de Política Territorial",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-335.CODI.)#(P%C3%A1gina12)",
+   "url_video": "https://app.congreso.es/v1/1553406I"
+  },
+  {
+   "intervencion_id": "1552712I",
+   "fecha": "2025-05-13",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Proposición de ley de Comunidades y Ciudades Autónomas.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-114.CODI.)#(P%C3%A1gina12)",
+   "url_video": "https://app.congreso.es/v1/1552712I"
+  },
+  {
+   "intervencion_id": "1543786I",
+   "fecha": "2024-12-10",
+   "organo": "Comisión de Política Territorial",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-233.CODI.)#(P%C3%A1gina17)",
+   "url_video": "https://app.congreso.es/v1/1543786I"
+  },
+  {
+   "intervencion_id": "1537221I",
+   "fecha": "2024-07-16",
+   "organo": "Comisión Consultiva de Nombramientos",
+   "tipo_iniciativa": "Nombramientos de miembros del Consejo General del Poder Judicial.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-152.CODI.)#(P%C3%A1gina41)",
+   "url_video": "https://app.congreso.es/v1/1537221I"
+  },
+  {
+   "intervencion_id": "1531418I",
+   "fecha": "2024-04-09",
+   "organo": "Comisión de Política Territorial",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-92.CODI.)#(P%C3%A1gina18)",
+   "url_video": "https://app.congreso.es/v1/1531418I"
+  },
+  {
+   "intervencion_id": "1528976I",
+   "fecha": "2024-02-27",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Proposición de ley de Grupos Parlamentarios del Congreso.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-26.CODI.)#(P%C3%A1gina28)",
+   "url_video": "https://app.congreso.es/v1/1528976I"
+  },
+  {
+   "intervencion_id": "1527905I",
+   "fecha": "2024-01-29",
+   "organo": "Comisión de Política Territorial",
+   "tipo_iniciativa": "Comparecencia del Gobierno en Comisión (arts. 202 y 203).",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-52.CODI.)#(P%C3%A1gina37)",
+   "url_video": "https://app.congreso.es/v1/1527905I"
+  },
+  {
+   "intervencion_id": "1527897I",
+   "fecha": "2024-01-29",
+   "organo": "Comisión de Política Territorial",
+   "tipo_iniciativa": "Comparecencia del Gobierno en Comisión (arts. 202 y 203).",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-52.CODI.)#(P%C3%A1gina24)",
+   "url_video": "https://app.congreso.es/v1/1527897I"
+  },
+  {
+   "intervencion_id": "1526792I",
+   "fecha": "2023-12-21",
+   "organo": "Comisión de Justicia",
+   "tipo_iniciativa": "Comparecencia del Gobierno en Comisión (arts. 202 y 203).",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-31.CODI.)#(P%C3%A1gina11)",
+   "url_video": "https://app.congreso.es/v1/1526792I"
+  },
+  {
+   "intervencion_id": "1526789I",
+   "fecha": "2023-12-21",
+   "organo": "Comisión de Justicia",
+   "tipo_iniciativa": "Comparecencia del Gobierno en Comisión (arts. 202 y 203).",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-31.CODI.)#(P%C3%A1gina10)",
+   "url_video": "https://app.congreso.es/v1/1526789I"
+  },
+  {
+   "intervencion_id": "1526223I",
+   "fecha": "2023-12-04",
+   "organo": "Comisión de Justicia",
+   "tipo_iniciativa": null,
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-12.CODI.)#(P%C3%A1gina3)",
+   "url_video": "https://app.congreso.es/v1/1526223I"
+  }
+ ]
+}

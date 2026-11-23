@@ -1,0 +1,780 @@
+{
+ "metodologia_version": "1.0.0",
+ "fecha_calculo": "2026-11-23",
+ "legislatura": {
+  "numero": 15,
+  "nombre": "XV",
+  "inicio": "2023-08-17",
+  "fin": "2026-10-06",
+  "finalizada": true
+ },
+ "diputado": {
+  "diputado_id": "L15-850f4a2791",
+  "cod_parlamentario": 205,
+  "nombre_completo": "De Andrés Guerra, Javier",
+  "nombre": "Javier",
+  "apellidos": "De Andrés Guerra",
+  "slug": "javier-de-andres-guerra",
+  "grupo": {
+   "id": "GP",
+   "nombre": "Grupo Parlamentario Popular en el Congreso"
+  },
+  "formacion": "PP",
+  "partido": "PP",
+  "circunscripcion": "Araba/Álava",
+  "fecha_alta": "2023-08-09",
+  "fecha_baja": "2024-03-14",
+  "url_ficha_oficial": "https://www.congreso.es/es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_diputadomodule_mostrarFicha=true&codParlamentario=205&idLegislatura=XV"
+ },
+ "gobierno": [],
+ "cargos": [
+  {
+   "organo_id": "c1-305",
+   "organo": "Comisión de Hacienda y Función Pública",
+   "tipo": "comision",
+   "cargo": "Vicepresidentes Segundos",
+   "desde": "2023-12-04",
+   "hasta": "2024-03-14"
+  },
+  {
+   "organo_id": "c1-305",
+   "organo": "Comisión de Hacienda y Función Pública",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-12-04",
+   "hasta": "2023-12-04"
+  },
+  {
+   "organo_id": "c1-330",
+   "organo": "Comisión de Política Territorial",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-12-04",
+   "hasta": "2024-03-14"
+  },
+  {
+   "organo_id": "c1-307",
+   "organo": "Comisión de Presupuestos",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-12-04",
+   "hasta": "2024-03-14"
+  },
+  {
+   "organo_id": "c1-331",
+   "organo": "Comisión para la auditoría de la calidad democrática, la lucha contra la corrupción y las reformas institucionales y legales",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-12-04",
+   "hasta": "2024-03-14"
+  },
+  {
+   "organo_id": "diputacion-permanente",
+   "organo": "Diputación Permanente",
+   "tipo": "diputacion_permanente",
+   "cargo": "Vocales Suplentes",
+   "desde": "2023-11-21",
+   "hasta": "2024-03-14"
+  }
+ ],
+ "periodos": {
+  "legislatura": {
+   "estado": "disponible",
+   "situacion": "ranking",
+   "etapa_gobierno_excluida": false,
+   "desde": "2023-08-17",
+   "hasta": "2026-10-06",
+   "dias_activo": 211,
+   "dias_gobierno": 0,
+   "dias_evaluados": 211,
+   "grupo": "GP",
+   "roles": [],
+   "indice": 61.7,
+   "cobertura": 0.6,
+   "posicion": 71,
+   "total_ranking": 392,
+   "dimensiones": [
+    {
+     "id": "dedicacion",
+     "puntuacion": 90.6
+    },
+    {
+     "id": "debates",
+     "puntuacion": 45.7
+    },
+    {
+     "id": "iniciativa",
+     "puntuacion": 48.7
+    },
+    {
+     "id": "resultados",
+     "puntuacion": null
+    },
+    {
+     "id": "representacion",
+     "puntuacion": null
+    }
+   ],
+   "metricas": [
+    {
+     "id": "votaciones_participacion",
+     "dimension": "dedicacion",
+     "estado": "observado",
+     "valor": 1,
+     "numerador": 154,
+     "denominador": 154,
+     "percentil": 90.6,
+     "percentil_grupo": 97.7,
+     "n_grupo": 150,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Votaciones",
+      "url": "https://www.congreso.es/es/opendata/votaciones",
+      "fecha_dato": "2026-09-30"
+     }
+    },
+    {
+     "id": "intervenciones_pleno",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 4.7393,
+     "numerador": 10,
+     "denominador": 211,
+     "percentil": 87.9,
+     "percentil_grupo": 93.7,
+     "n_grupo": 150,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "intervenciones_comision",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 211,
+     "percentil": 3.6,
+     "percentil_grupo": 4,
+     "n_grupo": 150,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_escritas",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 2.6457,
+     "numerador": 5.5825,
+     "denominador": 211,
+     "percentil": 44.3,
+     "percentil_grupo": 7.7,
+     "n_grupo": 150,
+     "detalle": {
+      "firmadas": 68,
+      "primer_firmante": 1
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "solicitudes_informe",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0.1523,
+     "numerador": 0.3214,
+     "denominador": 211,
+     "percentil": 53.2,
+     "percentil_grupo": 28.3,
+     "n_grupo": 150,
+     "detalle": {
+      "firmadas": 2,
+      "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "iniciativas_legislativas",
+     "dimension": "iniciativa",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
+    },
+    {
+     "id": "iniciativas_aprobadas",
+     "dimension": "resultados",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
+    }
+   ]
+  },
+  "12m": {
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_activo"
+  },
+  "3m": {
+   "estado": "no_disponible",
+   "motivo": "periodo_demasiado_corto"
+  },
+  "1m": {
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_la_legislatura"
+  }
+ },
+ "evolucion": {
+  "meses": [
+   "2023-08",
+   "2023-09",
+   "2023-10",
+   "2023-11",
+   "2023-12",
+   "2024-01",
+   "2024-02",
+   "2024-03",
+   "2024-04",
+   "2024-05",
+   "2024-06",
+   "2024-07",
+   "2024-08",
+   "2024-09",
+   "2024-10",
+   "2024-11",
+   "2024-12",
+   "2025-01",
+   "2025-02",
+   "2025-03",
+   "2025-04",
+   "2025-05",
+   "2025-06",
+   "2025-07",
+   "2025-08",
+   "2025-09",
+   "2025-10",
+   "2025-11",
+   "2025-12",
+   "2026-01",
+   "2026-02",
+   "2026-03",
+   "2026-04",
+   "2026-05",
+   "2026-06",
+   "2026-07",
+   "2026-08",
+   "2026-09",
+   "2026-10"
+  ],
+  "series": {
+   "votaciones_participacion": [
+    null,
+    1,
+    null,
+    1,
+    1,
+    1,
+    1,
+    1,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "intervenciones_pleno": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    6,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "intervenciones_comision": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "preguntas_escritas": [
+    0,
+    0,
+    0,
+    0,
+    2.3048,
+    1.3398,
+    1.1522,
+    0.7857,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "solicitudes_informe": [
+    0,
+    0,
+    0,
+    0,
+    0.25,
+    0.0714,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ },
+ "ultimas_votaciones": [
+  {
+   "votacion_id": "L15-S030-V001",
+   "fecha": "2024-03-14",
+   "titulo": "Dictámenes de Comisiones sobre iniciativas legislativas.",
+   "asunto": "Proposición de Ley Orgánica de amnistía para la normalización institucional, política y social en Cataluña.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion030/20240314/VOT_20240314135322.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V052",
+   "fecha": "2024-03-14",
+   "titulo": "Avocación de iniciativas legislativas.",
+   "asunto": "Votación de las solicitudes de avocación por el Pleno de la Cámara de la deliberación y votación final del Proyecto de Ley de prevención de las pérdidas y el desperdicio alimentario, presentadas por los Grupos Parlamentarios Republicano y Popular en el Congreso.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V051",
+   "fecha": "2024-03-14",
+   "titulo": "Dictámenes de Comisiones sobre iniciativas legislativas.",
+   "asunto": "Votación del Dictamen del Proyecto de Ley por la que se regulan las enseñanzas artísticas superiores y se establece la organización y equivalencias de las enseñanzas artísticas profesionales.",
+   "sentido": "abstencion",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V050",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Popular en el Congreso, relativa a la responsabilidad del Gobierno en los hechos que derivaron en las detenciones por el presunto cobro de comisiones ilegales en la venta de mascarillas durante la pandemia de la COVID-19.\nSe vota en los términos resultantes de la incorporación de la enmienda presentada por el Grupo Parlamentario VOX.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V049",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V048",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V047",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V046",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V045",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V044",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V043",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V042",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V041",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V040",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "abstencion",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V039",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "abstencion",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V038",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "abstencion",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V037",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V036",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V035",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  },
+  {
+   "votacion_id": "L15-S029-V034",
+   "fecha": "2024-03-14",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra), en relación con la política general del Gobierno sobre la situación de los trabajadores y trabajadoras del campo.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion029/20240314/VOT_20240314123708.zip"
+  }
+ ],
+ "ultimas_intervenciones": [
+  {
+   "intervencion_id": "1529740I",
+   "fecha": "2024-03-12",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Proposición no de Ley ante el Pleno.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-29.CODI.)#(P%C3%A1gina42)",
+   "url_video": "https://app.congreso.es/v1/1529740I"
+  },
+  {
+   "intervencion_id": "1529733I",
+   "fecha": "2024-03-12",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Proposición no de Ley ante el Pleno.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-29.CODI.)#(P%C3%A1gina35)",
+   "url_video": "https://app.congreso.es/v1/1529733I"
+  },
+  {
+   "intervencion_id": "1529118I",
+   "fecha": "2024-02-28",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-27.CODI.)#(P%C3%A1gina30)",
+   "url_video": "https://app.congreso.es/v1/1529118I"
+  },
+  {
+   "intervencion_id": "1529116I",
+   "fecha": "2024-02-28",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-27.CODI.)#(P%C3%A1gina29)",
+   "url_video": "https://app.congreso.es/v1/1529116I"
+  },
+  {
+   "intervencion_id": "1528514I",
+   "fecha": "2024-02-21",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-24.CODI.)#(P%C3%A1gina19)",
+   "url_video": "https://app.congreso.es/v1/1528514I"
+  },
+  {
+   "intervencion_id": "1528298I",
+   "fecha": "2024-02-07",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-22.CODI.)#(P%C3%A1gina29)",
+   "url_video": "https://app.congreso.es/v1/1528298I"
+  },
+  {
+   "intervencion_id": "1528296I",
+   "fecha": "2024-02-07",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-22.CODI.)#(P%C3%A1gina28)",
+   "url_video": "https://app.congreso.es/v1/1528296I"
+  },
+  {
+   "intervencion_id": "1528149I",
+   "fecha": "2024-02-06",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Proposición de ley de Grupos Parlamentarios del Congreso.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-21.CODI.)#(P%C3%A1gina40)",
+   "url_video": "https://app.congreso.es/v1/1528149I"
+  },
+  {
+   "intervencion_id": "1526928I",
+   "fecha": "2023-12-20",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-15.CODI.)#(P%C3%A1gina78)",
+   "url_video": "https://app.congreso.es/v1/1526928I"
+  },
+  {
+   "intervencion_id": "1526525I",
+   "fecha": "2023-12-13",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-13.CODI.)#(P%C3%A1gina21)",
+   "url_video": "https://app.congreso.es/v1/1526525I"
+  }
+ ]
+}

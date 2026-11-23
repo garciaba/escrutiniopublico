@@ -164,6 +164,9 @@ export const project = {
     ],
   },
 
+  /** How many recent items each deputy profile lists. */
+  ficha: { ultimasVotaciones: 20, ultimasIntervenciones: 20 },
+
   /** Pre-publication sanity checks (section 6 of the specification). */
   sanity: {
     activeDeputiesMin: 340,

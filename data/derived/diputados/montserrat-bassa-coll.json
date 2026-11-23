@@ -1,0 +1,874 @@
+{
+ "metodologia_version": "1.0.0",
+ "fecha_calculo": "2026-11-23",
+ "legislatura": {
+  "numero": 15,
+  "nombre": "XV",
+  "inicio": "2023-08-17",
+  "fin": "2026-10-06",
+  "finalizada": true
+ },
+ "diputado": {
+  "diputado_id": "L15-e4f5ed0025",
+  "cod_parlamentario": 313,
+  "nombre_completo": "Bassa Coll, Montserrat",
+  "nombre": "Montserrat",
+  "apellidos": "Bassa Coll",
+  "slug": "montserrat-bassa-coll",
+  "grupo": {
+   "id": "GR",
+   "nombre": "Grupo Parlamentario Republicano"
+  },
+  "formacion": "ERC",
+  "partido": "ERC",
+  "circunscripcion": "Girona",
+  "fecha_alta": "2023-08-16",
+  "fecha_baja": "2024-09-24",
+  "url_ficha_oficial": "https://www.congreso.es/es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_diputadomodule_mostrarFicha=true&codParlamentario=313&idLegislatura=XV"
+ },
+ "gobierno": [],
+ "cargos": [
+  {
+   "organo_id": "c1-380",
+   "organo": "Comisión de Ciencia, Innovación y Universidades",
+   "tipo": "comision",
+   "cargo": "Adscritos",
+   "desde": "2023-12-04",
+   "hasta": "2024-09-24"
+  },
+  {
+   "organo_id": "c1-326",
+   "organo": "Comisión de Cooperación Internacional para el Desarrollo",
+   "tipo": "comision",
+   "cargo": "Adscritos",
+   "desde": "2023-12-04",
+   "hasta": "2024-09-24"
+  },
+  {
+   "organo_id": "c1-377",
+   "organo": "Comisión de Cultura",
+   "tipo": "comision",
+   "cargo": "Adscritos",
+   "desde": "2023-12-04",
+   "hasta": "2024-09-24"
+  },
+  {
+   "organo_id": "c1-304",
+   "organo": "Comisión de Defensa",
+   "tipo": "comision",
+   "cargo": "Adscritos",
+   "desde": "2023-12-04",
+   "hasta": "2024-09-24"
+  },
+  {
+   "organo_id": "c1-371",
+   "organo": "Comisión de Educación, Formación Profesional y Deportes",
+   "tipo": "comision",
+   "cargo": "Portavoces",
+   "desde": "2023-12-04",
+   "hasta": "2024-09-24"
+  },
+  {
+   "organo_id": "c1-314",
+   "organo": "Comisión de Peticiones",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-10-25",
+   "hasta": "2024-09-24"
+  },
+  {
+   "organo_id": "c1-330",
+   "organo": "Comisión de Política Territorial",
+   "tipo": "comision",
+   "cargo": "Adscritos",
+   "desde": "2023-12-04",
+   "hasta": "2024-09-24"
+  },
+  {
+   "organo_id": "c1-316",
+   "organo": "Comisión Mixta de Relaciones con el Defensor del Pueblo",
+   "tipo": "comision_mixta",
+   "cargo": "Adscritos",
+   "desde": "2023-12-12",
+   "hasta": "2024-09-24"
+  },
+  {
+   "organo_id": "c1-319",
+   "organo": "Comisión Mixta de Seguridad Nacional",
+   "tipo": "comision_mixta",
+   "cargo": "Adscritos",
+   "desde": "2023-12-12",
+   "hasta": "2024-09-24"
+  },
+  {
+   "organo_id": "c1-322",
+   "organo": "Comisión Mixta para el Estudio de los Problemas de las Adicciones",
+   "tipo": "comision_mixta",
+   "cargo": "Adscritos",
+   "desde": "2023-12-12",
+   "hasta": "2024-09-24"
+  },
+  {
+   "organo_id": "c1-317",
+   "organo": "Comisión Mixta para las Relaciones con el Tribunal de Cuentas",
+   "tipo": "comision_mixta",
+   "cargo": "Adscritos",
+   "desde": "2023-12-12",
+   "hasta": "2024-09-24"
+  },
+  {
+   "organo_id": "c1-323",
+   "organo": "Comisión Mixta sobre Insularidad",
+   "tipo": "comision_mixta",
+   "cargo": "Adscritos",
+   "desde": "2023-12-21",
+   "hasta": "2024-09-24"
+  },
+  {
+   "organo_id": "c1-331",
+   "organo": "Comisión para la auditoría de la calidad democrática, la lucha contra la corrupción y las reformas institucionales y legales",
+   "tipo": "comision",
+   "cargo": "Portavoces",
+   "desde": "2023-12-04",
+   "hasta": "2024-09-24"
+  },
+  {
+   "organo_id": "junta-portavoces",
+   "organo": "Junta de Portavoces",
+   "tipo": "junta_portavoces",
+   "cargo": "Portavoces adjuntos",
+   "desde": "2023-09-14",
+   "hasta": "2024-09-19"
+  }
+ ],
+ "periodos": {
+  "legislatura": {
+   "estado": "disponible",
+   "situacion": "ranking",
+   "etapa_gobierno_excluida": false,
+   "desde": "2023-08-17",
+   "hasta": "2026-10-06",
+   "dias_activo": 405,
+   "dias_gobierno": 0,
+   "dias_evaluados": 405,
+   "grupo": "GR",
+   "roles": [],
+   "indice": 30.5,
+   "cobertura": 0.6,
+   "posicion": 376,
+   "total_ranking": 392,
+   "dimensiones": [
+    {
+     "id": "dedicacion",
+     "puntuacion": 12.1
+    },
+    {
+     "id": "debates",
+     "puntuacion": 47.8
+    },
+    {
+     "id": "iniciativa",
+     "puntuacion": 31.4
+    },
+    {
+     "id": "resultados",
+     "puntuacion": null
+    },
+    {
+     "id": "representacion",
+     "puntuacion": null
+    }
+   ],
+   "metricas": [
+    {
+     "id": "votaciones_participacion",
+     "dimension": "dedicacion",
+     "estado": "observado",
+     "valor": 0.9873,
+     "numerador": 543,
+     "denominador": 550,
+     "percentil": 12.1,
+     "percentil_grupo": 31.3,
+     "n_grupo": 8,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Votaciones",
+      "url": "https://www.congreso.es/es/opendata/votaciones",
+      "fecha_dato": "2026-09-30"
+     }
+    },
+    {
+     "id": "intervenciones_pleno",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 1.9753,
+     "numerador": 8,
+     "denominador": 405,
+     "percentil": 73.1,
+     "percentil_grupo": 6.3,
+     "n_grupo": 8,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "intervenciones_comision",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 1.2346,
+     "numerador": 5,
+     "denominador": 405,
+     "percentil": 22.6,
+     "percentil_grupo": 6.3,
+     "n_grupo": 8,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_escritas",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 2.716,
+     "numerador": 11,
+     "denominador": 405,
+     "percentil": 44.8,
+     "percentil_grupo": 43.8,
+     "n_grupo": 8,
+     "detalle": {
+      "firmadas": 11,
+      "primer_firmante": 11
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "solicitudes_informe",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 405,
+     "percentil": 18.1,
+     "percentil_grupo": 18.8,
+     "n_grupo": 8,
+     "detalle": {
+      "firmadas": 0,
+      "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "iniciativas_legislativas",
+     "dimension": "iniciativa",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
+    },
+    {
+     "id": "iniciativas_aprobadas",
+     "dimension": "resultados",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
+    }
+   ]
+  },
+  "12m": {
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_activo"
+  },
+  "3m": {
+   "estado": "no_disponible",
+   "motivo": "periodo_demasiado_corto"
+  },
+  "1m": {
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_la_legislatura"
+  }
+ },
+ "evolucion": {
+  "meses": [
+   "2023-08",
+   "2023-09",
+   "2023-10",
+   "2023-11",
+   "2023-12",
+   "2024-01",
+   "2024-02",
+   "2024-03",
+   "2024-04",
+   "2024-05",
+   "2024-06",
+   "2024-07",
+   "2024-08",
+   "2024-09",
+   "2024-10",
+   "2024-11",
+   "2024-12",
+   "2025-01",
+   "2025-02",
+   "2025-03",
+   "2025-04",
+   "2025-05",
+   "2025-06",
+   "2025-07",
+   "2025-08",
+   "2025-09",
+   "2025-10",
+   "2025-11",
+   "2025-12",
+   "2026-01",
+   "2026-02",
+   "2026-03",
+   "2026-04",
+   "2026-05",
+   "2026-06",
+   "2026-07",
+   "2026-08",
+   "2026-09",
+   "2026-10"
+  ],
+  "series": {
+   "votaciones_participacion": [
+    null,
+    1,
+    null,
+    1,
+    1,
+    1,
+    0.9792,
+    0.9868,
+    1,
+    1,
+    1,
+    0.9451,
+    null,
+    1,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "intervenciones_pleno": [
+    0,
+    1,
+    0,
+    0,
+    3,
+    0,
+    3,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "intervenciones_comision": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "preguntas_escritas": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    5,
+    2,
+    2,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "solicitudes_informe": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ },
+ "ultimas_votaciones": [
+  {
+   "votacion_id": "L15-S060-V007",
+   "fecha": "2024-09-18",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Popular en el Congreso, sobre la crisis migratoria y la protección de nuestras fronteras.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion060/20240918/VOT_20240919102648.zip"
+  },
+  {
+   "votacion_id": "L15-S060-V006",
+   "fecha": "2024-09-18",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sr. Catalán Higueras), sobre los plazos y previsiones presupuestarias para la construcción de los tramos pendientes del Corredor Navarro de Alta Velocidad y la Autovía de Navarra A-15.\nSe vota en los términos resultantes de la incorporación de la enmienda del Grupo Parlamentario Vasco (EAJ-PNV).",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion060/20240918/VOT_20240919102648.zip"
+  },
+  {
+   "votacion_id": "L15-S060-V005",
+   "fecha": "2024-09-18",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario VOX, sobre las medidas que el Gobierno va a adoptar para paliar la situación de emergencia habitacional.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion060/20240918/VOT_20240919102648.zip"
+  },
+  {
+   "votacion_id": "L15-S060-V004",
+   "fecha": "2024-09-18",
+   "titulo": "Proposiciones no de Ley.",
+   "asunto": "Proposición no de Ley del Grupo Parlamentario Plurinacional SUMAR, relativa a la creación de una empresa pública para la gestión pública de las concesiones administrativas y centrales hidroeléctricas.\nSe vota en los términos de la enmienda transaccional presentada por el Grupo Parlamentario Plurinacional SUMAR y el Grupo Parlamentario Mixto (Sr. Rego Candamil).",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion060/20240918/VOT_20240919102648.zip"
+  },
+  {
+   "votacion_id": "L15-S060-V003",
+   "fecha": "2024-09-18",
+   "titulo": "Proposiciones no de Ley.",
+   "asunto": "Proposición no de Ley del Grupo Parlamentario VOX, relativa a la defensa del principio de la caja única de la Seguridad Social.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion060/20240918/VOT_20240919102648.zip"
+  },
+  {
+   "votacion_id": "L15-S060-V002",
+   "fecha": "2024-09-18",
+   "titulo": "Dictámenes de Comisiones sobre iniciativas legislativas.",
+   "asunto": "Proyecto de Ley Orgánica por la que se modifica la Ley Orgánica 7/2014, de 12 de noviembre, sobre intercambio de información de antecedentes penales y consideración de resoluciones judiciales penales en la Unión Europea, para su adecuación a la normativa de la Unión Europea sobre el Sistema Europeo de Información de Antecedentes Penales (ECRIS).",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion060/20240918/VOT_20240919102648.zip"
+  },
+  {
+   "votacion_id": "L15-S060-V001",
+   "fecha": "2024-09-18",
+   "titulo": "Dictámenes de Comisiones sobre iniciativas legislativas.",
+   "asunto": "Proyecto de Ley Orgánica por la que se modifica la Ley Orgánica 7/2014, de 12 de noviembre, sobre intercambio de información de antecedentes penales y consideración de resoluciones judiciales penales en la Unión Europea, para su adecuación a la normativa de la Unión Europea sobre el Sistema Europeo de Información de Antecedentes Penales (ECRIS).",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion060/20240918/VOT_20240919102648.zip"
+  },
+  {
+   "votacion_id": "L15-S059-V003",
+   "fecha": "2024-09-17",
+   "titulo": "Dictámenes de Comisiones sobre iniciativas legislativas.",
+   "asunto": "Proyecto de Ley Orgánica por la que se modifica la Ley Orgánica 7/2014, de 12 de noviembre, sobre intercambio de información de antecedentes penales y consideración de resoluciones judiciales penales en la Unión Europea, para su adecuación a la normativa de la Unión Europea sobre el Sistema Europeo de Información de Antecedentes Penales (ECRIS).",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion059/20240917/VOT_20240917204415.zip"
+  },
+  {
+   "votacion_id": "L15-S059-V002",
+   "fecha": "2024-09-17",
+   "titulo": "Toma en consideración de Proposiciones de Ley.",
+   "asunto": "Proposición de Ley del Grupo Parlamentario Junts per Catalunya, Orgánica en materia de multirreincidencia, por la que se modifica la Ley Orgánica 10/1995, de 23 de noviembre, del Código Penal y el Real Decreto de 14 de septiembre de 1882, por el que se aprueba la Ley de Enjuiciamiento Criminal.",
+   "sentido": "abstencion",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion059/20240917/VOT_20240917204415.zip"
+  },
+  {
+   "votacion_id": "L15-S059-V001",
+   "fecha": "2024-09-17",
+   "titulo": "Toma en consideración de Proposiciones de Ley.",
+   "asunto": "Proposición de Ley del Grupo Parlamentario Plurinacional SUMAR, relativa a la regulación de los contratos de alquiler de vivienda por temporada y alquiler de habitaciones.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion059/20240917/VOT_20240917204415.zip"
+  },
+  {
+   "votacion_id": "L15-S058-V011",
+   "fecha": "2024-09-11",
+   "titulo": "Propuestas de creación de Subcomisiones.",
+   "asunto": "Propuesta de la Comisión de Igualdad, de creación de una Subcomisión relativa a la lucha contra los discursos de odio.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion058/20240911/VOT_20240911151644.zip"
+  },
+  {
+   "votacion_id": "L15-S058-V010",
+   "fecha": "2024-09-11",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Republicano, sobre la necesidad de reducir el tiempo de trabajo durante toda la vida laboral.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion058/20240911/VOT_20240911151644.zip"
+  },
+  {
+   "votacion_id": "L15-S058-V009",
+   "fecha": "2024-09-11",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Popular en el Congreso, para que el Gobierno dé cuenta de las previsiones y compromisos adquiridos en torno a la financiación autonómica y la defensa de la igualdad entre todos los españoles.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion058/20240911/VOT_20240911151644.zip"
+  },
+  {
+   "votacion_id": "L15-S058-V008",
+   "fecha": "2024-09-11",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario VOX, sobre los planes del Gobierno para la sanidad española en los próximos meses.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion058/20240911/VOT_20240911151644.zip"
+  },
+  {
+   "votacion_id": "L15-S058-V007",
+   "fecha": "2024-09-11",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario VOX, sobre los planes del Gobierno para la sanidad española en los próximos meses.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion058/20240911/VOT_20240911151644.zip"
+  },
+  {
+   "votacion_id": "L15-S058-V006",
+   "fecha": "2024-09-11",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario VOX, sobre los planes del Gobierno para la sanidad española en los próximos meses.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion058/20240911/VOT_20240911151644.zip"
+  },
+  {
+   "votacion_id": "L15-S058-V005",
+   "fecha": "2024-09-11",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario VOX, sobre los planes del Gobierno para la sanidad española en los próximos meses.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion058/20240911/VOT_20240911151644.zip"
+  },
+  {
+   "votacion_id": "L15-S058-V004",
+   "fecha": "2024-09-11",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario VOX, sobre los planes del Gobierno para la sanidad española en los próximos meses.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion058/20240911/VOT_20240911151644.zip"
+  },
+  {
+   "votacion_id": "L15-S058-V003",
+   "fecha": "2024-09-11",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario VOX, sobre los planes del Gobierno para la sanidad española en los próximos meses.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion058/20240911/VOT_20240911151644.zip"
+  },
+  {
+   "votacion_id": "L15-S058-V002",
+   "fecha": "2024-09-11",
+   "titulo": "Proposiciones no de Ley.",
+   "asunto": "Proposición no de Ley del Grupo Parlamentario Socialista, por la que se insta al Gobierno a adoptar medidas en relación con la práctica de la reduflación.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion058/20240911/VOT_20240911151644.zip"
+  }
+ ],
+ "ultimas_intervenciones": [
+  {
+   "intervencion_id": "1530132I",
+   "fecha": "2024-03-14",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Proyecto de ley.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-31.CODI.)#(P%C3%A1gina9)",
+   "url_video": "https://app.congreso.es/v1/1530132I"
+  },
+  {
+   "intervencion_id": "1529456I",
+   "fecha": "2024-03-05",
+   "organo": "Comisión de Educación, Formación Profesional y Deportes",
+   "tipo_iniciativa": "Proyecto de ley.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-68.CODI.)#(P%C3%A1gina6)",
+   "url_video": "https://app.congreso.es/v1/1529456I"
+  },
+  {
+   "intervencion_id": "1529281I",
+   "fecha": "2024-02-28",
+   "organo": "Comisión de Interior",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-66.CODI.)#(P%C3%A1gina20)",
+   "url_video": "https://app.congreso.es/v1/1529281I"
+  },
+  {
+   "intervencion_id": "1529275I",
+   "fecha": "2024-02-28",
+   "organo": "Comisión de Interior",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-66.CODI.)#(P%C3%A1gina15)",
+   "url_video": "https://app.congreso.es/v1/1529275I"
+  },
+  {
+   "intervencion_id": "1529155I",
+   "fecha": "2024-02-28",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Moción consecuencia de interpelación urgente.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-27.CODI.)#(P%C3%A1gina55)",
+   "url_video": "https://app.congreso.es/v1/1529155I"
+  },
+  {
+   "intervencion_id": "1529013I",
+   "fecha": "2024-02-27",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Moción consecuencia de interpelación urgente.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-26.CODI.)#(P%C3%A1gina58)",
+   "url_video": "https://app.congreso.es/v1/1529013I"
+  },
+  {
+   "intervencion_id": "1528145I",
+   "fecha": "2024-02-06",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Proposición de ley de Grupos Parlamentarios del Congreso.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-21.CODI.)#(P%C3%A1gina33)",
+   "url_video": "https://app.congreso.es/v1/1528145I"
+  },
+  {
+   "intervencion_id": "1527781I",
+   "fecha": "2024-01-26",
+   "organo": "Comisión de Educación, Formación Profesional y Deportes",
+   "tipo_iniciativa": "Comparecencia del Gobierno en Comisión (arts. 202 y 203).",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-40-C1.CODI.)#(P%C3%A1gina20)",
+   "url_video": "https://app.congreso.es/v1/1527781I"
+  },
+  {
+   "intervencion_id": "1527351I",
+   "fecha": "2024-01-23",
+   "organo": "Comisión de Interior",
+   "tipo_iniciativa": "Comparecencia del Gobierno en Comisión (arts. 202 y 203).",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-35.CODI.)#(P%C3%A1gina30)",
+   "url_video": "https://app.congreso.es/v1/1527351I"
+  },
+  {
+   "intervencion_id": "1526730I",
+   "fecha": "2023-12-19",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Solicitud de creación de Comisión permanente (art. 50).",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-14.CODI.)#(P%C3%A1gina97)",
+   "url_video": "https://app.congreso.es/v1/1526730I"
+  },
+  {
+   "intervencion_id": "1526720I",
+   "fecha": "2023-12-19",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Moción consecuencia de interpelación urgente.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-14.CODI.)#(P%C3%A1gina90)",
+   "url_video": "https://app.congreso.es/v1/1526720I"
+  },
+  {
+   "intervencion_id": "1526660I",
+   "fecha": "2023-12-19",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Proposición de ley de Grupos Parlamentarios del Congreso.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-14.CODI.)#(P%C3%A1gina26)",
+   "url_video": "https://app.congreso.es/v1/1526660I"
+  },
+  {
+   "intervencion_id": "1525252I",
+   "fecha": "2023-09-21",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Proposición de reforma del Reglamento del Congreso.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-3.CODI.)#(P%C3%A1gina20)",
+   "url_video": "https://app.congreso.es/v1/1525252I"
+  }
+ ]
+}

@@ -1,0 +1,848 @@
+{
+ "metodologia_version": "1.0.0",
+ "fecha_calculo": "2026-11-23",
+ "legislatura": {
+  "numero": 15,
+  "nombre": "XV",
+  "inicio": "2023-08-17",
+  "fin": "2026-10-06",
+  "finalizada": true
+ },
+ "diputado": {
+  "diputado_id": "L15-6a4b7dd334",
+  "cod_parlamentario": 127,
+  "nombre_completo": "Ábalos Meco, José Luis",
+  "nombre": "José Luis",
+  "apellidos": "Ábalos Meco",
+  "slug": "jose-luis-abalos-meco",
+  "grupo": {
+   "id": "GMx",
+   "nombre": "Grupo Parlamentario Mixto"
+  },
+  "formacion": "PSOE",
+  "partido": "PSOE",
+  "circunscripcion": "Valencia/València",
+  "fecha_alta": "2023-08-07",
+  "fecha_baja": "2026-01-28",
+  "url_ficha_oficial": "https://www.congreso.es/es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_diputadomodule_mostrarFicha=true&codParlamentario=127&idLegislatura=XV"
+ },
+ "gobierno": [],
+ "cargos": [
+  {
+   "organo_id": "c1-302",
+   "organo": "Comisión de Asuntos Exteriores",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-12-04",
+   "hasta": "2023-12-15"
+  },
+  {
+   "organo_id": "c1-304",
+   "organo": "Comisión de Defensa",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-12-04",
+   "hasta": "2024-02-27"
+  },
+  {
+   "organo_id": "c1-329",
+   "organo": "Comisión de Interior",
+   "tipo": "comision",
+   "cargo": "Presidentes",
+   "desde": "2023-12-04",
+   "hasta": "2024-02-26"
+  },
+  {
+   "organo_id": "c1-329",
+   "organo": "Comisión de Interior",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2024-02-26",
+   "hasta": "2024-02-27"
+  },
+  {
+   "organo_id": "c1-314",
+   "organo": "Comisión de Peticiones",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2024-03-04",
+   "hasta": "2025-12-10"
+  },
+  {
+   "organo_id": "diputacion-permanente",
+   "organo": "Diputación Permanente",
+   "tipo": "diputacion_permanente",
+   "cargo": "Vocales Suplentes",
+   "desde": "2023-11-21",
+   "hasta": "2024-02-27"
+  }
+ ],
+ "periodos": {
+  "legislatura": {
+   "estado": "disponible",
+   "situacion": "ranking",
+   "etapa_gobierno_excluida": false,
+   "desde": "2023-08-17",
+   "hasta": "2026-10-06",
+   "dias_activo": 896,
+   "dias_gobierno": 0,
+   "dias_evaluados": 896,
+   "grupo": "GMx",
+   "roles": [],
+   "indice": 12.7,
+   "cobertura": 0.6,
+   "posicion": 390,
+   "total_ranking": 392,
+   "dimensiones": [
+    {
+     "id": "dedicacion",
+     "puntuacion": 0.1
+    },
+    {
+     "id": "debates",
+     "puntuacion": 8.8
+    },
+    {
+     "id": "iniciativa",
+     "puntuacion": 29.3
+    },
+    {
+     "id": "resultados",
+     "puntuacion": null
+    },
+    {
+     "id": "representacion",
+     "puntuacion": null
+    }
+   ],
+   "metricas": [
+    {
+     "id": "votaciones_participacion",
+     "dimension": "dedicacion",
+     "estado": "observado",
+     "valor": 0.6665,
+     "numerador": 1091,
+     "denominador": 1637,
+     "percentil": 0.1,
+     "percentil_grupo": 4.5,
+     "n_grupo": 11,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Votaciones",
+      "url": "https://www.congreso.es/es/opendata/votaciones",
+      "fecha_dato": "2026-09-30"
+     }
+    },
+    {
+     "id": "intervenciones_pleno",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 0.1116,
+     "numerador": 1,
+     "denominador": 896,
+     "percentil": 8.8,
+     "percentil_grupo": 4.5,
+     "n_grupo": 11,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "intervenciones_comision",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 0.1116,
+     "numerador": 1,
+     "denominador": 896,
+     "percentil": 8.8,
+     "percentil_grupo": 4.5,
+     "n_grupo": 11,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_escritas",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 1.9075,
+     "numerador": 17.0909,
+     "denominador": 896,
+     "percentil": 40.4,
+     "percentil_grupo": 13.6,
+     "n_grupo": 11,
+     "detalle": {
+      "firmadas": 18,
+      "primer_firmante": 17
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "solicitudes_informe",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 896,
+     "percentil": 18.1,
+     "percentil_grupo": 9.1,
+     "n_grupo": 11,
+     "detalle": {
+      "firmadas": 0,
+      "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "iniciativas_legislativas",
+     "dimension": "iniciativa",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
+    },
+    {
+     "id": "iniciativas_aprobadas",
+     "dimension": "resultados",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
+    }
+   ]
+  },
+  "12m": {
+   "estado": "disponible",
+   "situacion": "periodo_insuficiente",
+   "etapa_gobierno_excluida": false,
+   "desde": "2025-11-24",
+   "hasta": "2026-10-06",
+   "dias_activo": 66,
+   "dias_gobierno": 0,
+   "dias_evaluados": 66,
+   "grupo": "GMx",
+   "roles": [],
+   "indice": null,
+   "cobertura": null,
+   "posicion": null,
+   "total_ranking": 347,
+   "dimensiones": [
+    {
+     "id": "dedicacion",
+     "puntuacion": null
+    },
+    {
+     "id": "debates",
+     "puntuacion": null
+    },
+    {
+     "id": "iniciativa",
+     "puntuacion": null
+    },
+    {
+     "id": "resultados",
+     "puntuacion": null
+    },
+    {
+     "id": "representacion",
+     "puntuacion": null
+    }
+   ],
+   "metricas": [
+    {
+     "id": "votaciones_participacion",
+     "dimension": "dedicacion",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 55,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Votaciones",
+      "url": "https://www.congreso.es/es/opendata/votaciones",
+      "fecha_dato": "2026-09-30"
+     }
+    },
+    {
+     "id": "intervenciones_pleno",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 66,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "intervenciones_comision",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 66,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_escritas",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 3.0303,
+     "numerador": 2,
+     "denominador": 66,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "detalle": {
+      "firmadas": 2,
+      "primer_firmante": 2
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "solicitudes_informe",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 66,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "detalle": {
+      "firmadas": 0,
+      "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "iniciativas_legislativas",
+     "dimension": "iniciativa",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
+    },
+    {
+     "id": "iniciativas_aprobadas",
+     "dimension": "resultados",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
+    }
+   ]
+  },
+  "3m": {
+   "estado": "no_disponible",
+   "motivo": "periodo_demasiado_corto"
+  },
+  "1m": {
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_la_legislatura"
+  }
+ },
+ "evolucion": {
+  "meses": [
+   "2023-08",
+   "2023-09",
+   "2023-10",
+   "2023-11",
+   "2023-12",
+   "2024-01",
+   "2024-02",
+   "2024-03",
+   "2024-04",
+   "2024-05",
+   "2024-06",
+   "2024-07",
+   "2024-08",
+   "2024-09",
+   "2024-10",
+   "2024-11",
+   "2024-12",
+   "2025-01",
+   "2025-02",
+   "2025-03",
+   "2025-04",
+   "2025-05",
+   "2025-06",
+   "2025-07",
+   "2025-08",
+   "2025-09",
+   "2025-10",
+   "2025-11",
+   "2025-12",
+   "2026-01",
+   "2026-02",
+   "2026-03",
+   "2026-04",
+   "2026-05",
+   "2026-06",
+   "2026-07",
+   "2026-08",
+   "2026-09",
+   "2026-10"
+  ],
+  "series": {
+   "votaciones_participacion": [
+    null,
+    1,
+    null,
+    1,
+    1,
+    1,
+    0.5625,
+    0.3026,
+    1,
+    1,
+    0.8922,
+    1,
+    null,
+    1,
+    0.3247,
+    0.3359,
+    0.44,
+    0,
+    0.9672,
+    0.1981,
+    0.6667,
+    0.7407,
+    0,
+    1,
+    null,
+    0.9821,
+    0.8791,
+    0.8264,
+    0,
+    0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "intervenciones_pleno": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "intervenciones_comision": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "preguntas_escritas": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.0909,
+    0,
+    0,
+    4,
+    3,
+    1,
+    2,
+    1,
+    1,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "solicitudes_informe": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ },
+ "ultimas_votaciones": [
+  {
+   "votacion_id": "L15-S156-V003",
+   "fecha": "2026-01-27",
+   "titulo": "Convalidación o derogación de Reales Decretos-leyes.",
+   "asunto": "Tramitación como Proyecto de Ley por el procedimiento de urgencia del Real Decreto-ley 17/2025, de 23 de diciembre, de medidas de promoción del uso del transporte público mediante la bonificación de abonos y títulos multiviaje.",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion156/20260127/VOT_20260127153132.zip"
+  },
+  {
+   "votacion_id": "L15-S156-V002",
+   "fecha": "2026-01-27",
+   "titulo": "Convalidación o derogación de Reales Decretos-leyes.",
+   "asunto": "Real Decreto-ley 17/2025, de 23 de diciembre, de medidas de promoción del uso del transporte público mediante la bonificación de abonos y títulos multiviaje.",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion156/20260127/VOT_20260127153132.zip"
+  },
+  {
+   "votacion_id": "L15-S156-V001",
+   "fecha": "2026-01-27",
+   "titulo": "Convalidación o derogación de Reales Decretos-leyes.",
+   "asunto": "Real Decreto-ley 16/2025, de 23 de diciembre, por el que se prorrogan determinadas medidas para hacer frente a situaciones de vulnerabilidad social, y se adoptan medidas urgentes en materia tributaria y de Seguridad Social.",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion156/20260127/VOT_20260127153132.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V031",
+   "fecha": "2025-12-11",
+   "titulo": "Solicitud de prórroga de Subcomisiones.",
+   "asunto": "Solicitud de la Comisión de Igualdad, de prórroga de seis meses del plazo para la conclusión de los trabajos de la Subcomisión relativa a la lucha contra los discursos de odio, constituida en el seno de la citada Comisión.",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V030",
+   "fecha": "2025-12-11",
+   "titulo": "Solicitud de prórroga de Subcomisiones.",
+   "asunto": "Solicitud de la Comisión de Juventud e Infancia, de prórroga del plazo para la conclusión de los trabajos de la Subcomisión sobre el estudio de un Pacto de Estado para la erradicación de la Pobreza Infantil, constituida en el seno de la citada Comisión, hasta el final del siguiente periodo de sesiones (febrero a junio 2026).",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V029",
+   "fecha": "2025-12-11",
+   "titulo": "Debate relativo al objetivo de estabilidad presupuestaria.",
+   "asunto": "Acuerdo del Gobierno por el que se fijan los objetivos de estabilidad presupuestaria y de deuda pública para el conjunto de Administraciones Públicas y de cada uno de sus subsectores para el periodo 2026-2028 y el límite de gasto no financiero del presupuesto del Estado para el año 2026. Se votan los objetivos de estabilidad presupuestaria y de deuda pública propuestos por el Gobierno.",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V028",
+   "fecha": "2025-12-11",
+   "titulo": "Avocación de iniciativas legislativas.",
+   "asunto": "Votación de la solicitud de avocación por el Pleno de la Cámara de la deliberación y votación final de la Proposición de Ley sobre control y regulación de la publicidad y contratación de los pisos turísticos, presentada por el Grupo Parlamentario Popular en el Congreso.",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V027",
+   "fecha": "2025-12-11",
+   "titulo": "Avocación de iniciativas legislativas.",
+   "asunto": "Votación de la solicitud de avocación por el Pleno de la Cámara de la deliberación y votación final de la Proposición de Ley relativa a la regulación de las cláusulas Redito Ad Libitum en la contratación de préstamos y créditos hipotecarios, presentada por el Grupo Parlamentario Popular en el Congreso.",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V026",
+   "fecha": "2025-12-11",
+   "titulo": "Avocación de iniciativas legislativas.",
+   "asunto": "Votación de la solicitud de avocación por el Pleno de la Cámara de la deliberación y votación final de la Proposición de Ley sobre concesión de nacionalidad española a las y los saharauis nacidos bajo la administración española, presentada por el Grupo Parlamentario Popular en el Congreso.",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V025",
+   "fecha": "2025-12-11",
+   "titulo": "Debates de totalidad de iniciativas legislativas.",
+   "asunto": "Votación de la enmienda a la totalidad de devolución al Proyecto de Ley por la que se modifican el Texto Refundido de la Ley General de derechos de las personas con discapacidad y de su inclusión social, aprobado por el Real Decreto Legislativo 1/2013, de 29 de noviembre, y la Ley 39/2006, de 14 de diciembre, de Promoción de la Autonomía Personal y Atención a las personas en situación de dependencia, para la extensión y refuerzo de los derechos de las personas con discapacidad a la inclusión, la autonomía y la accesibilidad universal conforme al artículo 49 de la Constitución Española, presentada por el Grupo Parlamentario Junts per Catalunya.",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V024",
+   "fecha": "2025-12-11",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se regulan los servicios de atención al cliente (antes denominado Proyecto de Ley por la que se regulan los servicios de atención a la clientela).",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V023",
+   "fecha": "2025-12-11",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se regulan los servicios de atención al cliente (antes denominado Proyecto de Ley por la que se regulan los servicios de atención a la clientela).",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V022",
+   "fecha": "2025-12-11",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se regulan los servicios de atención al cliente (antes denominado Proyecto de Ley por la que se regulan los servicios de atención a la clientela).",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V021",
+   "fecha": "2025-12-11",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se regulan los servicios de atención al cliente (antes denominado Proyecto de Ley por la que se regulan los servicios de atención a la clientela).",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V020",
+   "fecha": "2025-12-11",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se regulan los servicios de atención al cliente (antes denominado Proyecto de Ley por la que se regulan los servicios de atención a la clientela).",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V019",
+   "fecha": "2025-12-11",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se regulan los servicios de atención al cliente (antes denominado Proyecto de Ley por la que se regulan los servicios de atención a la clientela).",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V018",
+   "fecha": "2025-12-11",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se regulan los servicios de atención al cliente (antes denominado Proyecto de Ley por la que se regulan los servicios de atención a la clientela).",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V017",
+   "fecha": "2025-12-11",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se regulan los servicios de atención al cliente (antes denominado Proyecto de Ley por la que se regulan los servicios de atención a la clientela).",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V016",
+   "fecha": "2025-12-11",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se regulan los servicios de atención al cliente (antes denominado Proyecto de Ley por la que se regulan los servicios de atención a la clientela).",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  },
+  {
+   "votacion_id": "L15-S154-V015",
+   "fecha": "2025-12-11",
+   "titulo": "Convalidación o derogación de Reales Decretos-leyes.",
+   "asunto": "Tramitación como Proyecto de Ley por el procedimiento de urgencia del Real Decreto-ley 15/2025, de 2 de diciembre, por el que se adoptan medidas urgentes para favorecer la actividad inversora de las entidades locales y de las comunidades autónomas, y por el que se modifica el Real Decreto 1007/2023, de 5 de diciembre, por el que se aprueba el Reglamento que establece los requisitos que deben adoptar los sistemas y programas informáticos o electrónicos que soporten los procesos de facturación de empresarios y profesionales, y la estandarización de formatos de los registros de facturación.",
+   "sentido": "no_vota",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion154/20251211/VOT_20251211175042.zip"
+  }
+ ],
+ "ultimas_intervenciones": [
+  {
+   "intervencion_id": "1526723I",
+   "fecha": "2023-12-19",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Moción consecuencia de interpelación urgente.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-14.CODI.)#(P%C3%A1gina94)",
+   "url_video": "https://app.congreso.es/v1/1526723I"
+  },
+  {
+   "intervencion_id": "1525959I",
+   "fecha": "2023-12-04",
+   "organo": "Comisión de Interior",
+   "tipo_iniciativa": null,
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-8.CODI.)#(P%C3%A1gina3)",
+   "url_video": "https://app.congreso.es/v1/1525959I"
+  }
+ ]
+}

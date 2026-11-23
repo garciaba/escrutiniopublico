@@ -1,0 +1,1042 @@
+{
+ "metodologia_version": "1.0.0",
+ "fecha_calculo": "2026-11-23",
+ "legislatura": {
+  "numero": 15,
+  "nombre": "XV",
+  "inicio": "2023-08-17",
+  "fin": "2026-10-06",
+  "finalizada": true
+ },
+ "diputado": {
+  "diputado_id": "L15-af8b1c93cd",
+  "cod_parlamentario": 373,
+  "nombre_completo": "Núñez Guijarro, José Enrique",
+  "nombre": "José Enrique",
+  "apellidos": "Núñez Guijarro",
+  "slug": "jose-enrique-nunez-guijarro",
+  "grupo": {
+   "id": "GP",
+   "nombre": "Grupo Parlamentario Popular en el Congreso"
+  },
+  "formacion": "PP",
+  "partido": "PP",
+  "circunscripcion": "Madrid",
+  "fecha_alta": "2024-01-30",
+  "fecha_baja": null,
+  "url_ficha_oficial": "https://www.congreso.es/es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_diputadomodule_mostrarFicha=true&codParlamentario=373&idLegislatura=XV"
+ },
+ "gobierno": [],
+ "cargos": [
+  {
+   "organo_id": "c1-380",
+   "organo": "Comisión de Ciencia, Innovación y Universidades",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2024-02-05",
+   "hasta": "2026-09-24"
+  },
+  {
+   "organo_id": "c1-380",
+   "organo": "Comisión de Ciencia, Innovación y Universidades",
+   "tipo": "comision",
+   "cargo": "Portavoces",
+   "desde": "2024-09-24",
+   "hasta": "2026-10-06"
+  },
+  {
+   "organo_id": "c1-304",
+   "organo": "Comisión de Defensa",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2024-02-19",
+   "hasta": "2026-10-06"
+  },
+  {
+   "organo_id": "c1-378",
+   "organo": "Comisión de Economía, Comercio y Transformación Digital",
+   "tipo": "comision",
+   "cargo": "Portavoces adjuntos",
+   "desde": "2024-02-19",
+   "hasta": "2024-06-24"
+  },
+  {
+   "organo_id": "c1-305",
+   "organo": "Comisión de Hacienda y Función Pública",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2024-04-04",
+   "hasta": "2024-05-29"
+  },
+  {
+   "organo_id": "c1-305",
+   "organo": "Comisión de Hacienda y Función Pública",
+   "tipo": "comision",
+   "cargo": "Vicepresidentes Segundos",
+   "desde": "2024-05-29",
+   "hasta": "2026-10-06"
+  },
+  {
+   "organo_id": "c1-368",
+   "organo": "Comisión de Investigación sobre el derecho a saber la verdad y las implicaciones derivadas de los atentados de Barcelona y Cambrils del 17 de agosto de 2017",
+   "tipo": "comision_investigacion",
+   "cargo": "Vocales Suplentes",
+   "desde": "2024-02-28",
+   "hasta": "2025-03-19"
+  },
+  {
+   "organo_id": "c1-319",
+   "organo": "Comisión Mixta de Seguridad Nacional",
+   "tipo": "comision_mixta",
+   "cargo": "Vocales",
+   "desde": "2024-06-24",
+   "hasta": "2026-10-06"
+  },
+  {
+   "organo_id": "diputacion-permanente",
+   "organo": "Diputación Permanente",
+   "tipo": "diputacion_permanente",
+   "cargo": "Vocales Suplentes",
+   "desde": "2025-08-21",
+   "hasta": null
+  }
+ ],
+ "periodos": {
+  "legislatura": {
+   "estado": "disponible",
+   "situacion": "ranking",
+   "etapa_gobierno_excluida": false,
+   "desde": "2023-08-17",
+   "hasta": "2026-10-06",
+   "dias_activo": 981,
+   "dias_gobierno": 0,
+   "dias_evaluados": 981,
+   "grupo": "GP",
+   "roles": [],
+   "indice": 50.3,
+   "cobertura": 0.6,
+   "posicion": 190,
+   "total_ranking": 392,
+   "dimensiones": [
+    {
+     "id": "dedicacion",
+     "puntuacion": 61.2
+    },
+    {
+     "id": "debates",
+     "puntuacion": 29.8
+    },
+    {
+     "id": "iniciativa",
+     "puntuacion": 59.9
+    },
+    {
+     "id": "resultados",
+     "puntuacion": null
+    },
+    {
+     "id": "representacion",
+     "puntuacion": null
+    }
+   ],
+   "metricas": [
+    {
+     "id": "votaciones_participacion",
+     "dimension": "dedicacion",
+     "estado": "observado",
+     "valor": 0.9991,
+     "numerador": 2129,
+     "denominador": 2131,
+     "percentil": 61.2,
+     "percentil_grupo": 81.3,
+     "n_grupo": 150,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Votaciones",
+      "url": "https://www.congreso.es/es/opendata/votaciones",
+      "fecha_dato": "2026-09-30"
+     }
+    },
+    {
+     "id": "intervenciones_pleno",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 0.4077,
+     "numerador": 4,
+     "denominador": 981,
+     "percentil": 30.7,
+     "percentil_grupo": 39.7,
+     "n_grupo": 150,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "intervenciones_comision",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 1.5291,
+     "numerador": 15,
+     "denominador": 981,
+     "percentil": 29,
+     "percentil_grupo": 35,
+     "n_grupo": 150,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_escritas",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 11.4046,
+     "numerador": 111.8796,
+     "denominador": 981,
+     "percentil": 69.3,
+     "percentil_grupo": 45.7,
+     "n_grupo": 150,
+     "detalle": {
+      "firmadas": 1550,
+      "primer_firmante": 3
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "solicitudes_informe",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0.12,
+     "numerador": 1.1773,
+     "denominador": 981,
+     "percentil": 50.6,
+     "percentil_grupo": 23.7,
+     "n_grupo": 150,
+     "detalle": {
+      "firmadas": 9,
+      "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "iniciativas_legislativas",
+     "dimension": "iniciativa",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
+    },
+    {
+     "id": "iniciativas_aprobadas",
+     "dimension": "resultados",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
+    }
+   ]
+  },
+  "12m": {
+   "estado": "disponible",
+   "situacion": "ranking",
+   "etapa_gobierno_excluida": false,
+   "desde": "2025-11-24",
+   "hasta": "2026-10-06",
+   "dias_activo": 317,
+   "dias_gobierno": 0,
+   "dias_evaluados": 317,
+   "grupo": "GP",
+   "roles": [],
+   "indice": 56.2,
+   "cobertura": 0.6,
+   "posicion": 115,
+   "total_ranking": 347,
+   "dimensiones": [
+    {
+     "id": "dedicacion",
+     "puntuacion": 71.2
+    },
+    {
+     "id": "debates",
+     "puntuacion": 39
+    },
+    {
+     "id": "iniciativa",
+     "puntuacion": 58.5
+    },
+    {
+     "id": "resultados",
+     "puntuacion": null
+    },
+    {
+     "id": "representacion",
+     "puntuacion": null
+    }
+   ],
+   "metricas": [
+    {
+     "id": "votaciones_participacion",
+     "dimension": "dedicacion",
+     "estado": "observado",
+     "valor": 1,
+     "numerador": 591,
+     "denominador": 591,
+     "percentil": 71.2,
+     "percentil_grupo": 70.7,
+     "n_grupo": 138,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Votaciones",
+      "url": "https://www.congreso.es/es/opendata/votaciones",
+      "fecha_dato": "2026-09-30"
+     }
+    },
+    {
+     "id": "intervenciones_pleno",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 0.3155,
+     "numerador": 1,
+     "denominador": 317,
+     "percentil": 25.1,
+     "percentil_grupo": 33,
+     "n_grupo": 138,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "intervenciones_comision",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 3.1546,
+     "numerador": 10,
+     "denominador": 317,
+     "percentil": 53,
+     "percentil_grupo": 60.9,
+     "n_grupo": 138,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_escritas",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 3.234,
+     "numerador": 10.2518,
+     "denominador": 317,
+     "percentil": 47.1,
+     "percentil_grupo": 12.7,
+     "n_grupo": 138,
+     "detalle": {
+      "firmadas": 125,
+      "primer_firmante": 1
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "solicitudes_informe",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0.3605,
+     "numerador": 1.1429,
+     "denominador": 317,
+     "percentil": 69.9,
+     "percentil_grupo": 55.4,
+     "n_grupo": 138,
+     "detalle": {
+      "firmadas": 8,
+      "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "iniciativas_legislativas",
+     "dimension": "iniciativa",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
+    },
+    {
+     "id": "iniciativas_aprobadas",
+     "dimension": "resultados",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
+    }
+   ]
+  },
+  "3m": {
+   "estado": "no_disponible",
+   "motivo": "periodo_demasiado_corto"
+  },
+  "1m": {
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_la_legislatura"
+  }
+ },
+ "evolucion": {
+  "meses": [
+   "2023-08",
+   "2023-09",
+   "2023-10",
+   "2023-11",
+   "2023-12",
+   "2024-01",
+   "2024-02",
+   "2024-03",
+   "2024-04",
+   "2024-05",
+   "2024-06",
+   "2024-07",
+   "2024-08",
+   "2024-09",
+   "2024-10",
+   "2024-11",
+   "2024-12",
+   "2025-01",
+   "2025-02",
+   "2025-03",
+   "2025-04",
+   "2025-05",
+   "2025-06",
+   "2025-07",
+   "2025-08",
+   "2025-09",
+   "2025-10",
+   "2025-11",
+   "2025-12",
+   "2026-01",
+   "2026-02",
+   "2026-03",
+   "2026-04",
+   "2026-05",
+   "2026-06",
+   "2026-07",
+   "2026-08",
+   "2026-09",
+   "2026-10"
+  ],
+  "series": {
+   "votaciones_participacion": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    null,
+    1,
+    0.974,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    null,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    null,
+    1,
+    null
+   ],
+   "intervenciones_pleno": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "intervenciones_comision": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    6,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "preguntas_escritas": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.2,
+    0,
+    0.069,
+    0.0667,
+    36.2556,
+    23.9573,
+    0.3846,
+    0.5184,
+    1.281,
+    0.4105,
+    0,
+    0.1381,
+    16.2443,
+    15.812,
+    0.9931,
+    0.0833,
+    0.281,
+    0.1843,
+    0.6818,
+    2.2792,
+    0.4706,
+    1.3171,
+    0,
+    0.3922,
+    0.6667,
+    1.281,
+    5.6096,
+    0.0526,
+    0.9127,
+    0.6437,
+    0.3333,
+    0.0833,
+    0.2768
+   ],
+   "solicitudes_informe": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.0345,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.1429,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ },
+ "ultimas_votaciones": [
+  {
+   "votacion_id": "L15-S202-V020",
+   "fecha": "2026-09-30",
+   "titulo": "Dictámenes de la Comisión del Estatuto.",
+   "asunto": "Dictamen de la Comisión del Estatuto sobre declaración de actividades de Excmos. Sres. Diputados.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V019",
+   "fecha": "2026-09-30",
+   "titulo": "Avocación de iniciativas legislativas.",
+   "asunto": "Votación de las solicitudes de avocación por el Pleno de la Cámara de la deliberación y votación final del Proyecto de Ley por la que se modifican la Ley Orgánica 2/2006, de 3 de mayo, de Educación, y la Ley 4/2019, de 7 de marzo, de mejora de las condiciones para el desempeño de la docencia y la enseñanza en el ámbito de la educación no universitaria, y se adoptan otras medidas para la mejora del sistema educativo, presentadas por los Grupos Parlamentarios VOX y Popular en el Congreso.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V018",
+   "fecha": "2026-09-30",
+   "titulo": "Solicitud de prórroga de Subcomisiones.",
+   "asunto": "Solicitud de la Comisión de Igualdad, de prórroga de seis meses del plazo para la conclusión de los trabajos de la Subcomisión relativa a la lucha contra los discursos de odio, constituida en el seno de la citada Comisión.",
+   "sentido": "abstencion",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V017",
+   "fecha": "2026-09-30",
+   "titulo": "Solicitud de prórroga de Comisiones de Investigación.",
+   "asunto": "Solicitud de prórroga por seis meses del plazo para la realización del Dictamen de la Comisión de Investigación de la interrupción del suministro eléctrico el 28 de abril de 2025.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V016",
+   "fecha": "2026-09-30",
+   "titulo": "Dictámenes de la Comisión de Asuntos Exteriores sobre Convenios internacionales.",
+   "asunto": "Acuerdo entre el Reino de España y el Reino de Arabia Saudí sobre exención recíproca de visados para titulares de pasaportes diplomáticos, especiales y de servicio, hecho en Madrid el 13 de mayo de 2026.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V015",
+   "fecha": "2026-09-30",
+   "titulo": "Dictámenes de la Comisión de Asuntos Exteriores sobre Convenios internacionales.",
+   "asunto": "Protocolo Adicional a la Convención Iberoamericana de Derechos de los Jóvenes, hecho ad referendum en Cartagena de Indias el 25 de octubre de 2016.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V014",
+   "fecha": "2026-09-30",
+   "titulo": "Dictámenes de la Comisión de Asuntos Exteriores sobre Convenios internacionales.",
+   "asunto": "Acuerdo sobre Transporte Aéreo entre el Reino de España y la República Federativa de Brasil, hecho en Barcelona el 17 de abril de 2026.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V013",
+   "fecha": "2026-09-30",
+   "titulo": "Dictámenes de la Comisión de Asuntos Exteriores sobre Convenios internacionales.",
+   "asunto": "Acuerdo entre el Reino de España y la República de Uzbekistán sobre exención recíproca de visados para titulares de pasaportes diplomáticos, hecho en Madrid el 7 de abril de 2026.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V012",
+   "fecha": "2026-09-30",
+   "titulo": "Dictámenes de la Comisión de Asuntos Exteriores sobre Convenios internacionales.",
+   "asunto": "Convenio por el que se establece una Comisión Internacional de Reclamaciones para Ucrania, hecho en La Haya el 16 de diciembre de 2025.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V011",
+   "fecha": "2026-09-30",
+   "titulo": "Dictámenes de la Comisión de Asuntos Exteriores sobre Convenios internacionales.",
+   "asunto": "Acuerdo entre el Reino de España y el Gobierno de Ucrania sobre cooperación técnica y financiera, hecho en Madrid el 18 de marzo de 2026.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V010",
+   "fecha": "2026-09-30",
+   "titulo": "Debates de totalidad de iniciativas legislativas.",
+   "asunto": "Votación de la enmienda a la totalidad de devolución al Proyecto de Ley Orgánica de medidas en materia de violencia vicaria, presentada por el Grupo Parlamentario VOX.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V009",
+   "fecha": "2026-09-30",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Popular en el Congreso, sobre la gestión del Ministerio de Defensa durante la reciente crisis en la ciudad de Ceuta.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V008",
+   "fecha": "2026-09-30",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Popular en el Congreso, sobre la gestión del Ministerio de Defensa durante la reciente crisis en la ciudad de Ceuta.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V007",
+   "fecha": "2026-09-30",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Popular en el Congreso, sobre la gestión del Ministerio de Defensa durante la reciente crisis en la ciudad de Ceuta.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V006",
+   "fecha": "2026-09-30",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario VOX, sobre las medidas adoptadas en relación con la situación de interés para la seguridad nacional en la ciudad de Ceuta.",
+   "sentido": "abstencion",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V005",
+   "fecha": "2026-09-30",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra Urteaga), relativa a las medidas que va a adoptar el Gobierno para evitar las subidas desorbitadas de los precios de los productos energéticos y su impacto directo sobre el coste de la vida de las familias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V004",
+   "fecha": "2026-09-30",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra Urteaga), relativa a las medidas que va a adoptar el Gobierno para evitar las subidas desorbitadas de los precios de los productos energéticos y su impacto directo sobre el coste de la vida de las familias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V003",
+   "fecha": "2026-09-30",
+   "titulo": "Mociones consecuencia de interpelaciones urgentes.",
+   "asunto": "Moción consecuencia de interpelación urgente del Grupo Parlamentario Mixto (Sra. Belarra Urteaga), relativa a las medidas que va a adoptar el Gobierno para evitar las subidas desorbitadas de los precios de los productos energéticos y su impacto directo sobre el coste de la vida de las familias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V002",
+   "fecha": "2026-09-30",
+   "titulo": "Proposiciones no de Ley.",
+   "asunto": "Proposición no de Ley del Grupo Parlamentario Socialista, para la puesta en marcha de un instrumento europeo excepcional de contribución sobre los beneficios extraordinarios de las empresas energéticas.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  },
+  {
+   "votacion_id": "L15-S202-V001",
+   "fecha": "2026-09-30",
+   "titulo": "Proposiciones no de Ley.",
+   "asunto": "Proposición no de Ley del Grupo Parlamentario Popular en el Congreso, para garantizar la correcta implementación del Pacto Europeo sobre Migración y Asilo en España.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip"
+  }
+ ],
+ "ultimas_intervenciones": [
+  {
+   "intervencion_id": "1579710I",
+   "fecha": "2026-09-30",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Moción consecuencia de interpelación urgente.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-209.CODI.)#(P%C3%A1gina90)",
+   "url_video": "https://app.congreso.es/v1/1579710I"
+  },
+  {
+   "intervencion_id": "1579474I",
+   "fecha": "2026-09-29",
+   "organo": "Comisión de Ciencia, Innovación y Universidades",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-633.CODI.)#(P%C3%A1gina29)",
+   "url_video": "https://app.congreso.es/v1/1579474I"
+  },
+  {
+   "intervencion_id": "1567840I",
+   "fecha": "2026-02-19",
+   "organo": "Comisión Mixta de Seguridad Nacional",
+   "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCG-15-CM-141.CODI.)#(P%C3%A1gina7)",
+   "url_video": "https://app.congreso.es/v1/1567840I"
+  },
+  {
+   "intervencion_id": "1567834I",
+   "fecha": "2026-02-19",
+   "organo": "Comisión Mixta de Seguridad Nacional",
+   "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCG-15-CM-141.CODI.)#(P%C3%A1gina5)",
+   "url_video": "https://app.congreso.es/v1/1567834I"
+  },
+  {
+   "intervencion_id": "1566509I",
+   "fecha": "2025-12-15",
+   "organo": "Comisión Mixta de Seguridad Nacional",
+   "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCG-15-CM-135.CODI.)#(P%C3%A1gina10)",
+   "url_video": "https://app.congreso.es/v1/1566509I"
+  },
+  {
+   "intervencion_id": "1566507I",
+   "fecha": "2025-12-15",
+   "organo": "Comisión Mixta de Seguridad Nacional",
+   "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCG-15-CM-135.CODI.)#(P%C3%A1gina8)",
+   "url_video": "https://app.congreso.es/v1/1566507I"
+  },
+  {
+   "intervencion_id": "1565600I",
+   "fecha": "2025-12-09",
+   "organo": "Comisión Mixta de Seguridad Nacional",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCG-15-CM-133.CODI.)#(P%C3%A1gina16)",
+   "url_video": "https://app.congreso.es/v1/1565600I"
+  },
+  {
+   "intervencion_id": "1565587I",
+   "fecha": "2025-12-09",
+   "organo": "Comisión Mixta de Seguridad Nacional",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCG-15-CM-133.CODI.)#(P%C3%A1gina12)",
+   "url_video": "https://app.congreso.es/v1/1565587I"
+  },
+  {
+   "intervencion_id": "1565188I",
+   "fecha": "2025-12-02",
+   "organo": "Comisión de Defensa",
+   "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-469.CODI.)#(P%C3%A1gina5)",
+   "url_video": "https://app.congreso.es/v1/1565188I"
+  },
+  {
+   "intervencion_id": "1565185I",
+   "fecha": "2025-12-02",
+   "organo": "Comisión de Defensa",
+   "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-469.CODI.)#(P%C3%A1gina3)",
+   "url_video": "https://app.congreso.es/v1/1565185I"
+  },
+  {
+   "intervencion_id": "1565086I",
+   "fecha": "2025-11-27",
+   "organo": "Comisión de Defensa",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-466.CODI.)#(P%C3%A1gina31)",
+   "url_video": "https://app.congreso.es/v1/1565086I"
+  },
+  {
+   "intervencion_id": "1549966I",
+   "fecha": "2025-03-19",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Interpelación urgente.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-104.CODI.)#(P%C3%A1gina51)",
+   "url_video": "https://app.congreso.es/v1/1549966I"
+  },
+  {
+   "intervencion_id": "1549964I",
+   "fecha": "2025-03-19",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Interpelación urgente.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-104.CODI.)#(P%C3%A1gina46)",
+   "url_video": "https://app.congreso.es/v1/1549964I"
+  },
+  {
+   "intervencion_id": "1543821I",
+   "fecha": "2024-12-10",
+   "organo": "Comisión Mixta de Seguridad Nacional",
+   "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCG-15-CM-66.CODI.)#(P%C3%A1gina40)",
+   "url_video": "https://app.congreso.es/v1/1543821I"
+  },
+  {
+   "intervencion_id": "1543817I",
+   "fecha": "2024-12-10",
+   "organo": "Comisión Mixta de Seguridad Nacional",
+   "tipo_iniciativa": "Pregunta oral al Gobierno en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCG-15-CM-66.CODI.)#(P%C3%A1gina38)",
+   "url_video": "https://app.congreso.es/v1/1543817I"
+  },
+  {
+   "intervencion_id": "1540861I",
+   "fecha": "2024-10-24",
+   "organo": "Comisión Mixta de Seguridad Nacional",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCG-15-CM-55.CODI.)#(P%C3%A1gina11)",
+   "url_video": "https://app.congreso.es/v1/1540861I"
+  },
+  {
+   "intervencion_id": "1540857I",
+   "fecha": "2024-10-24",
+   "organo": "Comisión Mixta de Seguridad Nacional",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCG-15-CM-55.CODI.)#(P%C3%A1gina9)",
+   "url_video": "https://app.congreso.es/v1/1540857I"
+  },
+  {
+   "intervencion_id": "1540379I",
+   "fecha": "2024-10-22",
+   "organo": "Comisión de Ciencia, Innovación y Universidades",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-192.CODI.)#(P%C3%A1gina11)",
+   "url_video": "https://app.congreso.es/v1/1540379I"
+  },
+  {
+   "intervencion_id": "1527921I",
+   "fecha": "2024-01-30",
+   "organo": "Pleno",
+   "tipo_iniciativa": null,
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-20.CODI.)#(P%C3%A1gina3)",
+   "url_video": "https://app.congreso.es/v1/1527921I"
+  }
+ ]
+}
