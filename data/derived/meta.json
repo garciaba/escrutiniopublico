@@ -1,5 +1,5 @@
 {
- "ejecutado": "2026-11-23T16:05:38.133Z",
+ "ejecutado": "2026-11-23T20:10:46.500Z",
  "metodologia_version": "1.2.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
@@ -9,7 +9,7 @@
   "fin": "2026-10-06",
   "finalizada": true
  },
- "commit": "6947b664a251fc05e77ef7dd0eff021c60e55c24",
+ "commit": "066ae7e28d0a63124ffb5b7e2727132e70e965f2",
  "periodos": [
   {
    "id": "legislatura",
