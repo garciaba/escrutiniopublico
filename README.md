@@ -23,20 +23,20 @@ Hoy la web recoge el balance completo de la XV Legislatura, de agosto de 2023 a 
 
 Solo de fuentes oficiales y públicas:
 
-| Qué                                                                             | De dónde                                                                                          |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| Quién es diputado, su grupo, su candidatura y su circunscripción                | [Datos abiertos del Congreso: diputados](https://www.congreso.es/es/opendata/diputados)           |
-| El voto de cada diputado en cada votación del Pleno                             | [Datos abiertos del Congreso: votaciones](https://www.congreso.es/es/opendata/votaciones)         |
-| Las intervenciones en el Pleno y en las comisiones                              | [Datos abiertos del Congreso: intervenciones](https://www.congreso.es/es/opendata/intervenciones) |
-| Los proyectos y proposiciones de ley y sus ponentes                             | [Datos abiertos del Congreso: iniciativas](https://www.congreso.es/es/opendata/iniciativas)       |
-| La composición de las comisiones, la Mesa y la Junta de Portavoces              | [Datos abiertos del Congreso: órganos](https://www.congreso.es/es/opendata/organos)               |
-| Las preguntas escritas y orales y las solicitudes de informe, con sus firmantes | [Buscador de iniciativas del Congreso](https://www.congreso.es/es/busqueda-de-iniciativas)        |
-| Qué diputados han sido miembros del Gobierno y en qué fechas                    | [Boletín Oficial del Estado](https://www.boe.es/datosabiertos/)                                   |
+| Qué                                                                             | De dónde                                                                                                   |
+| ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Quién es diputado, su grupo, su candidatura y su circunscripción                | [Datos abiertos del Congreso: diputados](https://www.congreso.es/es/opendata/diputados)                    |
+| El voto de cada diputado en cada votación del Pleno                             | [Datos abiertos del Congreso: votaciones](https://www.congreso.es/es/opendata/votaciones)                  |
+| Las intervenciones en el Pleno y en las comisiones                              | [Datos abiertos del Congreso: intervenciones](https://www.congreso.es/es/opendata/intervenciones)          |
+| Los proyectos y proposiciones de ley y sus ponentes                             | [Datos abiertos del Congreso: iniciativas](https://www.congreso.es/es/opendata/iniciativas)                |
+| La composición de las comisiones, la Mesa y la Junta de Portavoces              | [Datos abiertos del Congreso: órganos](https://www.congreso.es/es/opendata/organos)                        |
+| Las preguntas escritas y orales y las solicitudes de informe, con sus firmantes | [Buscador de iniciativas del Congreso](https://www.congreso.es/es/busqueda-de-iniciativas)                 |
+| Qué diputados han sido miembros del Gobierno y en qué fechas                    | Los nombramientos y ceses publicados en el [Boletín Oficial del Estado](https://www.boe.es/datosabiertos/) |
 
 Cómo se tratan:
 
-- **Se actualizan cada día** de forma automática. Si un día la descarga falla o los datos no superan las comprobaciones, la web conserva los del día anterior.
-- **No se edita ningún dato a mano.** Cuando un nombre de un fichero oficial no coincide con el censo de diputados, la equivalencia se revisa, se anota con su motivo y se publica en [Cambios](https://escrutiniopublico.es/cambios).
+- **Los datos del Congreso se actualizan cada día** de forma automática. Si un día la descarga falla o los datos no superan las comprobaciones, la web conserva los del día anterior.
+- **No se corrige ninguna cifra a mano.** Solo dos listas pasan por una revisión humana, y las dos son públicas: las equivalencias entre las distintas formas en que los ficheros oficiales escriben un mismo nombre, y las fechas de los miembros del Gobierno, cada una con el real decreto que la respalda. Están en [`config/overrides.ts`](config/overrides.ts) y en [Cambios](https://escrutiniopublico.es/cambios).
 - **Un dato que no existe no cuenta como cero.** Se muestra como «no disponible» y queda fuera del cálculo.
 - **No se usan** las declaraciones de bienes e intereses ni las fotografías oficiales de los diputados, ni ninguna fuente que no sea oficial.
 
