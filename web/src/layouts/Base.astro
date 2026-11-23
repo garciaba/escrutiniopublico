@@ -24,6 +24,7 @@ const canonical = new URL(path, site.url).href;
 const fullTitle = path === '/' ? `${site.name} · ${title}` : `${title} · ${site.name}`;
 const nav = [
   { href: '/', label: 'Ranking' },
+  { href: '/grupos', label: 'Grupos' },
   { href: '/metodologia', label: 'Metodología' },
   { href: '/datos', label: 'Datos' },
   { href: '/cambios', label: 'Cambios' },
@@ -105,6 +106,7 @@ const esActual = (href: string) => (href === '/' ? path === '/' || path.startsWi
           </p>
         </div>
         <ul>
+          <li><a href="/grupos">Grupos</a></li>
           <li><a href="/metodologia">Metodología</a></li>
           <li><a href="/datos">Datos</a></li>
           <li><a href="/cambios">Cambios</a></li>

@@ -421,3 +421,43 @@ El mensaje del commit de datos lo escribe el mismo script: sesiones nuevas, fila
 - **Contacto.** También decidido por el propietario: las incidencias del repositorio público son la única vía de contacto y de rectificación, sin dirección de correo.
   - La página lo dice sin «pendiente» y avisa de que hace falta una cuenta de GitHub y de que las incidencias son públicas.
   - Desaparece el campo `contacto` de `config/site.ts`, y con él el control `--strict` de `pnpm web:audit`: ya no queda nada pendiente en `/acerca`.
+
+## D-037 · Página «Grupos»: cifras por grupo parlamentario y por candidatura
+
+**Decidida por el propietario (23/11/2026)**, que pidió una pestaña con las mismas estadísticas por partido y aprobó las cuatro recomendaciones de abajo. Es un séptimo tipo de página: la sección 8 de la especificación fijaba seis.
+
+**1. Unidad: grupo parlamentario y, en segundo lugar, candidatura electoral.**
+
+- Los datos oficiales no recogen el partido en el que milita cada diputado. Solo traen el grupo parlamentario y la formación electoral del censo, es decir, la lista con la que fue elegido.
+- Las dos no coinciden siempre: seis diputados elegidos en la lista de SUMAR están en el Grupo Mixto.
+- Una tabla de partidos reales habría que hacerla a mano y dejaría de ser dato oficial. Se descarta.
+
+**2. Sin puntuación ni posición por grupo.**
+
+- El índice no sirve para comparar grupos. «Resultados e impacto» vale 50 de media en todos por construcción (D-034), los debates favorecen a los grupos pequeños y las preguntas al Gobierno son sobre todo tarea de la oposición.
+- La página muestra cómo se reparte el índice de los diputados de cada grupo (una raya por diputado, la mitad central y la mediana) y cada métrica sumada, con toda la Cámara como referencia.
+- Los grupos van ordenados por número de diputados, como los lista el Congreso, no por ninguna cifra de actividad.
+
+**3. «Candidatura» en lugar de «Partido».**
+
+- El filtro del ranking y las fichas llamaban «Partido» a ese dato. Pasan a decir «Candidatura».
+- El parámetro de la URL es `candidatura`; el anterior, `partido`, se sigue leyendo.
+- Los ficheros de datos conservan el nombre de campo `partido`, para no romper a quien ya los use. El diccionario de datos explica qué contiene.
+
+**4. Nombre:** «Grupos», en `/grupos`.
+
+**Cómo se calcula** (`pipeline/metrics/grupos.ts`, función pura; reglas publicadas en `/metodologia#agregados` desde `config/scoring.ts`):
+
+- Cuentan los diputados con posición en el ranking del periodo, cada uno en el grupo que tenía al final. Los miembros del Gobierno y los de «periodo insuficiente» quedan fuera, como en el ranking, y la página dice cuántos son.
+- Cada cifra es la suma de los numeradores de sus diputados entre la suma de sus denominadores: votos emitidos entre votaciones en cuya lista figuran, o actividad por cada 100 días en activo. No es la media de las tasas individuales, que daría el mismo peso a quien estuvo un mes que a quien estuvo tres años.
+- En preguntas y solicitudes se suma el crédito fraccional, así que una pregunta firmada solo por diputados del mismo grupo cuenta una vez.
+- Las ponencias se dan por diputado, sin percentil.
+- La banda de la mitad central solo se dibuja con cinco diputados o más (`agregados.minimoDistribucion`).
+- No cambia ninguna puntuación: la metodología sigue en la versión 1.2.0.
+
+**Qué se publica:**
+
+- `data/derived/grupos.json`, también descargable en `/datos`. Entra en la prueba de reproducibilidad.
+- La página no lleva JavaScript. El cambio de periodo funciona con CSS (`:has()`); en un navegador que no lo admita se ve solo la legislatura.
+
+**Riesgo asumido:** es la página políticamente más delicada del sitio. Por eso abre con el aviso «Cómo leer esta página», no ordena por actividad y no da una nota por grupo.

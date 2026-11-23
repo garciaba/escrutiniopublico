@@ -156,6 +156,22 @@ const unidades = { proporcion: 'Proporción', por_100_dias: 'Por cada 100 días 
         índice global.
       </p>
 
+      <h2 id="agregados">Cifras por grupo</h2>
+      <p>
+        La página <a href="/grupos">Grupos</a> suma las cifras de los diputados por grupo parlamentario y por candidatura
+        electoral. No cambia ninguna puntuación.
+      </p>
+      <dl class="definiciones">
+        {
+          scoring.agregados.reglas.map((regla) => (
+            <div id={`agregados-${regla.id}`}>
+              <dt>{regla.titulo}</dt>
+              <dd>{regla.texto}</dd>
+            </div>
+          ))
+        }
+      </dl>
+
       <h2 id="contexto">Datos que se muestran y no puntúan</h2>
       <dl class="definiciones">
         {

@@ -97,7 +97,7 @@ export interface DeriveInput {
   limites: { ultimasVotaciones: number; ultimasIntervenciones: number };
 }
 
-function header(input: DeriveInput) {
+export function header(input: Pick<DeriveInput, 'scoring' | 'legislatura' | 'fechaCalculo'>) {
   const { legislatura } = input;
   return {
     metodologia_version: input.scoring.metodologiaVersion,

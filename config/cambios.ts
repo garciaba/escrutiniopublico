@@ -17,6 +17,12 @@ export const registro: readonly EntradaRegistro[] = [
     fecha: '2026-11-23',
     tipo: 'datos',
     texto:
+      'Nueva página «Grupos», con las cifras sumadas por grupo parlamentario y por candidatura electoral, y nuevo fichero grupos.json. No cambia ninguna puntuación. El filtro «Partido» del ranking pasa a llamarse «Candidatura», que es lo que recoge el dato oficial.',
+  },
+  {
+    fecha: '2026-11-23',
+    tipo: 'datos',
+    texto:
       'Nuevas fuentes con las metodologías 1.1.0 y 1.2.0: 3.788 preguntas orales (en Pleno, en comisión y a la Corporación RTVE) y los ponentes de 46 proyectos y proposiciones de ley. Cambian las puntuaciones de todos los diputados.',
   },
   {

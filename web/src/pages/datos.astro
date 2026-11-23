@@ -64,6 +64,14 @@ const bytes = (texto: string) => new TextEncoder().encode(texto).length;
               <td class="num" data-label="Tamaño">{tamano(bytes(derivedText('ranking.json')))}</td>
             </tr>
             <tr>
+              <th scope="row"><a href="/datos/grupos.json" download>grupos.json</a></th>
+              <td>
+                Agregados por grupo parlamentario y por candidatura electoral en cada periodo: diputados, reparto del
+                índice y cada métrica sumada.
+              </td>
+              <td class="num" data-label="Tamaño">{tamano(bytes(derivedText('grupos.json')))}</td>
+            </tr>
+            <tr>
               <th scope="row"><a href="/datos/meta.json" download>meta.json</a></th>
               <td>Fecha de la ejecución, fecha de cada fichero oficial, versión de la metodología y recuentos.</td>
               <td class="num" data-label="Tamaño">{tamano(bytes(derivedText('meta.json')))}</td>

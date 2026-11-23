@@ -33,8 +33,10 @@ export const groups: readonly GroupConfig[] = [
 ];
 
 /**
- * Electoral formation (census FORMACIONELECTORAL) -> party used by the web filter.
- * Regional federations are grouped under their party; the formation is kept as well.
+ * Electoral formation (census FORMACIONELECTORAL) -> electoral list shown by the web
+ * as «Candidatura» (decision D-037). Regional federations are grouped under their
+ * common name; the formation is kept as well. It is the list a deputy was elected on,
+ * not the party they belong to today, which the official data do not record.
  */
 export const formationToParty: Readonly<Record<string, string>> = {
   BNG: 'BNG',

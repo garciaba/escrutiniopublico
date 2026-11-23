@@ -21,6 +21,7 @@ import {
   type GobiernoFull,
 } from './derive.ts';
 import { buildIndex, computePeriod, type Tables } from './engine.ts';
+import { buildGrupos } from './grupos.ts';
 
 export const DERIVED_DIR = join('data', 'derived');
 
@@ -242,6 +243,7 @@ export async function runMetrics(options: MetricsOptions, log: (message: string)
   };
 
   await writeAtomic(join(outDir, 'ranking.json'), serializeRanking(buildRanking(input)));
+  await writeAtomic(join(outDir, 'grupos.json'), `${JSON.stringify(buildGrupos(input), null, 1)}\n`);
   const fichas = buildFichas(input);
   const fichasDir = join(outDir, 'diputados');
   for (const [slug, ficha] of fichas) {
@@ -281,5 +283,5 @@ export async function runMetrics(options: MetricsOptions, log: (message: string)
     incidencias,
   });
   await writeAtomic(join(outDir, 'meta.json'), `${JSON.stringify(meta, null, 1)}\n`);
-  log(`metrics: ranking.json, ${fichas.size} profiles and meta.json written`);
+  log(`metrics: ranking.json, grupos.json, ${fichas.size} profiles and meta.json written`);
 }

@@ -127,6 +127,7 @@ export interface Estado {
   periodo: string;
   q: string;
   grupo: string;
+  /** Electoral list the deputy was elected on (census formation, federations grouped). */
   partido: string;
   circunscripcion: string;
   /** 'posicion', 'nombre', 'indice' or the id of a dimension. */
@@ -185,7 +186,8 @@ export function leerEstado(search: string, data: RankingData): Estado {
       'grupo',
       grupos.map((g) => g.id),
     ),
-    partido: elegir('partido', partidos),
+    // The electoral list; `partido` is the name the parameter had before (D-037).
+    partido: elegir(params.has('candidatura') ? 'candidatura' : 'partido', partidos),
     circunscripcion: elegir('circunscripcion', circunscripciones),
     orden,
     dir: dir === 'asc' || dir === 'desc' ? dir : direccionPorDefecto(orden),
@@ -204,7 +206,7 @@ export function escribirEstado(estado: Estado, data: RankingData): string {
   if (estado.periodo !== inicial.periodo) params.set('periodo', estado.periodo);
   if (estado.q.trim()) params.set('q', estado.q.trim());
   if (estado.grupo) params.set('grupo', estado.grupo);
-  if (estado.partido) params.set('partido', estado.partido);
+  if (estado.partido) params.set('candidatura', estado.partido);
   if (estado.circunscripcion) params.set('circunscripcion', estado.circunscripcion);
   if (estado.orden !== inicial.orden) params.set('orden', estado.orden);
   if (estado.dir !== direccionPorDefecto(estado.orden)) params.set('dir', estado.dir);

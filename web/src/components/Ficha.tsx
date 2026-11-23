@@ -58,7 +58,7 @@ function Cabecera({ ficha, periodo }: { ficha: Ficha; periodo: FichaPeriodo | un
           {diputado.grupo.nombre}
         </p>
         <p class="ficha-datos">
-          <span>{diputado.partido}</span>
+          <span>Candidatura: {diputado.partido}</span>
           <span>{diputado.circunscripcion}</span>
         </p>
       </div>

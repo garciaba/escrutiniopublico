@@ -126,7 +126,9 @@ export function RankingRows({ data, filas }: RowsProps) {
               <PuntoGrupo color={grupo?.color ?? '#9c9c9c'} />
               {grupo?.nombre ?? fila.grupo}
               {fila.partido.toLowerCase() === (grupo?.nombre ?? '').toLowerCase() ? null : (
-                <span class="partido">{fila.partido}</span>
+                <span class="partido" title="Candidatura electoral">
+                  {fila.partido}
+                </span>
               )}
               <span class="cir-movil"> · {fila.circunscripcion}</span>
             </td>
@@ -300,7 +302,7 @@ export function RankingApp({ data, ejecutado, horasAviso, legislaturaFinalizada,
           </select>
         </div>
         <div class="campo">
-          <label for="ranking-partido">Partido</label>
+          <label for="ranking-partido">Candidatura</label>
           <select
             id="ranking-partido"
             disabled={!activo}

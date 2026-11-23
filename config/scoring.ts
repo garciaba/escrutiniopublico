@@ -119,12 +119,16 @@ export const scoring = {
     },
   },
 
-  /** `objeto` is the counted thing, singular and plural, for the sentences of the profile. */
+  /**
+   * `objeto` is the counted thing, singular and plural, for the sentences of the profile;
+   * `nombreCorto` heads the columns of the tables by group.
+   */
   metricas: [
     {
       id: 'votaciones_participacion',
       dimension: 'dedicacion',
       nombre: 'Participación en votaciones de Pleno',
+      nombreCorto: 'Votaciones',
       objeto: ['votación', 'votaciones'],
       calculo:
         'Votos emitidos (sí, no o abstención) ÷ votaciones nominales en cuya lista figura el diputado. No votar no equivale a estar ausente.',
@@ -136,6 +140,7 @@ export const scoring = {
       id: 'intervenciones_pleno',
       dimension: 'debates',
       nombre: 'Intervenciones en Pleno',
+      nombreCorto: 'Pleno',
       objeto: ['intervención', 'intervenciones'],
       calculo: 'Intervenciones como diputado en el Pleno por cada 100 días en activo.',
       unidad: 'por_100_dias',
@@ -146,6 +151,7 @@ export const scoring = {
       id: 'intervenciones_comision',
       dimension: 'debates',
       nombre: 'Intervenciones en comisión',
+      nombreCorto: 'Comisión',
       objeto: ['intervención', 'intervenciones'],
       calculo: 'Intervenciones como diputado en comisiones y subcomisiones por cada 100 días en activo.',
       unidad: 'por_100_dias',
@@ -156,6 +162,7 @@ export const scoring = {
       id: 'preguntas_escritas',
       dimension: 'iniciativa',
       nombre: 'Preguntas con respuesta escrita',
+      nombreCorto: 'Preguntas escritas',
       objeto: ['pregunta', 'preguntas'],
       calculo:
         'Preguntas con respuesta escrita al Gobierno y a la Corporación RTVE por cada 100 días en activo. Una pregunta con n firmantes suma 1/n a cada uno.',
@@ -168,6 +175,7 @@ export const scoring = {
       id: 'preguntas_orales',
       dimension: 'iniciativa',
       nombre: 'Preguntas con respuesta oral',
+      nombreCorto: 'Preguntas orales',
       objeto: ['pregunta', 'preguntas'],
       calculo:
         'Preguntas con respuesta oral al Gobierno en el Pleno y en comisión, y a la Corporación RTVE, por cada 100 días en activo. Cuentan las presentadas, se formulen o no, como en las escritas; las que el Congreso convierte en preguntas escritas cuentan solo como escritas. Una pregunta con n firmantes suma 1/n a cada uno.',
@@ -181,6 +189,7 @@ export const scoring = {
       id: 'solicitudes_informe',
       dimension: 'iniciativa',
       nombre: 'Solicitudes de informe',
+      nombreCorto: 'Informes',
       objeto: ['solicitud', 'solicitudes'],
       calculo:
         'Solicitudes de informe (art. 7 del Reglamento) a la Administración del Estado, comunidades autónomas, entidades locales y otras entidades públicas, por cada 100 días en activo. Una solicitud con n firmantes suma 1/n a cada uno.',
@@ -193,6 +202,7 @@ export const scoring = {
       id: 'iniciativas_legislativas',
       dimension: 'iniciativa',
       nombre: 'Iniciativas legislativas firmadas',
+      nombreCorto: 'Iniciativas legislativas',
       objeto: ['iniciativa', 'iniciativas'],
       calculo: 'Proposiciones de ley con autoría individual por cada 100 días en activo.',
       unidad: 'por_100_dias',
@@ -203,6 +213,7 @@ export const scoring = {
       id: 'leyes_ponente',
       dimension: 'resultados',
       nombre: 'Leyes aprobadas en las que fue ponente',
+      nombreCorto: 'Leyes como ponente',
       objeto: ['ley aprobada', 'leyes aprobadas'],
       calculo:
         'Proyectos y proposiciones de ley aprobados en cuya ponencia figura el diputado, por cada 100 días en activo. Cada ley cuenta en la fecha de su última votación en el Congreso. La ponencia es el grupo reducido de diputados que estudia las enmiendas y redacta el texto. Puntúa el percentil dentro del grupo parlamentario, porque cada grupo reparte entre sus miembros los puestos que tiene en todas las ponencias.',
@@ -216,6 +227,7 @@ export const scoring = {
       id: 'iniciativas_aprobadas',
       dimension: 'resultados',
       nombre: 'Iniciativas aprobadas',
+      nombreCorto: 'Iniciativas aprobadas',
       objeto: ['iniciativa', 'iniciativas'],
       calculo: 'Iniciativas firmadas que constan como aprobadas.',
       unidad: 'recuento',
@@ -323,6 +335,53 @@ export const scoring = {
     'Las ponencias se comparan dentro de cada grupo, así que «Resultados e impacto» no distingue entre grupos: la media de cada grupo en esa dimensión es 50. Cuando un grupo reúne a varios partidos, también influye cómo se reparten las ponencias entre ellos. Además, los datos oficiales dan la composición final de cada ponencia, no los relevos durante la tramitación.',
     'Las leyes aprobadas dependen sobre todo de la mayoría de la Cámara: estar en la ponencia de una ley que se aprueba no significa haberla apoyado.',
   ],
+
+  /**
+   * Aggregates by parliamentary group and by electoral list (decision D-037). They are
+   * built from the published figures of each deputy and never change a score.
+   */
+  agregados: {
+    /** With fewer deputies the page draws no central band: quartiles of so few values say nothing. */
+    minimoDistribucion: 5,
+    reglas: [
+      {
+        id: 'poblacion',
+        titulo: 'Quién cuenta',
+        texto:
+          'Cuentan los diputados con posición en el ranking del periodo, cada uno en el grupo que tenía al final. Los miembros del Gobierno y quienes no reúnen los días mínimos quedan fuera, igual que en el ranking.',
+      },
+      {
+        id: 'calculo',
+        titulo: 'Cómo se calcula cada cifra',
+        texto:
+          'Se suma la actividad de los diputados del grupo y se divide entre la suma de sus días en activo: es la media por diputado, por cada 100 días, la misma unidad que en las fichas. En las votaciones, votos emitidos entre votaciones en cuya lista figuran.',
+      },
+      {
+        id: 'credito',
+        titulo: 'Preguntas y solicitudes de informe',
+        texto:
+          'Se suma el crédito de cada firmante. Como una pregunta con n firmantes da 1/n a cada uno, una pregunta firmada solo por diputados del mismo grupo cuenta una vez.',
+      },
+      {
+        id: 'ponencias',
+        titulo: 'Leyes como ponente',
+        texto:
+          'Se muestran las ponencias por diputado, sin percentil. La puntuación de esa métrica compara a cada diputado con su propio grupo, así que vale 50 de media en todos y no sirve para comparar grupos.',
+      },
+      {
+        id: 'sin_puntuacion',
+        titulo: 'Sin puntuación por grupo',
+        texto:
+          'No hay índice ni posición de grupo. El tamaño y el papel de cada grupo condicionan sus cifras: en los grupos pequeños cada diputado interviene más y participa en más ponencias, y preguntar al Gobierno es sobre todo tarea de la oposición. Por eso se muestra cómo se reparte el índice de sus diputados, no una nota del grupo.',
+      },
+      {
+        id: 'candidatura',
+        titulo: 'Candidatura electoral',
+        texto:
+          'Es la lista con la que cada diputado fue elegido, según el censo oficial, con las federaciones territoriales agrupadas bajo sus siglas. No siempre coincide con su grupo parlamentario ni con el partido en el que milita: los datos oficiales no recogen la militancia.',
+      },
+    ],
+  },
 
   /** Figures the profile shows as context; they never enter the score. */
   contexto: [

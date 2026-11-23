@@ -274,13 +274,18 @@ describe('state in the URL', () => {
       gobierno: true,
     };
     const query = escribirEstado(estado, data);
-    expect(query).toBe('?periodo=12m&q=ana&grupo=GZ&partido=PA&circunscripcion=Norte&orden=dos&dir=asc&gobierno=1');
+    expect(query).toBe('?periodo=12m&q=ana&grupo=GZ&candidatura=PA&circunscripcion=Norte&orden=dos&dir=asc&gobierno=1');
     expect(leerEstado(query, data)).toEqual(estado);
   });
 
   it('leaves the direction out when it is the natural one of the column', () => {
     expect(escribirEstado({ ...inicial, orden: 'indice', dir: 'desc' }, data)).toBe('?orden=indice');
     expect(leerEstado('?orden=indice', data)).toMatchObject({ orden: 'indice', dir: 'desc' });
+  });
+
+  it('still reads the old name of the electoral list parameter', () => {
+    expect(leerEstado('?partido=PB', data).partido).toBe('PB');
+    expect(leerEstado('?candidatura=PA&partido=PB', data).partido).toBe('PA');
   });
 
   it('ignores unknown values and unavailable periods', () => {

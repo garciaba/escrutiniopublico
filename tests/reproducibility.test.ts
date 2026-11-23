@@ -33,8 +33,8 @@ describe('data/derived', () => {
     if (outDir) await rm(outDir, { recursive: true, force: true });
   });
 
-  it('regenerates ranking.json and meta.json from the versioned tables', async () => {
-    for (const file of ['ranking.json', 'meta.json']) {
+  it('regenerates ranking.json, grupos.json and meta.json from the versioned tables', async () => {
+    for (const file of ['ranking.json', 'grupos.json', 'meta.json']) {
       expect(await readFile(join(outDir, file), 'utf-8'), file).toBe(await readFile(join(DERIVED_DIR, file), 'utf-8'));
     }
   });

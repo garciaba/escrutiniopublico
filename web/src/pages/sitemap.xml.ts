@@ -7,6 +7,7 @@ export const GET: APIRoute = () => {
   const fecha = loadMeta().fecha_calculo;
   const paths = [
     '/',
+    '/grupos',
     '/metodologia',
     '/datos',
     '/cambios',
