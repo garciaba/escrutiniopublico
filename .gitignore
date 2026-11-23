@@ -1,0 +1,15 @@
+node_modules/
+coverage/
+dist/
+.astro/
+
+# Discovery run output (downloaded official files and reports). Never committed.
+.discovery/
+
+# Daily dumps are not versioned (see docs/decisions.md); only immutable voting data is.
+data/raw/daily/
+
+.DS_Store
+*.log
+.env
+.env.*

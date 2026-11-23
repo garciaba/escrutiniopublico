@@ -1,0 +1,82 @@
+{
+ "informacion": {
+  "sesion": 202,
+  "numeroVotacion": 1,
+  "fecha": "30/9/2026",
+  "titulo": "Proposiciones no de Ley.",
+  "textoExpediente": "Proposición no de Ley del Grupo Parlamentario Popular en el Congreso, para garantizar la correcta implementación del Pacto Europeo sobre Migración y Asilo en España.\n",
+  "tituloSubGrupo": "",
+  "textoSubGrupo": "",
+  "votacionesConjuntas": []
+ },
+ "totales": {
+  "asentimiento": "No",
+  "presentes": 346,
+  "afavor": 137,
+  "enContra": 175,
+  "abstenciones": 34,
+  "noVotan": 4
+ },
+ "votaciones": [
+  {
+   "asiento": "3603",
+   "diputado": "Palencia Rubio, Héctor",
+   "grupo": "GP",
+   "voto": "Sí"
+  },
+  {
+   "asiento": "3612",
+   "diputado": "Cabezón Casas, Tomás",
+   "grupo": "GP",
+   "voto": "Sí"
+  },
+  {
+   "asiento": "6",
+   "diputado": "Pisarello Prados, Gerardo",
+   "grupo": "GSUMAR",
+   "voto": "No"
+  },
+  {
+   "asiento": "2404",
+   "diputado": "Badia Casas, Eloi",
+   "grupo": "GSUMAR",
+   "voto": "No"
+  },
+  {
+   "asiento": "2611",
+   "diputado": "Alcaraz Martos, Francisco José",
+   "grupo": "GVOX",
+   "voto": "Abstención"
+  },
+  {
+   "asiento": "2707",
+   "diputado": "Aguirre Gil de Biedma, Rocío",
+   "grupo": "GVOX",
+   "voto": "Abstención"
+  },
+  {
+   "asiento": "1105",
+   "diputado": "Bolaños García, Félix",
+   "grupo": "GS",
+   "voto": "No vota"
+  },
+  {
+   "asiento": "1103",
+   "diputado": "Díaz Pérez, Yolanda",
+   "grupo": "GSUMAR",
+   "voto": "No vota"
+  },
+  {
+   "asiento": "-1",
+   "diputado": "Ruiz de Diego, Víctor Javier",
+   "grupo": "GS",
+   "voto": "No"
+  },
+  {
+   "asiento": "-1",
+   "diputado": "Mayoral de Lamo, Alberto",
+   "grupo": "GS",
+   "voto": "No"
+  }
+ ]
+}

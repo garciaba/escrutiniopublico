@@ -1,0 +1,50 @@
+{
+ "informacion": {
+  "sesion": 40,
+  "numeroVotacion": 52,
+  "fecha": "23/5/2024",
+  "titulo": "Dictámenes de la Comisión de Asuntos Exteriores sobre Convenios internacionales.",
+  "textoExpediente": "Convenio por el que se crea el Observatorio del Square Kilometre Array (SKAO), hecho en Roma el 12 de marzo de 2019, y Declaraciones que España desea formular.",
+  "tituloSubGrupo": "",
+  "textoSubGrupo": "",
+  "votacionesConjuntas": [
+   {
+    "textoExpediente": "Tratado de amistad y cooperación en el Sudeste Asiático, hecho en Denpasar, Bali, el 24 de febrero de 1976, con las modificaciones a dicho Tratado adoptadas mediante los Protocolos de Manila, de 15 de diciembre de 1987 y de 25 de julio de 1998, y de Hanói, de 23 de julio de 2010."
+   },
+   {
+    "textoExpediente": "Tratado de amistad y cooperación en el Sudeste Asiático, hecho en Denpasar, Bali, el 24 de febrero de 1976, con las modificaciones a dicho Tratado adoptadas mediante los Protocolos de Manila, de 15 de diciembre de 1987 y de 25 de julio de 1998, y de Hanói, de 23 de julio de 2010."
+   },
+   {
+    "textoExpediente": "Tratado de amistad y cooperación en el Sudeste Asiático, hecho en Denpasar, Bali, el 24 de febrero de 1976, con las modificaciones a dicho Tratado adoptadas mediante los Protocolos de Manila, de 15 de diciembre de 1987 y de 25 de julio de 1998, y de Hanói, de 23 de julio de 2010."
+   }
+  ]
+ },
+ "totales": {
+  "asentimiento": "No",
+  "presentes": 343,
+  "afavor": 291,
+  "enContra": 0,
+  "abstenciones": 52,
+  "noVotan": 7
+ },
+ "votaciones": [
+  {
+   "asiento": "3609",
+   "diputado": "Palencia Rubio, Héctor",
+   "grupo": "GP",
+   "voto": "Sí"
+  },
+  {
+   "asiento": "5802",
+   "diputado": "Cabezón Casas, Tomás",
+   "grupo": "GP",
+   "voto": "Sí"
+  },
+  {
+   "asiento": "1403",
+   "diputado": "Ramírez Moreno, María de las Nieves",
+   "grupo": "GS",
+   "voto": "Sí"
+  }
+ ]
+}

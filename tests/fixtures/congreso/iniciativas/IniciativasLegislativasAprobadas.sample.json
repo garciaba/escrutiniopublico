@@ -1,0 +1,29 @@
+[
+ {
+  "TIPO": "Leyes",
+  "NUMERO_LEY": "4",
+  "TITULO_LEY": "Ley 4/2026, de 1 de octubre, por la que se modifican el Texto Refundido de la Ley General de derechos de las personas con discapacidad y de su inclusión social, aprobado por el Real Decreto Legislativo 1/2013, de 29 de noviembre, y la Ley 39/2006, de 14 de diciembre, de Promoción de la Autonomía Personal y Atención a las personas en situación de dependencia, para la extensión y refuerzo de los derechos de las personas con discapacidad a la inclusión, la autonomía y la accesibilidad universal conforme al artículo 49 de la Constitución Española.",
+  "NUMERO_BOLETIN": "246",
+  "FECHA_BOLETIN": "03/10/2026",
+  "FECHA_LEY": "01/10/2026",
+  "PDF": "https://www.congreso.es/constitucion/ficheros/leyes_espa/l_004_2026.pdf"
+ },
+ {
+  "TIPO": "Reales decretos",
+  "NUMERO_LEY": "39",
+  "TITULO_LEY": "Real Decreto-ley 39/2026, de 17 de noviembre, por el que se modifican el texto refundido de la Ley del Estatuto de los Trabajadores, aprobado por el Real Decreto Legislativo 2/2015, de 23 de octubre; el Real Decreto 902/2020, de 13 de octubre, de igualdad retributiva entre mujeres y hombres; la Ley 3/2023, de 28 de febrero, de Empleo; y el Real Decreto 723/2026, de 9 de septiembre, por el que se transpone la Directiva (UE) 2019/1152 del Parlamento Europeo y del Consejo, de 20 de junio de 2019, relativa a unas condiciones laborales transparentes y previsibles en la Unión Europea.",
+  "NUMERO_BOLETIN": "287",
+  "FECHA_BOLETIN": "18/11/2026",
+  "FECHA_LEY": "17/11/2026",
+  "PDF": "https://www.congreso.es/constitucion/ficheros/leyes_espa/rdl_039_2026.pdf"
+ },
+ {
+  "TIPO": "Leyes organicas",
+  "NUMERO_LEY": "4",
+  "TITULO_LEY": "Ley Orgánica 4/2026, de 13 de octubre, por la que se modifica el artículo ochenta de la Ley Orgánica 1/1979, de 26 de septiembre, General Penitenciaria para reconocer, a efectos legales, el carácter de agentes de la autoridad a los funcionarios de la Administración Penitenciaria.",
+  "NUMERO_BOLETIN": "255",
+  "FECHA_BOLETIN": "14/10/2026",
+  "FECHA_LEY": "13/10/2026",
+  "PDF": "https://www.congreso.es/constitucion/ficheros/leyes_espa/lo_004_2026.pdf"
+ }
+]

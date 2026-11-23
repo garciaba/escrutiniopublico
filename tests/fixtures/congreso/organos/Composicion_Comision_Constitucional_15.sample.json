@@ -1,0 +1,42 @@
+[
+ {
+  "Nombre": "Zaragoza Alonso, José",
+  "Cargo": "Presidente",
+  "FechaAlta": "04/12/2023",
+  "NombreOrgano": "Comisión Constitucional",
+  "Grupo": "GS",
+  "FechaBaja": "06/10/2026"
+ },
+ {
+  "Nombre": "González López, Nahuel",
+  "Cargo": "Vicepresidente Primero",
+  "FechaAlta": "04/12/2023",
+  "NombreOrgano": "Comisión Constitucional",
+  "Grupo": "GSUMAR",
+  "FechaBaja": "06/10/2026"
+ },
+ {
+  "Nombre": "Gamarra Ruiz-Clavijo, Concepción",
+  "Cargo": "Vicepresidentes Segundos",
+  "FechaAlta": "07/10/2025",
+  "NombreOrgano": "Comisión Constitucional",
+  "Grupo": "GP",
+  "FechaBaja": "06/10/2026"
+ },
+ {
+  "Nombre": "Peñaranda Ramos, José Luis",
+  "Cargo": "Letrados",
+  "FechaAlta": "04/12/2023",
+  "NombreOrgano": "Comisión Constitucional",
+  "Grupo": "",
+  "FechaBaja": "06/10/2026"
+ },
+ {
+  "Nombre": "Fernández-Fontecha Torres, Manuel",
+  "Cargo": "Letrados",
+  "FechaAlta": "18/12/2023",
+  "NombreOrgano": "Comisión Constitucional",
+  "Grupo": "",
+  "FechaBaja": "11/04/2025"
+ }
+]
