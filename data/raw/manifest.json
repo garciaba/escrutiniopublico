@@ -17,6 +17,12 @@
   "bytes": 184805,
   "sha256": "9fdd3f39bc5a49a839d606e2b281466a090d9bdc852a67dbb3ea19ee485a8a4e"
  },
+ "iniciativas/buscador-179": {
+  "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+  "descargado": "2026-11-23",
+  "bytes": 2518161,
+  "sha256": "3e9ca22921aa56790bbdd6c64ffcb70fbc26f7be5dccd48fd219bf5baa6297ef"
+ },
  "iniciativas/buscador-184": {
   "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
   "descargado": "2026-11-23",
@@ -28,6 +34,24 @@
   "descargado": "2026-11-23",
   "bytes": 1801866,
   "sha256": "f1e8446fe215e01ab374e9c9a1422752ff6fed1a6a920cef448658424e772cd8"
+ },
+ "iniciativas/buscador-187": {
+  "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+  "descargado": "2026-11-23",
+  "bytes": 485208,
+  "sha256": "fd0ae3222686e1651c68c47d57ba14b3d84482db95037d0bee9313d66d161f61"
+ },
+ "iniciativas/buscador-188": {
+  "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+  "descargado": "2026-11-23",
+  "bytes": 17667,
+  "sha256": "8bba4ca2c5a71debe0216c9bf927413ea8e93e96857fd0a019800ec41f43f325"
+ },
+ "iniciativas/buscador-189": {
+  "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+  "descargado": "2026-11-23",
+  "bytes": 51870,
+  "sha256": "766808f1dcd01f490e17ecda133573d4731765055add3bed1c3a063f4cc2d35a"
  },
  "iniciativas/ProposicionesDeLey": {
   "url": "https://www.congreso.es/webpublica/opendata/iniciativas/ProposicionesDeLey__20261123050130.json",

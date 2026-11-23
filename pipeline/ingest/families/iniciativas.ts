@@ -23,7 +23,7 @@ import {
   searchInitiativesFile,
   type SearchInitiativeRow,
 } from '../../normalize/schemas.ts';
-import { withQuery, type IngestContext } from '../context.ts';
+import { reusable, withQuery, type IngestContext } from '../context.ts';
 import { DAILY_DIR, RAW_DIR, recordDownload, writeAtomic } from '../raw-store.ts';
 import { ingestStaticFile } from './static-file.ts';
 
@@ -235,8 +235,19 @@ export async function ingestIniciativas(ctx: IngestContext, indexHtml: string): 
   for (const prefix of BILL_PREFIXES) {
     await ingestStaticFile(ctx, 'iniciativas', prefix, indexHtml, billsFile);
   }
+  const incidentsPath = join(RAW_DIR, 'iniciativas-incidencias.json');
+  let previous: InitiativesIncident[] = [];
+  try {
+    previous = JSON.parse(await readFile(incidentsPath, 'utf-8')) as InitiativesIncident[];
+  } catch {
+    // First run: no incident file yet.
+  }
   const incidents: InitiativesIncident[] = [];
   for (const { codigo } of project.iniciativasBuscador.tipos) {
+    if (reusable(ctx, join(DAILY_DIR, 'iniciativas', `buscador-${codigo}.json`))) {
+      incidents.push(...previous.filter((incident) => incident.tipo === codigo));
+      continue;
+    }
     const total = await countInitiatives(ctx, codigo);
     const blocks: (SearchInitiativeRow[] | undefined)[] = [];
     for (let fileIndex = 1; (fileIndex - 1) * project.iniciativasBuscador.pageSize < total; fileIndex++) {
@@ -287,5 +298,5 @@ export async function ingestIniciativas(ctx: IngestContext, indexHtml: string): 
     );
   }
   // Versioned and published: what the official search could not serve, and why.
-  await writeAtomic(join(RAW_DIR, 'iniciativas-incidencias.json'), `${JSON.stringify(incidents, null, 1)}\n`);
+  await writeAtomic(incidentsPath, `${JSON.stringify(incidents, null, 1)}\n`);
 }

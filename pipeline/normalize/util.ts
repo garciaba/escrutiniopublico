@@ -69,3 +69,69 @@ export function splitCensusName(censusName: string): { nombre: string; apellidos
 export function sameSurnames(a: string, b: string): boolean {
   return nameParts(a).surnames.join(' ') === nameParts(b).surnames.join(' ');
 }
+
+/**
+ * Parses the CSV written by `toCsv` (RFC 4180, LF or CRLF line endings) into records
+ * keyed by the header. Every value is a string; an empty cell is ''.
+ */
+export function parseCsv(text: string): Record<string, string>[] {
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let i = 0;
+  const n = text.length;
+  while (i < n) {
+    let field: string;
+    if (text[i] === '"') {
+      let out = '';
+      let j = i + 1;
+      for (;;) {
+        const quote = text.indexOf('"', j);
+        if (quote === -1) throw new Error('Unterminated quoted CSV field');
+        if (text[quote + 1] === '"') {
+          out += text.slice(j, quote + 1);
+          j = quote + 2;
+          continue;
+        }
+        out += text.slice(j, quote);
+        i = quote + 1;
+        break;
+      }
+      field = out;
+    } else {
+      let j = i;
+      while (j < n && text[j] !== ',' && text[j] !== '\n') j++;
+      field = text.slice(i, j);
+      if (field.endsWith('\r')) field = field.slice(0, -1);
+      i = j;
+    }
+    row.push(field);
+    if (text[i] === '\r') i++;
+    if (i >= n) {
+      rows.push(row);
+      break;
+    }
+    if (text[i] === ',') {
+      i++;
+      if (i === n) {
+        row.push('');
+        rows.push(row);
+      }
+      continue;
+    }
+    if (text[i] === '\n') {
+      i++;
+      rows.push(row);
+      row = [];
+      continue;
+    }
+    throw new Error(`Unexpected character after a quoted CSV field at offset ${i}`);
+  }
+  const header = rows[0] ?? [];
+  return rows.slice(1).map((cells) => {
+    const record: Record<string, string> = {};
+    header.forEach((column, index) => {
+      record[column] = cells[index] ?? '';
+    });
+    return record;
+  });
+}

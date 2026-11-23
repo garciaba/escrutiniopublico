@@ -1,0 +1,960 @@
+{
+ "metodologia_version": "1.0.0",
+ "fecha_calculo": "2026-11-23",
+ "legislatura": {
+  "numero": 15,
+  "nombre": "XV",
+  "inicio": "2023-08-17",
+  "fin": "2026-10-06",
+  "finalizada": true
+ },
+ "diputado": {
+  "diputado_id": "L15-34dc7eb4d9",
+  "cod_parlamentario": 330,
+  "nombre_completo": "Pin Ferrando, Gala",
+  "nombre": "Gala",
+  "apellidos": "Pin Ferrando",
+  "slug": "gala-pin-ferrando",
+  "grupo": {
+   "id": "GSUMAR",
+   "nombre": "Grupo Parlamentario Plurinacional SUMAR"
+  },
+  "formacion": "SUMAR",
+  "partido": "SUMAR",
+  "circunscripcion": "Barcelona",
+  "fecha_alta": "2023-08-16",
+  "fecha_baja": "2025-02-10",
+  "url_ficha_oficial": "https://www.congreso.es/es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_diputadomodule_mostrarFicha=true&codParlamentario=330&idLegislatura=XV"
+ },
+ "gobierno": [],
+ "cargos": [
+  {
+   "organo_id": "c1-380",
+   "organo": "Comisión de Ciencia, Innovación y Universidades",
+   "tipo": "comision",
+   "cargo": "Portavoces adjuntos",
+   "desde": "2023-12-12",
+   "hasta": "2025-02-10"
+  },
+  {
+   "organo_id": "c1-377",
+   "organo": "Comisión de Cultura",
+   "tipo": "comision",
+   "cargo": "Adscritos",
+   "desde": "2023-12-12",
+   "hasta": "2025-02-10"
+  },
+  {
+   "organo_id": "c1-304",
+   "organo": "Comisión de Defensa",
+   "tipo": "comision",
+   "cargo": "Adscritos",
+   "desde": "2023-12-12",
+   "hasta": "2025-02-10"
+  },
+  {
+   "organo_id": "c1-378",
+   "organo": "Comisión de Economía, Comercio y Transformación Digital",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-12-04",
+   "hasta": "2023-12-12"
+  },
+  {
+   "organo_id": "c1-378",
+   "organo": "Comisión de Economía, Comercio y Transformación Digital",
+   "tipo": "comision",
+   "cargo": "Portavoces adjuntos",
+   "desde": "2023-12-12",
+   "hasta": "2025-02-10"
+  },
+  {
+   "organo_id": "c1-305",
+   "organo": "Comisión de Hacienda y Función Pública",
+   "tipo": "comision",
+   "cargo": "Adscritos",
+   "desde": "2023-12-12",
+   "hasta": "2025-02-10"
+  },
+  {
+   "organo_id": "c1-320",
+   "organo": "Comisión de Igualdad",
+   "tipo": "comision",
+   "cargo": "Adscritos",
+   "desde": "2023-12-12",
+   "hasta": "2025-02-10"
+  },
+  {
+   "organo_id": "c1-373",
+   "organo": "Comisión de Industria y Turismo",
+   "tipo": "comision",
+   "cargo": "Adscritos",
+   "desde": "2023-12-12",
+   "hasta": "2025-02-10"
+  },
+  {
+   "organo_id": "c1-329",
+   "organo": "Comisión de Interior",
+   "tipo": "comision",
+   "cargo": "Adscritos",
+   "desde": "2023-12-12",
+   "hasta": "2025-02-10"
+  },
+  {
+   "organo_id": "c1-338",
+   "organo": "Comisión de seguimiento y evaluación de los acuerdos del Pacto de Estado en materia de Violencia de Género",
+   "tipo": "comision",
+   "cargo": "Portavoces",
+   "desde": "2024-02-27",
+   "hasta": "2025-02-10"
+  },
+  {
+   "organo_id": "c1-372",
+   "organo": "Comisión de Trabajo, Economía Social, Inclusión, Seguridad Social y Migraciones",
+   "tipo": "comision",
+   "cargo": "Adscritos",
+   "desde": "2023-12-12",
+   "hasta": "2025-02-10"
+  },
+  {
+   "organo_id": "c1-333",
+   "organo": "Comisión de Vivienda y Agenda Urbana",
+   "tipo": "comision",
+   "cargo": "Vocales",
+   "desde": "2023-12-04",
+   "hasta": "2023-12-20"
+  },
+  {
+   "organo_id": "c1-333",
+   "organo": "Comisión de Vivienda y Agenda Urbana",
+   "tipo": "comision",
+   "cargo": "Portavoces",
+   "desde": "2023-12-20",
+   "hasta": "2025-02-10"
+  },
+  {
+   "organo_id": "c1-316",
+   "organo": "Comisión Mixta de Relaciones con el Defensor del Pueblo",
+   "tipo": "comision_mixta",
+   "cargo": "Portavoces",
+   "desde": "2023-12-12",
+   "hasta": "2025-02-10"
+  },
+  {
+   "organo_id": "c1-331",
+   "organo": "Comisión para la auditoría de la calidad democrática, la lucha contra la corrupción y las reformas institucionales y legales",
+   "tipo": "comision",
+   "cargo": "Secretarios Primeros",
+   "desde": "2023-12-04",
+   "hasta": "2025-02-10"
+  },
+  {
+   "organo_id": "c338-338201",
+   "organo": "Subcomisión para la renovación y actualización del Pacto de Estado en materia de violencia de género (154/3)",
+   "tipo": "subcomision",
+   "cargo": "Ponentes",
+   "desde": "2024-05-14",
+   "hasta": "2025-02-10"
+  }
+ ],
+ "periodos": {
+  "legislatura": {
+   "estado": "disponible",
+   "situacion": "ranking",
+   "etapa_gobierno_excluida": false,
+   "desde": "2023-08-17",
+   "hasta": "2026-10-06",
+   "dias_activo": 544,
+   "dias_gobierno": 0,
+   "dias_evaluados": 544,
+   "grupo": "GSUMAR",
+   "roles": [],
+   "indice": 53.8,
+   "cobertura": 0.6,
+   "posicion": 145,
+   "total_ranking": 392,
+   "dimensiones": [
+    {
+     "id": "dedicacion",
+     "puntuacion": 25.9
+    },
+    {
+     "id": "debates",
+     "puntuacion": 66.7
+    },
+    {
+     "id": "iniciativa",
+     "puntuacion": 68.8
+    },
+    {
+     "id": "resultados",
+     "puntuacion": null
+    },
+    {
+     "id": "representacion",
+     "puntuacion": null
+    }
+   ],
+   "metricas": [
+    {
+     "id": "votaciones_participacion",
+     "dimension": "dedicacion",
+     "estado": "observado",
+     "valor": 0.9955,
+     "numerador": 894,
+     "denominador": 898,
+     "percentil": 25.9,
+     "percentil_grupo": 50,
+     "n_grupo": 29,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Votaciones",
+      "url": "https://www.congreso.es/es/opendata/votaciones",
+      "fecha_dato": "2026-09-30"
+     }
+    },
+    {
+     "id": "intervenciones_pleno",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 2.0221,
+     "numerador": 11,
+     "denominador": 544,
+     "percentil": 74.4,
+     "percentil_grupo": 22.4,
+     "n_grupo": 29,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "intervenciones_comision",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 3.125,
+     "numerador": 17,
+     "denominador": 544,
+     "percentil": 59.1,
+     "percentil_grupo": 8.6,
+     "n_grupo": 29,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_escritas",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 1.8982,
+     "numerador": 10.3262,
+     "denominador": 544,
+     "percentil": 39.9,
+     "percentil_grupo": 22.4,
+     "n_grupo": 29,
+     "detalle": {
+      "firmadas": 29,
+      "primer_firmante": 7
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "solicitudes_informe",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 4.2279,
+     "numerador": 23,
+     "denominador": 544,
+     "percentil": 97.6,
+     "percentil_grupo": 98.3,
+     "n_grupo": 29,
+     "detalle": {
+      "firmadas": 23,
+      "primer_firmante": 23
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "iniciativas_legislativas",
+     "dimension": "iniciativa",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
+    },
+    {
+     "id": "iniciativas_aprobadas",
+     "dimension": "resultados",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
+    }
+   ]
+  },
+  "12m": {
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_activo"
+  },
+  "3m": {
+   "estado": "no_disponible",
+   "motivo": "periodo_demasiado_corto"
+  },
+  "1m": {
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_la_legislatura"
+  }
+ },
+ "evolucion": {
+  "meses": [
+   "2023-08",
+   "2023-09",
+   "2023-10",
+   "2023-11",
+   "2023-12",
+   "2024-01",
+   "2024-02",
+   "2024-03",
+   "2024-04",
+   "2024-05",
+   "2024-06",
+   "2024-07",
+   "2024-08",
+   "2024-09",
+   "2024-10",
+   "2024-11",
+   "2024-12",
+   "2025-01",
+   "2025-02",
+   "2025-03",
+   "2025-04",
+   "2025-05",
+   "2025-06",
+   "2025-07",
+   "2025-08",
+   "2025-09",
+   "2025-10",
+   "2025-11",
+   "2025-12",
+   "2026-01",
+   "2026-02",
+   "2026-03",
+   "2026-04",
+   "2026-05",
+   "2026-06",
+   "2026-07",
+   "2026-08",
+   "2026-09",
+   "2026-10"
+  ],
+  "series": {
+   "votaciones_participacion": [
+    null,
+    1,
+    null,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0.9804,
+    0.989,
+    null,
+    1,
+    1,
+    1,
+    0.992,
+    1,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "intervenciones_pleno": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "intervenciones_comision": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    1,
+    3,
+    0,
+    0,
+    3,
+    0,
+    0,
+    1,
+    2,
+    1,
+    4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "preguntas_escritas": [
+    0,
+    0.5,
+    0,
+    0,
+    4.8333,
+    0,
+    1.1833,
+    0.5,
+    0.3333,
+    0,
+    0,
+    0.3333,
+    0.8333,
+    0.3333,
+    0.1429,
+    0.5,
+    0.5,
+    0.3333,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "solicitudes_informe": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    23,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ },
+ "ultimas_votaciones": [
+  {
+   "votacion_id": "L15-S089-V004",
+   "fecha": "2025-01-22",
+   "titulo": "Convalidación o derogación de Reales Decretos-leyes.",
+   "asunto": "Tramitación como Proyecto de Ley por el procedimiento de urgencia del Real Decreto-ley 11/2024, de 23 de diciembre, para la mejora de la compatibilidad de la pensión de jubilación con el trabajo.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion089/20250122/VOT_20250122154424.zip"
+  },
+  {
+   "votacion_id": "L15-S089-V003",
+   "fecha": "2025-01-22",
+   "titulo": "Convalidación o derogación de Reales Decretos-leyes.",
+   "asunto": "Real Decreto-ley 11/2024, de 23 de diciembre, para la mejora de la compatibilidad de la pensión de jubilación con el trabajo.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion089/20250122/VOT_20250122154424.zip"
+  },
+  {
+   "votacion_id": "L15-S089-V002",
+   "fecha": "2025-01-22",
+   "titulo": "Convalidación o derogación de Reales Decretos-leyes.",
+   "asunto": "Real Decreto-ley 10/2024, de 23 de diciembre, para el establecimiento de un gravamen temporal energético durante el año 2025.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion089/20250122/VOT_20250122154424.zip"
+  },
+  {
+   "votacion_id": "L15-S089-V001",
+   "fecha": "2025-01-22",
+   "titulo": "Convalidación o derogación de Reales Decretos-leyes.",
+   "asunto": "Real Decreto-ley 9/2024, de 23 de diciembre, por el que se adoptan medidas urgentes en materia económica, tributaria, de transporte, y de Seguridad Social, y se prorrogan determinadas medidas para hacer frente a situaciones de vulnerabilidad social.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion089/20250122/VOT_20250122154424.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V107",
+   "fecha": "2024-12-19",
+   "titulo": "Propuestas de creación de Comisiones.",
+   "asunto": "Propuesta de la Comisión de Juventud e Infancia, de creación de una Subcomisión sobre el estudio de un Pacto de Estado para la erradicación de la Pobreza Infantil.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V106",
+   "fecha": "2024-12-19",
+   "titulo": "Avocación de iniciativas legislativas.",
+   "asunto": "Votación de la solicitud de avocación por el Pleno de la Cámara de la deliberación y votación final del Proyecto de Ley por la que se modifican la Ley 48/1960, de 21 de julio, sobre Navegación Aérea, y la Ley 21/2003, de 7 de julio, de Seguridad Aérea, presentada por el Grupo Parlamentario Popular en el Congreso.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V105",
+   "fecha": "2024-12-19",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V104",
+   "fecha": "2024-12-19",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V103",
+   "fecha": "2024-12-19",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V102",
+   "fecha": "2024-12-19",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V101",
+   "fecha": "2024-12-19",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V100",
+   "fecha": "2024-12-19",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V099",
+   "fecha": "2024-12-19",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V098",
+   "fecha": "2024-12-19",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V097",
+   "fecha": "2024-12-19",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V096",
+   "fecha": "2024-12-19",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V095",
+   "fecha": "2024-12-19",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V094",
+   "fecha": "2024-12-19",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V093",
+   "fecha": "2024-12-19",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  },
+  {
+   "votacion_id": "L15-S088-V092",
+   "fecha": "2024-12-19",
+   "titulo": "Enmiendas del Senado.",
+   "asunto": "Proyecto de Ley por la que se establecen un Impuesto Complementario para garantizar un nivel mínimo global de imposición para los grupos multinacionales y los grupos nacionales de gran magnitud, un Impuesto sobre el margen de intereses y comisiones de determinadas entidades financieras y un Impuesto sobre los líquidos para cigarrillos electrónicos y otros productos relacionados con el tabaco, y se modifican otras normas tributarias.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion088/20241219/VOT_20241219162659.zip"
+  }
+ ],
+ "ultimas_intervenciones": [
+  {
+   "intervencion_id": "1545100I",
+   "fecha": "2024-12-18",
+   "organo": "Comisión para la auditoría de la calidad democrática, la lucha contra la corrupción y las reformas institucionales y legales",
+   "tipo_iniciativa": "Otras comparecencias en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-255.CODI.)#(P%C3%A1gina17)",
+   "url_video": "https://app.congreso.es/v1/1545100I"
+  },
+  {
+   "intervencion_id": "1544860I",
+   "fecha": "2024-12-17",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Proposición de ley de Grupos Parlamentarios del Congreso.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-89.CODI.)#(P%C3%A1gina6)",
+   "url_video": "https://app.congreso.es/v1/1544860I"
+  },
+  {
+   "intervencion_id": "1544451I",
+   "fecha": "2024-12-12",
+   "organo": "Comisión de Vivienda y Agenda Urbana",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-241.CODI.)#(P%C3%A1gina21)",
+   "url_video": "https://app.congreso.es/v1/1544451I"
+  },
+  {
+   "intervencion_id": "1544388I",
+   "fecha": "2024-12-12",
+   "organo": "Comisión de Vivienda y Agenda Urbana",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-241.CODI.)#(P%C3%A1gina12)",
+   "url_video": "https://app.congreso.es/v1/1544388I"
+  },
+  {
+   "intervencion_id": "1544349I",
+   "fecha": "2024-12-12",
+   "organo": "Comisión de Economía, Comercio y Transformación Digital",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-244.CODI.)#(P%C3%A1gina8)",
+   "url_video": "https://app.congreso.es/v1/1544349I"
+  },
+  {
+   "intervencion_id": "1543907I",
+   "fecha": "2024-12-10",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Moción consecuencia de interpelación urgente.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-86.CODI.)#(P%C3%A1gina53)",
+   "url_video": "https://app.congreso.es/v1/1543907I"
+  },
+  {
+   "intervencion_id": "1542579I",
+   "fecha": "2024-11-21",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Otros informes del Defensor del Pueblo.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-82.CODI.)#(P%C3%A1gina26)",
+   "url_video": "https://app.congreso.es/v1/1542579I"
+  },
+  {
+   "intervencion_id": "1541665I",
+   "fecha": "2024-11-12",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Proposición de ley de Comunidades y Ciudades Autónomas.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-77.CODI.)#(P%C3%A1gina29)",
+   "url_video": "https://app.congreso.es/v1/1541665I"
+  },
+  {
+   "intervencion_id": "1541582I",
+   "fecha": "2024-11-12",
+   "organo": "Comisión de Vivienda y Agenda Urbana",
+   "tipo_iniciativa": "Otras comparecencias en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-214.CODI.)#(P%C3%A1gina12)",
+   "url_video": "https://app.congreso.es/v1/1541582I"
+  },
+  {
+   "intervencion_id": "1540644I",
+   "fecha": "2024-10-23",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Comparecencia del Gobierno ante el Pleno.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-73.CODI.)#(P%C3%A1gina92)",
+   "url_video": "https://app.congreso.es/v1/1540644I"
+  },
+  {
+   "intervencion_id": "1540150I",
+   "fecha": "2024-10-16",
+   "organo": "Comisión de Economía, Comercio y Transformación Digital",
+   "tipo_iniciativa": "Comparecencia del Gobierno en Comisión (art. 44).",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-185.CODI.)#(P%C3%A1gina30)",
+   "url_video": "https://app.congreso.es/v1/1540150I"
+  },
+  {
+   "intervencion_id": "1540104I",
+   "fecha": "2024-10-16",
+   "organo": "Comisión de Economía, Comercio y Transformación Digital",
+   "tipo_iniciativa": "Comparecencia del Gobierno en Comisión (art. 44).",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-185.CODI.)#(P%C3%A1gina15)",
+   "url_video": "https://app.congreso.es/v1/1540104I"
+  },
+  {
+   "intervencion_id": "1538707I",
+   "fecha": "2024-09-24",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Moción consecuencia de interpelación urgente.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-64.CODI.)#(P%C3%A1gina60)",
+   "url_video": "https://app.congreso.es/v1/1538707I"
+  },
+  {
+   "intervencion_id": "1538625I",
+   "fecha": "2024-09-24",
+   "organo": "Comisión de Vivienda y Agenda Urbana",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-167.CODI.)#(P%C3%A1gina27)",
+   "url_video": "https://app.congreso.es/v1/1538625I"
+  },
+  {
+   "intervencion_id": "1535775I",
+   "fecha": "2024-06-19",
+   "organo": "Comisión de seguimiento y evaluación de los acuerdos del Pacto de Estado en materia de Violencia de Género",
+   "tipo_iniciativa": "Comparecencia de autoridades y funcionarios en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-133.CODI.)#(P%C3%A1gina27)",
+   "url_video": "https://app.congreso.es/v1/1535775I"
+  },
+  {
+   "intervencion_id": "1535758I",
+   "fecha": "2024-06-19",
+   "organo": "Comisión de seguimiento y evaluación de los acuerdos del Pacto de Estado en materia de Violencia de Género",
+   "tipo_iniciativa": "Comparecencia de autoridades y funcionarios en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-133.CODI.)#(P%C3%A1gina14)",
+   "url_video": "https://app.congreso.es/v1/1535758I"
+  },
+  {
+   "intervencion_id": "1535283I",
+   "fecha": "2024-06-17",
+   "organo": "Comisión de Economía, Comercio y Transformación Digital",
+   "tipo_iniciativa": "Proposición no de Ley en Comisión.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-131.CODI.)#(P%C3%A1gina11)",
+   "url_video": "https://app.congreso.es/v1/1535283I"
+  },
+  {
+   "intervencion_id": "1535097I",
+   "fecha": "2024-06-13",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Iniciativa legislativa popular.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-48.CODI.)#(P%C3%A1gina12)",
+   "url_video": "https://app.congreso.es/v1/1535097I"
+  },
+  {
+   "intervencion_id": "1533414I",
+   "fecha": "2024-05-21",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Proposición de ley de Grupos Parlamentarios del Congreso.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-40.CODI.)#(P%C3%A1gina31)",
+   "url_video": "https://app.congreso.es/v1/1533414I"
+  },
+  {
+   "intervencion_id": "1531468I",
+   "fecha": "2024-04-09",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Iniciativa legislativa popular.",
+   "cuenta": true,
+   "motivo_exclusion": null,
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-36.CODI.)#(P%C3%A1gina15)",
+   "url_video": "https://app.congreso.es/v1/1531468I"
+  }
+ ]
+}

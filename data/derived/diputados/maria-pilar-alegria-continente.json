@@ -1,0 +1,763 @@
+{
+ "metodologia_version": "1.0.0",
+ "fecha_calculo": "2026-11-23",
+ "legislatura": {
+  "numero": 15,
+  "nombre": "XV",
+  "inicio": "2023-08-17",
+  "fin": "2026-10-06",
+  "finalizada": true
+ },
+ "diputado": {
+  "diputado_id": "L15-201a648bef",
+  "cod_parlamentario": 274,
+  "nombre_completo": "Alegría Continente, María Pilar",
+  "nombre": "María Pilar",
+  "apellidos": "Alegría Continente",
+  "slug": "maria-pilar-alegria-continente",
+  "grupo": {
+   "id": "GS",
+   "nombre": "Grupo Parlamentario Socialista"
+  },
+  "formacion": "PSOE",
+  "partido": "PSOE",
+  "circunscripcion": "Zaragoza",
+  "fecha_alta": "2023-08-14",
+  "fecha_baja": "2023-12-06",
+  "url_ficha_oficial": "https://www.congreso.es/es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_diputadomodule_mostrarFicha=true&codParlamentario=274&idLegislatura=XV"
+ },
+ "gobierno": [
+  {
+   "cargos": "Ministra de Educación y Formación Profesional; desde el 21/11/2023, de Educación, Formación Profesional y Deportes",
+   "desde": "2023-08-17",
+   "hasta": "2025-12-22",
+   "evidencia": [
+    "BOE-A-2021-11535 (RD 529/2021)",
+    "BOE-A-2023-23543 (RD 835/2023)",
+    "BOE-A-2025-26352 (RD 1183/2025, cese)"
+   ]
+  }
+ ],
+ "cargos": [],
+ "periodos": {
+  "legislatura": {
+   "estado": "disponible",
+   "situacion": "gobierno",
+   "etapa_gobierno_excluida": false,
+   "desde": "2023-08-17",
+   "hasta": "2026-10-06",
+   "dias_activo": 112,
+   "dias_gobierno": 112,
+   "dias_evaluados": 112,
+   "grupo": "GS",
+   "roles": [
+    "gobierno"
+   ],
+   "indice": 34.4,
+   "cobertura": 0.6,
+   "posicion": null,
+   "total_ranking": 392,
+   "dimensiones": [
+    {
+     "id": "dedicacion",
+     "puntuacion": 90.6
+    },
+    {
+     "id": "debates",
+     "puntuacion": 3.1
+    },
+    {
+     "id": "iniciativa",
+     "puntuacion": 9.6
+    },
+    {
+     "id": "resultados",
+     "puntuacion": null
+    },
+    {
+     "id": "representacion",
+     "puntuacion": null
+    }
+   ],
+   "metricas": [
+    {
+     "id": "votaciones_participacion",
+     "dimension": "dedicacion",
+     "estado": "observado",
+     "valor": 1,
+     "numerador": 11,
+     "denominador": 11,
+     "percentil": 90.6,
+     "percentil_grupo": 77.5,
+     "n_grupo": 140,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Votaciones",
+      "url": "https://www.congreso.es/es/opendata/votaciones",
+      "fecha_dato": "2026-09-30"
+     }
+    },
+    {
+     "id": "intervenciones_pleno",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 112,
+     "percentil": 2.7,
+     "percentil_grupo": 4.3,
+     "n_grupo": 140,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "intervenciones_comision",
+     "dimension": "debates",
+     "estado": "observado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 112,
+     "percentil": 3.6,
+     "percentil_grupo": 4.6,
+     "n_grupo": 140,
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Intervenciones",
+      "url": "https://www.congreso.es/es/opendata/intervenciones",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "preguntas_escritas",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 112,
+     "percentil": 2.2,
+     "percentil_grupo": 5,
+     "n_grupo": 140,
+     "detalle": {
+      "firmadas": 0,
+      "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "solicitudes_informe",
+     "dimension": "iniciativa",
+     "estado": "calculado",
+     "valor": 0,
+     "numerador": 0,
+     "denominador": 112,
+     "percentil": 17.1,
+     "percentil_grupo": 41.4,
+     "n_grupo": 140,
+     "detalle": {
+      "firmadas": 0,
+      "primer_firmante": 0
+     },
+     "fuente": {
+      "nombre": "Congreso de los Diputados · Buscador de iniciativas",
+      "url": "https://www.congreso.es/es/busqueda-de-iniciativas",
+      "fecha_dato": "2026-11-23"
+     }
+    },
+    {
+     "id": "iniciativas_legislativas",
+     "dimension": "iniciativa",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales atribuyen casi todas las proposiciones de ley al grupo, no a diputados concretos."
+    },
+    {
+     "id": "iniciativas_aprobadas",
+     "dimension": "resultados",
+     "estado": "no_disponible",
+     "valor": null,
+     "numerador": null,
+     "denominador": null,
+     "percentil": null,
+     "percentil_grupo": null,
+     "n_grupo": null,
+     "motivo": "Los datos oficiales de leyes aprobadas no traen autor ni expediente."
+    }
+   ]
+  },
+  "12m": {
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_activo"
+  },
+  "3m": {
+   "estado": "no_disponible",
+   "motivo": "periodo_demasiado_corto"
+  },
+  "1m": {
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_la_legislatura"
+  }
+ },
+ "evolucion": {
+  "meses": [
+   "2023-08",
+   "2023-09",
+   "2023-10",
+   "2023-11",
+   "2023-12",
+   "2024-01",
+   "2024-02",
+   "2024-03",
+   "2024-04",
+   "2024-05",
+   "2024-06",
+   "2024-07",
+   "2024-08",
+   "2024-09",
+   "2024-10",
+   "2024-11",
+   "2024-12",
+   "2025-01",
+   "2025-02",
+   "2025-03",
+   "2025-04",
+   "2025-05",
+   "2025-06",
+   "2025-07",
+   "2025-08",
+   "2025-09",
+   "2025-10",
+   "2025-11",
+   "2025-12",
+   "2026-01",
+   "2026-02",
+   "2026-03",
+   "2026-04",
+   "2026-05",
+   "2026-06",
+   "2026-07",
+   "2026-08",
+   "2026-09",
+   "2026-10"
+  ],
+  "series": {
+   "votaciones_participacion": [
+    null,
+    1,
+    null,
+    1,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "intervenciones_pleno": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "intervenciones_comision": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "preguntas_escritas": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "solicitudes_informe": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ },
+ "ultimas_votaciones": [
+  {
+   "votacion_id": "L15-S009-V005",
+   "fecha": "2023-11-28",
+   "titulo": "Tramitación directa y en lectura única de Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Votación de conjunto de la Proposición de reforma del Reglamento del Congreso de los Diputados por la que se modifica el artículo 46.1.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion009/20231128/VOT_20231128183352.zip"
+  },
+  {
+   "votacion_id": "L15-S009-V004",
+   "fecha": "2023-11-28",
+   "titulo": "Propuestas de creación de Comisiones.",
+   "asunto": "Solicitud de los Grupos Parlamentarios Popular en el Congreso, Socialista y Plurinacional SUMAR, de creación de una Comisión de seguimiento y evaluación de los acuerdos del Pacto de Toledo.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion009/20231128/VOT_20231128183352.zip"
+  },
+  {
+   "votacion_id": "L15-S009-V003",
+   "fecha": "2023-11-28",
+   "titulo": "Tramitación directa y en lectura única de Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Votación de la enmienda a la totalidad de texto alternativo a la Proposición de reforma del Reglamento del Congreso de los Diputados por la que se modifica el artículo 46.1, presentada por el Grupo Parlamentario VOX.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion009/20231128/VOT_20231128183352.zip"
+  },
+  {
+   "votacion_id": "L15-S009-V002",
+   "fecha": "2023-11-28",
+   "titulo": "Acuerdo de tramitación directa y en lectura única de Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Acuerdo de tramitación directa y en lectura única de la Proposición de reforma del Reglamento del Congreso de los Diputados por la que se modifica el artículo 46.1.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion009/20231128/VOT_20231128183352.zip"
+  },
+  {
+   "votacion_id": "L15-S009-V001",
+   "fecha": "2023-11-28",
+   "titulo": "Toma en consideración de Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Proposición de los Grupos Parlamentarios Popular en el Congreso, Socialista y Plurinacional SUMAR, de reforma del Reglamento del Congreso de los Diputados por la que se modifica el artículo 46.1.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion009/20231128/VOT_20231128183352.zip"
+  },
+  {
+   "votacion_id": "L15-S003-V004",
+   "fecha": "2023-09-21",
+   "titulo": "Tramitación directa y en lectura única de Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion003/20230921/VOT_20230921120042.zip"
+  },
+  {
+   "votacion_id": "L15-S003-V003",
+   "fecha": "2023-09-21",
+   "titulo": "Tramitación directa y en lectura única de Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion003/20230921/VOT_20230921120042.zip"
+  },
+  {
+   "votacion_id": "L15-S003-V002",
+   "fecha": "2023-09-21",
+   "titulo": "Tramitación directa y en lectura única de Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "sentido": "si",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion003/20230921/VOT_20230921120042.zip"
+  },
+  {
+   "votacion_id": "L15-S003-V001",
+   "fecha": "2023-09-21",
+   "titulo": "Tramitación directa y en lectura única de Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "sentido": "no",
+   "telematico": false,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion003/20230921/VOT_20230921120042.zip"
+  },
+  {
+   "votacion_id": "L15-S002-V002",
+   "fecha": "2023-09-19",
+   "titulo": "Acuerdo de tramitación directa y en lectura única de Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Acuerdo de tramitación directa y en lectura única de la Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "sentido": "si",
+   "telematico": true,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion002/20230919/VOT_20230919152000.zip"
+  },
+  {
+   "votacion_id": "L15-S002-V001",
+   "fecha": "2023-09-19",
+   "titulo": "Toma en consideración de Proposición de reforma del Reglamento del Congreso de los Diputados.",
+   "asunto": "Proposición de los Grupos Parlamentarios Socialista, Plurinacional SUMAR, Republicano, Euskal Herria Bildu, Mixto y Vasco (EAJ-PNV), de reforma del Reglamento del Congreso de los Diputados.",
+   "sentido": "si",
+   "telematico": true,
+   "url_fuente": "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion002/20230919/VOT_20230919152000.zip"
+  }
+ ],
+ "ultimas_intervenciones": [
+  {
+   "intervencion_id": "1564728I",
+   "fecha": "2025-11-26",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-155.CODI.)#(P%C3%A1gina25)",
+   "url_video": "https://app.congreso.es/v1/1564728I"
+  },
+  {
+   "intervencion_id": "1564725I",
+   "fecha": "2025-11-26",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-155.CODI.)#(P%C3%A1gina24)",
+   "url_video": "https://app.congreso.es/v1/1564725I"
+  },
+  {
+   "intervencion_id": "1564723I",
+   "fecha": "2025-11-26",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-155.CODI.)#(P%C3%A1gina23)",
+   "url_video": "https://app.congreso.es/v1/1564723I"
+  },
+  {
+   "intervencion_id": "1562256I",
+   "fecha": "2025-10-29",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-148.CODI.)#(P%C3%A1gina26)",
+   "url_video": "https://app.congreso.es/v1/1562256I"
+  },
+  {
+   "intervencion_id": "1562253I",
+   "fecha": "2025-10-29",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-148.CODI.)#(P%C3%A1gina25)",
+   "url_video": "https://app.congreso.es/v1/1562253I"
+  },
+  {
+   "intervencion_id": "1562250I",
+   "fecha": "2025-10-29",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-148.CODI.)#(P%C3%A1gina24)",
+   "url_video": "https://app.congreso.es/v1/1562250I"
+  },
+  {
+   "intervencion_id": "1560636I",
+   "fecha": "2025-10-15",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-143.CODI.)#(P%C3%A1gina30)",
+   "url_video": "https://app.congreso.es/v1/1560636I"
+  },
+  {
+   "intervencion_id": "1560634I",
+   "fecha": "2025-10-15",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-143.CODI.)#(P%C3%A1gina29)",
+   "url_video": "https://app.congreso.es/v1/1560634I"
+  },
+  {
+   "intervencion_id": "1560631I",
+   "fecha": "2025-10-15",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-143.CODI.)#(P%C3%A1gina28)",
+   "url_video": "https://app.congreso.es/v1/1560631I"
+  },
+  {
+   "intervencion_id": "1560629I",
+   "fecha": "2025-10-15",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-143.CODI.)#(P%C3%A1gina27)",
+   "url_video": "https://app.congreso.es/v1/1560629I"
+  },
+  {
+   "intervencion_id": "1559266I",
+   "fecha": "2025-09-24",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Interpelación urgente.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-139.CODI.)#(P%C3%A1gina45)",
+   "url_video": "https://app.congreso.es/v1/1559266I"
+  },
+  {
+   "intervencion_id": "1559264I",
+   "fecha": "2025-09-24",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Interpelación urgente.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-139.CODI.)#(P%C3%A1gina42)",
+   "url_video": "https://app.congreso.es/v1/1559264I"
+  },
+  {
+   "intervencion_id": "1559219I",
+   "fecha": "2025-09-24",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-139.CODI.)#(P%C3%A1gina20)",
+   "url_video": "https://app.congreso.es/v1/1559219I"
+  },
+  {
+   "intervencion_id": "1558812I",
+   "fecha": "2025-09-17",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-137-C1.CODI.)#(P%C3%A1gina30)",
+   "url_video": "https://app.congreso.es/v1/1558812I"
+  },
+  {
+   "intervencion_id": "1558810I",
+   "fecha": "2025-09-17",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-137-C1.CODI.)#(P%C3%A1gina29)",
+   "url_video": "https://app.congreso.es/v1/1558810I"
+  },
+  {
+   "intervencion_id": "1558338I",
+   "fecha": "2025-09-10",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-135.CODI.)#(P%C3%A1gina26)",
+   "url_video": "https://app.congreso.es/v1/1558338I"
+  },
+  {
+   "intervencion_id": "1556782I",
+   "fecha": "2025-06-25",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-127.CODI.)#(P%C3%A1gina27)",
+   "url_video": "https://app.congreso.es/v1/1556782I"
+  },
+  {
+   "intervencion_id": "1556780I",
+   "fecha": "2025-06-25",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-127.CODI.)#(P%C3%A1gina26)",
+   "url_video": "https://app.congreso.es/v1/1556780I"
+  },
+  {
+   "intervencion_id": "1555925I",
+   "fecha": "2025-06-18",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Pregunta oral en Pleno.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-124.CODI.)#(P%C3%A1gina21)",
+   "url_video": "https://app.congreso.es/v1/1555925I"
+  },
+  {
+   "intervencion_id": "1555179I",
+   "fecha": "2025-06-11",
+   "organo": "Pleno",
+   "tipo_iniciativa": "Interpelación urgente.",
+   "cuenta": false,
+   "motivo_exclusion": "fuera_de_mandato",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-121.CODI.)#(P%C3%A1gina39)",
+   "url_video": "https://app.congreso.es/v1/1555179I"
+  }
+ ]
+}

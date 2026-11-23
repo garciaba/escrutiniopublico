@@ -1,0 +1,208 @@
+{
+ "ejecutado": "2026-11-23T12:56:38.248Z",
+ "metodologia_version": "1.0.0",
+ "fecha_calculo": "2026-11-23",
+ "legislatura": {
+  "numero": 15,
+  "nombre": "XV",
+  "inicio": "2023-08-17",
+  "fin": "2026-10-06",
+  "finalizada": true
+ },
+ "commit": "bf2b3132bc347914655672f9d3c63aa745443b6c",
+ "periodos": [
+  {
+   "id": "legislatura",
+   "nombre": "Legislatura",
+   "estado": "disponible",
+   "motivo": null,
+   "desde": "2023-08-17",
+   "hasta": "2026-10-06",
+   "dias_minimos": 90,
+   "poblacion_referencia": 392,
+   "total_ranking": 392,
+   "cobertura": 0.6,
+   "metricas_disponibles": [
+    "votaciones_participacion",
+    "intervenciones_pleno",
+    "intervenciones_comision",
+    "preguntas_escritas",
+    "solicitudes_informe"
+   ]
+  },
+  {
+   "id": "12m",
+   "nombre": "Último año",
+   "estado": "disponible",
+   "motivo": null,
+   "desde": "2025-11-24",
+   "hasta": "2026-10-06",
+   "dias_minimos": 90,
+   "poblacion_referencia": 347,
+   "total_ranking": 347,
+   "cobertura": 0.6,
+   "metricas_disponibles": [
+    "votaciones_participacion",
+    "intervenciones_pleno",
+    "intervenciones_comision",
+    "preguntas_escritas",
+    "solicitudes_informe"
+   ]
+  },
+  {
+   "id": "3m",
+   "nombre": "Último trimestre",
+   "estado": "no_disponible",
+   "motivo": "periodo_demasiado_corto",
+   "desde": "2026-08-25",
+   "hasta": "2026-10-06",
+   "dias_minimos": 46,
+   "poblacion_referencia": 0,
+   "total_ranking": 0,
+   "cobertura": 0,
+   "metricas_disponibles": []
+  },
+  {
+   "id": "1m",
+   "nombre": "Último mes",
+   "estado": "no_disponible",
+   "motivo": "sin_dias_en_la_legislatura",
+   "desde": null,
+   "hasta": null,
+   "dias_minimos": 15,
+   "poblacion_referencia": 0,
+   "total_ranking": 0,
+   "cobertura": 0,
+   "metricas_disponibles": []
+  }
+ ],
+ "fuentes": [
+  {
+   "id": "diputados/busqueda",
+   "url": "https://www.congreso.es/es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_resource_id=searchDiputados&p_p_cacheability=cacheLevelPage",
+   "descargado": "2026-11-23",
+   "fecha_fichero": null
+  },
+  {
+   "id": "diputados/DiputadosActivos",
+   "url": "https://www.congreso.es/webpublica/opendata/diputados/DiputadosActivos__20261123050006.json",
+   "descargado": "2026-11-23",
+   "fecha_fichero": "2026-11-23"
+  },
+  {
+   "id": "diputados/DiputadosDeBaja",
+   "url": "https://www.congreso.es/webpublica/opendata/diputados/DiputadosDeBaja__20261123050008.json",
+   "descargado": "2026-11-23",
+   "fecha_fichero": "2026-11-23"
+  },
+  {
+   "id": "iniciativas/buscador-179",
+   "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+   "descargado": "2026-11-23",
+   "fecha_fichero": null
+  },
+  {
+   "id": "iniciativas/buscador-184",
+   "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+   "descargado": "2026-11-23",
+   "fecha_fichero": null
+  },
+  {
+   "id": "iniciativas/buscador-186",
+   "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+   "descargado": "2026-11-23",
+   "fecha_fichero": null
+  },
+  {
+   "id": "iniciativas/buscador-187",
+   "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+   "descargado": "2026-11-23",
+   "fecha_fichero": null
+  },
+  {
+   "id": "iniciativas/buscador-188",
+   "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+   "descargado": "2026-11-23",
+   "fecha_fichero": null
+  },
+  {
+   "id": "iniciativas/buscador-189",
+   "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
+   "descargado": "2026-11-23",
+   "fecha_fichero": null
+  },
+  {
+   "id": "iniciativas/ProposicionesDeLey",
+   "url": "https://www.congreso.es/webpublica/opendata/iniciativas/ProposicionesDeLey__20261123050130.json",
+   "descargado": "2026-11-23",
+   "fecha_fichero": "2026-11-23"
+  },
+  {
+   "id": "iniciativas/PropuestasDeReforma",
+   "url": "https://www.congreso.es/webpublica/opendata/iniciativas/PropuestasDeReforma__20261123050037.json",
+   "descargado": "2026-11-23",
+   "fecha_fichero": "2026-11-23"
+  },
+  {
+   "id": "iniciativas/ProyectosDeLey",
+   "url": "https://www.congreso.es/webpublica/opendata/iniciativas/ProyectosDeLey__20261123050027.json",
+   "descargado": "2026-11-23",
+   "fecha_fichero": "2026-11-23"
+  },
+  {
+   "id": "intervenciones/IntervencionesCronologicamente",
+   "url": "https://www.congreso.es/webpublica/opendata/intervenciones/IntervencionesCronologicamente__20261123050120.json",
+   "descargado": "2026-11-23",
+   "fecha_fichero": "2026-11-23"
+  },
+  {
+   "id": "organos/composicion",
+   "url": "https://www.congreso.es/es/opendata/organos",
+   "descargado": "2026-11-23",
+   "fecha_fichero": null
+  }
+ ],
+ "fechas_dato": {
+  "votaciones": "2026-09-30",
+  "intervenciones": "2026-11-23",
+  "iniciativas": "2026-11-23"
+ },
+ "registros": {
+  "diputados": 412,
+  "grupos": 9,
+  "organos": 67,
+  "pertenencias": 3724,
+  "votaciones": 2175,
+  "votos": 760518,
+  "intervenciones": 26524,
+  "iniciativas": 50394,
+  "firmantes": 279334
+ },
+ "incidencias": [
+  {
+   "tipo": "184",
+   "total_oficial": 44849,
+   "obtenidas": 44845,
+   "faltan": 4,
+   "bloques_fallidos": [
+    154
+   ],
+   "consultas_fallidas": [
+    "21/10/2025 Argüelles García, Silverio",
+    "21/10/2025 Belda Pérez-Pedrero, Enrique",
+    "21/10/2025 Clemente Muñoz, Raquel",
+    "21/10/2025 Cuesta Rodríguez, María",
+    "21/10/2025 Fúnez de Gregorio, Carmen",
+    "21/10/2025 Jiménez Linuesa, Beatriz",
+    "21/10/2025 Madrid Olmo, Bartolomé",
+    "21/10/2025 Martín García, Pedro Samuel",
+    "21/10/2025 Martínez Gómez, Antonio",
+    "21/10/2025 Moneo Díez, María Sandra",
+    "21/10/2025 Parra Gallego, Agustín",
+    "21/10/2025 Rodríguez Calleja, Patricia",
+    "21/10/2025 Tomás Olivares, Violante",
+    "21/10/2025 Vázquez Jiménez, María del Mar"
+   ]
+  }
+ ]
+}

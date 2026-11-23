@@ -160,9 +160,16 @@ export const project = {
     maxUnavailable: 50,
     tipos: [
       { codigo: '184', nombre: 'Pregunta al Gobierno con respuesta escrita' },
-      { codigo: '186', nombre: 'Solicitud de informe' },
+      { codigo: '179', nombre: 'Pregunta a la Corporación RTVE con respuesta escrita' },
+      { codigo: '186', nombre: 'Solicitud de informe a la Administración del Estado' },
+      { codigo: '187', nombre: 'Solicitud de informe a Comunidad Autónoma' },
+      { codigo: '188', nombre: 'Solicitud de informe a Entidad Local' },
+      { codigo: '189', nombre: 'Solicitud de informe a otra Entidad Pública' },
     ],
   },
+
+  /** How many recent items each deputy profile lists. */
+  ficha: { ultimasVotaciones: 20, ultimasIntervenciones: 20 },
 
   /** Pre-publication sanity checks (section 6 of the specification). */
   sanity: {

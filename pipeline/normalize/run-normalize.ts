@@ -140,7 +140,11 @@ export async function runNormalize(log: (message: string) => void): Promise<void
   for (const { codigo } of project.iniciativasBuscador.tipos) {
     searchRows.set(codigo, await daily('iniciativas', `buscador-${codigo}.json`, searchInitiativesFile));
   }
-  const { iniciativas, firmantes } = buildIniciativas(bills, searchRows, resolve, idOf);
+  const { iniciativas, firmantes, autoresNoDiputados } = buildIniciativas(bills, searchRows, resolve, idOf);
+  // Authors that are not deputies of the Congreso (senators, groups): listed, never silently dropped.
+  for (const [autor, veces] of [...autoresNoDiputados].sort(([a], [b]) => a.localeCompare(b, 'es'))) {
+    log(`normalize: author that is not a deputy: ${autor} (${veces})`);
+  }
   await write('iniciativas', INICIATIVA_COLUMNS, iniciativas, ['iniciativa_id'], log);
   await write('firmantes', FIRMANTE_COLUMNS, firmantes, ['iniciativa_id', 'orden'], log);
 }

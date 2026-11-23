@@ -10,7 +10,7 @@ ESCAÑO no tiene vinculación con el Congreso de los Diputados ni con ningún pa
 | ------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------- |
 | 0. Descubrimiento de datos      | [Diccionario de datos](docs/data-dictionary.md), muestras en `tests/fixtures/`, script de descubrimiento | Entregado, pendiente de revisión |
 | 1. Ingesta y normalización      | `pnpm pipeline`, tablas normalizadas en `data/normalized/`                                               | Entregado, pendiente de revisión |
-| 2. Métricas y puntuación        | `pipeline/metrics`, `config/scoring.ts`                                                                  | Sin empezar                      |
+| 2. Métricas y puntuación        | `pipeline/metrics`, `config/scoring.ts`, `data/derived/`; [verificación](docs/verificacion-hito-2.md)    | Entregado, pendiente de revisión |
 | 3. Web                          | Sitio Astro                                                                                              | Sin empezar                      |
 | 4. Automatización y despliegue  | Workflows diarios y Cloudflare Pages                                                                     | Sin empezar                      |
 | 5. Endurecimiento y lanzamiento | Runbook, dominio                                                                                         | Sin empezar                      |
@@ -27,7 +27,9 @@ pnpm test          # tests unitarios sobre muestras reales
 pnpm typecheck
 pnpm lint
 pnpm pipeline      # descarga los datos oficiales y genera las tablas de data/normalized/
-pnpm pipeline --offline  # rehace las tablas sin descargar nada (necesita data/raw/daily/)
+pnpm pipeline --offline  # sin descargas: recalcula las puntuaciones desde data/normalized/
+pnpm pipeline --offline --date 2026-11-23  # fija la fecha de cálculo
+pnpm pipeline --reuse-daily  # reanuda una ejecución: descarga solo los volcados que falten
 pnpm discover      # descarga y perfila los ficheros oficiales; informe en .discovery/report.md
 ```
 
@@ -41,7 +43,8 @@ Si la red sale por un proxy HTTPS, el `fetch` de Node necesita `NODE_USE_ENV_PRO
 config/            configuración: legislatura, URL, umbrales
 pipeline/ingest/   cliente HTTP, páginas índice y un adaptador por familia de datos
 pipeline/normalize/ esquemas zod, cruce de nombres y construcción de tablas
-data/              datos en bruto versionados (votaciones, manifiesto) y tablas normalizadas
+pipeline/metrics/  motor de puntuación (funciones puras) y salidas para la web
+data/              datos en bruto versionados, tablas normalizadas y salidas derivadas (ranking y fichas)
 pipeline/discover/ script de descubrimiento del hito 0
 tests/             tests y muestras reales reducidas (tests/fixtures)
 docs/              diccionario de datos y registro de decisiones
