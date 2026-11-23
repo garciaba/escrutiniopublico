@@ -155,7 +155,16 @@ const expectedUrls = pages.length - 1; // every page except 404
 if ((sitemap.match(/<loc>/g) ?? []).length !== expectedUrls) {
   errors.push(`sitemap.xml: ${(sitemap.match(/<loc>/g) ?? []).length} URLs, expected ${expectedUrls}`);
 }
-for (const file of ['robots.txt', 'favicon.svg', 'og.png', 'apple-touch-icon.png', '404.html', 'datos/ranking.json']) {
+for (const file of [
+  'robots.txt',
+  'favicon.svg',
+  'og.png',
+  'apple-touch-icon.png',
+  '404.html',
+  'grupos.html',
+  'datos/ranking.json',
+  'datos/grupos.json',
+]) {
   if (!existsSync(join(DIST, file))) errors.push(`missing ${file}`);
 }
 if (

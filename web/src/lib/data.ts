@@ -182,6 +182,45 @@ export function loadRanking(): Ranking {
   return rankingCache;
 }
 
+/** Aggregate of a parliamentary group, an electoral list or the whole Chamber (D-037). */
+export interface Agregado {
+  id: string;
+  nombre: string;
+  nombre_corto: string;
+  formaciones?: string[];
+  diputados: number;
+  gobierno: number;
+  periodo_insuficiente: number;
+  dias_evaluados: number;
+  indice: { min: number; p25: number; mediana: number; p75: number; max: number } | null;
+  dimensiones: { id: string; mediana: number | null }[];
+  metricas: { id: string; estado: string; total: number | null; denominador: number | null; valor: number | null }[];
+  tiempo_palabra: { minutos: number; intervenciones: number; minutos_por_100_dias: number | null };
+}
+
+export interface PeriodoGrupos {
+  id: string;
+  nombre: string;
+  estado: 'disponible' | 'no_disponible';
+  motivo: string | null;
+  desde: string | null;
+  hasta: string | null;
+  camara: Agregado | null;
+  grupos: Agregado[];
+  candidaturas: Agregado[];
+}
+
+export interface Grupos {
+  metodologia_version: string;
+  fecha_calculo: string;
+  legislatura: Legislatura;
+  periodos: PeriodoGrupos[];
+}
+
+export function loadGrupos(): Grupos {
+  return read<Grupos>('grupos.json');
+}
+
 let metaCache: Meta | undefined;
 export function loadMeta(): Meta {
   metaCache ??= read<Meta>('meta.json');
@@ -200,7 +239,7 @@ export function loadFicha(slug: string): Ficha {
 }
 
 /** Raw text of a file of data/derived/, served as a download. */
-export function derivedText(file: 'ranking.json' | 'meta.json'): string {
+export function derivedText(file: 'ranking.json' | 'meta.json' | 'grupos.json'): string {
   return readFileSync(join(DERIVED, file), 'utf-8');
 }
 

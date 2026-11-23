@@ -99,7 +99,7 @@ const conDato = data.dimensiones.length;
         Actualizado el <time datetime={meta.ejecutado}>{fechaLarga(meta.ejecutado)}</time>. El índice cubre el {
           porcentaje(periodo?.cobertura ?? 0, 0)
         }: {conDato} de las {ranking.dimensiones.length} dimensiones tienen fuente oficial, y las demás no cuentan como
-        cero.
+        cero. Las mismas cifras, sumadas por grupo parlamentario, están en <a href="/grupos">Grupos</a>.
       </p>
       <div id="ranking-controles"><RankingApp {...app} /></div>
       <noscript>

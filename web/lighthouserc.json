@@ -5,6 +5,7 @@
       "url": [
         "http://localhost/index.html",
         "http://localhost/diputados/cristina-abades-martinez.html",
+        "http://localhost/grupos.html",
         "http://localhost/metodologia.html"
       ],
       "numberOfRuns": 3,

@@ -348,6 +348,31 @@ Cada métrica sigue el contrato de la especificación: `id`, `dimension`, `estad
 | `preguntas_escritas`, `preguntas_orales`, `solicitudes_informe` | Crédito por 100 días        | Crédito fraccional (1/n por iniciativa con n firmantes); las orales «Convertido» no cuentan | Días evaluados                            |
 | `leyes_ponente`                                                 | Leyes por 100 días          | Leyes aprobadas en cuya ponencia figura, en su fecha de conclusión                          | Días evaluados                            |
 
+### `grupos.json`
+
+Agregados por grupo parlamentario y por candidatura electoral (D-037). No contiene ninguna puntuación de grupo.
+
+| Campo                                                 | Contenido                                                                                                                                                   |
+| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `metodologia_version`, `fecha_calculo`, `legislatura` | Como en `ranking.json`                                                                                                                                      |
+| `periodos[]`                                          | Por periodo: `estado`, `motivo`, ventana (`desde`, `hasta`), `camara` (toda la Cámara), `grupos[]` y `candidaturas[]`, de mayor a menor número de diputados |
+
+Cada agregado (`camara`, un grupo o una candidatura):
+
+| Campo                              | Contenido                                                                                                                                            |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`, `nombre`, `nombre_corto`     | Código y nombre del grupo, o nombre de la candidatura                                                                                                |
+| `formaciones`                      | Solo en candidaturas: formaciones del censo que agrupa                                                                                               |
+| `diputados`                        | Diputados con posición en el ranking del periodo: los únicos que cuentan en las cifras                                                               |
+| `gobierno`, `periodo_insuficiente` | Diputados que quedan fuera, como en el ranking                                                                                                       |
+| `dias_evaluados`                   | Suma de los días evaluados de sus diputados                                                                                                          |
+| `indice`                           | Reparto del índice de sus diputados: `min`, `p25`, `mediana`, `p75` y `max`; `null` si ninguno tiene índice                                          |
+| `dimensiones[]`                    | Mediana de cada dimensión entre sus diputados                                                                                                        |
+| `metricas[]`                       | Por métrica: `total` (suma de numeradores), `denominador` (suma de denominadores) y `valor` (proporción, o por cada 100 días); `null` si no hay dato |
+| `tiempo_palabra`                   | Contexto: `minutos`, `intervenciones` y `minutos_por_100_dias`                                                                                       |
+
+El campo `partido` de `diputados.csv`, `ranking.json` y las fichas es la candidatura electoral: la formación del censo con las federaciones territoriales agrupadas (`config/parties.ts`). No es el partido en el que milita el diputado, que los datos oficiales no recogen.
+
 ### `meta.json`
 
 `ejecutado` (fecha y hora de la ejecución), `fecha_calculo`, `metodologia_version`, `commit`, resumen de `periodos`, `fuentes` (URL, fecha de descarga y fecha del fichero oficial de cada volcado), `fechas_dato` por familia, `registros` (filas de cada tabla normalizada) e `incidencias` (lo que la fuente oficial no pudo servir, D-022). Es el único fichero que cambia en cada ejecución.

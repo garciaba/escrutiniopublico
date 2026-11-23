@@ -80,6 +80,7 @@ const sample = [profiles[0], 'oscar-puente-santiago', 'meritxell-batet-lamana'].
 );
 const paths = [
   '/',
+  '/grupos',
   '/metodologia',
   '/datos',
   '/cambios',

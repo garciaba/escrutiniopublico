@@ -1,0 +1,160 @@
+---
+/**
+ * The figures of the deputies added up by parliamentary group and by electoral list
+ * (decision D-037). No JavaScript: the period switch is CSS only.
+ */
+import { groups } from '../../../config/parties.ts';
+import { scoring } from '../../../config/scoring.ts';
+import { site } from '../../../config/site.ts';
+import {
+  Distribucion,
+  TablaCandidaturas,
+  TablaDistribucion,
+  TarjetasMetricas,
+  type FilaGrupo,
+} from '../components/Grupos.tsx';
+import Base from '../layouts/Base.astro';
+import { loadGrupos, loadRanking, type Agregado } from '../lib/data.ts';
+import { fechaLarga, motivoPeriodo, num } from '../lib/format.ts';
+import { fueraDelCalculo } from '../lib/grupos.ts';
+import { enumerar } from '../lib/ranking.ts';
+
+const datos = loadGrupos();
+const ranking = loadRanking();
+const colores = new Map(groups.map((group) => [group.code, group.color]));
+const disponibles = datos.periodos.filter((periodo) => periodo.estado === 'disponible' && periodo.camara);
+const sinDatos = datos.periodos.filter((periodo) => periodo.estado !== 'disponible');
+const reglas = ['sin_puntuacion', 'poblacion', 'calculo'].flatMap((id) =>
+  scoring.agregados.reglas.filter((regla) => regla.id === id),
+);
+const reglaCandidatura = scoring.agregados.reglas.find((regla) => regla.id === 'candidatura');
+
+/** Ranked deputies of a period that belong to a group or to an electoral list. */
+function personas(periodo: string, campo: 'grupo' | 'partido', id: string | undefined) {
+  return ranking.filas.flatMap((fila) =>
+    fila.periodo === periodo && fila.situacion === 'ranking' && fila.indice !== null && (!id || fila[campo] === id)
+      ? [{ nombre: fila.nombre, indice: fila.indice }]
+      : [],
+  );
+}
+const filaGrupo = (periodo: string, agregado: Agregado): FilaGrupo => ({
+  agregado,
+  color: colores.get(agregado.id) ?? '#9c9c9c',
+  href: `/?grupo=${encodeURIComponent(agregado.id)}`,
+  personas: personas(periodo, 'grupo', agregado.id),
+});
+const filaCandidatura = (periodo: string, agregado: Agregado): FilaGrupo => ({
+  agregado,
+  href: `/?candidatura=${encodeURIComponent(agregado.id)}`,
+  personas: personas(periodo, 'partido', agregado.id),
+});
+const filaCamara = (periodo: string, agregado: Agregado): FilaGrupo => ({
+  agregado,
+  personas: personas(periodo, 'grupo', undefined),
+});
+---
+
+<Base
+  title="Actividad por grupo parlamentario"
+  description={`Las cifras de actividad de los diputados del Congreso sumadas por grupo parlamentario y por candidatura electoral: votaciones, intervenciones, preguntas y leyes, con datos oficiales.`}
+  path="/grupos"
+>
+  <div class="wrap">
+    <header class="pagina-cabeza">
+      <p class="antetitulo">{datos.legislatura.nombre} Legislatura</p>
+      <h1>Actividad por grupo parlamentario</h1>
+      <p class="entradilla">
+        Las mismas cifras de las fichas, sumadas por grupo y por candidatura electoral. No es una clasificación: sirve
+        para ver cómo se reparte la actividad dentro de cada grupo y en qué se distingue de los demás.
+      </p>
+    </header>
+
+    <section class="lectura aviso" aria-labelledby="lectura-titulo">
+      <div>
+        <h2 id="lectura-titulo">Cómo leer esta página</h2>
+        <ul>
+          {
+            reglas.map((regla) => (
+              <li>
+                <strong>{regla.titulo}.</strong> {regla.texto}
+              </li>
+            ))
+          }
+        </ul>
+        <p><a href="/metodologia#agregados">Todas las reglas, en la metodología</a></p>
+      </div>
+    </section>
+
+    <div class="vista-periodos">
+      <fieldset class="segmento">
+        <legend>Periodo</legend>
+        <div class="segmento-opciones">
+          {
+            disponibles.map((periodo, i) => (
+              <label>
+                <input type="radio" name="grupos-periodo" value={periodo.id} checked={i === 0} />
+                {periodo.nombre}
+              </label>
+            ))
+          }
+        </div>
+        {
+          sinDatos.length > 0 && (
+            <p class="segmento-nota">
+              Sin datos para {enumerar(sinDatos.map((periodo) => periodo.nombre.toLowerCase()))}:{' '}
+              {datos.legislatura.finalizada ? 'la legislatura ya ha terminado.' : motivoPeriodo(sinDatos[0]?.motivo)}
+            </p>
+          )
+        }
+      </fieldset>
+
+      {
+        disponibles.map((periodo) => {
+          const camara = filaCamara(periodo.id, periodo.camara as Agregado);
+          const grupos = periodo.grupos.map((agregado) => filaGrupo(periodo.id, agregado));
+          const candidaturas = periodo.candidaturas.map((agregado) => filaCandidatura(periodo.id, agregado));
+          const fuera = fueraDelCalculo(camara.agregado);
+          return (
+            <section class="panel" aria-labelledby={`panel-${periodo.id}`}>
+              <p class="panel-resumen" id={`panel-${periodo.id}`}>
+                <strong>{periodo.nombre}</strong>
+                {periodo.desde && periodo.hasta && `, del ${fechaLarga(periodo.desde)} al ${fechaLarga(periodo.hasta)}`}.
+                Cuentan {num(camara.agregado.diputados)} diputados{fuera && `; quedan fuera ${fuera}`}.
+              </p>
+
+              <section class="seccion" aria-labelledby={`indice-${periodo.id}`}>
+                <h2 id={`indice-${periodo.id}`}>El índice de sus diputados</h2>
+                <p class="nota">
+                  Cada fila es un grupo, del más numeroso al menos. Muestra dónde cae el índice de cada uno de sus
+                  diputados, de 0 a 100, y no una nota del grupo.
+                </p>
+                <Distribucion filas={grupos} camara={camara} />
+                <TablaDistribucion filas={grupos} camara={camara} />
+              </section>
+
+              <section class="seccion" aria-labelledby={`metricas-${periodo.id}`}>
+                <h2 id={`metricas-${periodo.id}`}>Métrica a métrica</h2>
+                <p class="nota">
+                  La media por diputado de cada grupo. La última fila de cada tarjeta, en gris, es la de toda la Cámara.
+                  Cada barra se mide contra el valor más alto de su tarjeta.
+                </p>
+                <TarjetasMetricas filas={grupos} camara={camara} />
+              </section>
+
+              <section class="seccion" aria-labelledby={`candidaturas-${periodo.id}`}>
+                <h2 id={`candidaturas-${periodo.id}`}>Por candidatura electoral</h2>
+                <p class="nota">{reglaCandidatura?.texto}</p>
+                <TablaCandidaturas filas={candidaturas} camara={camara} />
+              </section>
+            </section>
+          );
+        })
+      }
+    </div>
+
+    <p class="grupos-pie muted">
+      Estas cifras se pueden descargar en <a href="/datos">Datos</a> (<code>grupos.json</code>). Fuente de los datos de
+      origen: <a href={site.fuente.url} rel="noopener">{site.fuente.nombre}</a>.
+    </p>
+  </div>
+</Base>
