@@ -11,6 +11,8 @@ export const site = {
   descripcion:
     'Ranking de la actividad parlamentaria de los diputados del Congreso, elaborado solo con datos oficiales y una metodología pública.',
   repositoryUrl: 'https://github.com/garciaba/escrutiniopublico',
+  /** Cloudflare Pages project; the deployment script creates it on its first run (D-035). */
+  pagesProject: 'escrutiniopublico',
   /** Branch whose data files the /datos page links to. */
   dataBranch: 'main',
   licencias: {

@@ -1,0 +1,132 @@
+# Daily pipeline (specification, section 6; decision D-035): download, validate,
+# normalize, score, check, commit data/ and deploy to Cloudflare Pages. Either a
+# complete, validated data set is published or yesterday's stays. Any failure stops
+# the run before anything is published and opens or updates the issue
+# "Fallo del pipeline diario"; the next successful run closes it.
+name: Daily pipeline
+
+on:
+  schedule:
+    # 05:40 UTC, after the Congreso regenerates its files (around 05:00 in Madrid).
+    - cron: '40 5 * * *'
+  workflow_dispatch:
+    inputs:
+      simular_fallo:
+        description: Romper un fichero descargado para probar el camino de fallo (no publica nada)
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  FAILURE_ISSUE_TITLE: Fallo del pipeline diario
+  LOG: .daily/pipeline.log
+
+jobs:
+  daily:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 50
+      - uses: pnpm/action-setup@v6.1.1
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: mkdir -p .daily
+
+      - name: Download the official data
+        run: pnpm pipeline --stage ingest 2>&1 | tee -a "$LOG"
+
+      - name: Simulate a schema failure
+        if: inputs.simular_fallo
+        run: |
+          node --input-type=module -e "
+            import { readFileSync, writeFileSync } from 'node:fs';
+            const path = 'data/raw/daily/diputados/DiputadosActivos.json';
+            const rows = JSON.parse(readFileSync(path, 'utf-8'));
+            rows[0].FECHAALTA = 'no es una fecha';
+            writeFileSync(path, JSON.stringify(rows));
+          "
+          echo 'Simulated failure: DiputadosActivos.json no longer matches its schema' | tee -a "$LOG"
+
+      - name: Validate and normalize
+        run: pnpm pipeline --stage normalize 2>&1 | tee -a "$LOG"
+
+      - name: Compute the scores
+        run: pnpm pipeline --stage metrics 2>&1 | tee -a "$LOG"
+
+      - name: Sanity checks
+        run: pnpm sanity --commit-message .daily/commit-message.txt 2>&1 | tee -a "$LOG"
+
+      - name: Commit the data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data
+          git diff --cached --quiet || git commit --quiet --file .daily/commit-message.txt
+          git log -1 --format='%h %s' | tee -a "$LOG"
+
+      - name: Build and audit the website
+        run: |
+          pnpm web:build 2>&1 | tail -n 5 | tee -a "$LOG"
+          pnpm web:audit 2>&1 | tee -a "$LOG"
+
+      - name: Push the data
+        run: |
+          git pull --rebase --quiet origin main
+          git push --quiet origin HEAD:main
+
+      - name: Deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: .github/scripts/pages-deploy.sh main 2>&1 | tee -a "$LOG"
+
+      - name: Close the failure issue
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for number in $(gh issue list --state open --search "in:title \"$FAILURE_ISSUE_TITLE\"" \
+            --json number,title --jq "map(select(.title == \"$FAILURE_ISSUE_TITLE\")) | .[].number"); do
+            gh issue close "$number" --comment "La ejecución diaria ha vuelto a funcionar: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          done
+
+      - name: Open or update the failure issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "La ejecución diaria del $(date -u +%d/%m/%Y) ha fallado y no ha publicado nada: la web sigue con los últimos datos correctos."
+            echo
+            echo "Ejecución: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo
+            echo 'Últimas líneas del registro:'
+            echo
+            echo '```'
+            tail -n 80 "$LOG" 2>/dev/null || echo '(sin registro)'
+            echo '```'
+          } > .daily/issue.md
+          number="$(gh issue list --state open --search "in:title \"$FAILURE_ISSUE_TITLE\"" \
+            --json number,title --jq "map(select(.title == \"$FAILURE_ISSUE_TITLE\")) | .[0].number // empty")"
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body-file .daily/issue.md
+          else
+            gh issue create --title "$FAILURE_ISSUE_TITLE" --body-file .daily/issue.md
+          fi

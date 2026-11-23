@@ -5,7 +5,8 @@ import { scoring } from '../../../config/scoring.ts';
 import { site } from '../../../config/site.ts';
 import Base from '../layouts/Base.astro';
 import { loadMeta } from '../lib/data.ts';
-import { fechaLarga, nombreNatural, num, plural } from '../lib/format.ts';
+import { fechaCorta, fechaLarga, nombreNatural, num, plural } from '../lib/format.ts';
+import { commitsDeDatos } from '../lib/git.ts';
 
 const meta = loadMeta();
 const tipos = { datos: 'Datos', rectificacion: 'Rectificación' } as const;
@@ -14,6 +15,7 @@ const tiposIniciativa: Record<string, string> = {
   '179': 'preguntas a la Corporación RTVE con respuesta escrita',
 };
 const rectificaciones = registro.filter((entrada) => entrada.tipo === 'rectificacion');
+const commits = commitsDeDatos(15);
 ---
 
 <Base
@@ -70,6 +72,30 @@ const rectificaciones = registro.filter((entrada) => entrada.tipo === 'rectifica
             ))
         }
       </dl>
+
+      <h3>Últimas actualizaciones de las tablas</h3>
+      {
+        commits.length === 0 ? (
+          <p class="muted">El historial no está disponible en esta compilación.</p>
+        ) : (
+          <>
+            <p class="muted">
+              Cada actualización enlaza a sus cambios fila a fila en el repositorio. El resumen lo escribe la ejecución
+              diaria, en inglés.
+            </p>
+            <ul class="commits">
+              {commits.map((commit) => (
+                <li>
+                  <time datetime={commit.fecha}>{fechaCorta(commit.fecha)}</time>{' '}
+                  <a href={`${site.repositoryUrl}/commit/${commit.sha}`} rel="noopener">
+                    <span lang="en">{commit.asunto}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )
+      }
 
       <h2 id="rectificaciones">Rectificaciones</h2>
       {

@@ -3,6 +3,7 @@
 # in the job summary and as an artifact. It does not commit or deploy anything.
 name: Data discovery
 
+# Manual only since milestone 4: ci.yml runs the checks on every push.
 on:
   workflow_dispatch:
     inputs:
@@ -10,15 +11,6 @@ on:
         description: Number of most recent voting days to download
         required: false
         default: '2'
-  push:
-    branches: ['claude/**']
-    paths:
-      - 'pipeline/**'
-      - 'config/**'
-      - 'tests/**'
-      - 'package.json'
-      - 'pnpm-lock.yaml'
-      - '.github/workflows/discovery.yml'
 
 permissions:
   contents: read
@@ -34,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6.1.1
 
       - uses: actions/setup-node@v5
         with:

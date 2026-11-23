@@ -107,3 +107,14 @@ describe('names and labels', () => {
     expect(sentidoVoto('raro')).toBe('raro');
   });
 });
+
+describe('parseGitLog', () => {
+  it('reads hash, date and subject of each data commit and drops malformed lines', async () => {
+    const { parseGitLog } = await import('../web/src/lib/git.ts');
+    const sha = 'a'.repeat(40);
+    expect(parseGitLog(`${sha}\t2026-11-24\tDaily data update 2026-11-24\twith a tab\nnot a commit\n`)).toEqual([
+      { sha, fecha: '2026-11-24', asunto: 'Daily data update 2026-11-24\twith a tab' },
+    ]);
+    expect(parseGitLog('')).toEqual([]);
+  });
+});

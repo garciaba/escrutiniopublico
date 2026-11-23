@@ -12,7 +12,7 @@ Escrutinio Público no tiene vinculación con el Congreso de los Diputados ni co
 | 1. Ingesta y normalización      | `pnpm pipeline`, tablas normalizadas en `data/normalized/`                                               | Entregado, pendiente de revisión |
 | 2. Métricas y puntuación        | `pipeline/metrics`, `config/scoring.ts`, `data/derived/`; [verificación](docs/verificacion-hito-2.md)    | Entregado, pendiente de revisión |
 | 3. Web                          | Sitio Astro en `web/` con las seis rutas; [verificación](docs/verificacion-hito-3.md)                    | Entregado, pendiente de revisión |
-| 4. Automatización y despliegue  | Workflows diarios y Cloudflare Pages                                                                     | Sin empezar                      |
+| 4. Automatización y despliegue  | `daily.yml`, `ci.yml`, Cloudflare Pages ([D-035](docs/decisions.md))                                     | Entregado, pendiente de revisión |
 | 5. Endurecimiento y lanzamiento | Runbook, dominio                                                                                         | Sin empezar                      |
 
 Las decisiones tomadas y las que esperan al propietario están en [docs/decisions.md](docs/decisions.md). Las fuentes públicas que podrían ampliar el índice están evaluadas en [docs/fuentes-adicionales.md](docs/fuentes-adicionales.md).
@@ -46,6 +46,18 @@ pnpm web:preview   # sirve web/dist como Cloudflare Pages, con las cabeceras de 
 `pnpm discover --days 5` descarga las votaciones de los cinco últimos días con votaciones. El script hace como máximo una petición por segundo.
 
 Si la red sale por un proxy HTTPS, el `fetch` de Node necesita `NODE_USE_ENV_PROXY=1` (Node 22.21 o superior).
+
+## Publicación
+
+- **Cada día a las 05:40 UTC**, `daily.yml` descarga los datos, los valida, calcula las puntuaciones y pasa los controles de sanidad (`pnpm sanity`). Después hace commit de `data/` y despliega en Cloudflare Pages.
+- **Ante un fallo** no publica nada y abre la incidencia «Fallo del pipeline diario».
+- **En cada push**, `ci.yml` comprueba el código, los datos y la web, y despliega una previsualización de la rama.
+- **Secretos:** `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID`, en la configuración del repositorio.
+
+```sh
+pnpm sanity          # controles de sanidad frente a lo publicado ayer (git HEAD)
+pnpm test:coverage   # tests con el umbral de cobertura del 90 %
+```
 
 ## Estructura
 

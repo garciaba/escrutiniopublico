@@ -21,7 +21,9 @@
     "web:build": "ASTRO_TELEMETRY_DISABLED=1 astro build --root web",
     "web:preview": "node web/scripts/serve.ts",
     "web:audit": "node web/scripts/audit.ts",
-    "web:check": "node web/scripts/browser-check.ts"
+    "web:check": "node web/scripts/browser-check.ts",
+    "sanity": "node pipeline/sanity/run-sanity.ts",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@astrojs/preact": "6.1.2",
@@ -34,6 +36,7 @@
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@types/node": "22.20.5",
+    "@vitest/coverage-v8": "5.1.0",
     "axe-core": "4.14.0",
     "eslint": "10.14.0",
     "prettier": "3.9.10",

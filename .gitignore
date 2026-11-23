@@ -23,3 +23,8 @@ data/**/*.tmp
 # Website build output and Astro cache.
 web/dist/
 web/.astro/
+
+# Logs of the daily pipeline and Lighthouse CI reports.
+.daily/
+.daily-deploy.log
+.lighthouseci/

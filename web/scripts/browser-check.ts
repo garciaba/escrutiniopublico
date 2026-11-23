@@ -10,10 +10,11 @@
  * Needs Playwright with a Chromium it can launch. It is not a dependency of the
  * project: the script takes whatever the environment provides.
  */
-import { existsSync, readdirSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { join } from 'node:path';
 
+import { site } from '../../config/site.ts';
 import { serve } from './serve.ts';
 
 interface AxeNode {
@@ -36,6 +37,7 @@ interface Page {
   selectOption(selector: string, value: string): Promise<unknown>;
   waitForSelector(selector: string): Promise<unknown>;
   waitForTimeout(ms: number): Promise<void>;
+  clock: { setFixedTime(time: Date): Promise<void> };
   on(event: string, listener: (payload: { type(): string; text(): string; url(): string }) => void): void;
   close(): Promise<void>;
 }
@@ -201,6 +203,25 @@ await page.waitForSelector('#ranking-q:not([disabled])');
 await step('shared link', () => Promise.resolve(), '?periodo=12m&grupo=GS&orden=nombre');
 const selected = await page.evaluate<string>(`document.getElementById('ranking-grupo').value`);
 expectEqual('shared link fills the controls', selected, 'GS');
+
+// Stale-data warning (specification, section 6): the browser compares the date of the
+// last run with its own clock and warns after the configured number of hours.
+const { ejecutado } = JSON.parse(readFileSync(join(process.cwd(), 'data', 'derived', 'meta.json'), 'utf-8')) as {
+  ejecutado: string;
+};
+for (const [hours, visible] of [
+  [1, false],
+  [site.horasDatosAntiguos + 1, true],
+] as const) {
+  const clockContext = await browser.newContext({ viewport: VIEWPORTS[0] });
+  const clockPage = await clockContext.newPage();
+  await clockPage.clock.setFixedTime(new Date(Date.parse(ejecutado) + hours * 3_600_000));
+  await clockPage.goto(`${origin}/`, { waitUntil: 'networkidle' });
+  await clockPage.waitForSelector('#ranking-q:not([disabled])');
+  const shown = await clockPage.evaluate<boolean>(`!document.querySelector('.controles .aviso').hidden`);
+  expectEqual(`stale-data warning ${hours} h after the last run`, shown, visible);
+  await clockContext.close();
+}
 
 // Privacy and security.
 for (const path of paths) await page.goto(`${origin}${path}`, { waitUntil: 'networkidle' });
