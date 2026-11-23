@@ -15,8 +15,6 @@ Escrutinio Público no tiene vinculación con el Congreso de los Diputados ni co
 | 4. Automatización y despliegue  | `daily.yml`, `ci.yml`, Cloudflare Pages ([D-035](docs/decisions.md))                                     | Entregado, pendiente de revisión |
 | 5. Endurecimiento y lanzamiento | Runbook, dominio                                                                                         | Sin empezar                      |
 
-Además de los hitos, la web tiene una página «Grupos» con las cifras por grupo parlamentario y por candidatura electoral (D-037).
-
 Las decisiones tomadas y las que esperan al propietario están en [docs/decisions.md](docs/decisions.md). Las fuentes públicas que podrían ampliar el índice están evaluadas en [docs/fuentes-adicionales.md](docs/fuentes-adicionales.md).
 
 ## Uso
