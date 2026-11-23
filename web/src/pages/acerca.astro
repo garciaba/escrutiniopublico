@@ -7,7 +7,7 @@ const incidencias = `${site.repositoryUrl}/issues/new`;
 
 <Base
   title="Acerca del proyecto"
-  description={`Quién está detrás de ${site.name}, cómo se garantiza su independencia, cómo se financia y cómo pedir la rectificación de un dato.`}
+  description={`Qué es ${site.name}, cómo se garantiza su independencia, cómo se tratan los datos y cómo pedir la rectificación de un dato.`}
   path="/acerca"
 >
   <div class="wrap">
@@ -34,18 +34,6 @@ const incidencias = `${site.repositoryUrl}/issues/new`;
         circunscripción.
       </p>
 
-      <h2 id="quien">Quién está detrás</h2>
-      {
-        site.titular ? (
-          <p>{site.titular}</p>
-        ) : (
-          <p>
-            <span class="pendiente">Titularidad pendiente de publicar.</span> Se indicará aquí quién es responsable del
-            proyecto antes de su lanzamiento.
-          </p>
-        )
-      }
-
       <h2 id="independencia">Independencia</h2>
       <ul>
         <li>El proyecto no tiene vinculación con el Congreso de los Diputados ni con ningún partido político.</li>
@@ -59,18 +47,6 @@ const incidencias = `${site.repositoryUrl}/issues/new`;
           Todo cambio de metodología se numera y se publica en <a href="/cambios">Cambios</a>.
         </li>
       </ul>
-
-      <h2 id="financiacion">Financiación</h2>
-      {
-        site.financiacion ? (
-          <p>{site.financiacion}</p>
-        ) : (
-          <p>
-            <span class="pendiente">Financiación pendiente de publicar.</span> Se detallará aquí cómo se sostiene el
-            proyecto antes de su lanzamiento.
-          </p>
-        )
-      }
 
       <h2 id="rectificaciones">Contacto y rectificaciones</h2>
       <p>

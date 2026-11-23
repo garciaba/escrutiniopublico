@@ -182,8 +182,8 @@ for (const directive of [
 }
 if (/unsafe-inline|unsafe-eval|\*/.test(csp)) errors.push('_headers: Content-Security-Policy is not strict');
 
-// Launch blockers the owner still has to provide.
-const pending = (['titular', 'contacto', 'financiacion'] as const).filter((field) => !site[field]);
+// Launch blocker the owner still has to provide (D-036).
+const pending = (['contacto'] as const).filter((field) => !site[field]);
 if (pending.length > 0) {
   (strict ? errors : warnings).push(`/acerca still shows as pending: ${pending.join(', ')} (config/site.ts)`);
 }

@@ -410,3 +410,11 @@ El mensaje del commit de datos lo escribe el mismo script: sesiones nuevas, fila
 - **Activar el flujo diario.** El `cron` de GitHub solo corre en la rama por defecto, así que el flujo diario empieza cuando los PR se fusionen en `main`. Los dos criterios del hito que dependen de él se comprobarán entonces: tres ejecuciones diarias seguidas y el fallo simulado.
 - **Volumen de descarga.** Cada ejecución descarga de nuevo todo el buscador de iniciativas: unas 600 peticiones, a una por segundo. Con la XV cerrada casi nada cambia. Si las primeras ejecuciones lo confirman, una mejora será refrescar a diario solo los bloques recientes y el resto una vez por semana.
 - **Proteger `main`.** Si se protege la rama (sección 9), hay que permitir que GitHub Actions suba el commit diario. El auto-merge de Dependabot espera a esa protección, porque sin comprobaciones obligatorias fusionaría sin esperar a la CI (hito 5).
+
+## D-036 · `/acerca` sin titularidad ni financiación
+
+**Decidida por el propietario (23/11/2026):** «En acerca, quita lo de la financiación y quién está detrás, no es necesario».
+
+- `/acerca` deja de tener las secciones «Quién está detrás» y «Financiación», que pedía la sección 8 de la especificación. Desaparecen también sus campos de `config/site.ts`.
+- Se mantienen las secciones sobre qué es el proyecto, independencia, contacto y rectificaciones, privacidad y licencias.
+- La vía de rectificación sigue siendo una incidencia en el repositorio público mientras no haya una dirección de contacto (`site.contacto`). Es lo único que `pnpm web:audit --strict` sigue señalando como pendiente antes del lanzamiento.
