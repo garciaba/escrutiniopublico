@@ -1,6 +1,6 @@
 # Registro de decisiones
 
-Decisiones del agente de código y propuestas que esperan al propietario. Cada entrada indica su estado: **tomada** (aplicada en el código), **propuesta** (el agente recomienda, el propietario decide) o **pendiente** (sin recomendación cerrada). Los hechos citados están documentados en [data-dictionary.md](data-dictionary.md).
+Decisiones del agente de código y propuestas que esperan al propietario. Cada entrada indica su estado: **tomada** (aplicada en el código), **decidida** (aprobada por el propietario), **propuesta** (el agente recomienda, el propietario decide) o **pendiente** (sin recomendación cerrada). Los hechos citados están documentados en [data-dictionary.md](data-dictionary.md).
 
 | ID    | Tema                                                    | Estado    | Hito afectado |
 | ----- | ------------------------------------------------------- | --------- | ------------- |
@@ -8,8 +8,8 @@ Decisiones del agente de código y propuestas que esperan al propietario. Cada e
 | D-002 | Versiones de herramientas y librerías                   | Tomada    | Todos         |
 | D-003 | `User-Agent` frente al cortafuegos del Congreso         | Propuesta | 1, 4          |
 | D-004 | Guardar los JSON de votaciones en lugar de los ZIP      | Propuesta | 1             |
-| D-005 | Qué legislatura publicar tras la disolución             | Propuesta | 1–3           |
-| D-006 | Índice con cobertura del 40 %                           | Pendiente | 2, 3          |
+| D-005 | Qué legislatura publicar tras la disolución             | Decidida  | 1–3           |
+| D-006 | Índice con cobertura del 40 %                           | Decidida  | 2, 3          |
 | D-007 | Cómo identificar a los miembros del Gobierno            | Propuesta | 2             |
 | D-008 | Identificador de diputado y cruce por nombre            | Tomada    | 1             |
 | D-009 | Recuento de intervenciones                              | Propuesta | 1, 2          |
@@ -43,18 +43,19 @@ Decisiones del agente de código y propuestas que esperan al propietario. Cada e
 
 ## D-005 · Qué legislatura publicar tras la disolución
 
-**Propuesta.** La XV Legislatura terminó el 6 de octubre de 2026 y la XVI se constituye el 23 de diciembre. Construir hoy un ranking «en directo» de la XV no tiene sentido, y la XVI no tendrá 90 días de actividad hasta finales de marzo de 2027 como pronto.
+**Decidida por el propietario (2026-11-23), según la recomendación del agente.** La XV Legislatura terminó el 6 de octubre de 2026 y la XVI se constituye el 23 de diciembre. Construir hoy un ranking «en directo» de la XV no tiene sentido, y la XVI no tendrá 90 días de actividad hasta finales de marzo de 2027 como pronto.
 
-- **Recomendación:** que el MVP publique el **balance completo de la XV Legislatura** (datos cerrados y estables) con el aviso de «legislatura finalizada» que ya prevé la especificación, y que el pipeline se prepare para cambiar a la XVI al constituirse.
-- Consecuencias que hay que confirmar: los periodos «último mes» y «último trimestre» quedan vacíos para la XV; el control «entre 340 y 350 diputados en activo» debe depender del estado de la legislatura (hoy hay 137 «activos»); la XVI arrancará con métricas casi vacías varios meses.
+- **Decisión:** el MVP publica el **balance completo de la XV Legislatura** (datos cerrados y estables) con el aviso de «legislatura finalizada» que ya prevé la especificación, y el pipeline se prepara para cambiar a la XVI al constituirse.
+- Consecuencias para los hitos 1 a 3: los periodos «último mes» y «último trimestre» quedan como «no disponible» para la XV; el control «entre 340 y 350 diputados en activo» depende del estado de la legislatura (hoy hay 137 «activos»); la XVI arrancará con métricas casi vacías varios meses.
 
 ## D-006 · Índice con cobertura del 40 %
 
-**Pendiente del propietario** (ya listada en la sección 12 de la especificación, ahora confirmada con datos). Solo dos dimensiones tienen dato: dedicación y participación en debates. Opciones:
+**Decidida por el propietario (2026-11-23): se publica el índice global con cobertura del 40 %**, como permite la regla de cobertura mínima. Solo dos dimensiones tienen dato: dedicación y participación en debates. La cobertura se muestra siempre junto al índice («calculado con 2 de 5 dimensiones»).
 
-1. Publicar el índice con cobertura del 40 %, como permite la regla de cobertura mínima.
-2. Esperar a tener una tercera dimensión, lo que exige el adaptador del buscador de iniciativas (fase 2, scraping).
-3. Estudiar indicadores que sí están en datos abiertos. El agente no los implementa porque la especificación prohíbe improvisar métricas; se dejan como ideas:
+Opciones descartadas por ahora:
+
+1. Esperar a tener una tercera dimensión, lo que exige el adaptador del buscador de iniciativas (fase 2, scraping).
+2. Indicadores que sí están en datos abiertos, que el agente no implementa porque la especificación prohíbe improvisar métricas. Quedan como ideas para una futura versión de la metodología:
    - Preguntas orales formuladas, visibles en intervenciones (`TIPOINICIATIVA` de pregunta, 6.364 filas).
    - Participación como ponente en proyectos y proposiciones de ley (campo `PONENTES`, presente en 46 iniciativas).
 
