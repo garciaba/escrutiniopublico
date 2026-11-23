@@ -2,25 +2,25 @@
 
 Decisiones del agente de código y propuestas que esperan al propietario. Cada entrada indica su estado: **tomada** (aplicada en el código), **decidida** (aprobada por el propietario), **propuesta** (el agente recomienda, el propietario decide) o **pendiente** (sin recomendación cerrada). Los hechos citados están documentados en [data-dictionary.md](data-dictionary.md).
 
-| ID    | Tema                                                     | Estado    | Hito afectado |
-| ----- | -------------------------------------------------------- | --------- | ------------- |
-| D-001 | Ejecutar TypeScript con Node 22 sin paso de compilación  | Tomada    | Todos         |
-| D-002 | Versiones de herramientas y librerías                    | Tomada    | Todos         |
-| D-003 | `User-Agent` frente al cortafuegos del Congreso          | Decidida  | 1, 4          |
-| D-004 | Guardar los JSON de votaciones en lugar de los ZIP       | Decidida  | 1             |
-| D-005 | Qué legislatura publicar tras la disolución              | Decidida  | 1–3           |
-| D-006 | Índice con cobertura del 40 %                            | Decidida  | 2, 3          |
-| D-007 | Cómo identificar a los miembros del Gobierno             | Decidida  | 2             |
-| D-008 | Identificación de los diputados por su nombre            | Decidida  | 1             |
-| D-009 | Recuento de intervenciones                               | Decidida  | 1, 2          |
-| D-010 | Voto telemático                                          | Decidida  | 1             |
-| D-011 | Enlace a la ficha oficial del Congreso                   | Propuesta | 1, 3          |
-| D-012 | Exportación de órganos mediante POST                     | Tomada    | 1             |
-| D-013 | Intervenciones en la Diputación Permanente               | Decidida  | 2             |
-| D-014 | Datos excluidos por la política de datos personales      | Tomada    | 1             |
-| D-015 | Código oficial `codParlamentario` junto al nombre        | Propuesta | 1             |
-| D-016 | Tercera dimensión con preguntas y solicitudes de informe | Pendiente | 1, 2          |
-| D-017 | Capturar las agendas antes de la XVI                     | Pendiente | 1             |
+| ID    | Tema                                                     | Estado   | Hito afectado |
+| ----- | -------------------------------------------------------- | -------- | ------------- |
+| D-001 | Ejecutar TypeScript con Node 22 sin paso de compilación  | Tomada   | Todos         |
+| D-002 | Versiones de herramientas y librerías                    | Tomada   | Todos         |
+| D-003 | `User-Agent` frente al cortafuegos del Congreso          | Decidida | 1, 4          |
+| D-004 | Guardar los JSON de votaciones en lugar de los ZIP       | Decidida | 1             |
+| D-005 | Qué legislatura publicar tras la disolución              | Decidida | 1–3           |
+| D-006 | Índice con cobertura del 40 %                            | Decidida | 2, 3          |
+| D-007 | Cómo identificar a los miembros del Gobierno             | Decidida | 2             |
+| D-008 | Identificación de los diputados por su nombre            | Decidida | 1             |
+| D-009 | Recuento de intervenciones                               | Decidida | 1, 2          |
+| D-010 | Voto telemático                                          | Decidida | 1             |
+| D-011 | Enlace a la ficha oficial del Congreso                   | Decidida | 1, 3          |
+| D-012 | Exportación de órganos mediante POST                     | Tomada   | 1             |
+| D-013 | Intervenciones en la Diputación Permanente               | Decidida | 2             |
+| D-014 | Datos excluidos por la política de datos personales      | Tomada   | 1             |
+| D-015 | Código oficial `codParlamentario` junto al nombre        | Decidida | 1             |
+| D-016 | Tercera dimensión con preguntas y solicitudes de informe | Decidida | 1, 2          |
+| D-017 | Capturar las agendas antes de la XVI                     | Decidida | 1             |
 
 ## D-001 · Ejecutar TypeScript con Node 22 sin paso de compilación
 
@@ -48,6 +48,7 @@ Decisiones del agente de código y propuestas que esperan al propietario. Cada e
 
 **Decidida por el propietario (2026-11-23), según la recomendación del agente.** La XV Legislatura terminó el 6 de octubre de 2026 y la XVI se constituye el 23 de diciembre. Construir hoy un ranking «en directo» de la XV no tiene sentido, y la XVI no tendrá 90 días de actividad hasta finales de marzo de 2027 como pronto.
 
+- **Objetivo del propietario (ampliado el 2026-11-23):** publicar la información de los diputados actuales y, cuando empiece la XVI, seguir su trabajo en tiempo real.
 - **Decisión:** el MVP publica el **balance completo de la XV Legislatura** (datos cerrados y estables) con el aviso de «legislatura finalizada» que ya prevé la especificación, y el pipeline se prepara para cambiar a la XVI al constituirse.
 - Consecuencias para los hitos 1 a 3: los periodos «último mes» y «último trimestre» quedan como «no disponible» para la XV; el control «entre 340 y 350 diputados en activo» depende del estado de la legislatura (hoy hay 137 «activos»); la XVI arrancará con métricas casi vacías varios meses.
 
@@ -92,7 +93,7 @@ Precisión añadida tras el cruce completo (diccionario, sección 4), necesaria 
 
 ## D-011 · Enlace a la ficha oficial del Congreso
 
-**Propuesta (resuelta con D-015).** Los ficheros de datos abiertos no traen el código de diputado, pero el buscador de diputados sí (ver D-015). Con él, la ficha oficial es `https://www.congreso.es/es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_diputadomodule_mostrarFicha=true&codParlamentario={código}&idLegislatura=XV`.
+**Decidida por el propietario (2026-11-23), con D-015.** Cada ficha de ESCAÑO enlaza a la ficha oficial: `https://www.congreso.es/es/busqueda-de-diputados?p_p_id=diputadomodule&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_diputadomodule_mostrarFicha=true&codParlamentario={código}&idLegislatura=XV`.
 
 ## D-012 · Exportación de órganos mediante POST
 
@@ -108,19 +109,33 @@ Precisión añadida tras el cruce completo (diccionario, sección 4), necesaria 
 
 ## D-015 · Código oficial `codParlamentario` junto al nombre
 
-**Propuesta.** El recurso JSON `searchDiputados` del buscador de diputados del Congreso devuelve los 412 diputados de la XV con su `codParlamentario`, en una sola petición. Comprobado el 23/11/2026: 412 códigos distintos y los 412 nombres coinciden exactamente con el censo de datos abiertos ([fuentes-adicionales.md](fuentes-adicionales.md), sección 2.3).
+**Decidida por el propietario (2026-11-23), según la recomendación del agente.** En el hito 1 se ingiere el recurso `searchDiputados` del buscador de diputados (una petición por legislatura) y la tabla `diputados` guarda el par (legislatura, `codParlamentario`) junto al nombre.
 
-- **Recomendación:** ingerirlo en el hito 1 y guardar el par (legislatura, `codParlamentario`) en la tabla `diputados`, junto al nombre. Sirve para enlazar la ficha oficial (D-011), como comprobación independiente del cruce por nombre (el pipeline falla si algún nombre del censo no tiene código o viceversa) y como clave para las fuentes de D-016.
-- El nombre sigue siendo la identificación visible (D-008). El código cambia entre legislaturas, así que no sirve para seguir a una persona de una legislatura a otra.
-- Es un recurso interno no documentado, como la exportación de órganos (D-012): si deja de responder, el cruce por nombre sigue funcionando y solo se pierde el enlace a la ficha.
+- Comprobado el 23/11/2026: 412 códigos distintos, y los 412 nombres coinciden exactamente con el censo de datos abiertos ([fuentes-adicionales.md](fuentes-adicionales.md), sección 2.3).
+- Usos: enlace a la ficha oficial (D-011), comprobación independiente del cruce por nombre (el pipeline falla si un nombre del censo no tiene código o al revés) y clave para las fuentes de D-016 y D-017.
+- El nombre sigue siendo la identificación visible (D-008). El código cambia entre legislaturas.
+- Si el recurso deja de responder, el cruce por nombre sigue funcionando y solo se pierden el enlace y la comprobación.
 
 ## D-016 · Tercera dimensión con preguntas y solicitudes de informe
 
-**Pendiente del propietario.** Los recursos de iniciativas por diputado y la exportación del buscador de iniciativas del Congreso dan, por diputado y con firmantes individuales, las preguntas escritas (44.849 en la XV), las preguntas orales y las solicitudes de informe ([fuentes-adicionales.md](fuentes-adicionales.md), secciones 2.1 y 2.2). Con ellos, la dimensión «Productividad legislativa» o una nueva de «control al Gobierno» tendría dato, y la cobertura subiría del 40 % al 60 %.
+**Decidida por el propietario (2026-11-23): se añade la tercera dimensión.** La cobertura pasa del 40 % al 60 % (3 de 5 dimensiones). La forma de medirla es una propuesta del agente, que entra en la metodología con el hito 2 y sube su versión:
 
-- Coste: es el adaptador del buscador de iniciativas que la especificación dejaba para la fase 2, sobre recursos no documentados; unas 450 peticiones para descargar la XV.
-- Requiere una nueva versión de la metodología (cómo contar las cofirmas: primer firmante, todos los firmantes o crédito fraccional) y, por tanto, la decisión del propietario.
+| Elemento         | Propuesta                                                                                                                                                                         |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dimensión        | La tercera de la especificación, renombrada «Iniciativa parlamentaria» porque deja de medir solo leyes. Peso 20, sin cambios.                                                     |
+| Métricas         | Preguntas con respuesta escrita (tipo 184) y solicitudes de informe (tipo 186) por cada 100 días en activo. «Iniciativas legislativas firmadas» se mantiene como `no_disponible`. |
+| Cofirmas         | Crédito fraccional: una iniciativa con n firmantes suma 1/n a cada uno. La ficha muestra también el total firmado y el número como primer firmante.                               |
+| Preguntas orales | No se suman aquí: se formulan en el Pleno o en comisión y ya cuentan como intervenciones.                                                                                         |
+| Estado           | `calculado`, porque el crédito fraccional es un indicador derivado.                                                                                                               |
+| Fuente           | Exportación del buscador de iniciativas (firmantes por expediente), cruzada por nombre con las reglas de D-008.                                                                   |
+| Comprobación     | Para cada diputado, los expedientes en los que figura deben coincidir con el total del cuadro estadístico de su ficha (`datosCuadroEstadistico`).                                 |
+
+El adaptador entra en el hito 1, adelantando lo que la especificación dejaba para la fase 2.
 
 ## D-017 · Capturar las agendas antes de la XVI
 
-**Pendiente del propietario.** La agenda de cada diputado solo es accesible mientras está en activo: ya no responde para quienes causaron baja el 06/10/2026, y no se sabe qué pasará cuando se constituya la XVI el 23/12/2026 ([fuentes-adicionales.md](fuentes-adicionales.md), sección 2.4). Si interesa, habría que capturar antes de esa fecha la de los 137 diputados que siguen en activo, aunque sea una muestra parcial de la XV. Por privacidad se publicarían solo recuentos (publica o no agenda personal, número de citas), nunca el texto. La especificación no prevé esta fuente.
+**Decidida por el propietario (2026-11-23): se capturan.** La idea del propietario es publicar la información de los diputados actuales y, cuando empiece la XVI, seguir su trabajo en tiempo real. La agenda solo es accesible mientras el diputado está en activo: ya no responde para quienes causaron baja el 06/10/2026, y puede desaparecer para todos cuando se constituya la XVI el 23/12/2026.
+
+- Se capturan las agendas de los 137 diputados que siguen en activo, una petición por semana y diputado, a una petición por segundo.
+- **Privacidad:** el repositorio guarda, por cita, la fecha, las horas y el tipo. En las institucionales guarda además el órgano; en las personales, nunca el texto, que puede nombrar a terceros. La web publicará solo recuentos (si publica agenda personal y cuántas citas declara).
+- En la XVI la agenda pasa a ser una fuente diaria del pipeline.
