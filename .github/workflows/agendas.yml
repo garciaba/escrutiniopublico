@@ -1,0 +1,72 @@
+# Decision D-017: archive the agendas of the deputies in office before the XVI
+# legislature is constituted (23/12/2026). One request per deputy and week at
+# 1 request per second; about 23,600 requests for the whole XV legislature, so the
+# capture runs as three sequential parts. Each part commits what it completed and the
+# next one resumes from there. Only sanitized entries are stored (no personal text).
+name: Agenda capture
+
+on:
+  workflow_dispatch:
+    inputs:
+      to:
+        description: Last day to capture (yyyy-mm-dd)
+        required: false
+        default: '2026-11-23'
+  push:
+    branches: ['claude/**']
+    paths:
+      - 'pipeline/ingest/capture-agendas.ts'
+      - 'pipeline/ingest/agendas.ts'
+      - 'config/agenda.ts'
+      - '.github/workflows/agendas.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: agendas-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CAPTURE_TO: ${{ github.event.inputs.to || '2026-11-23' }}
+  BRANCH: ${{ github.ref_name }}
+
+jobs:
+  capture:
+    name: Capture (part ${{ matrix.part }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      # Sequential parts: each one checks out the branch with the previous part's commit.
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        part: [1, 2, 3]
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Capture agendas until the deadline
+        run: node pipeline/ingest/capture-agendas.ts --to "$CAPTURE_TO" --deadline-minutes 320
+      - name: Commit captured agendas
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw/agendas
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit"
+            exit 0
+          fi
+          git commit -m "Capture deputies' agendas up to $CAPTURE_TO (part ${{ matrix.part }})"
+          for attempt in 1 2 3 4; do
+            git pull --rebase origin "$BRANCH" && git push origin "HEAD:$BRANCH" && exit 0
+            sleep $((attempt * 15))
+          done
+          exit 1

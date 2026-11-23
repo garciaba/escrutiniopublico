@@ -1,0 +1,19 @@
+{
+ "datosOrganos": [
+  {
+   "urlExport": "/organos/composicion-en-la-legislatura?p_p_id=organos&_organos_statusOpenData=true&_organos_selectedOrganoSup=1&_organos_selectedSuborgano=301&_organos_selectedLegislatura=XV",
+   "descOrgano": "Comisión Constitucional",
+   "indexOrgano": 0
+  },
+  {
+   "urlExport": "/organos/composicion-en-la-legislatura?p_p_id=organos&_organos_statusOpenData=true&_organos_selectedOrganoSup=1&_organos_selectedSuborgano=302&_organos_selectedLegislatura=XV",
+   "descOrgano": "Comisión de Asuntos Exteriores",
+   "indexOrgano": 1
+  },
+  {
+   "urlExport": "/organos/composicion-en-la-legislatura?p_p_id=organos&_organos_statusOpenData=true&_organos_selectedOrganoSup=1&_organos_selectedSuborgano=303&_organos_selectedLegislatura=XV",
+   "descOrgano": "Comisión de Justicia",
+   "indexOrgano": 2
+  }
+ ]
+}

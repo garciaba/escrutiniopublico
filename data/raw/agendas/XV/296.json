@@ -1,0 +1,2471 @@
+{
+ "legislatura": "XV",
+ "codParlamentario": 296,
+ "nombre": "Soler Mur, Alejandro",
+ "desde": "2023-08-17",
+ "hasta": "2026-11-23",
+ "semanasConsultadas": 172,
+ "capturado": "2026-11-23T16:54:39.069Z",
+ "fuente": "Congreso de los Diputados, agenda del diputado (recurso agendaDiputados)",
+ "entradas": [
+  {
+   "fecha": "2023-08-17",
+   "tipo": "institucional",
+   "horaInicio": "10:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2023-09-19",
+   "tipo": "institucional",
+   "horaInicio": "12:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2023-09-21",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2023-09-26",
+   "tipo": "institucional",
+   "horaInicio": "12:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2023-09-27",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2023-09-29",
+   "tipo": "institucional",
+   "horaInicio": "12:15",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2023-10-06",
+   "tipo": "personal",
+   "horaInicio": "15:45"
+  },
+  {
+   "fecha": "2023-10-07",
+   "tipo": "personal",
+   "horaInicio": "08:15"
+  },
+  {
+   "fecha": "2023-10-08",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2023-10-09",
+   "tipo": "personal",
+   "horaInicio": "08:45"
+  },
+  {
+   "fecha": "2023-10-16",
+   "tipo": "personal",
+   "horaInicio": "11:00"
+  },
+  {
+   "fecha": "2023-10-20",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2023-10-20",
+   "tipo": "personal",
+   "horaInicio": "17:30"
+  },
+  {
+   "fecha": "2023-10-23",
+   "tipo": "personal",
+   "horaInicio": "18:00"
+  },
+  {
+   "fecha": "2023-11-15",
+   "tipo": "institucional",
+   "horaInicio": "12:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2023-11-16",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2023-11-21",
+   "tipo": "institucional",
+   "horaInicio": "12:30",
+   "organo": "Diputación Permanente"
+  },
+  {
+   "fecha": "2023-11-23",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2023-11-24",
+   "tipo": "personal",
+   "horaInicio": "20:30"
+  },
+  {
+   "fecha": "2023-11-28",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2023-11-28",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2023-11-30",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2023-12-01",
+   "tipo": "personal",
+   "horaInicio": "11:30"
+  },
+  {
+   "fecha": "2023-12-05",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2023-12-05",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2023-12-12",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2023-12-12",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2023-12-13",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2023-12-19",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2023-12-19",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2023-12-20",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-01-10",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-01-12",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-01-15",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-01-16",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-01-18",
+   "tipo": "institucional",
+   "horaInicio": "12:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-01-24",
+   "tipo": "institucional",
+   "horaInicio": "16:00",
+   "organo": "Diputación Permanente"
+  },
+  {
+   "fecha": "2024-01-25",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2024-01-30",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-02-06",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-02-07",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-02-14",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-02-14",
+   "tipo": "personal",
+   "horaInicio": "13:00"
+  },
+  {
+   "fecha": "2024-02-14",
+   "tipo": "personal",
+   "horaInicio": "14:15"
+  },
+  {
+   "fecha": "2024-02-15",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2024-02-20",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2024-02-20",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-02-21",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-02-22",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-02-22",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2024-02-23",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2024-02-27",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-02-28",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-02-29",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-02-29",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2024-03-01",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2024-03-08",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2024-03-08",
+   "tipo": "personal",
+   "horaInicio": "19:30"
+  },
+  {
+   "fecha": "2024-03-09",
+   "tipo": "personal",
+   "horaInicio": "20:30"
+  },
+  {
+   "fecha": "2024-03-12",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-03-13",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-03-14",
+   "tipo": "institucional",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-03-14",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-03-15",
+   "tipo": "personal",
+   "horaInicio": "18:00"
+  },
+  {
+   "fecha": "2024-03-19",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2024-03-19",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-03-20",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-03-21",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-04-09",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-04-10",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-04-11",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2024-04-11",
+   "tipo": "personal",
+   "horaInicio": "20:00"
+  },
+  {
+   "fecha": "2024-04-12",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2024-04-12",
+   "tipo": "personal",
+   "horaInicio": "18:00"
+  },
+  {
+   "fecha": "2024-04-15",
+   "tipo": "personal",
+   "horaInicio": "18:00"
+  },
+  {
+   "fecha": "2024-04-17",
+   "tipo": "personal",
+   "horaInicio": "17:00"
+  },
+  {
+   "fecha": "2024-04-18",
+   "tipo": "personal",
+   "horaInicio": "14:30"
+  },
+  {
+   "fecha": "2024-04-18",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2024-04-19",
+   "tipo": "personal",
+   "horaInicio": "20:00"
+  },
+  {
+   "fecha": "2024-04-20",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2024-04-23",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-04-23",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-04-24",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-04-27",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2024-04-29",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2024-05-01",
+   "tipo": "personal",
+   "horaInicio": "08:00"
+  },
+  {
+   "fecha": "2024-05-01",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2024-05-02",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2024-05-02",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2024-05-02",
+   "tipo": "personal",
+   "horaInicio": "18:00"
+  },
+  {
+   "fecha": "2024-05-03",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2024-05-03",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-05-03",
+   "tipo": "personal",
+   "horaInicio": "17:30"
+  },
+  {
+   "fecha": "2024-05-06",
+   "tipo": "personal",
+   "horaInicio": "10:00"
+  },
+  {
+   "fecha": "2024-05-06",
+   "tipo": "personal",
+   "horaInicio": "18:00"
+  },
+  {
+   "fecha": "2024-05-07",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2024-05-08",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2024-05-08",
+   "tipo": "personal",
+   "horaInicio": "17:00"
+  },
+  {
+   "fecha": "2024-05-09",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2024-05-09",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2024-05-10",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2024-05-10",
+   "tipo": "personal",
+   "horaInicio": "18:30"
+  },
+  {
+   "fecha": "2024-05-14",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2024-05-15",
+   "tipo": "personal",
+   "horaInicio": "10:00"
+  },
+  {
+   "fecha": "2024-05-15",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2024-05-16",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2024-05-16",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2024-05-16",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-05-17",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-05-17",
+   "tipo": "personal",
+   "horaInicio": "13:30"
+  },
+  {
+   "fecha": "2024-05-17",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2024-05-18",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2024-05-19",
+   "tipo": "personal",
+   "horaInicio": "12:30"
+  },
+  {
+   "fecha": "2024-05-21",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2024-05-21",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-05-22",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-05-23",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-05-23",
+   "tipo": "personal",
+   "horaInicio": "10:00"
+  },
+  {
+   "fecha": "2024-05-23",
+   "tipo": "personal",
+   "horaInicio": "18:00"
+  },
+  {
+   "fecha": "2024-05-24",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2024-05-24",
+   "tipo": "personal",
+   "horaInicio": "20:30"
+  },
+  {
+   "fecha": "2024-05-25",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-05-25",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2024-05-27",
+   "tipo": "personal",
+   "horaInicio": "13:00"
+  },
+  {
+   "fecha": "2024-05-28",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-05-28",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-05-29",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-05-30",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-05-30",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2024-05-30",
+   "tipo": "personal",
+   "horaInicio": "20:00"
+  },
+  {
+   "fecha": "2024-05-31",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2024-06-01",
+   "tipo": "personal",
+   "horaInicio": "11:30"
+  },
+  {
+   "fecha": "2024-06-01",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2024-06-03",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2024-06-04",
+   "tipo": "personal",
+   "horaInicio": "20:00"
+  },
+  {
+   "fecha": "2024-06-05",
+   "tipo": "personal",
+   "horaInicio": "20:00"
+  },
+  {
+   "fecha": "2024-06-06",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2024-06-07",
+   "tipo": "personal",
+   "horaInicio": "10:45"
+  },
+  {
+   "fecha": "2024-06-07",
+   "tipo": "personal",
+   "horaInicio": "11:10"
+  },
+  {
+   "fecha": "2024-06-07",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2024-06-11",
+   "tipo": "personal",
+   "horaInicio": "13:00"
+  },
+  {
+   "fecha": "2024-06-11",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-06-12",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-06-12",
+   "tipo": "personal",
+   "horaInicio": "13:00"
+  },
+  {
+   "fecha": "2024-06-13",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-06-13",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2024-06-13",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2024-06-15",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2024-06-15",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2024-06-17",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2024-06-18",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-06-19",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-06-20",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-06-21",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2024-06-25",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-06-26",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-06-27",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-06-27",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2024-06-27",
+   "tipo": "personal",
+   "horaInicio": "13:30"
+  },
+  {
+   "fecha": "2024-07-04",
+   "tipo": "institucional",
+   "horaInicio": "12:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-07-11",
+   "tipo": "institucional",
+   "horaInicio": "11:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-07-17",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-07-23",
+   "tipo": "institucional",
+   "horaInicio": "10:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-08-27",
+   "tipo": "institucional",
+   "horaInicio": "11:00",
+   "organo": "Diputación Permanente"
+  },
+  {
+   "fecha": "2024-09-03",
+   "tipo": "personal",
+   "horaInicio": "20:30"
+  },
+  {
+   "fecha": "2024-09-04",
+   "tipo": "personal",
+   "horaInicio": "10:00"
+  },
+  {
+   "fecha": "2024-09-04",
+   "tipo": "personal",
+   "horaInicio": "11:30"
+  },
+  {
+   "fecha": "2024-09-05",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-09-05",
+   "tipo": "personal",
+   "horaInicio": "16:00"
+  },
+  {
+   "fecha": "2024-09-06",
+   "tipo": "personal",
+   "horaInicio": "20:30"
+  },
+  {
+   "fecha": "2024-09-06",
+   "tipo": "personal",
+   "horaInicio": "23:30"
+  },
+  {
+   "fecha": "2024-09-10",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2024-09-10",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-09-11",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-09-11",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2024-09-12",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2024-09-13",
+   "tipo": "personal",
+   "horaInicio": "10:45"
+  },
+  {
+   "fecha": "2024-09-17",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-09-18",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-09-19",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2024-09-24",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-09-25",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-09-26",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-09-27",
+   "tipo": "personal",
+   "horaInicio": "12:30"
+  },
+  {
+   "fecha": "2024-09-29",
+   "tipo": "personal",
+   "horaInicio": "13:00"
+  },
+  {
+   "fecha": "2024-10-01",
+   "tipo": "personal",
+   "horaInicio": "14:15"
+  },
+  {
+   "fecha": "2024-10-02",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2024-10-03",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-10-03",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2024-10-07",
+   "tipo": "personal",
+   "horaInicio": "13:30"
+  },
+  {
+   "fecha": "2024-10-08",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-10-09",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-10-10",
+   "tipo": "institucional",
+   "horaInicio": "11:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-10-12",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-10-15",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-10-16",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-10-22",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-10-23",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-10-29",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-10-30",
+   "tipo": "institucional",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-10-30",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-10-30",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2024-10-31",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-10-31",
+   "tipo": "personal",
+   "horaInicio": "17:00"
+  },
+  {
+   "fecha": "2024-11-05",
+   "tipo": "personal",
+   "horaInicio": "11:30"
+  },
+  {
+   "fecha": "2024-11-12",
+   "tipo": "institucional",
+   "horaInicio": "12:30",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-11-13",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-11-14",
+   "tipo": "institucional",
+   "horaInicio": "10:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-11-19",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-11-20",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-11-21",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-11-26",
+   "tipo": "institucional",
+   "horaInicio": "12:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-11-27",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-11-28",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-12-02",
+   "tipo": "personal",
+   "horaInicio": "20:00"
+  },
+  {
+   "fecha": "2024-12-05",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-12-09",
+   "tipo": "personal",
+   "horaInicio": "16:00"
+  },
+  {
+   "fecha": "2024-12-10",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2024-12-10",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2024-12-10",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-12-11",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-12-12",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-12-17",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-12-18",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2024-12-19",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-01-09",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2025-01-16",
+   "tipo": "personal",
+   "horaInicio": "19:30"
+  },
+  {
+   "fecha": "2025-01-17",
+   "tipo": "personal",
+   "horaInicio": "10:00"
+  },
+  {
+   "fecha": "2025-01-17",
+   "tipo": "personal",
+   "horaInicio": "12:30"
+  },
+  {
+   "fecha": "2025-01-22",
+   "tipo": "institucional",
+   "organo": "Diputación Permanente"
+  },
+  {
+   "fecha": "2025-01-22",
+   "tipo": "institucional",
+   "horaInicio": "10:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-01-24",
+   "tipo": "personal",
+   "horaInicio": "11:00"
+  },
+  {
+   "fecha": "2025-01-27",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2025-01-28",
+   "tipo": "personal",
+   "horaInicio": "10:00"
+  },
+  {
+   "fecha": "2025-01-29",
+   "tipo": "personal",
+   "horaInicio": "11:00"
+  },
+  {
+   "fecha": "2025-01-31",
+   "tipo": "personal"
+  },
+  {
+   "fecha": "2025-02-01",
+   "tipo": "personal"
+  },
+  {
+   "fecha": "2025-02-02",
+   "tipo": "personal"
+  },
+  {
+   "fecha": "2025-02-04",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2025-02-05",
+   "tipo": "personal",
+   "horaInicio": "09:15"
+  },
+  {
+   "fecha": "2025-02-10",
+   "tipo": "personal",
+   "horaInicio": "11:30"
+  },
+  {
+   "fecha": "2025-02-11",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-02-11",
+   "tipo": "personal",
+   "horaInicio": "16:00"
+  },
+  {
+   "fecha": "2025-02-12",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-02-12",
+   "tipo": "personal",
+   "horaInicio": "16:00"
+  },
+  {
+   "fecha": "2025-02-13",
+   "tipo": "personal",
+   "horaInicio": "20:00"
+  },
+  {
+   "fecha": "2025-02-17",
+   "tipo": "personal",
+   "horaInicio": "18:00"
+  },
+  {
+   "fecha": "2025-02-17",
+   "tipo": "personal",
+   "horaInicio": "19:30"
+  },
+  {
+   "fecha": "2025-02-18",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-02-19",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-02-20",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2025-02-20",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2025-02-25",
+   "tipo": "personal",
+   "horaInicio": "12:30"
+  },
+  {
+   "fecha": "2025-02-25",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-02-26",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-03-07",
+   "tipo": "personal",
+   "horaInicio": "11:00"
+  },
+  {
+   "fecha": "2025-03-11",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2025-03-11",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-03-12",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-03-13",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-03-17",
+   "tipo": "personal",
+   "horaInicio": "13:15"
+  },
+  {
+   "fecha": "2025-03-18",
+   "tipo": "personal"
+  },
+  {
+   "fecha": "2025-03-18",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-03-19",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-03-20",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-03-25",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-03-26",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-04-08",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-04-09",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-04-10",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-04-22",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2025-04-23",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2025-04-23",
+   "tipo": "personal",
+   "horaInicio": "13:00"
+  },
+  {
+   "fecha": "2025-04-23",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2025-04-28",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2025-04-28",
+   "tipo": "personal",
+   "horaInicio": "13:00"
+  },
+  {
+   "fecha": "2025-04-28",
+   "tipo": "personal",
+   "horaInicio": "16:00"
+  },
+  {
+   "fecha": "2025-05-01",
+   "tipo": "personal",
+   "horaInicio": "11:00"
+  },
+  {
+   "fecha": "2025-05-02",
+   "tipo": "personal",
+   "horaInicio": "17:00"
+  },
+  {
+   "fecha": "2025-05-03",
+   "tipo": "personal",
+   "horaInicio": "11:00"
+  },
+  {
+   "fecha": "2025-05-05",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2025-05-05",
+   "tipo": "personal",
+   "horaInicio": "17:30"
+  },
+  {
+   "fecha": "2025-05-06",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-05-07",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-05-08",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-05-08",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2025-05-13",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-05-13",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2025-05-14",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-05-16",
+   "tipo": "personal",
+   "horaInicio": "18:30"
+  },
+  {
+   "fecha": "2025-05-20",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-05-21",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-05-23",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2025-05-27",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-05-28",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-06-10",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-06-11",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-06-12",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-06-17",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-06-18",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-06-19",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-06-24",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-06-25",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-06-26",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-06-26",
+   "tipo": "personal",
+   "horaInicio": "20:00"
+  },
+  {
+   "fecha": "2025-07-01",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2025-07-08",
+   "tipo": "institucional",
+   "horaInicio": "18:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-07-09",
+   "tipo": "institucional",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-07-09",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-07-22",
+   "tipo": "institucional",
+   "horaInicio": "11:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-08-23",
+   "tipo": "personal",
+   "horaInicio": "17:45"
+  },
+  {
+   "fecha": "2025-08-26",
+   "tipo": "institucional",
+   "horaInicio": "10:00",
+   "organo": "Diputación Permanente"
+  },
+  {
+   "fecha": "2025-09-01",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2025-09-09",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-09-10",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-09-16",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-09-17",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-09-23",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2025-09-23",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-09-24",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-09-26",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2025-10-02",
+   "tipo": "personal",
+   "horaInicio": "11:00"
+  },
+  {
+   "fecha": "2025-10-02",
+   "tipo": "personal",
+   "horaInicio": "18:30"
+  },
+  {
+   "fecha": "2025-10-07",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2025-10-07",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-10-08",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-10-09",
+   "tipo": "personal",
+   "horaInicio": "10:00"
+  },
+  {
+   "fecha": "2025-10-14",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-10-15",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-10-16",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-10-21",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-10-22",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-10-27",
+   "tipo": "personal",
+   "horaInicio": "17:00"
+  },
+  {
+   "fecha": "2025-10-28",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-10-29",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-10-31",
+   "tipo": "personal",
+   "horaInicio": "10:00"
+  },
+  {
+   "fecha": "2025-10-31",
+   "tipo": "personal",
+   "horaInicio": "20:30"
+  },
+  {
+   "fecha": "2025-11-11",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-11-12",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-11-13",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-11-18",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-11-18",
+   "tipo": "personal",
+   "horaInicio": "18:00"
+  },
+  {
+   "fecha": "2025-11-19",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-11-25",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-11-26",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-11-27",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-11-28",
+   "tipo": "personal",
+   "horaInicio": "13:30"
+  },
+  {
+   "fecha": "2025-11-28",
+   "tipo": "personal",
+   "horaInicio": "19:30"
+  },
+  {
+   "fecha": "2025-12-02",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2025-12-04",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2025-12-04",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2025-12-08",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2025-12-09",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2025-12-09",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-12-10",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-12-10",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2025-12-11",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2025-12-15",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2025-12-18",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2025-12-18",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2026-01-14",
+   "tipo": "personal",
+   "horaInicio": "19:30"
+  },
+  {
+   "fecha": "2026-01-15",
+   "tipo": "institucional",
+   "horaInicio": "11:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-01-15",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2026-01-27",
+   "tipo": "institucional",
+   "organo": "Diputación Permanente"
+  },
+  {
+   "fecha": "2026-01-27",
+   "tipo": "institucional",
+   "horaInicio": "12:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-02-05",
+   "tipo": "personal",
+   "horaInicio": "20:00"
+  },
+  {
+   "fecha": "2026-02-10",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-02-11",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-02-12",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-02-13",
+   "tipo": "personal",
+   "horaInicio": "18:00"
+  },
+  {
+   "fecha": "2026-02-17",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-02-18",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-02-19",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2026-02-20",
+   "tipo": "personal",
+   "horaInicio": "17:00"
+  },
+  {
+   "fecha": "2026-02-24",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-02-25",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-02-26",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-02-26",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2026-02-27",
+   "tipo": "personal",
+   "horaInicio": "19:00"
+  },
+  {
+   "fecha": "2026-02-28",
+   "tipo": "personal",
+   "horaInicio": "10:30"
+  },
+  {
+   "fecha": "2026-03-04",
+   "tipo": "personal",
+   "horaInicio": "17:30"
+  },
+  {
+   "fecha": "2026-03-12",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2026-03-17",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2026-03-17",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-03-18",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-03-18",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2026-03-19",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2026-03-24",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-03-25",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-03-26",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-04-14",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-04-15",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-04-21",
+   "tipo": "personal",
+   "horaInicio": "13:30"
+  },
+  {
+   "fecha": "2026-04-21",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-04-22",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-04-25",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2026-04-28",
+   "tipo": "personal",
+   "horaInicio": "12:30"
+  },
+  {
+   "fecha": "2026-04-28",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-04-29",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-04-29",
+   "tipo": "personal",
+   "horaInicio": "14:00"
+  },
+  {
+   "fecha": "2026-04-30",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-05-07",
+   "tipo": "institucional",
+   "horaInicio": "11:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-05-19",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-05-20",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-05-21",
+   "tipo": "personal",
+   "horaInicio": "11:00"
+  },
+  {
+   "fecha": "2026-05-26",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-05-27",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-05-28",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-05-28",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2026-05-29",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2026-06-01",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2026-06-10",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-06-11",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-06-16",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2026-06-16",
+   "tipo": "personal",
+   "horaInicio": "12:00"
+  },
+  {
+   "fecha": "2026-06-16",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-06-17",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-06-18",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-06-23",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-06-23",
+   "tipo": "personal",
+   "horaInicio": "17:00"
+  },
+  {
+   "fecha": "2026-06-24",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-06-25",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-06-26",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2026-07-08",
+   "tipo": "personal",
+   "horaInicio": "21:00"
+  },
+  {
+   "fecha": "2026-07-14",
+   "tipo": "institucional",
+   "horaInicio": "12:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-07-23",
+   "tipo": "institucional",
+   "horaInicio": "11:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-08-26",
+   "tipo": "institucional",
+   "horaInicio": "12:00",
+   "organo": "Diputación Permanente"
+  },
+  {
+   "fecha": "2026-09-03",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-09-05",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2026-09-09",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-09-10",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-09-15",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-09-16",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-09-17",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2026-09-21",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2026-09-21",
+   "tipo": "personal",
+   "horaInicio": "18:00"
+  },
+  {
+   "fecha": "2026-09-22",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-09-23",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-09-24",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2026-09-29",
+   "tipo": "institucional",
+   "horaInicio": "15:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-09-30",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-10-01",
+   "tipo": "personal",
+   "horaInicio": "09:00"
+  },
+  {
+   "fecha": "2026-10-02",
+   "tipo": "institucional",
+   "horaInicio": "11:00",
+   "organo": "Pleno"
+  },
+  {
+   "fecha": "2026-10-14",
+   "tipo": "personal",
+   "horaInicio": "09:30"
+  },
+  {
+   "fecha": "2026-10-16",
+   "tipo": "institucional",
+   "horaInicio": "11:00",
+   "organo": "Diputación Permanente"
+  },
+  {
+   "fecha": "2026-10-16",
+   "tipo": "personal",
+   "horaInicio": "17:30"
+  },
+  {
+   "fecha": "2026-10-19",
+   "tipo": "personal",
+   "horaInicio": "11:30"
+  },
+  {
+   "fecha": "2026-10-30",
+   "tipo": "personal",
+   "horaInicio": "21:30"
+  },
+  {
+   "fecha": "2026-11-03",
+   "tipo": "institucional",
+   "horaInicio": "17:00",
+   "organo": "Diputación Permanente"
+  },
+  {
+   "fecha": "2026-11-12",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Diputación Permanente"
+  },
+  {
+   "fecha": "2026-11-18",
+   "tipo": "institucional",
+   "horaInicio": "09:00",
+   "organo": "Diputación Permanente"
+  }
+ ]
+}

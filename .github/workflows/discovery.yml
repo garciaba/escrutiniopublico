@@ -1,0 +1,64 @@
+# Milestone 0: checks that the Congreso open-data downloads work from GitHub Actions
+# runners. It runs the same discovery script as locally and publishes the report
+# in the job summary and as an artifact. It does not commit or deploy anything.
+name: Data discovery
+
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: Number of most recent voting days to download
+        required: false
+        default: '2'
+  push:
+    branches: ['claude/**']
+    paths:
+      - 'pipeline/**'
+      - 'config/**'
+      - 'tests/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/discovery.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: discovery-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Type check, lint and unit tests
+        run: |
+          pnpm typecheck
+          pnpm lint
+          pnpm test
+
+      - name: Download and profile the official files
+        run: pnpm discover --days "${{ github.event.inputs.days || '2' }}"
+
+      - name: Upload discovery report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: discovery-report
+          path: |
+            .discovery/report.md
+            .discovery/report.json
+          if-no-files-found: warn
+          retention-days: 30

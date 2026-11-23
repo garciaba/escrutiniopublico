@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><Resultado>
+    <Informacion>
+        <Sesion>202</Sesion>
+        <NumeroVotacion>1</NumeroVotacion>
+        <Fecha>30/9/2026</Fecha>
+        <Titulo>Proposiciones no de Ley.</Titulo>
+        <TextoExpediente>Proposición no de Ley del Grupo Parlamentario Popular en el Congreso, para garantizar la correcta implementación del Pacto Europeo sobre Migración y Asilo en España.
+</TextoExpediente>
+        <TituloSubGrupo/>
+        <TextoSubGrupo/>
+    </Informacion>
+    <Totales>
+        <Asentimiento>No</Asentimiento>
+        <Presentes>346</Presentes>
+        <AFavor>137</AFavor>
+        <EnContra>175</EnContra>
+        <Abstenciones>34</Abstenciones>
+        <NoVotan>4</NoVotan>
+    </Totales>
+    <Votaciones>
+        <Votacion>
+            <Asiento>6</Asiento>
+            <Diputado>Pisarello Prados, Gerardo</Diputado>
+            <Grupo>GSUMAR</Grupo>
+            <Voto>No</Voto>
+        </Votacion>
+        <Votacion>
+            <Asiento>2404</Asiento>
+            <Diputado>Badia Casas, Eloi</Diputado>
+            <Grupo>GSUMAR</Grupo>
+            <Voto>No</Voto>
+        </Votacion>
+        <Votacion>
+            <Asiento>2302</Asiento>
+            <Diputado>Boada Danés, Júlia</Diputado>
+            <Grupo>GSUMAR</Grupo>
+            <Voto>No</Voto>
+        </Votacion>
+    </Votaciones>
+</Resultado>
