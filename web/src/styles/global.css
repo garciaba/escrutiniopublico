@@ -1281,6 +1281,10 @@ th[aria-sort='descending'] .orden .baja {
   border-radius: 3px;
 }
 
+.percentil .puntua {
+  font-weight: 650;
+}
+
 .percentil .cifra {
   font-variant-numeric: tabular-nums;
   font-weight: 650;

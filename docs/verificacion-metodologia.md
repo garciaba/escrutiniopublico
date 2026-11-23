@@ -1,6 +1,6 @@
-# Verificación de la metodología 1.1.0
+# Verificación de las metodologías 1.1.0 y 1.2.0
 
-Comprobado el 23/11/2026 sobre la XV Legislatura, con fecha de cálculo 23/11/2026. Los cambios y sus motivos están en la decisión D-033 de [decisions.md](decisions.md).
+Comprobado el 23/11/2026 sobre la XV Legislatura, con fecha de cálculo 23/11/2026. Los cambios y sus motivos están en las decisiones D-033 (1.1.0) y D-034 (1.2.0) de [decisions.md](decisions.md).
 
 ## Preguntas orales
 
@@ -43,13 +43,20 @@ Comprobado el 23/11/2026 sobre la XV Legislatura, con fecha de cálculo 23/11/20
 - Entre las que cuentan y estas suman 24.121, las mismas que contaban con la metodología 1.0.0.
 - 419 preguntas orales convertidas en escritas no suman en la métrica oral. 393 se han localizado como pregunta escrita con el mismo título y autor.
 
+## Comparación dentro del grupo (1.2.0)
+
+- Con el percentil dentro del grupo, la media de «Resultados e impacto» es exactamente 50 en los nueve grupos; con el de la Cámara iba de 42,4 (Popular) a 90,5 (Junts).
+- Antes de aplicarla se simuló la otra opción, repartir cada ponencia entre los ponentes de cada grupo. Agravaba el sesgo y se descartó (D-034).
+- El test de neutralidad de `config/scoring.ts` detectó una mención al nombre de un grupo en el texto de una limitación. Se reescribió en términos generales.
+
 ## Reproducibilidad y tests
 
 - Una segunda ejecución de `pnpm pipeline --offline --date 2026-11-23` escribe los mismos bytes en `data/normalized/` y en `data/derived/` (`meta.json` aparte).
-- 182 tests (`pnpm test`), 15 de ellos nuevos. Cubren:
+- 183 tests (`pnpm test`), 16 de ellos nuevos. Cubren:
   - el crédito de las preguntas orales y la exclusión de las convertidas;
   - las leyes de la ponencia, contadas en su fecha de conclusión y fuera de los días en el Gobierno;
   - la marca `pregunta_oral` en las intervenciones;
   - el tiempo de palabra, también a través de la medianoche;
-  - la lectura del campo oficial de ponentes, con una muestra real reducida.
+  - la lectura del campo oficial de ponentes, con una muestra real reducida;
+  - la puntuación de las ponencias con el percentil dentro del grupo.
 - La web compila las 418 páginas y pasa `pnpm web:audit` y `pnpm web:check` (axe-core, tabla y privacidad) sin problemas.

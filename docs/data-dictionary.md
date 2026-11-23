@@ -302,7 +302,7 @@ Tabla añadida al modelo de la especificación (D-033): una fila por diputado de
 
 ## 9. Salidas para la web (hito 2)
 
-La etapa `metrics` de `pnpm pipeline` lee las tablas de `data/normalized/` y escribe `data/derived/`. Todo se calcula con `config/scoring.ts` (metodología 1.1.0) para una fecha de cálculo; con las mismas tablas y la misma fecha, `ranking.json` y las fichas salen idénticos byte a byte.
+La etapa `metrics` de `pnpm pipeline` lee las tablas de `data/normalized/` y escribe `data/derived/`. Todo se calcula con `config/scoring.ts` (metodología 1.2.0) para una fecha de cálculo; con las mismas tablas y la misma fecha, `ranking.json` y las fichas salen idénticos byte a byte.
 
 Resultado para la XV con fecha de cálculo 23/11/2026:
 
@@ -339,7 +339,7 @@ Cada fila: `periodo`, `slug`, `nombre`, `grupo` (el del periodo), `partido`, `ci
 | `ultimas_votaciones[]`     | Las 20 últimas votaciones en lista: fecha, título, asunto, sentido del voto, telemático y enlace                                                                                                                                                         |
 | `ultimas_intervenciones[]` | Las 20 últimas intervenciones: fecha, órgano, tipo de iniciativa, si cuenta y por qué no, y enlaces                                                                                                                                                      |
 
-Cada métrica sigue el contrato de la especificación: `id`, `dimension`, `estado` (`observado`, `calculado` o `no_disponible`), `valor`, `numerador`, `denominador`, `percentil`, `percentil_grupo` y `fuente` (`nombre`, `url`, `fecha_dato`). Se añaden `n_grupo` (diputados del grupo en la población de referencia), `motivo` cuando no está disponible y `detalle` en las métricas de iniciativas (`firmadas` y `primer_firmante`).
+Cada métrica sigue el contrato de la especificación: `id`, `dimension`, `estado` (`observado`, `calculado` o `no_disponible`), `valor`, `numerador`, `denominador`, `percentil`, `percentil_grupo` y `fuente` (`nombre`, `url`, `fecha_dato`). Se añaden `n_grupo` (diputados del grupo en la población de referencia), `comparacion` (`camara` o `grupo`: qué percentil entra en la puntuación; D-034), `motivo` cuando no está disponible y `detalle` en las métricas de iniciativas (`firmadas` y `primer_firmante`).
 
 | Métrica                                                         | `valor`                     | `numerador`                                                                                 | `denominador`                             |
 | --------------------------------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------- |

@@ -510,6 +510,19 @@ describe('methodology 1.1: oral questions, rapporteurships and speaking time', (
     expect(deputy('H').metric('leyes_ponente').numerador).toBe(0);
   });
 
+  it('scores rapporteurships against the group and still reports the Chamber percentile', () => {
+    // GX reference population: A and C with one law, B with none. GY: D, E and H with none.
+    expect(deputy('A').metric('leyes_ponente')).toMatchObject({ comparacion: 'grupo', n_grupo: 3 });
+    expect(deputy('A').metric('leyes_ponente').percentil).toBeCloseTo(83.3, 1);
+    expect(deputy('A').metric('leyes_ponente').percentil_grupo).toBeCloseTo(66.7, 1);
+    expect(deputy('A').dimensiones.resultados).toBe(66.7);
+    expect(deputy('B').dimensiones.resultados).toBe(16.7);
+    // Nobody in GY sat on an approved bill: all tie at the middle of their group.
+    expect(deputy('D').dimensiones.resultados).toBe(50);
+    // Other metrics keep the Chamber percentile.
+    expect(deputy('A').metric('votaciones_participacion').comparacion).toBe('camara');
+  });
+
   it('does not count the formulation of an own oral question as a debate speech', () => {
     expect(deputy('D').metric('intervenciones_pleno').numerador).toBe(1);
     expect(deputy('D').metric('intervenciones_comision').numerador).toBe(1);

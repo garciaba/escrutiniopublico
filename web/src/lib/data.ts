@@ -69,6 +69,8 @@ export interface Metrica {
   percentil: number | null;
   percentil_grupo: number | null;
   n_grupo: number | null;
+  /** Which percentile enters the score (D-034). */
+  comparacion?: 'camara' | 'grupo';
   motivo?: string;
   detalle?: Record<string, number>;
   fuente?: { nombre: string; url: string; fecha_dato: string | null };

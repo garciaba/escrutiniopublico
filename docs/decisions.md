@@ -326,7 +326,31 @@ El adaptador entra en el hito 1, adelantando lo que la especificación dejaba pa
 | EH Bildu        | 7                       | 89,2                 | 60,2         | 47,2         |
 | Vasco (EAJ-PNV) | 6                       | 84,8                 | 57,5         | 42,6         |
 
-Es el mismo sesgo que ya tenían los debates, documentado en las limitaciones de `/metodologia`. El percentil dentro del grupo, que la ficha muestra junto a cada métrica, lo deja ver. Si el propietario prefiere corregirlo, hay dos opciones, cada una una versión nueva de la metodología:
+Es el mismo sesgo que ya tenían los debates, documentado en las limitaciones de `/metodologia`. Se corrige en la metodología 1.2.0 (D-034).
 
-1. Repartir cada ponencia entre los ponentes de cada grupo (crédito 1/n por grupo).
-2. Puntuar «Resultados e impacto» con el percentil dentro del grupo.
+## D-034 · Metodología 1.2.0: las ponencias se comparan dentro del grupo
+
+**Decidida por el propietario (23/11/2026).** Con la metodología 1.1.0, «Resultados e impacto» medía sobre todo el tamaño del grupo (D-033).
+
+- **El motivo del sesgo.** Cada grupo tiene sitio en la ponencia de cada ley, así que los grupos pequeños reparten más ponencias entre menos diputados. Ponencias de leyes aprobadas por diputado: Popular 0,58; Socialista 0,62; VOX 1,73; SUMAR 1,93; Mixto 2,91; Republicano 3,50; Junts 3,62; EH Bildu 4,14; Vasco 4,83.
+- **Opción descartada: repartir cada ponencia entre los ponentes de cada grupo.** Se propuso primero y la simulación mostró que agravaba el sesgo: Junts pasaba de 90,3 a 94,2 de media, y el Popular de 42,7 a 41,8. Los grupos grandes ponen más ponentes por ley, así que repartir dentro del grupo les resta mérito justo a ellos.
+- **Regla aplicada.** La métrica `leyes_ponente` puntúa con el **percentil del diputado dentro de su grupo**: compara a cada uno con sus compañeros, que son entre quienes el grupo reparte sus puestos.
+  - El percentil en toda la Cámara se sigue calculando y publicando como referencia.
+  - En la configuración es `comparacion: 'grupo'`. Cada métrica de las fichas indica en el campo `comparacion` qué percentil puntúa.
+  - La ficha muestra primero el percentil que puntúa, con la indicación «puntúa», y después el otro, «referencia».
+- **Consecuencia.** «Resultados e impacto» no distingue entre grupos: la media de cada grupo en esa dimensión es 50. Lo que mide es quién de cada grupo ha participado en más leyes aprobadas. Está en las limitaciones de `/metodologia`.
+- **Efecto en la legislatura.** Media del índice por grupo:
+
+| Grupo           | Diputados en el ranking | 1.0.0 | 1.1.0 | 1.2.0 |
+| --------------- | ----------------------- | ----- | ----- | ----- |
+| Popular         | 150                     | 51,0  | 48,0  | 49,9  |
+| Socialista      | 140                     | 45,0  | 45,6  | 47,1  |
+| VOX             | 33                      | 60,9  | 60,0  | 57,7  |
+| SUMAR           | 29                      | 56,1  | 56,6  | 53,4  |
+| Mixto           | 11                      | 56,1  | 58,6  | 52,6  |
+| Republicano     | 8                       | 51,4  | 61,1  | 53,6  |
+| Junts           | 8                       | 49,6  | 61,3  | 51,2  |
+| EH Bildu        | 7                       | 47,2  | 60,2  | 50,4  |
+| Vasco (EAJ-PNV) | 6                       | 42,6  | 57,5  | 48,8  |
+
+Frente a la metodología 1.0.0, la posición mediana se mueve 45 puestos.

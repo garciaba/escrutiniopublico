@@ -31,6 +31,10 @@ const ESTADO_TITULO = {
   no_disponible: 'Sin fuente oficial: no puntúa',
 } as const;
 const VISIBLES = 8;
+/** Names of the metrics that score with the percentile inside the group. */
+const comparadasEnGrupo: string[] = scoring.metricas
+  .filter((metrica) => 'comparacion' in metrica && metrica.comparacion === 'grupo')
+  .map((metrica) => metrica.nombre);
 
 function grupoDe(id: string) {
   return groups.find((group) => group.code === id);
@@ -226,6 +230,57 @@ function Evolucion({ valores, meses, config }: { valores: (number | null)[]; mes
   );
 }
 
+/** True when the metric scores with the percentile inside the group (D-034). */
+function porGrupo(metrica: Metrica, config: MetricConfig): boolean {
+  return (metrica.comparacion ?? ('comparacion' in config ? config.comparacion : 'camara')) === 'grupo';
+}
+
+/**
+ * The two percentiles of a metric. The one that enters the score goes first, with the
+ * strong meter; the other one is context.
+ */
+function Percentiles({ metrica, porGrupo }: { metrica: Metrica; porGrupo: boolean }) {
+  const grupo =
+    metrica.percentil_grupo === null
+      ? null
+      : {
+          etiqueta: `Percentil en su grupo${
+            metrica.n_grupo === null
+              ? ''
+              : ` (${num(metrica.n_grupo)} ${plural(metrica.n_grupo, 'diputado', 'diputados')})`
+          }`,
+          valor: metrica.percentil_grupo,
+        };
+  const camara = metrica.percentil === null ? null : { etiqueta: 'Percentil en la Cámara', valor: metrica.percentil };
+  const [principal, secundario] = porGrupo ? [grupo, camara] : [camara, grupo];
+  return (
+    <div class="percentiles">
+      {principal === null ? (
+        <p class="muted">Sin percentil: periodo insuficiente.</p>
+      ) : (
+        <p class="percentil">
+          <span>
+            {principal.etiqueta}
+            {porGrupo ? <strong class="puntua"> · puntúa</strong> : null}
+          </span>
+          <span class="cifra">{num(principal.valor, 1)}</span>
+          <Medidor valor={principal.valor} />
+        </p>
+      )}
+      {secundario === null ? null : (
+        <p class="percentil grupo">
+          <span>
+            {secundario.etiqueta}
+            {porGrupo ? ' · referencia' : ''}
+          </span>
+          <span class="cifra">{num(secundario.valor, 1)}</span>
+          <Medidor valor={secundario.valor} />
+        </p>
+      )}
+    </div>
+  );
+}
+
 function TarjetaMetrica({ metrica, ficha }: { metrica: Metrica; ficha: Ficha }) {
   const config = scoring.metricas.find((m) => m.id === metrica.id);
   if (!config) return null;
@@ -268,29 +323,7 @@ function TarjetaMetrica({ metrica, ficha }: { metrica: Metrica; ficha: Ficha }) 
         {bruto.principal}
         <small>{bruto.secundario}</small>
       </p>
-      <div class="percentiles">
-        {metrica.percentil === null ? (
-          <p class="muted">Sin percentil: periodo insuficiente.</p>
-        ) : (
-          <p class="percentil">
-            <span>Percentil en la Cámara</span>
-            <span class="cifra">{num(metrica.percentil, 1)}</span>
-            <Medidor valor={metrica.percentil} />
-          </p>
-        )}
-        {metrica.percentil_grupo === null ? null : (
-          <p class="percentil grupo">
-            <span>
-              Percentil en su grupo
-              {metrica.n_grupo === null
-                ? ''
-                : ` (${num(metrica.n_grupo)} ${plural(metrica.n_grupo, 'diputado', 'diputados')})`}
-            </span>
-            <span class="cifra">{num(metrica.percentil_grupo, 1)}</span>
-            <Medidor valor={metrica.percentil_grupo} />
-          </p>
-        )}
-      </div>
+      <Percentiles metrica={metrica} porGrupo={porGrupo(metrica, config)} />
       {serie ? <Evolucion valores={serie} meses={ficha.evolucion.meses} config={config} /> : null}
       {metrica.fuente ? (
         <p class="metrica-pie">
@@ -640,7 +673,11 @@ export function FichaDiputado({ ficha }: { ficha: Ficha }) {
             <h2 id="metricas-titulo">Métricas</h2>
             <p class="nota">
               Cada métrica muestra el dato oficial y su percentil: el porcentaje de diputados con un valor inferior (50
-              es la mediana). El percentil dentro del grupo es contexto y no puntúa.
+              es la mediana). El percentil dentro del grupo es contexto y no puntúa
+              {comparadasEnGrupo.length > 0
+                ? `, salvo en ${comparadasEnGrupo.map((nombre) => `«${nombre}»`).join(' y ')}, que se compara dentro del grupo`
+                : ''}
+              .
             </p>
             <div class="metricas">
               {(principal.periodo.metricas ?? []).map((metrica, i, todas) => (

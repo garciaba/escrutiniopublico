@@ -103,11 +103,18 @@ export interface ScoringInput {
     excluirResultados?: readonly string[];
     /** Bills with one of these outcomes (prefixes) in whose ponencia the deputy sits. */
     resultadosPonencia?: readonly string[];
+    /**
+     * Percentile that enters the score: against the whole Chamber (default) or against
+     * the deputy's parliamentary group, for activity the groups share out among their
+     * members (D-034). The other one is still reported.
+     */
+    comparacion?: Comparacion;
   }[];
   organosPorMetrica: Readonly<Record<string, readonly string[]>>;
 }
 
 export type Situacion = 'ranking' | 'gobierno' | 'periodo_insuficiente';
+export type Comparacion = 'camara' | 'grupo';
 
 export interface MetricResult {
   id: string;
@@ -120,6 +127,8 @@ export interface MetricResult {
   percentil_grupo: number | null;
   /** Deputies of the same group in the reference population with a value. */
   n_grupo: number | null;
+  /** Which of the two percentiles enters the score; absent when the metric has no value. */
+  comparacion?: Comparacion;
   motivo?: string;
   detalle?: Record<string, number>;
 }
@@ -413,6 +422,9 @@ function rolesFor(memberships: readonly PertenenciaIn[], desde: string, hasta: s
 interface Working extends DeputyPeriod {
   nombre: string;
   raw: Map<string, Raw>;
+  /** Percentile against the whole Chamber, always reported. */
+  chamberPct: Map<string, number>;
+  /** Percentile that enters the score (the Chamber's or the group's, per metric). */
   pct: Map<string, number>;
 }
 
@@ -501,6 +513,7 @@ export function computePeriod(
         sin_hora: talk.filter((event) => event.minutos === null).length,
       },
       raw,
+      chamberPct: new Map(),
       pct: new Map(),
     });
   }
@@ -525,7 +538,7 @@ export function computePeriod(
       const valor = deputy.raw.get(metric.id)?.valor;
       if (deputy.situacion === 'periodo_insuficiente' || valor === null || valor === undefined) continue;
       const pct = percentile(chamber, valor);
-      if (pct !== undefined) deputy.pct.set(metric.id, pct);
+      if (pct !== undefined) deputy.chamberPct.set(metric.id, pct);
       const groupValues = byGroup.get(deputy.grupo_id) ?? [];
       const inGroup = percentile(groupValues, valor);
       if (inGroup !== undefined) {
@@ -533,6 +546,8 @@ export function computePeriod(
         entry.set(metric.id, { pct: inGroup, n: groupValues.length });
         groupPct.set(deputy.diputado_id, entry);
       }
+      const scored = metric.comparacion === 'grupo' ? inGroup : pct;
+      if (scored !== undefined) deputy.pct.set(metric.id, scored);
     }
   }
 
@@ -565,7 +580,7 @@ export function computePeriod(
           motivo: 'Sin actividad de la Cámara en el periodo.',
         };
       }
-      const pct = deputy.pct.get(metric.id);
+      const pct = deputy.chamberPct.get(metric.id);
       const group = groupPct.get(deputy.diputado_id)?.get(metric.id);
       return {
         id: metric.id,
@@ -577,7 +592,9 @@ export function computePeriod(
         percentil: pct === undefined ? null : round(pct, 1),
         percentil_grupo: group ? round(group.pct, 1) : null,
         n_grupo: group ? group.n : null,
-        ...(raw.valor === null ? { motivo: 'Sin oportunidad en el periodo.' } : {}),
+        ...(raw.valor === null
+          ? { motivo: 'Sin oportunidad en el periodo.' }
+          : { comparacion: metric.comparacion ?? 'camara' }),
         ...(raw.detalle ? { detalle: raw.detalle } : {}),
       };
     });

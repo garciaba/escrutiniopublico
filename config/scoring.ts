@@ -9,8 +9,15 @@ export type MetricEstado = 'observado' | 'calculado' | 'no_disponible';
 
 export const scoring = {
   /** Semantic version. Any change of weights, metrics or rules bumps it and is listed in `historial`. */
-  metodologiaVersion: '1.1.0',
+  metodologiaVersion: '1.2.0',
   historial: [
+    {
+      version: '1.2.0',
+      fecha: '2026-11-23',
+      cambios: [
+        '«Leyes aprobadas en las que fue ponente» puntúa con el percentil del diputado dentro de su grupo parlamentario, no en toda la Cámara. Cada grupo tiene sitio en todas las ponencias, así que los grupos pequeños reparten más ponencias entre menos diputados: comparada con toda la Cámara, la métrica medía sobre todo el tamaño del grupo.',
+      ],
+    },
     {
       version: '1.1.0',
       fecha: '2026-11-23',
@@ -81,7 +88,7 @@ export const scoring = {
       nombreCorto: 'Resultados',
       peso: 20,
       descripcion:
-        'Leyes aprobadas en cuya ponencia participó. Las iniciativas propias aprobadas no tienen fuente oficial que las atribuya a diputados concretos.',
+        'Leyes aprobadas en cuya ponencia participó, comparado con los compañeros de su grupo. Las iniciativas propias aprobadas no tienen fuente oficial que las atribuya a diputados concretos.',
     },
     {
       id: 'representacion',
@@ -198,11 +205,12 @@ export const scoring = {
       nombre: 'Leyes aprobadas en las que fue ponente',
       objeto: ['ley aprobada', 'leyes aprobadas'],
       calculo:
-        'Proyectos y proposiciones de ley aprobados en cuya ponencia figura el diputado, por cada 100 días en activo. Cada ley cuenta en la fecha de su aprobación. La ponencia es el grupo reducido de diputados que estudia las enmiendas y redacta el texto.',
+        'Proyectos y proposiciones de ley aprobados en cuya ponencia figura el diputado, por cada 100 días en activo. Cada ley cuenta en la fecha de su última votación en el Congreso. La ponencia es el grupo reducido de diputados que estudia las enmiendas y redacta el texto. Puntúa el percentil dentro del grupo parlamentario, porque cada grupo reparte entre sus miembros los puestos que tiene en todas las ponencias.',
       unidad: 'por_100_dias',
       estado: 'observado',
       fuente: 'leyes',
       resultadosPonencia: ['Aprobado'],
+      comparacion: 'grupo',
     },
     {
       id: 'iniciativas_aprobadas',
@@ -224,7 +232,8 @@ export const scoring = {
 
   formulas: {
     percentil: 'P_m(i) = 100 · (#{j : x_j < x_i} + 0,5 · #{j : x_j = x_i}) / N',
-    dimension: 'S_d(i) = media de los percentiles de las métricas disponibles de la dimensión d',
+    dimension:
+      'S_d(i) = media de los percentiles de las métricas disponibles de la dimensión d (el de la Cámara o, en las métricas que se comparan dentro del grupo, el del grupo)',
     global: 'G(i) = Σ_{d ∈ D} w_d · S_d(i) / Σ_{d ∈ D} w_d',
     cobertura: 'cobertura = Σ_{d ∈ D} w_d / Σ_d w_d',
   },
@@ -274,7 +283,13 @@ export const scoring = {
       id: 'contexto_de_grupo',
       titulo: 'Contexto de grupo',
       texto:
-        'Cada métrica muestra también el percentil dentro del grupo parlamentario, porque los turnos de palabra se reparten por grupos. No interviene en la puntuación.',
+        'Cada métrica muestra también el percentil dentro del grupo parlamentario, porque los turnos de palabra se reparten por grupos. En general no interviene en la puntuación.',
+    },
+    {
+      id: 'ponencias_por_grupo',
+      titulo: 'Ponencias, dentro del grupo',
+      texto:
+        'Cada grupo tiene sitio en la ponencia de cada ley y reparte esos puestos entre sus miembros. Por eso las ponencias se puntúan con el percentil dentro del grupo: compara a cada diputado con sus compañeros, que son quienes compiten por esos puestos. El percentil en toda la Cámara se muestra como referencia.',
     },
     {
       id: 'periodos_sin_actividad',
@@ -305,7 +320,7 @@ export const scoring = {
     'Las preguntas al Gobierno y las solicitudes de informe son instrumentos de control: los usan sobre todo los diputados de la oposición. Quien apoya al Gobierno puntúa más bajo en esa dimensión por la función que desempeña, no por menor dedicación.',
     'En los grupos pequeños cada diputado interviene en más debates, y en los grandes los turnos se reparten entre más personas. Por eso cada métrica muestra también el percentil dentro del grupo.',
     'No votar no equivale a estar ausente: hay ausencias justificadas, bajas y pactos de no votación que los datos oficiales no distinguen.',
-    'Los ponentes de cada ley los designa su grupo. Los grupos pequeños reparten las ponencias entre menos diputados, así que cada uno participa en más. Además, los datos oficiales dan la composición final de cada ponencia, no los relevos durante la tramitación.',
+    'Las ponencias se comparan dentro de cada grupo, así que «Resultados e impacto» no distingue entre grupos: la media de cada grupo en esa dimensión es 50. Cuando un grupo reúne a varios partidos, también influye cómo se reparten las ponencias entre ellos. Además, los datos oficiales dan la composición final de cada ponencia, no los relevos durante la tramitación.',
     'Las leyes aprobadas dependen sobre todo de la mayoría de la Cámara: estar en la ponencia de una ley que se aprueba no significa haberla apoyado.',
   ],
 

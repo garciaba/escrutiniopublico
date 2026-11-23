@@ -1,5 +1,5 @@
 {
- "metodologia_version": "1.1.0",
+ "metodologia_version": "1.2.0",
  "fecha_calculo": "2026-11-23",
  "legislatura": {
   "numero": 15,
@@ -201,9 +201,9 @@
    "dias_evaluados": 1147,
    "grupo": "GR",
    "roles": [],
-   "indice": 69,
+   "indice": 67.5,
    "cobertura": 0.8,
-   "posicion": 30,
+   "posicion": 33,
    "total_ranking": 392,
    "dimensiones": [
     {
@@ -220,7 +220,7 @@
     },
     {
      "id": "resultados",
-     "puntuacion": 99.7
+     "puntuacion": 93.8
     },
     {
      "id": "representacion",
@@ -238,6 +238,7 @@
      "percentil": 26.9,
      "percentil_grupo": 56.3,
      "n_grupo": 8,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Votaciones",
       "url": "https://www.congreso.es/es/opendata/votaciones",
@@ -254,6 +255,7 @@
      "percentil": 94.6,
      "percentil_grupo": 43.8,
      "n_grupo": 8,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -270,6 +272,7 @@
      "percentil": 86.4,
      "percentil_grupo": 31.3,
      "n_grupo": 8,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -286,6 +289,7 @@
      "percentil": 41.5,
      "percentil_grupo": 6.3,
      "n_grupo": 8,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 36,
       "primer_firmante": 21
@@ -306,6 +310,7 @@
      "percentil": 65.7,
      "percentil_grupo": 18.8,
      "n_grupo": 8,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 7,
       "primer_firmante": 7
@@ -326,6 +331,7 @@
      "percentil": 69.4,
      "percentil_grupo": 93.8,
      "n_grupo": 8,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 5,
       "primer_firmante": 4
@@ -358,6 +364,7 @@
      "percentil": 99.7,
      "percentil_grupo": 93.8,
      "n_grupo": 8,
+     "comparacion": "grupo",
      "fuente": {
       "nombre": "Congreso de los Diputados · Iniciativas legislativas",
       "url": "https://www.congreso.es/es/opendata/iniciativas",
@@ -394,7 +401,7 @@
    "dias_evaluados": 317,
    "grupo": "GR",
    "roles": [],
-   "indice": 80.3,
+   "indice": 77,
    "cobertura": 0.8,
    "posicion": 4,
    "total_ranking": 347,
@@ -413,7 +420,7 @@
     },
     {
      "id": "resultados",
-     "puntuacion": 99
+     "puntuacion": 85.7
     },
     {
      "id": "representacion",
@@ -431,6 +438,7 @@
      "percentil": 71.2,
      "percentil_grupo": 78.6,
      "n_grupo": 7,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Votaciones",
       "url": "https://www.congreso.es/es/opendata/votaciones",
@@ -447,6 +455,7 @@
      "percentil": 95,
      "percentil_grupo": 50,
      "n_grupo": 7,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -463,6 +472,7 @@
      "percentil": 86,
      "percentil_grupo": 35.7,
      "n_grupo": 7,
+     "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
@@ -479,6 +489,7 @@
      "percentil": 45.1,
      "percentil_grupo": 35.7,
      "n_grupo": 7,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 16,
       "primer_firmante": 7
@@ -499,6 +510,7 @@
      "percentil": 63.4,
      "percentil_grupo": 14.3,
      "n_grupo": 7,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 1,
       "primer_firmante": 1
@@ -519,6 +531,7 @@
      "percentil": 73.2,
      "percentil_grupo": 85.7,
      "n_grupo": 7,
+     "comparacion": "camara",
      "detalle": {
       "firmadas": 2,
       "primer_firmante": 1
@@ -551,6 +564,7 @@
      "percentil": 99,
      "percentil_grupo": 85.7,
      "n_grupo": 7,
+     "comparacion": "grupo",
      "fuente": {
       "nombre": "Congreso de los Diputados · Iniciativas legislativas",
       "url": "https://www.congreso.es/es/opendata/iniciativas",
