@@ -1,0 +1,74 @@
+# Continuous integration (specification, section 9; decision D-035). On every push:
+# types, lint, format, tests with coverage, the reproducibility test, the website
+# build with its audit, browser checks (axe-core, ranking table, privacy, stale-data
+# warning) and Lighthouse. Branches other than main also get a preview deployment on
+# Cloudflare Pages; production is deployed only by the daily pipeline.
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  checks:
+    name: Types, lint, format and tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm format:check
+      - name: Tests with coverage (at least 90 % in pipeline/metrics and pipeline/normalize)
+        run: pnpm test:coverage
+
+  web:
+    name: Website
+    needs: checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # /cambios lists the latest data commits.
+          fetch-depth: 50
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm web:build
+      - run: pnpm web:audit
+      - name: Install Playwright with Chromium
+        run: |
+          npm install --global playwright@1.64.1
+          npx --yes playwright@1.64.1 install --with-deps chromium
+      - name: Browser checks
+        run: NODE_PATH="$(npm root --global)" pnpm web:check
+      - name: Lighthouse
+        run: pnpm dlx @lhci/cli@0.15.1 autorun --config=web/lighthouserc.json
+      - name: Preview deployment
+        if: github.ref != 'refs/heads/main'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: .github/scripts/pages-deploy.sh "${{ github.ref_name }}"

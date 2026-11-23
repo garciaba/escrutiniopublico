@@ -354,3 +354,59 @@ Es el mismo sesgo que ya tenían los debates, documentado en las limitaciones de
 | Vasco (EAJ-PNV) | 6                       | 42,6  | 57,5  | 48,8  |
 
 Frente a la metodología 1.0.0, la posición mediana se mueve 45 puestos.
+
+## D-035 · Automatización y despliegue
+
+**Tomada (hito 4).**
+
+**Flujos de GitHub Actions:**
+
+| Flujo                          | Cuándo                                                   | Qué hace                                                                                                                                                                                                              |
+| ------------------------------ | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `daily.yml`                    | Cada día a las 05:40 UTC, solo en `main`; también a mano | Descarga, valida, normaliza, puntúa, pasa los controles de sanidad, hace commit de `data/`, compila y audita la web, sube el commit y despliega en producción                                                         |
+| `ci.yml`                       | En cada push, a cualquier rama                           | Tipos, lint, formato, tests con cobertura (reproducibilidad incluida), compilación, auditoría, comprobación en navegador y Lighthouse. En ramas distintas de `main`, además, una previsualización en Cloudflare Pages |
+| `discovery.yml`, `agendas.yml` | Solo a mano                                              | Herramientas de los hitos 0 y de D-017                                                                                                                                                                                |
+| Dependabot                     | Mensual                                                  | Actualizaciones agrupadas de npm y de las acciones, con dos semanas de espera desde la publicación de cada versión                                                                                                    |
+
+`web.yml` desaparece: `ci.yml` lo sustituye.
+
+**La regla central de la especificación** («o se publica un conjunto completo y validado, o se mantiene el de ayer»):
+
+- El commit de datos se hace en local y solo se sube después de compilar y auditar la web. Si algo falla antes, no se sube nada y la web sigue con los datos de ayer.
+- Ante cualquier fallo, el flujo abre la incidencia «Fallo del pipeline diario», o la comenta si ya está abierta, con el enlace a la ejecución y las últimas 80 líneas del registro.
+- La siguiente ejecución correcta cierra la incidencia con un comentario.
+- La ejecución manual tiene la opción `simular_fallo`: rompe el esquema de un fichero descargado para probar ese camino sin publicar nada.
+- Los días sin datos nuevos, el commit solo cambia `meta.json`. Su mensaje lo dice («no changes in the official data») y mantiene activo el repositorio para que GitHub no desactive el `cron`.
+
+**Controles de sanidad** (`pnpm sanity`; umbrales en `config/project.ts`). Comparan lo calculado hoy con lo que hay en git (`HEAD`), que es lo publicado ayer:
+
+| Control              | Regla                                                            | Excepción                                                                                                            |
+| -------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Diputados en activo  | Entre 340 y 350                                                  | No se aplica con la legislatura terminada: ahora siguen en activo los 137 de la Diputación Permanente                |
+| Pérdida de filas     | Ninguna tabla pierde más del 5 %                                 | —                                                                                                                    |
+| Asignación           | Hasta un 0,5 % de filas sin diputado del censo, siempre listadas | La normalización ya se detiene ante cualquier nombre sin cruzar (D-008); el control vigila que nada se rompa después |
+| Saltos de puntuación | Ningún índice varía más de 15 puntos                             | No se aplica si hay votaciones o intervenciones nuevas, ni con una versión nueva de la metodología                   |
+
+El mensaje del commit de datos lo escribe el mismo script: sesiones nuevas, filas nuevas por tabla, altas, bajas y cambios de metodología. Va en inglés, como todos los commits.
+
+**Despliegue:**
+
+- Lo hace Wrangler 4.158.0, que `.github/scripts/pages-deploy.sh` ejecuta con `pnpm dlx` sin añadirlo a las dependencias del proyecto.
+- La primera ejecución crea el proyecto de Pages `escrutiniopublico` (en `config/site.ts`), con `main` como rama de producción.
+- Producción solo se despliega desde `daily.yml`. Así la web siempre corresponde a un conjunto de datos que ha pasado los controles.
+- Los secretos son los dos que fija la especificación: `CLOUDFLARE_API_TOKEN`, con el único permiso «Cloudflare Pages: Edit» sobre la cuenta, y `CLOUDFLARE_ACCOUNT_ID`.
+
+**Calidad:**
+
+- **Cobertura.** `pnpm test:coverage` exige un 90 % de sentencias, líneas y funciones en `pipeline/metrics` y `pipeline/normalize`. Hoy hay un 96 % de sentencias y un 98,6 % de líneas.
+  - Queda fuera `run-normalize.ts`, que solo conecta ficheros con funciones ya cubiertas y necesita los volcados diarios, que no se versionan.
+  - `run-metrics.ts` sí entra, mediante la prueba de reproducibilidad: recalcula `data/derived` desde las tablas versionadas y lo compara byte a byte (sección 9).
+- **Navegador.** `pnpm web:check` comprueba además el aviso de datos antiguos: oculto una hora después de la última ejecución y visible pasadas 49, con el reloj del navegador fijado.
+- **Lighthouse CI** (`web/lighthouserc.json`): tres pasadas por página en la portada, una ficha y la metodología. Falla por debajo de 95 en rendimiento o accesibilidad.
+- **Dependencias nuevas.** Solo una: `@vitest/coverage-v8` 5.1.0, de desarrollo. Playwright 1.64.1 y `@lhci/cli` 0.15.1 se instalan únicamente en CI.
+
+**Pendiente:**
+
+- **Activar el flujo diario.** El `cron` de GitHub solo corre en la rama por defecto, así que el flujo diario empieza cuando los PR se fusionen en `main`. Los dos criterios del hito que dependen de él se comprobarán entonces: tres ejecuciones diarias seguidas y el fallo simulado.
+- **Volumen de descarga.** Cada ejecución descarga de nuevo todo el buscador de iniciativas: unas 600 peticiones, a una por segundo. Con la XV cerrada casi nada cambia. Si las primeras ejecuciones lo confirman, una mejora será refrescar a diario solo los bloques recientes y el resto una vez por semana.
+- **Proteger `main`.** Si se protege la rama (sección 9), hay que permitir que GitHub Actions suba el commit diario. El auto-merge de Dependabot espera a esa protección, porque sin comprobaciones obligatorias fusionaría sin esperar a la CI (hito 5).

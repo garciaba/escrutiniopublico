@@ -45,9 +45,12 @@ export interface MetricsOptions {
   fechaCalculo: string;
   ejecutado: string;
   commit: string | null;
+  /** Where to write the outputs (default data/derived; the reproducibility test uses a temporary folder). */
+  outDir?: string;
 }
 
 export async function runMetrics(options: MetricsOptions, log: (message: string) => void): Promise<void> {
+  const outDir = options.outDir ?? DERIVED_DIR;
   const [
     diputadosRaw,
     gruposRaw,
@@ -238,9 +241,9 @@ export async function runMetrics(options: MetricsOptions, log: (message: string)
     limites: project.ficha,
   };
 
-  await writeAtomic(join(DERIVED_DIR, 'ranking.json'), serializeRanking(buildRanking(input)));
+  await writeAtomic(join(outDir, 'ranking.json'), serializeRanking(buildRanking(input)));
   const fichas = buildFichas(input);
-  const fichasDir = join(DERIVED_DIR, 'diputados');
+  const fichasDir = join(outDir, 'diputados');
   for (const [slug, ficha] of fichas) {
     await writeAtomic(join(fichasDir, `${slug}.json`), `${JSON.stringify(ficha, null, 1)}\n`);
   }
@@ -277,6 +280,6 @@ export async function runMetrics(options: MetricsOptions, log: (message: string)
     },
     incidencias,
   });
-  await writeAtomic(join(DERIVED_DIR, 'meta.json'), `${JSON.stringify(meta, null, 1)}\n`);
+  await writeAtomic(join(outDir, 'meta.json'), `${JSON.stringify(meta, null, 1)}\n`);
   log(`metrics: ranking.json, ${fichas.size} profiles and meta.json written`);
 }

@@ -7,12 +7,13 @@ import {
   censusFile,
   interventionsFile,
   organMembersFile,
+  parseOrThrow,
   searchInitiativesFile,
   voteFile,
 } from '../pipeline/normalize/schemas.ts';
 import { daysBetween, failedBlockDays } from '../pipeline/ingest/families/iniciativas.ts';
-import { buildDiputados } from '../pipeline/normalize/tables/diputados.ts';
-import { buildOrganos, buildPertenencias } from '../pipeline/normalize/tables/organos.ts';
+import { buildDiputados, buildGrupos } from '../pipeline/normalize/tables/diputados.ts';
+import { buildOrganos, buildPertenencias, specialRoles } from '../pipeline/normalize/tables/organos.ts';
 import {
   buildIniciativas,
   splitRapporteurs,
@@ -22,7 +23,7 @@ import {
 } from '../pipeline/normalize/tables/iniciativas.ts';
 import { buildIntervenciones, classifyCargo } from '../pipeline/normalize/tables/intervenciones.ts';
 import { buildVotaciones, votacionId, type Terms } from '../pipeline/normalize/tables/votaciones.ts';
-import { diputadoId, isoDate, slugFromName, toCsv } from '../pipeline/normalize/util.ts';
+import { diputadoId, isoDate, parseCsv, slugFromName, toCsv } from '../pipeline/normalize/util.ts';
 
 const fixture = (path: string): unknown =>
   JSON.parse(readFileSync(new URL(`./fixtures/${path}`, import.meta.url), 'utf-8'));
@@ -332,5 +333,65 @@ describe('initiatives recovery', () => {
 
   it('cannot date a failed block without neighbours', () => {
     expect(() => failedBlockDays([undefined])).toThrow(/Cannot date/);
+  });
+});
+
+describe('roles, groups and schema errors (fictitious data)', () => {
+  const member = (Nombre: string, Cargo: string, Grupo = 'GX') => ({
+    Nombre,
+    Cargo,
+    FechaAlta: '01/01/2024',
+    FechaBaja: '',
+    NombreOrgano: 'Órgano ficticio',
+    Grupo,
+  });
+  const resolve = (name: string) => (name.startsWith('Ficticio') ? name : undefined);
+
+  it('derives the Mesa and spokesperson roles, skipping senators and legal staff', () => {
+    const roles = specialRoles(
+      [
+        {
+          organoSup: 100,
+          suborgano: '0',
+          nombre: 'Mesa',
+          miembros: [member('Ficticio Uno, Ana', 'Presidenta'), member('Ficticio Dos, Blas', 'Letrado Mayor')],
+        },
+        {
+          organoSup: 300,
+          suborgano: '0',
+          nombre: 'Junta de Portavoces',
+          miembros: [
+            member('Ficticio Tres, Carla', 'Portavoces titulares'),
+            member('Ficticio Cuatro, Dario', 'Portavoces adjuntos'),
+            member('Ficticio Cinco, Eva', 'Portavoces titulares', 'SGPX'),
+            member('Nadie, Nadie', 'Portavoces titulares'),
+          ],
+        },
+      ],
+      resolve,
+    );
+    expect(roles.get('Ficticio Uno, Ana')).toEqual(['mesa']);
+    expect(roles.get('Ficticio Tres, Carla')).toEqual(['portavoz']);
+    for (const name of ['Ficticio Dos, Blas', 'Ficticio Cuatro, Dario', 'Ficticio Cinco, Eva', 'Nadie, Nadie']) {
+      expect(roles.has(name)).toBe(false);
+    }
+    // Members of the Government come from config/overrides.ts.
+    expect([...roles.values()].filter((list) => list.includes('gobierno')).length).toBeGreaterThan(0);
+  });
+
+  it('lists every parliamentary group with its members in the census', () => {
+    const grupos = buildGrupos([]);
+    expect(grupos.length).toBeGreaterThan(0);
+    expect(grupos.every((grupo) => grupo.miembros_censo === 0)).toBe(true);
+  });
+
+  it('names the file and the first problems when a schema check fails', () => {
+    expect(() => parseOrThrow(censusFile, [{ NOMBRE: 1 }], 'Ficticio.json')).toThrow(
+      /Schema check failed for Ficticio\.json: 0\./,
+    );
+  });
+
+  it('rejects malformed CSV', () => {
+    expect(() => parseCsv('a\n"x"y\n')).toThrow(/Unexpected character/);
   });
 });

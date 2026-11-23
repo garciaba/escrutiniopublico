@@ -1727,6 +1727,18 @@ code {
   margin-top: 1.5rem;
 }
 
+.commits {
+  list-style: none;
+  padding-left: 0;
+}
+
+.commits time {
+  display: inline-block;
+  min-width: 6.5rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
 .definiciones .etiqueta {
   vertical-align: 0.05em;
 }
