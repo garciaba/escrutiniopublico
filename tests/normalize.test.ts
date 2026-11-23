@@ -10,6 +10,7 @@ import {
   searchInitiativesFile,
   voteFile,
 } from '../pipeline/normalize/schemas.ts';
+import { monthWindows } from '../pipeline/ingest/families/iniciativas.ts';
 import { buildDiputados } from '../pipeline/normalize/tables/diputados.ts';
 import { buildOrganos, buildPertenencias } from '../pipeline/normalize/tables/organos.ts';
 import { buildIniciativas, expedienteId, splitAuthors } from '../pipeline/normalize/tables/iniciativas.ts';
@@ -212,5 +213,16 @@ describe('diputados and organos', () => {
       /not in the census/,
     );
     expect(buildOrganos([composition]).find((row) => row.organo_id === 'c1-301')?.tipo).toBe('comision');
+  });
+});
+
+describe('initiatives recovery windows', () => {
+  it('splits the legislature into calendar months, leap years included', () => {
+    const windows = monthWindows('2023-12-05', '2024-02-10');
+    expect(windows).toEqual([
+      { desde: '01/12/2023', hasta: '31/12/2023', key: '2023-12' },
+      { desde: '01/01/2024', hasta: '31/01/2024', key: '2024-01' },
+      { desde: '01/02/2024', hasta: '29/02/2024', key: '2024-02' },
+    ]);
   });
 });
