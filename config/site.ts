@@ -24,8 +24,6 @@ export const site = {
     url: 'https://www.congreso.es/es/datos-abiertos',
     avisoLegal: 'https://www.congreso.es/cem/aviso-legal',
   },
-  /** Pending: contact address for corrections; until then, issues in the public repository (D-036). */
-  contacto: undefined as string | undefined,
   /** Hours after which the home page warns that the data may be stale (specification, section 6). */
   horasDatosAntiguos: 48,
 } as const;

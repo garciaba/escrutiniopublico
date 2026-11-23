@@ -417,4 +417,6 @@ El mensaje del commit de datos lo escribe el mismo script: sesiones nuevas, fila
 
 - `/acerca` deja de tener las secciones «Quién está detrás» y «Financiación», que pedía la sección 8 de la especificación. Desaparecen también sus campos de `config/site.ts`.
 - Se mantienen las secciones sobre qué es el proyecto, independencia, contacto y rectificaciones, privacidad y licencias.
-- La vía de rectificación sigue siendo una incidencia en el repositorio público mientras no haya una dirección de contacto (`site.contacto`). Es lo único que `pnpm web:audit --strict` sigue señalando como pendiente antes del lanzamiento.
+- **Contacto.** También decidido por el propietario: las incidencias del repositorio público son la única vía de contacto y de rectificación, sin dirección de correo.
+  - La página lo dice sin «pendiente» y avisa de que hace falta una cuenta de GitHub y de que las incidencias son públicas.
+  - Desaparece el campo `contacto` de `config/site.ts`, y con él el control `--strict` de `pnpm web:audit`: ya no queda nada pendiente en `/acerca`.

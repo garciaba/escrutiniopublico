@@ -3,21 +3,16 @@
  * without a browser (specification, sections 8 and 9):
  *
  *   pnpm web:build && pnpm web:audit            report problems and exit with 1
- *   pnpm web:audit --strict                     also fail on launch blockers (pending /acerca fields)
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { gzipSync } from 'node:zlib';
 
-import { site } from '../../config/site.ts';
-
 const DIST = join(process.cwd(), 'web', 'dist');
 const DERIVED = join(process.cwd(), 'data', 'derived');
 const HOME_JS_BUDGET = 60_000;
-const strict = process.argv.includes('--strict');
 
 const errors: string[] = [];
-const warnings: string[] = [];
 
 function htmlFiles(dir: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -182,16 +177,9 @@ for (const directive of [
 }
 if (/unsafe-inline|unsafe-eval|\*/.test(csp)) errors.push('_headers: Content-Security-Policy is not strict');
 
-// Launch blocker the owner still has to provide (D-036).
-const pending = (['contacto'] as const).filter((field) => !site[field]);
-if (pending.length > 0) {
-  (strict ? errors : warnings).push(`/acerca still shows as pending: ${pending.join(', ')} (config/site.ts)`);
-}
-
 console.log(
   `${pages.length} pages (${profiles.length} profiles) · home JavaScript ${(homeJs / 1000).toFixed(1)} kB gzip in ${homeScripts.size} files · home HTML ${(gzipSync(home).length / 1000).toFixed(1)} kB gzip`,
 );
-for (const warning of warnings) console.warn(`warning: ${warning}`);
 if (errors.length > 0) {
   for (const error of errors.slice(0, 50)) console.error(`error: ${error}`);
   if (errors.length > 50) console.error(`… and ${errors.length - 50} more`);

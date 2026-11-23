@@ -1628,13 +1628,6 @@ code {
   color: var(--muted);
 }
 
-.pendiente {
-  padding: 0.1em 0.4em;
-  border: 1px dashed var(--rule-strong);
-  border-radius: 4px;
-  color: var(--muted);
-}
-
 .error-404 {
   padding-block: clamp(2rem, 10vw, 6rem);
   text-align: center;

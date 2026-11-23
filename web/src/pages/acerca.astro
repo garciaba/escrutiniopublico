@@ -54,20 +54,12 @@ const incidencias = `${site.repositoryUrl}/issues/new`;
         pedir su revisión. Para tramitarla hacen falta tres cosas: la dirección de la página, el dato que se discute y el
         documento oficial que lo contradice.
       </p>
-      {
-        site.contacto ? (
-          <p>
-            Contacto: <a href={`mailto:${site.contacto}`}>{site.contacto}</a>.
-          </p>
-        ) : (
-          <p>
-            <span class="pendiente">Dirección de contacto pendiente de publicar.</span> Mientras tanto, la vía es abrir una <a
-              href={incidencias}
-              rel="noopener">incidencia en el repositorio público</a
-            >.
-          </p>
-        )
-      }
+      <p>
+        La vía para pedirla, y para cualquier otra consulta, es abrir una <a href={incidencias} rel="noopener"
+          >incidencia en el repositorio público</a
+        > del proyecto. Hace falta una cuenta de GitHub, que es gratuita. Las incidencias son públicas: no incluyas datos
+        personales.
+      </p>
       <p>
         Las rectificaciones aceptadas se corrigen en los datos y quedan anotadas en <a href="/cambios#rectificaciones"
           >Cambios</a
