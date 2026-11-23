@@ -219,6 +219,20 @@ Hallazgo relevante para esa comprobación: el cortafuegos del Congreso responde 
 
 ## 8. Tablas normalizadas (hito 1)
 
+Resultado de la ejecución completa de la XV (23/11/2026). Una segunda ejecución sin cambios en origen escribe exactamente los mismos bytes.
+
+| Tabla            | Filas   | Notas                                                                                                                                      |
+| ---------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `diputados`      | 412     | 412 códigos oficiales distintos; 18 con rol `gobierno`, 17 `portavoz`, 9 `mesa`                                                            |
+| `grupos`         | 9       |                                                                                                                                            |
+| `organos`        | 67      | 64 de las exportaciones más Pleno, Diputación Permanente y Sesión Conjunta                                                                 |
+| `pertenencias`   | 3.724   | Sin senadores ni letrados                                                                                                                  |
+| `votaciones`     | 2.175   | 2.173 nominales; 2 secretas                                                                                                                |
+| `votos`          | 760.518 | Lista de votantes igual al censo en activo en cada votación                                                                                |
+| `intervenciones` | 26.524  | 24.121 cuentan; 2.403 excluidas con motivo (D-009, D-013)                                                                                  |
+| `iniciativas`    | 47.248  | 44.845 preguntas escritas (4 no servidas por el buscador, D-022), 1.915 solicitudes de informe y 488 proyectos, proposiciones y propuestas |
+| `firmantes`      | 256.892 | Todos los firmantes cruzan con el censo                                                                                                    |
+
 `pnpm pipeline` escribe estas tablas en `data/normalized/`, en CSV UTF-8 con cabecera, ordenadas por su clave para que el diff diario muestre solo cambios reales. Las fechas van en formato `aaaa-mm-dd` y los textos oficiales, sin saltos de línea internos. Una columna vacía significa que el dato oficial no existe.
 
 ### diputados (clave `diputado_id`)
@@ -275,7 +289,7 @@ Un cargo de Gobierno que el BOE no confirma para esa persona y fecha se trata co
 
 ### iniciativas (clave `iniciativa_id`)
 
-`iniciativa_id` es el expediente sin el sufijo `/0000` (ej. `184/044756`), y `tipo_codigo` son sus tres primeras cifras. Salen de los ficheros de proyectos (121), proposiciones (122 a 125) y propuestas de reforma de estatuto (127), y de la exportación del buscador para preguntas escritas (184) y solicitudes de informe (186). `resultado` y `fecha_resultado` separan el texto «Caducado \n04/11/2026». `autor` conserva el autor textual de proyectos y proposiciones (grupos, Gobierno, Senado). `firmantes_incompletos` marca autorías del tipo «… y 45 Diputados». El fichero de leyes aprobadas no se ingiere, porque no trae expediente ni autor.
+`iniciativa_id` es el expediente sin el sufijo `/0000` (ej. `184/044756`), y `tipo_codigo` son sus tres primeras cifras. Salen de los ficheros de proyectos de ley (121), proposiciones de ley de grupos (122), de diputados (123), del Senado (124) y de comunidades autónomas (125), y propuestas de reforma de estatuto (127), y de la exportación del buscador para preguntas escritas (184) y solicitudes de informe (186). `resultado` y `fecha_resultado` separan el texto «Caducado \n04/11/2026». `autor` conserva el autor textual de proyectos y proposiciones (grupos, Gobierno, Senado). `firmantes_incompletos` marca autorías del tipo «… y 45 Diputados». El fichero de leyes aprobadas no se ingiere, porque no trae expediente ni autor.
 
 ### firmantes (clave `iniciativa_id + orden`)
 
