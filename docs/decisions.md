@@ -138,4 +138,5 @@ El adaptador entra en el hito 1, adelantando lo que la especificación dejaba pa
 
 - Se capturan las agendas de los 137 diputados que siguen en activo, una petición por semana y diputado, a una petición por segundo.
 - **Privacidad:** el repositorio guarda, por cita, la fecha, las horas y el tipo. En las institucionales guarda además el órgano; en las personales, nunca el texto, que puede nombrar a terceros. La web publicará solo recuentos (si publica agenda personal y cuántas citas declara).
+- Captura: workflow [`agendas.yml`](../.github/workflows/agendas.yml), todas las semanas desde el 17/08/2023 para los 137 diputados en activo (unas 23.600 peticiones), en tres tramos secuenciales de GitHub Actions. Cada tramo guarda su avance en `data/raw/agendas/XV/` y el siguiente continúa.
 - En la XVI la agenda pasa a ser una fuente diaria del pipeline.

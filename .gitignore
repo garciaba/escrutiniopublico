@@ -13,3 +13,6 @@ data/raw/daily/
 *.log
 .env
 .env.*
+
+# Partial files of an interrupted agenda capture.
+data/raw/agendas/**/*.tmp

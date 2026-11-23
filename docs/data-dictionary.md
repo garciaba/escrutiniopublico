@@ -151,6 +151,20 @@ Campos de la exportación: `Nombre` («Apellidos, Nombre»), `Cargo` (Presidente
 
 La lista de miembros del Gobierno **no está** en ninguna familia, y `CARGOORADOR` en intervenciones no es fiable para obtenerla: contiene cargos ministeriales atribuidos a personas que no lo eran. Se ha construido desde el BOE (D-007): 18 diputados de la XV fueron miembros del Gobierno durante su mandato.
 
+### 3.6 Agendas de los diputados (fuente adicional, D-017)
+
+Recurso JSON `agendaDiputados` de la ficha de cada diputado, una semana por petición ([fuentes-adicionales.md](fuentes-adicionales.md), sección 2.4). Comprobado el 23/11/2026 con 3 semanas de muestra de cada uno de los 137 diputados en activo:
+
+| Hecho                | Detalle                                                                                                                                                                                    |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Campos por cita      | `fechaAgenda`, `horaAgenda1` y `horaAgenda2` (hora sobre la fecha ficticia 2001-01-01), `agendaCodOrgAbr` (órgano o texto libre) y `textoAgenda` (vacío en todas las citas vistas)         |
+| Agenda institucional | Solo sesiones del **Pleno** (822 citas en la muestra, el mismo calendario para todos). Las comisiones no aparecen.                                                                         |
+| Agenda personal      | Texto libre en `agendaCodOrgAbr` («Reunión…», «Acto…»), a veces con nombres de terceros. 22 de los 137 diputados tienen citas personales en la muestra (114 citas, desde febrero de 2026). |
+| Días con agenda      | `diasConAgenda` es igual para todos los diputados: 208 días en 99 semanas, el calendario institucional. No indica qué semanas tienen citas personales.                                     |
+| Disponibilidad       | Responde `tieneAgenda: false` para quienes causaron baja.                                                                                                                                  |
+
+Clasificación que aplica ESCAÑO: una cita es institucional solo si su etiqueta coincide exactamente con el nombre de un órgano oficial (`config/agenda.ts`). Las demás son personales y se guardan sin texto, solo con fecha y horas. Las reuniones de partido con nombres como «Comisión Ejecutiva…» quedan correctamente como personales.
+
 ## 4. Cruce de identidades
 
 **Todos los registros de diputados de la XV Legislatura quedan identificados por su nombre**: 100 % en votaciones, intervenciones y órganos, con 6 alias revisados a mano en [`config/overrides.ts`](../config/overrides.ts). Comprobado sobre el corpus completo el 23/11/2026, no sobre muestras.

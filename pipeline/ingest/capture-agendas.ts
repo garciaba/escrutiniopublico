@@ -7,7 +7,7 @@
  * Resumable: a deputy whose file already covers the requested range is skipped,
  * and the run stops cleanly before --deadline-minutes so it fits in a CI job.
  *
- * Usage: node pipeline/ingest/capture-agendas.ts [--to yyyy-mm-dd] [--deadline-minutes n] [--only cod,cod]
+ * Usage: node pipeline/ingest/capture-agendas.ts [--from yyyy-mm-dd] [--to yyyy-mm-dd] [--deadline-minutes n] [--only cod,cod]
  */
 import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -46,6 +46,7 @@ interface AgendaFile {
 
 const { values: args } = parseArgs({
   options: {
+    from: { type: 'string' },
     to: { type: 'string' },
     'deadline-minutes': { type: 'string', default: '330' },
     only: { type: 'string' },
@@ -53,7 +54,7 @@ const { values: args } = parseArgs({
 });
 
 const { legislatura, baseUrl } = project;
-const from = project.agendas.legislatureStart;
+const from = args.from ?? project.agendas.legislatureStart;
 const to = args.to ?? new Date().toISOString().slice(0, 10);
 const deadline = Date.now() + Number(args['deadline-minutes']) * 60_000;
 const only = args.only ? new Set(args.only.split(',').map(Number)) : undefined;
