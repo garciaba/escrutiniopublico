@@ -27,6 +27,18 @@ El aviso de GitHub por acciones que aún usan Node 20 venía de `pnpm/action-set
 - 203 tests y cobertura en `pipeline/metrics` y `pipeline/normalize`: 96 % de sentencias, 98,6 % de líneas, 99 % de funciones y 84 % de ramas.
 - `pnpm sanity` contra lo publicado: tres controles correctos y uno omitido, el de diputados en activo, porque la legislatura ha terminado. Mensaje generado: «Daily data check 2026-11-23: no changes in the official data».
 
+## Primera ejecución diaria en `main`: fallo real, sin publicar
+
+La primera ejecución de `daily.yml` (run 45242540422, lanzada a mano el 23/11/2026 a las 18:50 UTC) falló a los 22 minutos, en la descarga:
+
+- **Causa.** El Congreso cambió ese día un registro: la solicitud de informe 187/000488 dejó de tener resultado, y el listado del buscador omite los campos vacíos. La validación del esquema detuvo la ejecución (`Schema check failed for listing 187 page 1`).
+- **Comportamiento, el previsto en la sección 6:**
+  - No hubo commit de datos ni despliegue.
+  - Se abrió la incidencia #10, «Fallo del pipeline diario», con el enlace a la ejecución y el registro.
+- **Corrección.** Un campo ausente en el listado se lee como vacío, igual que lo da la exportación (nota en D-022), con una muestra real del caso como test.
+
+Este fallo real cubre el criterio «fallo de esquema: no despliega y abre incidencia» sin necesidad de simularlo. Falta ver que la siguiente ejecución correcta cierra la incidencia.
+
 ## Pendiente: requiere los PR fusionados en `main`
 
 | Criterio de aceptación                                    | Cómo se comprobará                                                                                                                                                                                            |

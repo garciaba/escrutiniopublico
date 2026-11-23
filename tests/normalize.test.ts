@@ -11,7 +11,7 @@ import {
   searchInitiativesFile,
   voteFile,
 } from '../pipeline/normalize/schemas.ts';
-import { daysBetween, failedBlockDays } from '../pipeline/ingest/families/iniciativas.ts';
+import { daysBetween, failedBlockDays, listingRows } from '../pipeline/ingest/families/iniciativas.ts';
 import { buildDiputados, buildGrupos } from '../pipeline/normalize/tables/diputados.ts';
 import { buildOrganos, buildPertenencias, specialRoles } from '../pipeline/normalize/tables/organos.ts';
 import {
@@ -319,6 +319,28 @@ describe('initiatives recovery', () => {
     fecha_calificado,
     autor: '',
     resultado_tram: '',
+  });
+
+  it('reads listing rows, where an initiative without an outcome has no result field', () => {
+    // Real reduced sample of 23/11/2026: 187/000488 lost its outcome in the source that day.
+    const sample = fixture('congreso/iniciativas/listado-187.sample.json') as {
+      lista_iniciativas: Record<string, Record<string, unknown>>;
+    };
+    expect(Object.values(sample.lista_iniciativas)[1]).not.toHaveProperty('resultado_tram');
+    const rows = searchInitiativesFile.parse(listingRows(sample.lista_iniciativas));
+    expect(rows.map((row) => [row.id_iniciativa, row.resultado_tram])).toEqual([
+      ['187/000489', 'Caducado'],
+      ['187/000488', ''],
+    ]);
+    // Signers come separated by "<br />" in the listing and by a space in the export.
+    expect(rows[0]?.autor).not.toContain('<br');
+    const resolve = createNameResolver(['Rodríguez de Millán Parro, María José', 'García Gomis, David'], []);
+    const { iniciativas } = buildIniciativas([], new Map([['187', rows]]), resolve, idOf);
+    expect(iniciativas.map((row) => [row.iniciativa_id, row.resultado, row.n_firmantes])).toEqual([
+      ['187/000489', 'Caducado', 2],
+      ['187/000488', undefined, 2],
+    ]);
+    expect(listingRows(undefined)).toEqual([]);
   });
 
   it('lists every day of a range, across months and leap days', () => {
