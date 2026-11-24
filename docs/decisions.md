@@ -362,12 +362,12 @@ Frente a la metodología 1.0.0, la posición mediana se mueve 45 puestos.
 
 **Flujos de GitHub Actions:**
 
-| Flujo                          | Cuándo                                                   | Qué hace                                                                                                                                                                                                              |
-| ------------------------------ | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `daily.yml`                    | Cada día a las 05:40 UTC, solo en `main`; también a mano | Descarga, valida, normaliza, puntúa, pasa los controles de sanidad, hace commit de `data/`, compila y audita la web, sube el commit y despliega en producción                                                         |
-| `ci.yml`                       | En cada push, a cualquier rama                           | Tipos, lint, formato, tests con cobertura (reproducibilidad incluida), compilación, auditoría, comprobación en navegador y Lighthouse. En ramas distintas de `main`, además, una previsualización en Cloudflare Pages |
-| `discovery.yml`, `agendas.yml` | Solo a mano                                              | Herramientas de los hitos 0 y de D-017                                                                                                                                                                                |
-| Dependabot                     | Mensual                                                  | Actualizaciones agrupadas de npm y de las acciones, con dos semanas de espera desde la publicación de cada versión                                                                                                    |
+| Flujo                          | Cuándo                                                   | Qué hace                                                                                                                                                                                                                                                                   |
+| ------------------------------ | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `daily.yml`                    | Cada día a las 05:40 UTC, solo en `main`; también a mano | Descarga, valida, normaliza, puntúa, pasa los controles de sanidad, hace commit de `data/`, compila y audita la web, sube el commit y despliega en producción                                                                                                              |
+| `ci.yml`                       | En cada push, a cualquier rama                           | Tipos, lint, formato, tests con cobertura (reproducibilidad incluida), compilación, auditoría, comprobación en navegador y Lighthouse. En `main`, además, despliegue en producción (D-039). En ramas distintas de `main`, además, una previsualización en Cloudflare Pages |
+| `discovery.yml`, `agendas.yml` | Solo a mano                                              | Herramientas de los hitos 0 y de D-017                                                                                                                                                                                                                                     |
+| Dependabot                     | Mensual                                                  | Actualizaciones agrupadas de npm y de las acciones, con dos semanas de espera desde la publicación de cada versión                                                                                                                                                         |
 
 `web.yml` desaparece: `ci.yml` lo sustituye.
 
@@ -534,3 +534,23 @@ El mensaje del commit de datos lo escribe el mismo script: sesiones nuevas, fila
 
 - `pnpm web:compare <dist A> <dist B>` compara capturas de dos compilaciones, en móvil y en escritorio, y lista las páginas que cambian. Antes de dar por buena cada entrega, las páginas que no debía tocar son idénticas píxel a píxel a las de la rama anterior.
 - `pnpm web:check` mide en un móvil las listas plegadas de una ficha y pasa axe con todas las secciones abiertas, también en tema oscuro.
+
+## D-039 · Los cambios de la web se publican al fusionarse en `main`
+
+**Tomada (24/11/2026), pendiente de que el propietario fusione el PR que la aplica.** Modifica D-035, donde solo la ejecución diaria desplegaba producción.
+
+**Qué pasó.** El 24/11 se fusionó la nueva interfaz (D-038) y se lanzó la ejecución diaria para publicarla. Falló, y no por la web:
+
+- El fichero oficial `IntervencionesCronologicamente` del Congreso de ese día traía 2.300 intervenciones en lugar de las 43.042 de la víspera: 3,3 MB frente a 56,8 MB. Casi la mitad eran de una sola comisión, la Mixta para las Relaciones con el Tribunal de Cuentas, que conservaba casi todas las suyas (1.120 de 1.153).
+- Los controles de sanidad lo pararon: las intervenciones caían de 26.524 filas a 981 (−96 %) y, por ese hueco, dos índices del último año saltaban más de 15 puntos.
+- No se publicó nada y se abrió la incidencia #18, como establece D-035.
+- Reproducido en local: con el fichero de ese día fallan los dos controles; con el del día anterior pasan todos.
+
+**El problema de fondo.** Como la web solo se desplegaba desde la ejecución diaria, una incidencia en una fuente oficial bloqueaba también la publicación de cambios de la web, que no tienen nada que ver con ella.
+
+**Decisión.** `ci.yml` despliega producción en cada push a `main`, después de pasar todas sus comprobaciones: tipos, tests, reproducibilidad, auditoría, navegador y Lighthouse.
+
+- Publica la web con los datos que ya están en el repositorio, que son los últimos que pasaron los controles. No descarga nada.
+- La ejecución diaria sigue siendo la única que cambia los datos. Su commit no vuelve a lanzar la CI, porque GitHub no dispara flujos desde los pushes hechos con el token de Actions.
+- Las fusiones seguidas cancelan la CI anterior, así que se despliega la última.
+- El aviso de datos antiguos funciona igual: depende de la fecha de la última ejecución diaria correcta, no de la del despliegue.
