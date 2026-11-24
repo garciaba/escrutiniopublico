@@ -4,6 +4,8 @@ import { describe, expect, it } from 'vitest';
 import { scoring, type MetricConfig } from '../config/scoring.ts';
 import type { Ficha, FichaPeriodo, Metrica } from '../web/src/lib/data.ts';
 import {
+  anosLegislatura,
+  cifrasClave,
   codificarSerie,
   descodificarSerie,
   descripcionFicha,
@@ -13,7 +15,9 @@ import {
   periodoPrincipal,
   recortar,
   resumenEvolucion,
+  resumenFicha,
   serieDelPeriodo,
+  tituloFicha,
   valorBruto,
   valorMensual,
 } from '../web/src/lib/ficha.ts';
@@ -42,12 +46,41 @@ function metrica(parcial: Partial<Metrica>): Metrica {
 
 const ficha = {
   legislatura: { numero: 99, nombre: 'XCIX', inicio: '2024-01-01', fin: null, finalizada: false },
-  diputado: { nombre: 'Persona', apellidos: 'Ficticia Uno', circunscripcion: 'Ninguna' },
+  diputado: {
+    nombre: 'Persona',
+    apellidos: 'Ficticia Uno',
+    partido: 'PF',
+    circunscripcion: 'Ribera (La)',
+    fecha_alta: '2024-01-10',
+    fecha_baja: null,
+  },
   periodos: {
     legislatura: { estado: 'no_disponible', motivo: 'sin_dias_en_activo' },
     '12m': { estado: 'disponible', situacion: 'ranking', indice: 53, posicion: 1160, total_ranking: 2392 },
   },
 } as unknown as Ficha;
+
+/** A period of the fictitious deputy with votes and speeches. */
+function conCifras(votos: [number, number] | null, pleno: number | null, comision: number | null): FichaPeriodo {
+  return {
+    estado: 'disponible',
+    situacion: 'ranking',
+    indice: 53,
+    posicion: 1160,
+    total_ranking: 2392,
+    metricas: [
+      ...(votos
+        ? [metrica({ id: 'votaciones_participacion', numerador: votos[0], denominador: votos[1], valor: 0.9 })]
+        : []),
+      ...(pleno === null
+        ? []
+        : [metrica({ id: 'intervenciones_pleno', numerador: pleno, denominador: 700, valor: 1 })]),
+      ...(comision === null
+        ? []
+        : [metrica({ id: 'intervenciones_comision', numerador: comision, denominador: 700, valor: 1 })]),
+    ],
+  };
+}
 
 describe('valorBruto', () => {
   it('writes a proportion with its numerator and denominator', () => {
@@ -243,16 +276,64 @@ describe('profile', () => {
     expect(periodoPrincipal({ ...ficha, periodos: {} }, orden)).toBeUndefined();
   });
 
-  it('describes a ranked deputy with index and position', () => {
-    const periodo = ficha.periodos['12m'];
-    expect(descripcionFicha(ficha, periodo, 'Alfa')).toBe(
-      'Actividad parlamentaria de Persona Ficticia Uno (Alfa, Ninguna) en la XCIX Legislatura: índice 53,0 de 100, n.º 1.160 de 2.392. Votaciones, intervenciones y preguntas con datos oficiales del Congreso.',
+  it('dates the legislature in years, open while it runs', () => {
+    expect(anosLegislatura(ficha)).toBe('desde 2024');
+    expect(anosLegislatura({ ...ficha, legislatura: { ...ficha.legislatura, fin: '2027-05-02' } })).toBe('2024-2027');
+  });
+
+  it('adds up the speeches in plenary and in committee', () => {
+    expect(cifrasClave(conCifras([10, 12], 3, 4))).toEqual({ votos: { emitidos: 10, total: 12 }, intervenciones: 7 });
+    expect(cifrasClave(conCifras(null, null, 2))).toEqual({ intervenciones: 2 });
+    expect(cifrasClave(conCifras([0, 0], null, null))).toEqual({});
+    expect(cifrasClave(undefined)).toEqual({});
+  });
+
+  it('opens the profile with one sentence: where, list, when and two figures', () => {
+    const principal = { id: 'legislatura', periodo: conCifras([2151, 2173], 6, 39) };
+    expect(resumenFicha(ficha, principal)).toBe(
+      'Miembro del Congreso por La Ribera (PF) desde enero de 2024. En la legislatura votó en 2.151 de las 2.173 votaciones del Pleno que le correspondían e intervino 45 veces.',
+    );
+    const baja = { ...ficha, diputado: { ...ficha.diputado, fecha_baja: '2024-03-02' } };
+    expect(resumenFicha(baja, { id: '12m', periodo: conCifras([6, 6], 0, 0) })).toBe(
+      'Miembro del Congreso por La Ribera (PF) de enero de 2024 a marzo de 2024. En el último año votó en 6 de las 6 votaciones del Pleno que le correspondían; no consta ninguna intervención suya.',
+    );
+    expect(resumenFicha(ficha, { id: 'legislatura', periodo: conCifras(null, 1, null) })).toBe(
+      'Miembro del Congreso por La Ribera (PF) desde enero de 2024. En la legislatura intervino 1 vez.',
+    );
+    expect(resumenFicha(ficha, undefined)).toBe('Miembro del Congreso por La Ribera (PF) desde enero de 2024.');
+  });
+
+  it('never says diputado or diputada: the data do not record gender', () => {
+    const texto = resumenFicha(ficha, { id: 'legislatura', periodo: conCifras([1, 2], 3, 4) });
+    expect(texto).not.toMatch(/diputad[oa]/i);
+  });
+
+  it('titles a profile with the name first and drops the years when they do not fit', () => {
+    expect(tituloFicha(ficha)).toBe('Persona Ficticia Uno (PF): actividad en el Congreso desde 2024');
+    const largo = { ...ficha, diputado: { ...ficha.diputado, apellidos: 'De la Ficticia Muy Larga y Compuesta' } };
+    expect(tituloFicha(largo)).toBe('Persona De la Ficticia Muy Larga y Compuesta (PF): actividad en el Congreso');
+  });
+
+  it('describes a ranked deputy with the figures themselves and the index', () => {
+    expect(descripcionFicha(ficha, { id: 'legislatura', periodo: conCifras([2151, 2173], 6, 39) })).toBe(
+      'Persona Ficticia Uno (PF, La Ribera) votó en 2.151 de 2.173 votaciones del Pleno e intervino 45 veces en desde 2024. Índice: 53,0/100. Datos del Congreso.',
     );
   });
 
-  it('gives no index in the description of a deputy outside the ranking', () => {
-    const fuera: FichaPeriodo = { estado: 'disponible', situacion: 'gobierno', indice: 9.5, posicion: null };
-    expect(descripcionFicha(ficha, fuera, 'Alfa')).not.toContain('índice');
-    expect(descripcionFicha(ficha, undefined, 'Alfa')).toContain('Persona Ficticia Uno (Alfa, Ninguna)');
+  it('says why a member of the Government has no index, and never writes "0 veces"', () => {
+    const gobierno: FichaPeriodo = { ...conCifras([5, 9], 0, 0), situacion: 'gobierno', posicion: null };
+    const texto = descripcionFicha(ficha, { id: '12m', periodo: gobierno });
+    expect(texto).toBe(
+      'Persona Ficticia Uno (PF, La Ribera) votó en 5 de 9 votaciones del Pleno en el último año. Fuera del ranking por su etapa en el Gobierno. Datos del Congreso.',
+    );
+    expect(descripcionFicha(ficha, { id: 'legislatura', periodo: conCifras(null, 0, 0) })).toBe(
+      'Persona Ficticia Uno (PF, La Ribera): votaciones, intervenciones y preguntas en el Congreso desde 2024, con datos oficiales.',
+    );
+  });
+
+  it('drops the closing words of a description that would be too long', () => {
+    const largo = { ...ficha, diputado: { ...ficha.diputado, apellidos: 'De la Ficticia Muy Larga y Compuesta' } };
+    const texto = descripcionFicha(largo, { id: 'legislatura', periodo: conCifras([2151, 2173], 6, 39) });
+    expect(texto.endsWith('Índice: 53,0/100.')).toBe(true);
   });
 });

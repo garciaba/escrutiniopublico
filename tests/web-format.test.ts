@@ -9,6 +9,7 @@ import {
   mes,
   motivoExclusion,
   motivoPeriodo,
+  nombreCircunscripcion,
   nombreNatural,
   num,
   numFlexible,
@@ -116,5 +117,27 @@ describe('parseGitLog', () => {
       { sha, fecha: '2026-11-24', asunto: 'Daily data update 2026-11-24\twith a tab' },
     ]);
     expect(parseGitLog('')).toEqual([]);
+  });
+});
+
+describe('nombreCircunscripcion', () => {
+  it('puts the article of an inverted official name in front', () => {
+    expect(nombreCircunscripcion('Palmas (Las)')).toBe('Las Palmas');
+    expect(nombreCircunscripcion('Coruña (A)')).toBe('A Coruña');
+    expect(nombreCircunscripcion('Balears (Illes)')).toBe('Illes Balears');
+    expect(nombreCircunscripcion('Rioja (La)')).toBe('La Rioja');
+    expect(nombreCircunscripcion("Hospitalet (L')")).toBe("L'Hospitalet");
+  });
+
+  it('leaves any other name as it is', () => {
+    for (const nombre of [
+      'Madrid',
+      'Valencia/València',
+      'Araba/Álava',
+      'Santa Cruz de Tenerife',
+      'Algo (con varias palabras dentro)',
+    ]) {
+      expect(nombreCircunscripcion(nombre)).toBe(nombre);
+    }
   });
 });

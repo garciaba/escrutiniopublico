@@ -554,3 +554,32 @@ El mensaje del commit de datos lo escribe el mismo script: sesiones nuevas, fila
 - La ejecución diaria sigue siendo la única que cambia los datos. Su commit no vuelve a lanzar la CI, porque GitHub no dispara flujos desde los pushes hechos con el token de Actions.
 - Las fusiones seguidas cancelan la CI anterior, así que se despliega la última.
 - El aviso de datos antiguos funciona igual: depende de la fecha de la última ejecución diaria correcta, no de la del despliegue.
+
+## D-040 · Posicionamiento: primeras mejoras (días 1-30 del plan SEO)
+
+**Pedida por el propietario (24/11/2026)** tras una auditoría de posicionamiento de la web publicada. Es la parte técnica de los primeros 30 días del plan; las páginas por provincia, por grupo y por votación quedan para después.
+
+**Duplicados y rastreo:**
+
+- `escrutiniopublico.pages.dev` y cada previsualización servían la web entera. Ya los marcaba la URL canónica; ahora además responden con `X-Robots-Tag: noindex`, desde `web/public/_headers`, como recomienda Cloudflare. El dominio propio no cambia.
+- `/comparar` pasa a `noindex` y sale del `sitemap`: sin JavaScript es una página casi vacía y su contenido depende de la consulta. En el hito anterior se había dejado indexable para sacar 100 en el apartado SEO de Lighthouse; para posicionar era peor. Lighthouse ya no exige esa nota en esa página.
+- **El `sitemap` deja de decir que todo cambió hoy.** Cada URL lleva la fecha de su último cambio real (`web/src/lib/sitemap.ts`): en una ficha, la última votación o intervención del diputado, una nueva versión de la metodología o un cambio publicado en `/cambios`. `/acerca`, sin fecha conocida, va sin ella. Antes las 420 URLs decían «modificada hoy» cada día y los buscadores acaban ignorando ese dato.
+
+**Textos que leen los buscadores:**
+
+- **Títulos con la búsqueda delante.** La portada pasa a «Ranking de actividad de los diputados del Congreso». Las fichas pasan a «Nombre (candidatura): actividad en el Congreso 2023-2026» y prescinden del nombre del sitio, que los buscadores muestran aparte; los años desaparecen si el título pasa de 65 caracteres.
+- **Descripciones con las cifras,** no con una descripción de las cifras: «Ada Santana Aguilera (PSOE, Las Palmas) votó en 2.151 de 2.173 votaciones del Pleno e intervino 45 veces en 2023-2026. Índice: 32,4/100.» Nunca dicen «0 veces», y las del Gobierno dicen por qué no hay índice.
+- **Una frase de resumen al principio de cada ficha,** la que citan los buscadores y los asistentes. No dice «diputado» ni «diputada»: el censo no recoge el género y no se deduce del nombre.
+- **Encabezados con nombre:** H1 de la portada «Ranking de actividad de los diputados»; en las fichas, «Actividad de…», «Últimas votaciones de…». Los bloques de cada periodo pasan a H3 para que los H2 no se repitan.
+- **Circunscripciones como se escriben:** «Las Palmas», «A Coruña», «Illes Balears», «La Rioja» en lugar de la forma invertida del censo. Es solo presentación: los ficheros de datos conservan el nombre oficial, y los enlaces antiguos con `?circunscripcion=Palmas (Las)` siguen funcionando.
+
+**Datos estructurados (JSON-LD):**
+
+- Portada: `WebSite` y `Organization`, que dan a los buscadores el nombre del sitio.
+- Fichas: `BreadcrumbList` y una `Person` con la frase de resumen y su paso por el Congreso como `Role` con fechas.
+- `/datos`: `Dataset` con licencia, cobertura temporal y los 13 ficheros descargables, para Google Dataset Search.
+- No se añade marcado de preguntas frecuentes: Google ya no muestra ese resultado enriquecido.
+
+`pnpm web:audit` comprueba todo lo anterior en cada compilación: el marcado de las tres páginas, la frase de resumen y las migas en las 412 fichas, que ninguna circunscripción salga invertida, que `/comparar` sea `noindex` y que ninguna fecha del `sitemap` sea posterior al último cálculo.
+
+**Queda del lado del propietario:** dar de alta la web en Google Search Console y en Bing Webmaster Tools (verificación por DNS en Cloudflare), enviar el `sitemap`, activar Crawler Hints y revisar que el control de rastreadores de IA de Cloudflare no bloquee a los buscadores con IA.

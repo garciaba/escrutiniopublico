@@ -15,8 +15,10 @@ import {
   periodoPrincipal,
   recortar,
   resumenEvolucion,
+  resumenFicha,
   serieDelPeriodo,
   valorBruto,
+  type Principal,
 } from '../lib/ficha.ts';
 import {
   duracion,
@@ -24,6 +26,7 @@ import {
   iniciales,
   mes,
   motivoExclusion,
+  nombreCircunscripcion,
   num,
   plural,
   porcentaje,
@@ -50,10 +53,10 @@ function grupoDe(id: string) {
   return groups.find((group) => group.code === id);
 }
 
-function Cabecera({ ficha, periodo }: { ficha: Ficha; periodo: FichaPeriodo | undefined }) {
+function Cabecera({ ficha, principal }: { ficha: Ficha; principal: Principal | undefined }) {
   const { diputado } = ficha;
   const grupo = grupoDe(diputado.grupo.id);
-  const roles = (periodo?.roles ?? []).filter((rol) => rol !== 'gobierno');
+  const roles = (principal?.periodo.roles ?? []).filter((rol) => rol !== 'gobierno');
   return (
     <header class="ficha-cabecera">
       <div class="avatar" aria-hidden="true">
@@ -68,13 +71,14 @@ function Cabecera({ ficha, periodo }: { ficha: Ficha; periodo: FichaPeriodo | un
           {diputado.grupo.nombre}
         </p>
         <p class="ficha-datos">
-          <span>{diputado.circunscripcion}</span>
+          <span>{nombreCircunscripcion(diputado.circunscripcion)}</span>
           <span>Candidatura: {diputado.partido}</span>
         </p>
         <p class="ficha-datos">
           Escaño: {fechaCorta(diputado.fecha_alta)} – {diputado.fecha_baja ? fechaCorta(diputado.fecha_baja) : 'hoy'}
         </p>
       </div>
+      <p class="ficha-resumen">{resumenFicha(ficha, principal)}</p>
       <div class="ficha-extra">
         {roles.length > 0 || ficha.gobierno.length > 0 ? (
           <span class="etiquetas">
@@ -121,7 +125,7 @@ function Indice({ ficha, id, periodo }: { ficha: Ficha; id: string; periodo: Fic
   const enRanking = periodo.situacion === 'ranking';
   return (
     <section class="bloque tarjeta indice" aria-labelledby={`indice-${id}`}>
-      <h2 id={`indice-${id}`}>Índice de actividad</h2>
+      <h3 id={`indice-${id}`}>Índice de actividad</h3>
       <p class="muted">
         {nombrePeriodo}
         {periodo.desde && periodo.hasta ? ` · ${fechaCorta(periodo.desde)} – ${fechaCorta(periodo.hasta)}` : ''}
@@ -205,7 +209,7 @@ function Dimensiones({ id, periodo }: { id: string; periodo: FichaPeriodo }) {
   const puntuaciones = new Map((periodo.dimensiones ?? []).map((d) => [d.id, d.puntuacion]));
   return (
     <section class="bloque tarjeta" aria-labelledby={`dimensiones-${id}`}>
-      <h2 id={`dimensiones-${id}`}>Dimensiones</h2>
+      <h3 id={`dimensiones-${id}`}>Dimensiones</h3>
       <ul class="dimensiones">
         {scoring.dimensiones.map((dimension) => {
           const puntuacion = puntuaciones.get(dimension.id) ?? null;
@@ -680,6 +684,7 @@ function Intervenciones({ ficha }: { ficha: Ficha }) {
 
 export function FichaDiputado({ ficha }: { ficha: Ficha }) {
   const principal = periodoPrincipal(ficha, ORDEN_PERIODOS);
+  const nombre = `${ficha.diputado.nombre} ${ficha.diputado.apellidos}`;
   /** Periods with data, numbered in the order of the switch, which the CSS goes by. */
   const disponibles = scoring.periodos
     .flatMap((config) => {
@@ -699,7 +704,7 @@ export function FichaDiputado({ ficha }: { ficha: Ficha }) {
       <p class="miga">
         <a href="/">← Ranking</a>
       </p>
-      <Cabecera ficha={ficha} periodo={principal?.periodo} />
+      <Cabecera ficha={ficha} principal={principal} />
       {disponibles.length > 1 && principal ? (
         <SelectorPeriodo ids={disponibles.map((item) => item.id)} inicial={principal.id} />
       ) : null}
@@ -713,7 +718,10 @@ export function FichaDiputado({ ficha }: { ficha: Ficha }) {
         </ul>
       </nav>
 
-      <section class="panel" id="resumen" aria-label="Resumen">
+      <section class="panel" id="resumen" aria-labelledby="resumen-titulo">
+        <h2 id="resumen-titulo" class="sr">
+          Índice de actividad de {nombre}
+        </h2>
         {disponibles.length === 0 ? (
           <p class="aviso">
             <span>No hay ningún periodo con datos para este diputado.</span>
@@ -728,7 +736,7 @@ export function FichaDiputado({ ficha }: { ficha: Ficha }) {
       </section>
 
       <section class="panel" id="actividad" aria-labelledby="actividad-titulo">
-        <h2 id="actividad-titulo">Actividad</h2>
+        <h2 id="actividad-titulo">Actividad de {nombre}</h2>
         <details class="plegable">
           <summary>Cómo leer estas cifras</summary>
           <div class="plegable-cuerpo">
@@ -755,18 +763,18 @@ export function FichaDiputado({ ficha }: { ficha: Ficha }) {
       </section>
 
       <section class="panel" id="votaciones" aria-labelledby="votaciones-titulo">
-        <h2 id="votaciones-titulo">Últimas votaciones</h2>
+        <h2 id="votaciones-titulo">Últimas votaciones de {nombre}</h2>
         <Votaciones ficha={ficha} />
       </section>
 
       <section class="panel" id="intervenciones" aria-labelledby="intervenciones-titulo">
-        <h2 id="intervenciones-titulo">Últimas intervenciones</h2>
+        <h2 id="intervenciones-titulo">Últimas intervenciones de {nombre}</h2>
         <Intervenciones ficha={ficha} />
       </section>
 
       {ficha.cargos.length > 0 ? (
         <section class="panel" id="cargos" aria-labelledby="cargos-titulo">
-          <h2 id="cargos-titulo">Cargos en órganos de la Cámara</h2>
+          <h2 id="cargos-titulo">Cargos de {nombre} en la Cámara</h2>
           <Cargos ficha={ficha} />
         </section>
       ) : null}

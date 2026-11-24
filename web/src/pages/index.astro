@@ -6,7 +6,7 @@ import { Termino } from '../components/parts.tsx';
 import { RankingApp } from '../components/RankingTable.tsx';
 import Base from '../layouts/Base.astro';
 import { loadMeta, loadRanking } from '../lib/data.ts';
-import { fechaLarga, porcentaje } from '../lib/format.ts';
+import { fechaLarga, num, porcentaje } from '../lib/format.ts';
 import { compactar, estadoInicial } from '../lib/ranking.ts';
 
 const ranking = loadRanking();
@@ -25,16 +25,44 @@ const app = {
 };
 const payload = JSON.stringify(app).replace(/</g, '\\u003c');
 const conDato = data.dimensiones.length;
+const anos = `${legislatura.inicio.slice(0, 4)}-${legislatura.fin ? legislatura.fin.slice(0, 4) : 'hoy'}`;
+const descripcion = `Ranking de actividad de los ${num(periodo?.total_ranking ?? 0)} diputados del Congreso (${anos}): votaciones, intervenciones, preguntas y leyes, con datos oficiales. Busca por provincia.`;
+/** The site itself, for the name search engines show next to its pages (D-040). */
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${site.url}/#web`,
+      name: site.name,
+      url: `${site.url}/`,
+      inLanguage: 'es',
+      description: site.descripcion,
+      publisher: { '@id': `${site.url}/#org` },
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${site.url}/#org`,
+      name: site.name,
+      url: `${site.url}/`,
+      logo: `${site.url}/apple-touch-icon.png`,
+      sameAs: [site.repositoryUrl],
+    },
+  ],
+};
 ---
 
-<Base title={site.lema} description={site.descripcion} path="/">
+<Base title="Ranking de actividad de los diputados del Congreso" description={descripcion} path="/" jsonLd={jsonLd}>
   <div class="wrap">
     <section class="portada">
       <p class="antetitulo">
         {legislatura.nombre} Legislatura{legislatura.finalizada ? ' · balance final' : ''}
       </p>
-      <h1 class="titular">{site.lema}</h1>
-      <p class="entradilla">Un índice de 0 a 100 por diputado: cuánto vota, interviene, pregunta y legisla.</p>
+      <h1 class="titular">Ranking de actividad de los diputados</h1>
+      <p class="entradilla">
+        Cuánto vota, interviene, pregunta y legisla cada diputado, en un índice de 0 a 100 hecho con datos oficiales del
+        Congreso.
+      </p>
       <details class="plegable">
         <summary>Qué mide el índice</summary>
         <div class="plegable-cuerpo">

@@ -66,6 +66,18 @@ export function iniciales(nombre: string, apellidos: string): string {
   return `${first(nombre)}${first(apellidos)}`;
 }
 
+/**
+ * "Palmas (Las)" -> "Las Palmas", "Coruña (A)" -> "A Coruña". The census writes a few
+ * constituencies with the article at the end, as an index would; nobody searches them
+ * that way. Any other name is returned as it is.
+ */
+export function nombreCircunscripcion(oficial: string): string {
+  const match = /^(.+?) \(([^()\s]+(?: [^()\s]+)?)\)$/.exec(oficial.trim());
+  if (!match) return oficial;
+  const [, nombre = '', articulo = ''] = match;
+  return articulo.endsWith("'") ? `${articulo}${nombre}` : `${articulo} ${nombre}`;
+}
+
 /** Lower case without accents, for searching names. */
 export function sinAcentos(text: string): string {
   return text.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();

@@ -1,6 +1,6 @@
 /** Search box of the header: its index of deputies and how a query is matched. Pure functions. */
 import type { Ranking } from './data.ts';
-import { sinAcentos } from './format.ts';
+import { nombreCircunscripcion, sinAcentos } from './format.ts';
 
 /** [slug, name, short name of the group, constituency] */
 export type EntradaBuscador = readonly [string, string, string, string];
@@ -10,7 +10,12 @@ export function indiceBuscador(ranking: Ranking, nombresCortos: Readonly<Record<
   const vistos = new Map<string, EntradaBuscador>();
   for (const fila of ranking.filas) {
     if (vistos.has(fila.slug)) continue;
-    vistos.set(fila.slug, [fila.slug, fila.nombre, nombresCortos[fila.grupo] ?? fila.grupo, fila.circunscripcion]);
+    vistos.set(fila.slug, [
+      fila.slug,
+      fila.nombre,
+      nombresCortos[fila.grupo] ?? fila.grupo,
+      nombreCircunscripcion(fila.circunscripcion),
+    ]);
   }
   return [...vistos.values()].sort((a, b) => a[1].localeCompare(b[1], 'es'));
 }

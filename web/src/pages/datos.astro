@@ -1,4 +1,5 @@
 ---
+import { scoring } from '../../../config/scoring.ts';
 import { site } from '../../../config/site.ts';
 import Base from '../layouts/Base.astro';
 import { derivedText, fichaSlugs, loadMeta, tablasNormalizadas } from '../lib/data.ts';
@@ -26,17 +27,51 @@ const fuentes = [
   { nombre: 'Iniciativas', fecha: meta.fechas_dato.iniciativas },
 ];
 const bytes = (texto: string) => new TextEncoder().encode(texto).length;
+const { legislatura } = meta;
+/** The published data as a dataset, for Google Dataset Search and the like (D-040). */
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: `Actividad parlamentaria de los diputados del Congreso, ${legislatura.nombre} Legislatura`,
+  description:
+    'Votaciones, intervenciones, preguntas, solicitudes de informe y ponencias de cada diputado del Congreso de los Diputados, con un índice de actividad de 0 a 100 calculado con una metodología pública.',
+  url: new URL('/datos', site.url).href,
+  inLanguage: 'es',
+  license: site.licencias.datos.url,
+  isAccessibleForFree: true,
+  version: scoring.metodologiaVersion,
+  dateModified: meta.fecha_calculo,
+  creator: { '@type': 'Organization', '@id': `${site.url}/#org`, name: site.name, url: `${site.url}/` },
+  isBasedOn: site.fuente.url,
+  temporalCoverage: `${legislatura.inicio}/${legislatura.fin ?? '..'}`,
+  spatialCoverage: { '@type': 'Place', name: 'España' },
+  keywords: ['Congreso de los Diputados', 'diputados', 'actividad parlamentaria', 'votaciones', 'datos abiertos'],
+  distribution: [
+    ...['ranking', 'grupos', 'meta'].map((nombre) => ({
+      '@type': 'DataDownload',
+      encodingFormat: 'application/json',
+      contentUrl: new URL(`/datos/${nombre}.json`, site.url).href,
+    })),
+    ...tablas.map((tabla) => ({
+      '@type': 'DataDownload',
+      encodingFormat: 'text/csv',
+      name: tabla.nombre,
+      contentUrl: `${raw}/data/normalized/${tabla.fichero}`,
+    })),
+  ],
+};
 ---
 
 <Base
-  title="Datos abiertos"
-  description={`Descarga el ranking y las tablas de ${site.name}: votaciones, intervenciones e iniciativas de los diputados del Congreso, en JSON y CSV con licencia CC BY 4.0.`}
+  title="Datos abiertos de actividad parlamentaria"
+  jsonLd={jsonLd}
+  description="Descarga en JSON y CSV las votaciones, intervenciones e iniciativas de los diputados del Congreso y el ranking de actividad. Licencia CC BY 4.0."
   path="/datos"
 >
   <div class="wrap">
     <header class="pagina-cabeza">
       <p class="antetitulo">Licencia {site.licencias.datos.nombre}</p>
-      <h1>Datos</h1>
+      <h1>Datos abiertos</h1>
       <p class="entradilla">
         Todo lo que se ve en el sitio se puede descargar y reutilizar. Los datos originales son del Congreso de los
         Diputados; aquí están normalizados, sin alterar ningún valor oficial.

@@ -1,26 +1,32 @@
 import type { APIRoute } from 'astro';
+import { registro } from '../../../config/cambios.ts';
+import { scoring } from '../../../config/scoring.ts';
 import { site } from '../../../config/site.ts';
-import { fichaSlugs, loadMeta } from '../lib/data.ts';
+import { fichaSlugs, loadFicha } from '../lib/data.ts';
+import { fechaMasReciente, ultimaActividad, xmlSitemap, type UrlSitemap } from '../lib/sitemap.ts';
 
-/** Every public page, with the date of the last calculation as the modification date. */
+/**
+ * Every public page but the comparison, whose content depends on its query. Each one
+ * dated by its last real change (decision D-040).
+ */
 export const GET: APIRoute = () => {
-  const fecha = loadMeta().fecha_calculo;
-  const paths = [
-    '/',
-    '/diputados',
-    '/comparar',
-    '/grupos',
-    '/metodologia',
-    '/datos',
-    '/cambios',
-    '/acerca',
-    ...fichaSlugs().map((slug) => `/diputados/${slug}`),
+  const metodologia = fechaMasReciente(...scoring.historial.map((version) => version.fecha));
+  /** A new methodology or a published change of the data reaches every page with figures. */
+  const cambios = fechaMasReciente(metodologia, ...registro.map((entrada) => entrada.fecha));
+  const fichas = fichaSlugs().map((slug) => ({ slug, actividad: ultimaActividad(loadFicha(slug)) }));
+  const datos = fechaMasReciente(cambios, ...fichas.map((ficha) => ficha.actividad));
+  const urls: UrlSitemap[] = [
+    { path: '/', lastmod: datos },
+    { path: '/diputados', lastmod: datos },
+    { path: '/grupos', lastmod: datos },
+    { path: '/metodologia', lastmod: metodologia },
+    { path: '/datos', lastmod: datos },
+    { path: '/cambios', lastmod: cambios },
+    { path: '/acerca' },
+    ...fichas.map(({ slug, actividad }) => ({
+      path: `/diputados/${slug}`,
+      lastmod: fechaMasReciente(cambios, actividad),
+    })),
   ];
-  const urls = paths
-    .map((path) => `  <url><loc>${new URL(path, site.url).href}</loc><lastmod>${fecha}</lastmod></url>`)
-    .join('\n');
-  return new Response(
-    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
-    { headers: { 'Content-Type': 'application/xml; charset=utf-8' } },
-  );
+  return new Response(xmlSitemap(urls, site.url), { headers: { 'Content-Type': 'application/xml; charset=utf-8' } });
 };

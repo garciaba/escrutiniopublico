@@ -4,7 +4,7 @@
  * selection to compare. Pure functions.
  */
 import type { Ranking } from './data.ts';
-import { sinAcentos } from './format.ts';
+import { nombreCircunscripcion, sinAcentos } from './format.ts';
 
 /** Deputies shown at a time: the list is read ten by ten (decision D-038). */
 export const POR_PAGINA = 10;
@@ -67,7 +67,7 @@ export function compactar(ranking: Ranking, { colores, nombresCortos }: Presenta
   for (const fila of ranking.filas) {
     if (posicion.has(fila.slug)) continue;
     posicion.set(fila.slug, diputados.length);
-    diputados.push([fila.slug, fila.nombre, fila.partido, fila.circunscripcion]);
+    diputados.push([fila.slug, fila.nombre, fila.partido, nombreCircunscripcion(fila.circunscripcion)]);
   }
   return {
     diputados,
@@ -197,7 +197,10 @@ export function leerEstado(search: string, data: RankingData): Estado {
     ),
     // The electoral list; `partido` is the name the parameter had before (D-037).
     partido: elegir(params.has('candidatura') ? 'candidatura' : 'partido', partidos),
-    circunscripcion: elegir('circunscripcion', circunscripciones),
+    // Links shared before the names were made readable carry "Palmas (Las)".
+    circunscripcion: circunscripciones.includes(nombreCircunscripcion(params.get('circunscripcion') ?? ''))
+      ? nombreCircunscripcion(params.get('circunscripcion') ?? '')
+      : '',
     orden,
     dir: dir === 'asc' || dir === 'desc' ? dir : direccionPorDefecto(orden),
     gobierno: params.get('gobierno') === '1',
