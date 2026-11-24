@@ -29,7 +29,7 @@ La web se genera desde `data/derived/` y `config/`:
 ```sh
 pnpm web:dev       # servidor de desarrollo
 pnpm web:build     # páginas estáticas en web/dist
-pnpm web:audit     # comprueba la compilación: pie, fichas sin JavaScript, peso, enlaces, cabeceras
+pnpm web:audit     # comprueba la compilación: pie, fichas completas sin JavaScript, peso, enlaces, cabeceras
 pnpm web:check     # navegador real: accesibilidad (axe-core), tabla y privacidad; necesita Playwright
 pnpm web:preview   # sirve web/dist como Cloudflare Pages, con las cabeceras de producción
 ```

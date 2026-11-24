@@ -1612,12 +1612,6 @@ th[aria-sort='descending'] .orden .baja {
   margin-top: 0.35rem;
 }
 
-.dimension p {
-  margin-top: 0.3rem;
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
 .dimension.sin-dato .nombre,
 .dimension.sin-dato .valor {
   color: var(--muted);
@@ -1628,59 +1622,274 @@ th[aria-sort='descending'] .orden .baja {
   background: repeating-linear-gradient(-45deg, var(--surface-2) 0 4px, var(--rule) 4px 8px);
 }
 
-.metricas {
-  display: grid;
-  gap: 1rem;
-  margin-top: 1rem;
+/* One period at a time. The checked radio decides (CSS only); without :has() the first stays. */
+.selector-periodo {
+  margin-top: 1.1rem;
 }
 
-@media (min-width: 46rem) {
-  .metricas {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.ficha .per {
+  display: none;
+}
+
+.ficha .per-1 {
+  display: block;
+}
+
+.ficha .per-1.ficha-rejilla {
+  display: grid;
+}
+
+@supports selector(:has(*)) {
+  .ficha:has(.selector-periodo label:nth-of-type(n + 2) input:checked) .per-1 {
+    display: none;
+  }
+
+  .ficha:has(.selector-periodo label:nth-of-type(2) input:checked) .per-2,
+  .ficha:has(.selector-periodo label:nth-of-type(3) input:checked) .per-3,
+  .ficha:has(.selector-periodo label:nth-of-type(4) input:checked) .per-4 {
+    display: block;
+  }
+
+  .ficha:has(.selector-periodo label:nth-of-type(2) input:checked) .per-2.ficha-rejilla,
+  .ficha:has(.selector-periodo label:nth-of-type(3) input:checked) .per-3.ficha-rejilla,
+  .ficha:has(.selector-periodo label:nth-of-type(4) input:checked) .per-4.ficha-rejilla {
+    display: grid;
   }
 }
 
-.metrica {
-  display: flex;
-  flex-direction: column;
-  padding: 1.1rem 1.25rem 1.15rem;
+@supports not selector(:has(*)) {
+  .selector-periodo {
+    display: none;
+  }
 }
 
-.metrica-cabeza {
+/* Sections. Plain links that jump down the page until the script turns them into tabs. */
+.pestanas {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin-top: 1.1rem;
+  margin-inline: calc(-1 * var(--gutter));
+  padding-inline: var(--gutter);
+  overflow-x: auto;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+  scrollbar-width: none;
+}
+
+.pestanas ul {
   display: flex;
-  align-items: flex-start;
+  gap: 0.25rem;
+  width: max-content;
+  list-style: none;
+}
+
+.pestanas a {
+  display: block;
+  padding: 0.75rem 0.7rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.pestanas a:hover {
+  color: var(--ink);
+}
+
+.pestanas a[aria-selected='true'] {
+  color: var(--ink);
+  box-shadow: inset 0 -3px 0 var(--accent);
+}
+
+.panel {
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
+  scroll-margin-top: 4rem;
+}
+
+.con-pestanas .panel {
+  margin-top: 1.25rem;
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.panel > h2 {
+  font-size: 1.2rem;
+}
+
+.con-pestanas .panel > h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.panel > .tarjeta,
+.subseccion > .tarjeta {
+  margin-top: 0.9rem;
+  overflow: clip;
+}
+
+.panel > .nota {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+.panel .ficha-rejilla {
+  margin-top: 0;
+}
+
+.subseccion {
+  margin-top: 1.75rem;
+}
+
+.subseccion > h3 {
+  font-size: 1.05rem;
+}
+
+.subseccion > h3 .muted {
+  font-weight: 400;
+}
+
+.indice .plegable {
+  margin-top: 0.6rem;
+}
+
+.indice .plegable-cuerpo {
+  padding: 0.85rem 1rem;
+  background: var(--surface-2);
+  box-shadow: none;
+}
+
+/* Metrics: one line each, grouped by dimension. A tap opens the detail. */
+.leyenda-metricas {
+  display: flex;
   justify-content: space-between;
-  gap: 0.75rem;
+  margin-top: 0.5rem;
+  padding: 0 2.9rem 0 1rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-.metrica h3 {
-  font-size: 1.02rem;
-  letter-spacing: -0.005em;
+.actividad {
+  margin-top: 0.35rem;
+}
+
+.actividad .grupo-dimension:first-child {
+  margin-top: 0;
+}
+
+.grupo-dimension {
+  margin-top: 0.9rem;
+  overflow: clip;
+}
+
+.grupo-dimension > h3 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 1rem;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.grupo-dimension > h3 .valor {
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+.metricas-lista {
+  list-style: none;
+}
+
+.metricas-lista > li + li {
+  border-top: 1px solid var(--rule);
+}
+
+.metrica > summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 5.5rem 0.9rem;
+  align-items: center;
+  gap: 0.1rem 0.9rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.metrica > summary::-webkit-details-marker {
+  display: none;
+}
+
+.metrica > summary::after {
+  content: '';
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: translateY(-0.12rem) rotate(45deg);
+}
+
+.metrica[open] > summary::after {
+  transform: translateY(0.12rem) rotate(225deg);
+}
+
+.metrica > summary:hover {
+  background: #faf8f2;
+}
+
+.m-nombre {
+  grid-column: 1;
+  font-weight: 600;
   line-height: 1.3;
 }
 
-.metrica .dim {
+.m-bruto {
+  grid-column: 1;
   color: var(--muted);
-  font-size: 0.8rem;
-  margin-top: 0.1rem;
-}
-
-.metrica .bruto {
-  margin-top: 0.75rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.015em;
+  font-size: 0.9rem;
   font-variant-numeric: tabular-nums;
-  line-height: 1.25;
 }
 
-.metrica .bruto small {
-  display: block;
-  margin-top: 0.2rem;
+.m-percentil {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.m-percentil .cifra {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.m-percentil .medidor {
+  margin-top: 0.25rem;
+}
+
+.metrica-cuerpo {
+  padding: 0.25rem 1rem 1rem;
+}
+
+.m-secundario {
   color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 400;
-  letter-spacing: 0;
+  font-size: 0.9rem;
 }
 
 .percentiles {
@@ -1717,37 +1926,50 @@ th[aria-sort='descending'] .orden .baja {
 }
 
 .evolucion {
-  margin-top: 1rem;
+  margin-top: 1.1rem;
 }
 
+/* The ends of the axis on one line; below, the month under the pointer or the peak. */
 .evolucion figcaption {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 0.3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2rem 0.75rem;
+  margin-top: 0.35rem;
   color: var(--muted);
   font-size: 0.78rem;
   font-variant-numeric: tabular-nums;
 }
 
-.evolucion .titulo {
-  margin-bottom: 0.35rem;
-  color: var(--muted);
-  font-size: 0.8rem;
+.evolucion figcaption > :last-child {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+}
+
+.chispa-lectura {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  min-height: 1.2em;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 .chispa {
   display: block;
   width: 100%;
-  height: 2.5rem;
+  height: 3.5rem;
   overflow: visible;
+  touch-action: pan-y;
+  cursor: crosshair;
 }
 
 .chispa rect {
-  fill: var(--meter);
+  fill: var(--meter-soft);
 }
 
-.chispa rect:hover {
+.chispa rect.activa {
   fill: var(--ink);
 }
 
@@ -1758,38 +1980,44 @@ th[aria-sort='descending'] .orden .baja {
 }
 
 .metrica-pie {
-  margin-top: auto;
-  padding-top: 0.9rem;
+  margin-top: 0.9rem;
   color: var(--muted);
   font-size: 0.82rem;
 }
 
-.metrica.contexto {
-  background: var(--surface-2);
-  box-shadow: none;
-}
-
-.tiempo-media {
-  margin-top: 0.75rem;
-  color: var(--muted);
-  font-size: 0.88rem;
-  font-variant-numeric: tabular-nums;
+.metrica.contexto .m-percentil .etiqueta {
+  vertical-align: 0;
 }
 
 .metrica.sin-dato {
-  background: var(--surface-2);
-  box-shadow: none;
-  border-style: dashed;
+  margin-top: 0.9rem;
+  border: 1px dashed var(--rule-strong);
+  border-radius: var(--radius);
   color: var(--muted);
 }
 
-.metrica.sin-dato h3 {
-  color: var(--muted);
+.metrica.sin-dato > summary {
+  grid-template-columns: minmax(0, 1fr) 0.9rem;
 }
 
-.metrica.sin-dato .motivo {
-  margin-top: 0.75rem;
-  font-size: 0.94rem;
+.metrica.sin-dato > summary::after {
+  grid-column: 2;
+}
+
+.metrica.sin-dato > summary:hover {
+  background: none;
+}
+
+.motivos {
+  display: grid;
+  gap: 0.5rem;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.motivos strong {
+  color: var(--ink);
+  font-weight: 600;
 }
 
 .lista-tabla {
@@ -1930,7 +2158,11 @@ details.mas[open] > summary {
     display: block;
   }
 
+  /* The date and the links share the first line; the rest follows below. */
   .lista-tabla.apilable tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.25rem 0.75rem;
     padding: 0.8rem 1rem;
     border-bottom: 1px solid var(--rule);
   }
@@ -1941,18 +2173,22 @@ details.mas[open] > summary {
 
   .lista-tabla.apilable th,
   .lista-tabla.apilable td {
+    grid-column: 1 / -1;
     padding: 0;
     border: 0;
   }
 
-  .lista-tabla.apilable td + td,
-  .lista-tabla.apilable th + td {
-    margin-top: 0.3rem;
-  }
-
   .lista-tabla.apilable .fecha {
+    grid-column: 1;
+    grid-row: 1;
     color: var(--muted);
     font-size: 0.85rem;
+  }
+
+  .lista-tabla.apilable .enlaces {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 0.88rem;
   }
 
   .lista-tabla.apilable .num {

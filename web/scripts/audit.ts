@@ -13,8 +13,14 @@ const DERIVED = join(process.cwd(), 'data', 'derived');
 const HOME_JS_BUDGET = 60_000;
 /** Deputies the home page shows at a time (decision D-038). */
 const PER_PAGE = 10;
-/** Pages that run JavaScript: the ranking and the comparison. Every other page is plain HTML. */
+/** Pages that run the ranking's JavaScript: the home page and the comparison. */
 const INTERACTIVE = ['index.html', 'comparar.html'];
+/**
+ * A profile is complete without JavaScript; its script only turns the section links
+ * into tabs and reads the charts, so it stays tiny (compressed bytes).
+ */
+const PROFILE_JS_BUDGET = 4_000;
+const PROFILE_SECTIONS = ['resumen', 'actividad', 'votaciones', 'intervenciones'];
 /** Pages left out of the sitemap. */
 const NOT_IN_SITEMAP = ['404.html'];
 
@@ -105,7 +111,7 @@ for (const page of pages) {
   }
 }
 
-// Profiles: one per deputy, without JavaScript, with structured data.
+// Profiles: one per deputy, complete without JavaScript, with structured data.
 const slugs = readdirSync(join(DERIVED, 'diputados')).filter((file) => file.endsWith('.json'));
 if (profiles.length !== slugs.length) {
   errors.push(`expected ${slugs.length} profiles, built ${profiles.length}`);
@@ -113,7 +119,14 @@ if (profiles.length !== slugs.length) {
 for (const page of profiles) {
   const name = relative(DIST, page);
   const html = readFileSync(page, 'utf-8');
-  if (/<script(?![^>]*application\/ld\+json)/.test(html)) errors.push(`${name}: profiles must ship no JavaScript`);
+  const weight = [...scriptsOf(html)].reduce((sum, src) => sum + gzipSync(readFileSync(join(DIST, src))).length, 0);
+  if (weight > PROFILE_JS_BUDGET) {
+    errors.push(`${name}: ${weight} bytes of compressed JavaScript, budget ${PROFILE_JS_BUDGET}`);
+  }
+  for (const section of PROFILE_SECTIONS) {
+    if (!html.includes(`id="${section}"`)) errors.push(`${name}: section «${section}» is not in the HTML`);
+  }
+  if (/<section[^>]*\shidden/.test(html)) errors.push(`${name}: a section is hidden without JavaScript`);
   const jsonLd = /<script type="application\/ld\+json">(.*?)<\/script>/s.exec(html)?.[1];
   try {
     const parsed = JSON.parse(jsonLd ?? '') as { mainEntity?: { '@type'?: string; name?: string } };
@@ -162,8 +175,8 @@ const homeJs = [...homeScripts].reduce((sum, src) => sum + gzipSync(readFileSync
 for (const page of pages) {
   const name = relative(DIST, page);
   const scripts = scriptsOf(readFileSync(page, 'utf-8'));
-  if (!INTERACTIVE.includes(name) && scripts.size > 0) {
-    errors.push(`${name}: only ${INTERACTIVE.join(' and ')} may load JavaScript`);
+  if (!INTERACTIVE.includes(name) && !profiles.includes(page) && scripts.size > 0) {
+    errors.push(`${name}: only ${INTERACTIVE.join(', ')} and the profiles may load JavaScript`);
   }
   const weight = [...scripts].reduce((sum, src) => sum + gzipSync(readFileSync(join(DIST, src))).length, 0);
   if (weight > HOME_JS_BUDGET)
