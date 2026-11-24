@@ -24,8 +24,8 @@ const PLAIN_JS_BUDGET = 2_500;
 const PROFILE_JS_BUDGET = 5_000;
 const WITH_OWN_SCRIPT = ['grupos.html'];
 const PROFILE_SECTIONS = ['resumen', 'actividad', 'votaciones', 'intervenciones'];
-/** Pages left out of the sitemap. */
-const NOT_IN_SITEMAP = ['404.html'];
+/** Pages left out of the sitemap: the error page and the comparison, which is noindex (D-040). */
+const NOT_IN_SITEMAP = ['404.html', 'comparar.html'];
 
 const errors: string[] = [];
 
@@ -114,6 +114,20 @@ for (const page of pages) {
   }
 }
 
+type JsonLdNode = Record<string, unknown>;
+
+/** Every node of the JSON-LD blocks of a page, with the contents of @graph flattened. */
+function structuredData(html: string): JsonLdNode[] {
+  return [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].flatMap((match) => {
+    try {
+      const parsed = JSON.parse(match[1] ?? '') as JsonLdNode;
+      return Array.isArray(parsed['@graph']) ? (parsed['@graph'] as JsonLdNode[]) : [parsed];
+    } catch {
+      return [];
+    }
+  });
+}
+
 // Profiles: one per deputy, complete without JavaScript, with structured data.
 const slugs = readdirSync(join(DERIVED, 'diputados')).filter((file) => file.endsWith('.json'));
 if (profiles.length !== slugs.length) {
@@ -130,13 +144,16 @@ for (const page of profiles) {
     if (!html.includes(`id="${section}"`)) errors.push(`${name}: section «${section}» is not in the HTML`);
   }
   if (/<section[^>]*\shidden/.test(html)) errors.push(`${name}: a section is hidden without JavaScript`);
-  const jsonLd = /<script type="application\/ld\+json">(.*?)<\/script>/s.exec(html)?.[1];
-  try {
-    const parsed = JSON.parse(jsonLd ?? '') as { mainEntity?: { '@type'?: string; name?: string } };
-    if (parsed.mainEntity?.['@type'] !== 'Person' || !parsed.mainEntity.name) throw new Error('no Person');
-  } catch {
+  const nodes = structuredData(html);
+  const person = nodes.find((node) => node['@type'] === 'ProfilePage')?.mainEntity as JsonLdNode | undefined;
+  if (person?.['@type'] !== 'Person' || !person.name || !person.description) {
     errors.push(`${name}: missing or invalid Person structured data`);
   }
+  if (!nodes.some((node) => node['@type'] === 'BreadcrumbList')) errors.push(`${name}: missing breadcrumbs`);
+  if (/\((?:La|Las|El|Los|A|As|O|Os|Illes)\)/.test(html.replace(/<script[\s\S]*?<\/script>/g, ''))) {
+    errors.push(`${name}: a constituency is written in the official inverted form`);
+  }
+  if (!html.includes('class="ficha-resumen"')) errors.push(`${name}: missing the summary sentence`);
   if (!html.includes('class="avatar"')) errors.push(`${name}: missing initials avatar`);
   if (/<img[\s>]/.test(html)) errors.push(`${name}: profiles must not embed photographs`);
 }
@@ -187,11 +204,35 @@ for (const page of pages) {
   if (weight > budget) errors.push(`${name}: ${weight} bytes of compressed JavaScript, budget ${budget}`);
 }
 
+// Structured data of the home page and of the data page (D-040).
+const homeNodes = structuredData(home);
+if (!homeNodes.some((node) => node['@type'] === 'WebSite')) errors.push('index.html: missing WebSite structured data');
+if (!homeNodes.some((node) => node['@type'] === 'Organization')) {
+  errors.push('index.html: missing Organization structured data');
+}
+const dataPage = join(DIST, 'datos.html');
+const dataset = existsSync(dataPage)
+  ? structuredData(readFileSync(dataPage, 'utf-8')).find((node) => node['@type'] === 'Dataset')
+  : undefined;
+if (!dataset?.license || !Array.isArray(dataset.distribution) || dataset.distribution.length === 0) {
+  errors.push('datos.html: missing or incomplete Dataset structured data');
+}
+if (!/<meta name="robots" content="noindex"/.test(readFileSync(join(DIST, 'comparar.html'), 'utf-8'))) {
+  errors.push('comparar.html: must be noindex');
+}
+
 // Static files every deployment needs.
 const sitemap = existsSync(join(DIST, 'sitemap.xml')) ? readFileSync(join(DIST, 'sitemap.xml'), 'utf-8') : '';
 const expectedUrls = pages.filter((page) => !NOT_IN_SITEMAP.includes(relative(DIST, page))).length;
 if ((sitemap.match(/<loc>/g) ?? []).length !== expectedUrls) {
   errors.push(`sitemap.xml: ${(sitemap.match(/<loc>/g) ?? []).length} URLs, expected ${expectedUrls}`);
+}
+// A date of change is never later than the last calculation, and every profile has one.
+const calculated = (JSON.parse(readFileSync(join(DERIVED, 'meta.json'), 'utf-8')) as { fecha_calculo: string })
+  .fecha_calculo;
+for (const [, loc, lastmod] of sitemap.matchAll(/<loc>([^<]+)<\/loc>(?:<lastmod>([^<]+)<\/lastmod>)?/g)) {
+  if (lastmod && lastmod > calculated) errors.push(`sitemap.xml: ${loc} changed on ${lastmod}, after ${calculated}`);
+  if (!lastmod && loc?.includes('/diputados/')) errors.push(`sitemap.xml: ${loc} has no date of change`);
 }
 for (const file of [
   'robots.txt',

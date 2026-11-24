@@ -14,3 +14,11 @@
 
 /datos/*
   Access-Control-Allow-Origin: *
+
+# The same site is also served on pages.dev (production and every preview). Search
+# engines index only escrutiniopublico.es; the canonical URL already says so.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex

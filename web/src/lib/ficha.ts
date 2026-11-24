@@ -1,7 +1,7 @@
 /** Texts and choices of a deputy's profile. Pure functions, covered by tests. */
 import type { MetricConfig } from '../../../config/scoring.ts';
 import type { Ficha, FichaPeriodo, Metrica } from './data.ts';
-import { fechaLarga, mes, num, numFlexible, plural, porcentaje } from './format.ts';
+import { fechaLarga, mes, nombreCircunscripcion, num, numFlexible, plural, porcentaje } from './format.ts';
 
 /** The first available period, in the order of the configuration: the one the profile opens with. */
 export function periodoPrincipal(
@@ -132,13 +132,111 @@ export function recortar(texto: string, max: number): string {
   return `${texto.slice(0, corte > max * 0.6 ? corte : max).replace(/[\s,;:.]+$/, '')}…`;
 }
 
-/** Meta description of a profile. */
-export function descripcionFicha(ficha: Ficha, principal: FichaPeriodo | undefined, grupoCorto: string): string {
-  const { nombre, apellidos, circunscripcion } = ficha.diputado;
-  const quien = `${nombre} ${apellidos} (${grupoCorto}, ${circunscripcion})`;
-  const legislatura = `${ficha.legislatura.nombre} Legislatura`;
-  if (principal?.situacion === 'ranking' && principal.indice != null && principal.posicion != null) {
-    return `Actividad parlamentaria de ${quien} en la ${legislatura}: índice ${num(principal.indice, 1)} de 100, n.º ${num(principal.posicion)} de ${num(principal.total_ranking ?? 0)}. Votaciones, intervenciones y preguntas con datos oficiales del Congreso.`;
+/** The period a profile opens with, as `periodoPrincipal` returns it. */
+export interface Principal {
+  id: string;
+  periodo: FichaPeriodo;
+}
+
+/** "2023-2026", or "desde 2023" while the legislature is running. */
+export function anosLegislatura(ficha: Ficha): string {
+  const inicio = ficha.legislatura.inicio.slice(0, 4);
+  return ficha.legislatura.fin ? `${inicio}-${ficha.legislatura.fin.slice(0, 4)}` : `desde ${inicio}`;
+}
+
+/** Votes and speeches of a period, when the period has them. */
+export function cifrasClave(periodo: FichaPeriodo | undefined): {
+  votos?: { emitidos: number; total: number };
+  intervenciones?: number;
+} {
+  const metrica = (id: string) => periodo?.metricas?.find((item) => item.id === id);
+  const votos = metrica('votaciones_participacion');
+  const habladas = ['intervenciones_pleno', 'intervenciones_comision']
+    .map((id) => metrica(id)?.numerador)
+    .filter((valor): valor is number => typeof valor === 'number');
+  return {
+    ...(votos?.numerador != null && votos.denominador != null && votos.denominador > 0
+      ? { votos: { emitidos: votos.numerador, total: votos.denominador } }
+      : {}),
+    ...(habladas.length > 0 ? { intervenciones: habladas.reduce((suma, valor) => suma + valor, 0) } : {}),
+  };
+}
+
+/**
+ * One sentence at the top of a profile, the one search engines and assistants quote:
+ * who, for where, when, and the two figures anyone understands. It never says
+ * "diputado" or "diputada": the data do not record gender and it is not guessed.
+ */
+export function resumenFicha(ficha: Ficha, principal: Principal | undefined): string {
+  const { partido, circunscripcion, fecha_alta, fecha_baja } = ficha.diputado;
+  const cuando = fecha_baja
+    ? `de ${mes(fecha_alta.slice(0, 7))} a ${mes(fecha_baja.slice(0, 7))}`
+    : `desde ${mes(fecha_alta.slice(0, 7))}`;
+  const quien = `Miembro del Congreso por ${nombreCircunscripcion(circunscripcion)} (${partido}) ${cuando}.`;
+  const { votos, intervenciones } = cifrasClave(principal?.periodo);
+  if (!votos && intervenciones === undefined) return quien;
+  const periodo =
+    principal?.id === 'legislatura' ? 'la legislatura' : `el ${nombrePeriodo(principal?.id).toLowerCase()}`;
+  const voto = votos
+    ? `votó en ${num(votos.emitidos)} de las ${num(votos.total)} ${plural(votos.total, 'votación', 'votaciones')} del Pleno que le correspondían`
+    : '';
+  const habla =
+    intervenciones === undefined
+      ? ''
+      : intervenciones === 0
+        ? 'no consta ninguna intervención suya'
+        : `intervino ${num(intervenciones)} ${plural(intervenciones, 'vez', 'veces')}`;
+  const union = voto && habla ? (intervenciones === 0 ? '; ' : ' e ') : '';
+  return `${quien} En ${periodo} ${voto}${union}${habla}.`;
+}
+
+function nombrePeriodo(id: string | undefined): string {
+  const nombres: Readonly<Record<string, string>> = {
+    legislatura: 'Legislatura',
+    '12m': 'Último año',
+    '3m': 'Último trimestre',
+    '1m': 'Último mes',
+  };
+  return (id && nombres[id]) || 'periodo';
+}
+
+/** Longest title before search engines start to cut it, roughly. */
+const TITULO_MAX = 65;
+/** Longest meta description before search engines start to cut it, roughly. */
+const DESCRIPCION_MAX = 160;
+
+/** Title of a profile: the name first, then what the page offers; the years go if they do not fit. */
+export function tituloFicha(ficha: Ficha): string {
+  const { nombre, apellidos, partido } = ficha.diputado;
+  const titulo = `${nombre} ${apellidos} (${partido}): actividad en el Congreso`;
+  const conAnos = `${titulo} ${anosLegislatura(ficha)}`;
+  return conAnos.length <= TITULO_MAX ? conAnos : titulo;
+}
+
+/** Meta description of a profile: the figures themselves, not a description of them. */
+export function descripcionFicha(ficha: Ficha, principal: Principal | undefined): string {
+  const { nombre, apellidos, partido, circunscripcion } = ficha.diputado;
+  const quien = `${nombre} ${apellidos} (${partido}, ${nombreCircunscripcion(circunscripcion)})`;
+  const cuando = principal?.id === 'legislatura' || !principal ? `en ${anosLegislatura(ficha)}` : 'en el último año';
+  const { votos, intervenciones } = cifrasClave(principal?.periodo);
+  const habla = intervenciones ? `intervino ${num(intervenciones)} ${plural(intervenciones, 'vez', 'veces')}` : '';
+  const hechos = votos
+    ? `votó en ${num(votos.emitidos)} de ${num(votos.total)} votaciones del Pleno${habla ? ` e ${habla}` : ''} ${cuando}`
+    : habla
+      ? `${habla} ${cuando}`
+      : '';
+  if (!hechos) {
+    return `${quien}: votaciones, intervenciones y preguntas en el Congreso ${anosLegislatura(ficha)}, con datos oficiales.`;
   }
-  return `Actividad parlamentaria de ${quien} en la ${legislatura}: votaciones, intervenciones y preguntas con datos oficiales del Congreso.`;
+  const periodo = principal?.periodo;
+  const indice =
+    periodo?.situacion === 'ranking' && periodo.indice != null
+      ? ` Índice: ${num(periodo.indice, 1)}/100.`
+      : periodo?.situacion === 'gobierno'
+        ? ' Fuera del ranking por su etapa en el Gobierno.'
+        : '';
+  const texto = `${quien} ${hechos}.${indice}`;
+  // The closing words are the first to go when the description is long.
+  const completo = `${texto} Datos del Congreso.`;
+  return completo.length <= DESCRIPCION_MAX ? completo : texto;
 }

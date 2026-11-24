@@ -17,12 +17,17 @@ interface Props {
   ogType?: 'website' | 'profile' | 'article';
   jsonLd?: object;
   noindex?: boolean;
+  /**
+   * Add the name of the site after the title. Off on the profiles, where the name of
+   * the deputy needs the room; search engines show the site name apart (D-040).
+   */
+  marca?: boolean;
 }
 
-const { title, description, path, ogType = 'website', jsonLd, noindex = false } = Astro.props;
+const { title, description, path, ogType = 'website', jsonLd, noindex = false, marca = true } = Astro.props;
 const meta = loadMeta();
 const canonical = new URL(path, site.url).href;
-const fullTitle = path === '/' ? `${site.name} · ${title}` : `${title} · ${site.name}`;
+const fullTitle = marca ? `${title} · ${site.name}` : title;
 const nav = [
   { href: '/', label: 'Ranking' },
   { href: '/grupos', label: 'Grupos' },

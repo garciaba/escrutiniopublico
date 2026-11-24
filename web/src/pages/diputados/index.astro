@@ -20,6 +20,7 @@ const estado = { ...estadoInicial(data), gobierno: true };
 const filas = aplicar(filasDe(data, estado.periodo), estado, data);
 const grupos = new Map(data.grupos.map((grupo) => [grupo.id, grupo]));
 const periodo = data.periodos.find((p) => p.id === estado.periodo);
+const anos = `${ranking.legislatura.inicio.slice(0, 4)}-${ranking.legislatura.fin ? ranking.legislatura.fin.slice(0, 4) : 'hoy'}`;
 const etiquetas: Record<string, string> = {
   gobierno: 'Gobierno · fuera del ranking',
   periodo_insuficiente: 'Periodo insuficiente',
@@ -27,13 +28,13 @@ const etiquetas: Record<string, string> = {
 ---
 
 <Base
-  title="Todos los diputados"
-  description={`Los ${num(filas.length)} diputados de la legislatura, con su grupo, su circunscripción y su índice de actividad.`}
+  title={`Lista de diputados del Congreso ${anos} y su actividad`}
+  description={`Los ${num(filas.length)} diputados que pasaron por el Congreso en la ${ranking.legislatura.nombre} Legislatura (${anos}), con su grupo, su provincia y su índice de actividad, por orden del ranking.`}
   path="/diputados"
 >
   <div class="wrap">
     <p class="miga"><a href="/">← Ranking</a></p>
-    <h1 class="titular pequeno">Todos los diputados</h1>
+    <h1 class="titular pequeno">Lista de diputados del Congreso</h1>
     <p class="entradilla">
       {num(filas.length)} diputados, por posición en el ranking{periodo ? ` (${periodo.nombre.toLowerCase()})` : ''}.
     </p>

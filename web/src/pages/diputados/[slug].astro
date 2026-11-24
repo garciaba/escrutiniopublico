@@ -1,11 +1,10 @@
 ---
-import { groups } from '../../../../config/parties.ts';
 import { scoring } from '../../../../config/scoring.ts';
 import { site } from '../../../../config/site.ts';
 import { FichaDiputado } from '../../components/Ficha.tsx';
 import Base from '../../layouts/Base.astro';
 import { fichaSlugs, loadFicha } from '../../lib/data.ts';
-import { descripcionFicha, periodoPrincipal } from '../../lib/ficha.ts';
+import { descripcionFicha, periodoPrincipal, resumenFicha, tituloFicha } from '../../lib/ficha.ts';
 
 export function getStaticPaths() {
   return fichaSlugs().map((slug) => ({ params: { slug } }));
@@ -19,28 +18,51 @@ const principal = periodoPrincipal(
   ficha,
   scoring.periodos.map((periodo) => periodo.id),
 );
-const grupoCorto = groups.find((group) => group.code === diputado.grupo.id)?.shortName ?? diputado.grupo.nombre;
+const congreso = { '@type': 'GovernmentOrganization', name: 'Congreso de los Diputados', url: 'https://www.congreso.es/' };
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'ProfilePage',
-  url: new URL(path, site.url).href,
-  dateModified: ficha.fecha_calculo,
-  mainEntity: {
-    '@type': 'Person',
-    name: nombre,
-    givenName: diputado.nombre,
-    familyName: diputado.apellidos,
-    jobTitle: `Miembro del Congreso de los Diputados, ${ficha.legislatura.nombre} Legislatura`,
-    memberOf: { '@type': 'Organization', name: diputado.grupo.nombre },
-    worksFor: { '@type': 'GovernmentOrganization', name: 'Congreso de los Diputados', url: 'https://www.congreso.es/' },
-    sameAs: [diputado.url_ficha_oficial],
-  },
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Diputados', item: new URL('/diputados', site.url).href },
+        { '@type': 'ListItem', position: 2, name: nombre },
+      ],
+    },
+    {
+      '@type': 'ProfilePage',
+      url: new URL(path, site.url).href,
+      dateModified: ficha.fecha_calculo,
+      isPartOf: { '@id': `${site.url}/#web` },
+      mainEntity: {
+        '@type': 'Person',
+        name: nombre,
+        givenName: diputado.nombre,
+        familyName: diputado.apellidos,
+        description: resumenFicha(ficha, principal),
+        jobTitle: `Miembro del Congreso de los Diputados, ${ficha.legislatura.nombre} Legislatura`,
+        memberOf: [
+          { '@type': 'Organization', name: diputado.grupo.nombre },
+          {
+            '@type': 'Role',
+            roleName: `Miembro del Congreso de los Diputados, ${ficha.legislatura.nombre} Legislatura`,
+            startDate: diputado.fecha_alta,
+            ...(diputado.fecha_baja ? { endDate: diputado.fecha_baja } : {}),
+            memberOf: congreso,
+          },
+        ],
+        worksFor: congreso,
+        sameAs: [diputado.url_ficha_oficial],
+      },
+    },
+  ],
 };
 ---
 
 <Base
-  title={`${nombre}: actividad parlamentaria`}
-  description={descripcionFicha(ficha, principal?.periodo, grupoCorto)}
+  title={tituloFicha(ficha)}
+  marca={false}
+  description={descripcionFicha(ficha, principal)}
   path={path}
   ogType="profile"
   jsonLd={jsonLd}

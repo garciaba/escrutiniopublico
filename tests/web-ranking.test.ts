@@ -129,6 +129,7 @@ const ranking: Ranking = {
       'periodo_insuficiente',
     ),
     fila('12m', 'ana-ficticia', 'Ficticia Núñez, Ana', 'GZ', 'PA', 'Norte', 50, 1, [50, 50]),
+    fila('12m', 'fede-ficticio', 'Ficticio Ruiz, Fede', 'GA', 'PA', 'Ribera (La)', 40, 2, [40, 40]),
   ],
 };
 
@@ -145,7 +146,7 @@ describe('compactar and filasDe', () => {
   });
 
   it('stores each deputy once and gives every group a colour', () => {
-    expect(data.diputados).toHaveLength(5);
+    expect(data.diputados).toHaveLength(6);
     expect(data.grupos).toEqual([
       { id: 'GZ', nombre: 'Zeta', color: '#9c9c9c' },
       { id: 'GA', nombre: 'Alfa', color: '#111111' },
@@ -190,7 +191,7 @@ describe('default view', () => {
         { id: 'GZ', nombre: 'Zeta' },
       ],
       partidos: ['PA', 'PB', 'PZ'],
-      circunscripciones: ['Este', 'Norte', 'Sur'],
+      circunscripciones: ['Este', 'La Ribera', 'Norte', 'Sur'],
     });
   });
 });
@@ -427,6 +428,18 @@ describe('ordenes', () => {
     expect(ordenes(data).find((opcion) => opcion.orden === 'nombre' && opcion.dir === 'desc')?.etiqueta).toBe(
       'Nombre, Z → A',
     );
+  });
+});
+
+describe('constituencies', () => {
+  it('are shown as people write them', () => {
+    expect(opciones(data).circunscripciones).toContain('La Ribera');
+    expect(opciones(data).circunscripciones).not.toContain('Ribera (La)');
+  });
+
+  it('still read the official form of an old link', () => {
+    expect(leerEstado('?periodo=12m&circunscripcion=Ribera%20(La)', data).circunscripcion).toBe('La Ribera');
+    expect(leerEstado('?circunscripcion=La%20Ribera', data).circunscripcion).toBe('La Ribera');
   });
 });
 
