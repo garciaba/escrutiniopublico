@@ -28,3 +28,6 @@ web/.astro/
 .daily/
 .daily-deploy.log
 .lighthouseci/
+
+# Screenshots written by `pnpm web:compare` when two builds differ.
+.comparacion/

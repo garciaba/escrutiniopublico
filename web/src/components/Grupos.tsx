@@ -1,7 +1,8 @@
 /**
  * Pieces of the /grupos page (decision D-037): how the index of the deputies of each
  * group is spread, each metric group by group, and the table by electoral list.
- * Rendered only at build time; the page ships no JavaScript.
+ * Rendered at build time and complete without JavaScript: the period and the metric are
+ * switched with CSS. A small script (grupos-client.ts) names the deputy behind each tick.
  */
 import { scoring, type MetricConfig } from '../../../config/scoring.ts';
 import type { Agregado } from '../lib/data.ts';
@@ -23,6 +24,7 @@ const ESTADO_ETIQUETA = { observado: 'Observado', calculado: 'Calculado', no_dis
 const REGLA_PONENCIAS = scoring.agregados.reglas.find((regla) => regla.id === 'ponencias')?.texto ?? '';
 
 export interface Persona {
+  slug: string;
   nombre: string;
   indice: number;
 }
@@ -70,7 +72,14 @@ function Franja({ fila, nombres }: { fila: FilaGrupo; nombres: boolean }) {
         <rect class="banda" x={pct(indice.p25)} width={pct(indice.p75 - indice.p25)} y="18%" height="64%" rx="3" />
       ) : null}
       {fila.personas.map((persona) => (
-        <line class="raya" x1={pct(persona.indice)} x2={pct(persona.indice)} y1="26%" y2="74%">
+        <line
+          class="raya"
+          x1={pct(persona.indice)}
+          x2={pct(persona.indice)}
+          y1="26%"
+          y2="74%"
+          data-slug={nombres ? persona.slug : undefined}
+        >
           {nombres ? (
             <title>
               {persona.nombre}: {num(persona.indice, scoring.decimales)}
@@ -120,9 +129,10 @@ export function Distribucion({ filas, camara }: { filas: readonly FilaGrupo[]; c
           <svg aria-hidden="true">
             <line class="mediana" x1="50%" x2="50%" y1="5%" y2="95%" />
           </svg>
-          La línea oscura es la mediana
+          La línea gruesa es la mediana
         </span>
       </figcaption>
+      <p class="dist-lectura" role="status"></p>
       <div class="dist-eje" aria-hidden="true">
         <span class="dist-eje-titulo">Índice de actividad</span>
         <svg class="dist-eje-svg">
@@ -292,37 +302,61 @@ function TarjetaMetrica({
   );
 }
 
-/** One card per metric with data, plus the speaking time as context. */
-export function TarjetasMetricas({ filas, camara }: { filas: readonly FilaGrupo[]; camara: FilaGrupo }) {
+interface TarjetasProps {
+  /** Id of the period: each one has its own switch. */
+  periodo: string;
+  filas: readonly FilaGrupo[];
+  camara: FilaGrupo;
+}
+
+/**
+ * One card per metric with data, plus the speaking time as context. A switch shows one
+ * at a time (CSS only, by position); a browser without :has() shows them all.
+ */
+export function TarjetasMetricas({ periodo, filas, camara }: TarjetasProps) {
   const conDato = scoring.metricas.filter((metrica) => valorDe(camara.agregado, metrica.id) !== null);
   const contexto = scoring.contexto.find((item) => item.id === 'tiempo_palabra');
+  const opciones = [...conDato.map((metrica) => metrica.nombreCorto), ...(contexto ? [contexto.nombre] : [])];
   return (
-    <div class="metricas">
-      {conDato.map((metrica) => (
-        <TarjetaMetrica metrica={metrica} filas={filas} camara={camara} />
-      ))}
-      {contexto ? (
-        <article class="metrica tarjeta comp contexto">
-          <div class="metrica-cabeza">
-            <div>
-              <h3>{contexto.nombre}</h3>
-              <p class="dim">Contexto de la participación en debates</p>
+    <div class="metricas-vista">
+      <fieldset class="segmento">
+        <legend class="sr">Métrica</legend>
+        <div class="segmento-opciones">
+          {opciones.map((nombre, i) => (
+            <label>
+              <input type="radio" name={`grupos-metrica-${periodo}`} value={String(i + 1)} checked={i === 0} />
+              {nombre}
+            </label>
+          ))}
+        </div>
+      </fieldset>
+      <div class="metricas">
+        {conDato.map((metrica) => (
+          <TarjetaMetrica metrica={metrica} filas={filas} camara={camara} />
+        ))}
+        {contexto ? (
+          <article class="metrica tarjeta comp contexto">
+            <div class="metrica-cabeza">
+              <div>
+                <h3>{contexto.nombre}</h3>
+                <p class="dim">Contexto de la participación en debates</p>
+              </div>
+              <span class="etiqueta rayada">No puntúa</span>
             </div>
-            <span class="etiqueta rayada">No puntúa</span>
-          </div>
-          <p class="comp-unidad">Minutos por diputado, cada 100 días en activo</p>
-          <table class="comp-tabla">
-            <caption class="sr">{contexto.nombre}, por grupo. Minutos por diputado, cada 100 días en activo.</caption>
-            <FilasComparadas
-              filas={filas}
-              camara={camara}
-              valor={(agregado) => agregado.tiempo_palabra.minutos_por_100_dias}
-              formato={(valor) => valorAgregado(valor, 'minutos')}
-              unidad="minutos"
-            />
-          </table>
-        </article>
-      ) : null}
+            <p class="comp-unidad">Minutos por diputado, cada 100 días en activo</p>
+            <table class="comp-tabla">
+              <caption class="sr">{contexto.nombre}, por grupo. Minutos por diputado, cada 100 días en activo.</caption>
+              <FilasComparadas
+                filas={filas}
+                camara={camara}
+                valor={(agregado) => agregado.tiempo_palabra.minutos_por_100_dias}
+                formato={(valor) => valorAgregado(valor, 'minutos')}
+                unidad="minutos"
+              />
+            </table>
+          </article>
+        ) : null}
+      </div>
     </div>
   );
 }

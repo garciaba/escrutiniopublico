@@ -516,3 +516,21 @@ El mensaje del commit de datos lo escribe el mismo script: sesiones nuevas, fila
 - El HTML contiene todas las secciones y ninguna nace oculta: sin JavaScript, la ficha es la misma página con una sección tras otra y los enlaces de las pestañas saltan a cada una.
 - El script (`web/src/components/ficha-client.ts`) no usa ninguna librería y pesa 1,3 kB comprimido. `pnpm web:audit` le pone un tope de 4 kB y comprueba las dos condiciones anteriores en las 412 fichas.
 - `pnpm web:check` recorre una ficha (pestañas, teclado, periodo, métrica, gráfica, «ver más»), la abre sin JavaScript y pasa axe con todas las secciones desplegadas.
+
+**Tercera entrega: grupos y el resto de la web.**
+
+- **Grupos** pasa de 11.200 px a 3.100 px en un móvil. La guía «Cómo leer esta página» queda plegada, las métricas se ven de una en una con un selector y la tabla por candidatura se despliega al pedirla. Al pasar el puntero o tocar una franja, la página dice qué diputado es la raya más cercana y enlaza a su ficha.
+- **Metodología, Datos, Cambios y Acerca** pliegan sus secciones. Metodología pasa de 11.200 px a 1.700 px. Cada sección conserva su ancla, así que los enlaces antiguos (`/metodologia#agregados`) siguen llevando a su sitio y abren la sección.
+- **Buscador de diputados en la cabecera** de todas las páginas menos la portada, que ya es un buscador. Descarga su índice (`/buscador.json`, 10 kB comprimido) la primera vez que se usa. Sin JavaScript, en su lugar hay un enlace a la lista completa.
+- **Tema oscuro**, según el ajuste del sistema. No hay interruptor en la página porque habría que recordar la elección, y la web no guarda nada en el navegador.
+- **Glosario emergente** para «percentil» y «cobertura» (`config/glosario.ts`): un toque sobre la palabra abre una frase que la explica. Usa el atributo `popover` de HTML, sin JavaScript; un navegador que no lo admita muestra las definiciones al final de la página.
+
+**Dos mecanismos sin JavaScript, uno con él:**
+
+- El selector de métrica de Grupos usa el mismo CSS por posición que el de periodo (`:has()`). Un navegador que no lo admita enseña todas las tarjetas.
+- Todas las páginas cargan un script común de 1,2 kB (`sitio-client.ts`): el buscador y abrir la sección plegada a la que apunta un enlace. Grupos añade otro de 0,6 kB para las franjas. `pnpm web:audit` pone un tope a cada tipo de página: 2,5 kB a las de texto y 5 kB a las fichas y a Grupos.
+
+**Lección de las dos primeras entregas: las pruebas no miran el aspecto.** Tres nombres de clase nuevos coincidían con otros que ya usaban Grupos y las fichas, y deformaban esas páginas sin que fallara ninguna comprobación. Se detectó revisando capturas y se corrigió en cada rama. Desde entonces:
+
+- `pnpm web:compare <dist A> <dist B>` compara capturas de dos compilaciones, en móvil y en escritorio, y lista las páginas que cambian. Antes de dar por buena cada entrega, las páginas que no debía tocar son idénticas píxel a píxel a las de la rama anterior.
+- `pnpm web:check` mide en un móvil las listas plegadas de una ficha y pasa axe con todas las secciones abiertas, también en tema oscuro.

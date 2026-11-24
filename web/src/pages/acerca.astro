@@ -21,67 +21,87 @@ const incidencias = `${site.repositoryUrl}/issues/new`;
     </header>
 
     <div class="prosa">
-      <h2 id="que-es">Qué es y qué no es</h2>
-      <p>
-        {site.name} toma los datos abiertos que publica el Congreso de los Diputados (votaciones, intervenciones e
-        iniciativas) y calcula con ellos un índice de actividad por diputado. La <a href="/metodologia">metodología</a> es
-        pública, el <a href={site.repositoryUrl} rel="noopener">código</a> es abierto y los <a href="/datos">datos</a> se
-        pueden descargar.
-      </p>
-      <p>
-        No es un juicio sobre la valía de nadie. El índice mide cantidad de actividad registrada, no su calidad, y deja
-        fuera buena parte del trabajo de un diputado: la negociación, las ponencias a puerta cerrada o la atención a su
-        circunscripción.
-      </p>
+      <details class="acordeon" id="que-es" open>
+        <summary><h2>Qué es y qué no es</h2></summary>
+        <div class="acordeon-cuerpo">
+          <p>
+            {site.name} toma los datos abiertos que publica el Congreso de los Diputados (votaciones, intervenciones e
+            iniciativas) y calcula con ellos un índice de actividad por diputado. La <a href="/metodologia">metodología</a> es
+            pública, el <a href={site.repositoryUrl} rel="noopener">código</a> es abierto y los <a href="/datos">datos</a> se
+            pueden descargar.
+          </p>
+          <p>
+            No es un juicio sobre la valía de nadie. El índice mide cantidad de actividad registrada, no su calidad, y deja
+            fuera buena parte del trabajo de un diputado: la negociación, las ponencias a puerta cerrada o la atención a su
+            circunscripción.
+          </p>
 
-      <h2 id="independencia">Independencia</h2>
-      <ul>
-        <li>El proyecto no tiene vinculación con el Congreso de los Diputados ni con ningún partido político.</li>
-        <li>
-          Las reglas son las mismas para todos los diputados. Una prueba automática impide que la configuración del cálculo
-          mencione a un grupo o a un partido.
-        </li>
-        <li>Solo se usan fuentes oficiales, enlazadas desde cada dato.</li>
-        <li>El color de cada grupo aparece solo como un punto junto a su nombre; nunca colorea puntuaciones.</li>
-        <li>
-          Todo cambio de metodología se numera y se publica en <a href="/cambios">Cambios</a>.
-        </li>
-      </ul>
+        </div>
+      </details>
+      <details class="acordeon" id="independencia">
+        <summary><h2>Independencia</h2></summary>
+        <div class="acordeon-cuerpo">
+          <ul>
+            <li>El proyecto no tiene vinculación con el Congreso de los Diputados ni con ningún partido político.</li>
+            <li>
+              Las reglas son las mismas para todos los diputados. Una prueba automática impide que la configuración del cálculo
+              mencione a un grupo o a un partido.
+            </li>
+            <li>Solo se usan fuentes oficiales, enlazadas desde cada dato.</li>
+            <li>El color de cada grupo aparece solo como un punto junto a su nombre; nunca colorea puntuaciones.</li>
+            <li>
+              Todo cambio de metodología se numera y se publica en <a href="/cambios">Cambios</a>.
+            </li>
+          </ul>
 
-      <h2 id="rectificaciones">Contacto y rectificaciones</h2>
-      <p>
-        Si un dato no coincide con la fuente oficial, o un diputado considera que su ficha contiene un error, se puede
-        pedir su revisión. Para tramitarla hacen falta tres cosas: la dirección de la página, el dato que se discute y el
-        documento oficial que lo contradice.
-      </p>
-      <p>
-        La vía para pedirla, y para cualquier otra consulta, es abrir una <a href={incidencias} rel="noopener"
-          >incidencia en el repositorio público</a
-        > del proyecto. Hace falta una cuenta de GitHub, que es gratuita. Las incidencias son públicas: no incluyas datos
-        personales.
-      </p>
-      <p>
-        Las rectificaciones aceptadas se corrigen en los datos y quedan anotadas en <a href="/cambios#rectificaciones"
-          >Cambios</a
-        >. Si el error está en el fichero oficial, se indica así y se remite al Congreso, que es quien puede corregirlo.
-      </p>
+        </div>
+      </details>
+      <details class="acordeon" id="rectificaciones">
+        <summary><h2>Contacto y rectificaciones</h2></summary>
+        <div class="acordeon-cuerpo">
+          <p>
+            Si un dato no coincide con la fuente oficial, o un diputado considera que su ficha contiene un error, se puede
+            pedir su revisión. Para tramitarla hacen falta tres cosas: la dirección de la página, el dato que se discute y el
+            documento oficial que lo contradice.
+          </p>
+          <p>
+            La vía para pedirla, y para cualquier otra consulta, es abrir una <a href={incidencias} rel="noopener"
+              >incidencia en el repositorio público</a
+            > del proyecto. Hace falta una cuenta de GitHub, que es gratuita. Las incidencias son públicas: no incluyas datos
+            personales.
+          </p>
+          <p>
+            Las rectificaciones aceptadas se corrigen en los datos y quedan anotadas en <a href="/cambios#rectificaciones"
+              >Cambios</a
+            >. Si el error está en el fichero oficial, se indica así y se remite al Congreso, que es quien puede corregirlo.
+          </p>
 
-      <h2 id="privacidad">Privacidad</h2>
-      <ul>
-        <li>El sitio no usa cookies, no tiene formularios y no guarda datos de quien lo visita.</li>
-        <li>No carga recursos de terceros: todo se sirve desde este dominio.</li>
-        <li>
-          Solo se tratan datos de la actividad pública de cargos electos, tomados de fuentes oficiales. No se recogen
-          declaraciones de bienes ni de intereses económicos, ni se usan las fotografías oficiales.
-        </li>
-      </ul>
+        </div>
+      </details>
+      <details class="acordeon" id="privacidad">
+        <summary><h2>Privacidad</h2></summary>
+        <div class="acordeon-cuerpo">
+          <ul>
+            <li>El sitio no usa cookies, no tiene formularios y no guarda datos de quien lo visita.</li>
+            <li>No carga recursos de terceros: todo se sirve desde este dominio.</li>
+            <li>
+              Solo se tratan datos de la actividad pública de cargos electos, tomados de fuentes oficiales. No se recogen
+              declaraciones de bienes ni de intereses económicos, ni se usan las fotografías oficiales.
+            </li>
+          </ul>
 
-      <h2 id="licencias">Licencias</h2>
-      <p>
-        Código con licencia <a href={site.licencias.codigo.url} rel="noopener">{site.licencias.codigo.nombre}</a>. Datos
-        elaborados con licencia <a href={site.licencias.datos.url} rel="noopener license">{site.licencias.datos.nombre}</a>.
-        Fuente de los datos de origen: <a href={site.fuente.url} rel="noopener">{site.fuente.nombre}</a>.
-      </p>
+        </div>
+      </details>
+      <details class="acordeon" id="licencias">
+        <summary><h2>Licencias</h2></summary>
+        <div class="acordeon-cuerpo">
+          <p>
+            Código con licencia <a href={site.licencias.codigo.url} rel="noopener">{site.licencias.codigo.nombre}</a>. Datos
+            elaborados con licencia <a href={site.licencias.datos.url} rel="noopener license">{site.licencias.datos.nombre}</a>.
+            Fuente de los datos de origen: <a href={site.fuente.url} rel="noopener">{site.fuente.nombre}</a>.
+          </p>
+        </div>
+      </details>
     </div>
   </div>
 </Base>

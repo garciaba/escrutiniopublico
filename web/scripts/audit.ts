@@ -16,10 +16,13 @@ const PER_PAGE = 10;
 /** Pages that run the ranking's JavaScript: the home page and the comparison. */
 const INTERACTIVE = ['index.html', 'comparar.html'];
 /**
- * A profile is complete without JavaScript; its script only turns the section links
- * into tabs and reads the charts, so it stays tiny (compressed bytes).
+ * Every other page is complete without JavaScript. What they load only improves them
+ * (the search box of the header, tabs, read-outs of the charts), so it stays tiny:
+ * compressed bytes for a plain page and for a page with a script of its own.
  */
-const PROFILE_JS_BUDGET = 4_000;
+const PLAIN_JS_BUDGET = 2_500;
+const PROFILE_JS_BUDGET = 5_000;
+const WITH_OWN_SCRIPT = ['grupos.html'];
 const PROFILE_SECTIONS = ['resumen', 'actividad', 'votaciones', 'intervenciones'];
 /** Pages left out of the sitemap. */
 const NOT_IN_SITEMAP = ['404.html'];
@@ -175,12 +178,13 @@ const homeJs = [...homeScripts].reduce((sum, src) => sum + gzipSync(readFileSync
 for (const page of pages) {
   const name = relative(DIST, page);
   const scripts = scriptsOf(readFileSync(page, 'utf-8'));
-  if (!INTERACTIVE.includes(name) && !profiles.includes(page) && scripts.size > 0) {
-    errors.push(`${name}: only ${INTERACTIVE.join(', ')} and the profiles may load JavaScript`);
-  }
+  const budget = INTERACTIVE.includes(name)
+    ? HOME_JS_BUDGET
+    : profiles.includes(page) || WITH_OWN_SCRIPT.includes(name)
+      ? PROFILE_JS_BUDGET
+      : PLAIN_JS_BUDGET;
   const weight = [...scripts].reduce((sum, src) => sum + gzipSync(readFileSync(join(DIST, src))).length, 0);
-  if (weight > HOME_JS_BUDGET)
-    errors.push(`${name}: ${weight} bytes of compressed JavaScript, budget ${HOME_JS_BUDGET}`);
+  if (weight > budget) errors.push(`${name}: ${weight} bytes of compressed JavaScript, budget ${budget}`);
 }
 
 // Static files every deployment needs.
@@ -197,6 +201,7 @@ for (const file of [
   '404.html',
   'grupos.html',
   'comparar.html',
+  'buscador.json',
   'datos/ranking.json',
   'datos/grupos.json',
 ]) {

@@ -44,136 +44,156 @@ const bytes = (texto: string) => new TextEncoder().encode(texto).length;
     </header>
 
     <div class="prosa ancho">
-      <h2 id="ranking">Ranking</h2>
-      <div class="tarjeta desborde">
-        <table class="lista-tabla apilable">
-          <thead>
-            <tr>
-              <th scope="col">Fichero</th>
-              <th scope="col">Contenido</th>
-              <th scope="col" class="num">Tamaño</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row"><a href="/datos/ranking.json" download>ranking.json</a></th>
-              <td>
-                Una fila por diputado y periodo: índice, puntuación por dimensión, cobertura, posición, grupo,
-                circunscripción y roles.
-              </td>
-              <td class="num" data-label="Tamaño">{tamano(bytes(derivedText('ranking.json')))}</td>
-            </tr>
-            <tr>
-              <th scope="row"><a href="/datos/grupos.json" download>grupos.json</a></th>
-              <td>
-                Agregados por grupo parlamentario y por candidatura electoral en cada periodo: diputados, reparto del
-                índice y cada métrica sumada.
-              </td>
-              <td class="num" data-label="Tamaño">{tamano(bytes(derivedText('grupos.json')))}</td>
-            </tr>
-            <tr>
-              <th scope="row"><a href="/datos/meta.json" download>meta.json</a></th>
-              <td>Fecha de la ejecución, fecha de cada fichero oficial, versión de la metodología y recuentos.</td>
-              <td class="num" data-label="Tamaño">{tamano(bytes(derivedText('meta.json')))}</td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <a href={`${arbol}/data/derived/diputados`} rel="noopener">diputados/&lt;slug&gt;.json</a>
-              </th>
-              <td>
-                La ficha completa de cada diputado: cada métrica con su valor, denominador, percentil, estado y fuente.
-              </td>
-              <td class="num" data-label="Ficheros">{num(fichaSlugs().length)} ficheros</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2 id="tablas">Tablas normalizadas</h2>
-      <p class="muted">
-        CSV en UTF-8 con cabecera, ordenados por su clave. Una celda vacía significa que el dato oficial no existe. Las
-        columnas están descritas en el <a href={`${site.repositoryUrl}/blob/${site.dataBranch}/docs/data-dictionary.md`} rel="noopener"
-          >diccionario de datos</a
-        >.
-      </p>
-      <div class="tarjeta desborde">
-        <table class="lista-tabla apilable">
-          <thead>
-            <tr>
-              <th scope="col">Fichero</th>
-              <th scope="col">Contenido</th>
-              <th scope="col" class="num">Filas</th>
-              <th scope="col" class="num">Tamaño</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              tablas.map((tabla) => (
+      <details class="acordeon" id="ranking" open>
+        <summary><h2>Ranking</h2></summary>
+        <div class="acordeon-cuerpo">
+          <div class="tarjeta desborde">
+            <table class="lista-tabla apilable">
+              <thead>
+                <tr>
+                  <th scope="col">Fichero</th>
+                  <th scope="col">Contenido</th>
+                  <th scope="col" class="num">Tamaño</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><a href="/datos/ranking.json" download>ranking.json</a></th>
+                  <td>
+                    Una fila por diputado y periodo: índice, puntuación por dimensión, cobertura, posición, grupo,
+                    circunscripción y roles.
+                  </td>
+                  <td class="num" data-label="Tamaño">{tamano(bytes(derivedText('ranking.json')))}</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="/datos/grupos.json" download>grupos.json</a></th>
+                  <td>
+                    Agregados por grupo parlamentario y por candidatura electoral en cada periodo: diputados, reparto del
+                    índice y cada métrica sumada.
+                  </td>
+                  <td class="num" data-label="Tamaño">{tamano(bytes(derivedText('grupos.json')))}</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="/datos/meta.json" download>meta.json</a></th>
+                  <td>Fecha de la ejecución, fecha de cada fichero oficial, versión de la metodología y recuentos.</td>
+                  <td class="num" data-label="Tamaño">{tamano(bytes(derivedText('meta.json')))}</td>
+                </tr>
                 <tr>
                   <th scope="row">
-                    <a href={`${raw}/data/normalized/${tabla.fichero}`} rel="noopener">
-                      {tabla.fichero}
-                    </a>
+                    <a href={`${arbol}/data/derived/diputados`} rel="noopener">diputados/&lt;slug&gt;.json</a>
                   </th>
-                  <td>{descripciones[tabla.nombre] ?? ''}</td>
-                  <td class="num" data-label="Filas">
-                    {tabla.filas === null ? 'No disponible' : num(tabla.filas)}
+                  <td>
+                    La ficha completa de cada diputado: cada métrica con su valor, denominador, percentil, estado y fuente.
                   </td>
-                  <td class="num" data-label="Tamaño">
-                    {tamano(tabla.bytes)}
-                  </td>
+                  <td class="num" data-label="Ficheros">{num(fichaSlugs().length)} ficheros</td>
                 </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </details>
+      <details class="acordeon" id="tablas" open>
+        <summary><h2>Tablas normalizadas</h2></summary>
+        <div class="acordeon-cuerpo">
+          <p class="muted">
+            CSV en UTF-8 con cabecera, ordenados por su clave. Una celda vacía significa que el dato oficial no existe. Las
+            columnas están descritas en el <a href={`${site.repositoryUrl}/blob/${site.dataBranch}/docs/data-dictionary.md`} rel="noopener"
+              >diccionario de datos</a
+            >.
+          </p>
+          <div class="tarjeta desborde">
+            <table class="lista-tabla apilable">
+              <thead>
+                <tr>
+                  <th scope="col">Fichero</th>
+                  <th scope="col">Contenido</th>
+                  <th scope="col" class="num">Filas</th>
+                  <th scope="col" class="num">Tamaño</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  tablas.map((tabla) => (
+                    <tr>
+                      <th scope="row">
+                        <a href={`${raw}/data/normalized/${tabla.fichero}`} rel="noopener">
+                          {tabla.fichero}
+                        </a>
+                      </th>
+                      <td>{descripciones[tabla.nombre] ?? ''}</td>
+                      <td class="num" data-label="Filas">
+                        {tabla.filas === null ? 'No disponible' : num(tabla.filas)}
+                      </td>
+                      <td class="num" data-label="Tamaño">
+                        {tamano(tabla.bytes)}
+                      </td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
     </div>
 
     <div class="prosa">
-      <h2 id="actualizacion">Fecha de los datos</h2>
-      <p>
-        Última ejecución: <time datetime={meta.ejecutado}>{fechaLarga(meta.ejecutado)}</time>, con la versión {
-          meta.metodologia_version
-        } de la <a href="/metodologia">metodología</a>.
-      </p>
-      <ul>
-        {
-          fuentes.map((fuente) => (
-            <li>
-              {fuente.nombre}: {fuente.fecha ? `datos hasta el ${fechaLarga(fuente.fecha)}` : 'sin fecha'}.
-            </li>
-          ))
-        }
-      </ul>
+      <details class="acordeon" id="actualizacion">
+        <summary><h2>Fecha de los datos</h2></summary>
+        <div class="acordeon-cuerpo">
+          <p>
+            Última ejecución: <time datetime={meta.ejecutado}>{fechaLarga(meta.ejecutado)}</time>, con la versión {
+              meta.metodologia_version
+            } de la <a href="/metodologia">metodología</a>.
+          </p>
+          <ul>
+            {
+              fuentes.map((fuente) => (
+                <li>
+                  {fuente.nombre}: {fuente.fecha ? `datos hasta el ${fechaLarga(fuente.fecha)}` : 'sin fecha'}.
+                </li>
+              ))
+            }
+          </ul>
 
-      <h2 id="licencia">Licencia y cita</h2>
-      <p>
-        Lo que elabora {site.name} (índices, percentiles y tablas normalizadas) se publica con licencia <a
-          href={site.licencias.datos.url}
-          rel="noopener license">Creative Commons Atribución 4.0</a
-        >: se puede copiar, transformar y redistribuir citando la fuente. El código tiene licencia <a
-          href={site.licencias.codigo.url}
-          rel="noopener">{site.licencias.codigo.nombre}</a
-        >.
-      </p>
-      <p>Cita sugerida:</p>
-      <p class="formula">
-        {site.name} ({site.domain}), a partir de datos abiertos del Congreso de los Diputados.
-      </p>
-      <p>
-        Los datos de origen son del Congreso de los Diputados y su reutilización se rige por su <a
-          href={site.fuente.avisoLegal}
-          rel="noopener">aviso legal</a
-        >. Por eso cada página cita la fuente y la fecha de la última actualización.
-      </p>
+        </div>
+      </details>
+      <details class="acordeon" id="licencia">
+        <summary><h2>Licencia y cita</h2></summary>
+        <div class="acordeon-cuerpo">
+          <p>
+            Lo que elabora {site.name} (índices, percentiles y tablas normalizadas) se publica con licencia <a
+              href={site.licencias.datos.url}
+              rel="noopener license">Creative Commons Atribución 4.0</a
+            >: se puede copiar, transformar y redistribuir citando la fuente. El código tiene licencia <a
+              href={site.licencias.codigo.url}
+              rel="noopener">{site.licencias.codigo.nombre}</a
+            >.
+          </p>
+          <p>Cita sugerida:</p>
+          <p class="formula">
+            {site.name} ({site.domain}), a partir de datos abiertos del Congreso de los Diputados.
+          </p>
+          <p>
+            Los datos de origen son del Congreso de los Diputados y su reutilización se rige por su <a
+              href={site.fuente.avisoLegal}
+              rel="noopener">aviso legal</a
+            >. Por eso cada página cita la fuente y la fecha de la última actualización.
+          </p>
 
-      <h2 id="reproducir">Regenerar los datos</h2>
-      <p>
-        El <a href={site.repositoryUrl} rel="noopener">repositorio</a> incluye los datos de las votaciones y el código que
-        calcula todo lo demás. Con Node 22 y pnpm:
-      </p>
-      <p class="formula">pnpm install &amp;&amp; pnpm pipeline --offline</p>
+        </div>
+      </details>
+      <details class="acordeon" id="reproducir">
+        <summary><h2>Regenerar los datos</h2></summary>
+        <div class="acordeon-cuerpo">
+          <p>
+            El <a href={site.repositoryUrl} rel="noopener">repositorio</a> incluye los datos de las votaciones y el código que
+            calcula todo lo demás. Con Node 22 y pnpm:
+          </p>
+          <p class="formula">pnpm install &amp;&amp; pnpm pipeline --offline</p>
+        </div>
+      </details>
     </div>
   </div>
 </Base>

@@ -4,6 +4,7 @@
  * the last update and the notice of no affiliation).
  */
 import '../styles/global.css';
+import { glosario } from '../../../config/glosario.ts';
 import { site } from '../../../config/site.ts';
 import { loadMeta } from '../lib/data.ts';
 import { fechaLarga } from '../lib/format.ts';
@@ -43,7 +44,8 @@ const esActual = (href: string) => (href === '/' ? delRanking(path) : path === h
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex" />}
-    <meta name="theme-color" content="#fbfaf7" />
+    <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#151410" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:site_name" content={site.name} />
@@ -71,6 +73,17 @@ const esActual = (href: string) => (href === '/' ? delRanking(path) : path === h
           </svg>
           <span>{site.name}</span>
         </a>
+        {
+          // The home page is itself a search; everywhere else the header offers one. The link
+          // is what stays without JavaScript: the script puts a search box in its place.
+          path !== '/' && (
+            <div class="buscador-cabecera" data-buscador>
+              <a href="/diputados">
+                <span class="sr">Buscar diputado en la lista completa</span>
+              </a>
+            </div>
+          )
+        }
         <nav class="nav" aria-label="Principal">
           <ul>
             {
@@ -116,5 +129,24 @@ const esActual = (href: string) => (href === '/' ? delRanking(path) : path === h
         </ul>
       </div>
     </footer>
+    <div class="glosario">
+      {
+        glosario.map((glosa) => (
+          <div class="glosa" id={`glosa-${glosa.id}`} popover>
+            <p>
+              <strong>{glosa.termino}.</strong> {glosa.texto}
+            </p>
+            <p>
+              <a href="/metodologia">Metodología</a>
+            </p>
+          </div>
+        ))
+      }
+    </div>
+    <script>
+      import { boot } from '../components/sitio-client.ts';
+
+      boot();
+    </script>
   </body>
 </html>

@@ -1,7 +1,8 @@
 ---
 /**
  * The figures of the deputies added up by parliamentary group and by electoral list
- * (decision D-037). No JavaScript: the period switch is CSS only.
+ * (decision D-037). Complete without JavaScript: the period and the metric are switched
+ * with CSS; the script only names the deputy behind each tick of the strips.
  */
 import { groups } from '../../../config/parties.ts';
 import { scoring } from '../../../config/scoring.ts';
@@ -15,7 +16,7 @@ import {
 } from '../components/Grupos.tsx';
 import Base from '../layouts/Base.astro';
 import { loadGrupos, loadRanking, type Agregado } from '../lib/data.ts';
-import { fechaLarga, motivoPeriodo, num } from '../lib/format.ts';
+import { fechaCorta, motivoPeriodo, num } from '../lib/format.ts';
 import { fueraDelCalculo } from '../lib/grupos.ts';
 import { enumerar } from '../lib/ranking.ts';
 
@@ -33,7 +34,7 @@ const reglaCandidatura = scoring.agregados.reglas.find((regla) => regla.id === '
 function personas(periodo: string, campo: 'grupo' | 'partido', id: string | undefined) {
   return ranking.filas.flatMap((fila) =>
     fila.periodo === periodo && fila.situacion === 'ranking' && fila.indice !== null && (!id || fila[campo] === id)
-      ? [{ nombre: fila.nombre, indice: fila.indice }]
+      ? [{ slug: fila.slug, nombre: fila.nombre, indice: fila.indice }]
       : [],
   );
 }
@@ -63,27 +64,23 @@ const filaCamara = (periodo: string, agregado: Agregado): FilaGrupo => ({
     <header class="pagina-cabeza">
       <p class="antetitulo">{datos.legislatura.nombre} Legislatura</p>
       <h1>Actividad por grupo parlamentario</h1>
-      <p class="entradilla">
-        Las mismas cifras de las fichas, sumadas por grupo y por candidatura electoral. No es una clasificación: sirve
-        para ver cómo se reparte la actividad dentro de cada grupo y en qué se distingue de los demás.
-      </p>
+      <p class="entradilla">Las cifras de las fichas, sumadas por grupo. No es una clasificación.</p>
+      <details class="plegable">
+        <summary>Cómo leer esta página</summary>
+        <div class="plegable-cuerpo lectura">
+          <ul>
+            {
+              reglas.map((regla) => (
+                <li>
+                  <strong>{regla.titulo}.</strong> {regla.texto}
+                </li>
+              ))
+            }
+          </ul>
+          <p><a href="/metodologia#agregados">Todas las reglas, en la metodología</a></p>
+        </div>
+      </details>
     </header>
-
-    <section class="lectura aviso" aria-labelledby="lectura-titulo">
-      <div>
-        <h2 id="lectura-titulo">Cómo leer esta página</h2>
-        <ul>
-          {
-            reglas.map((regla) => (
-              <li>
-                <strong>{regla.titulo}.</strong> {regla.texto}
-              </li>
-            ))
-          }
-        </ul>
-        <p><a href="/metodologia#agregados">Todas las reglas, en la metodología</a></p>
-      </div>
-    </section>
 
     <div class="vista-periodos">
       <fieldset class="segmento">
@@ -118,33 +115,31 @@ const filaCamara = (periodo: string, agregado: Agregado): FilaGrupo => ({
             <section class="panel" aria-labelledby={`panel-${periodo.id}`}>
               <p class="panel-resumen" id={`panel-${periodo.id}`}>
                 <strong>{periodo.nombre}</strong>
-                {periodo.desde && periodo.hasta && `, del ${fechaLarga(periodo.desde)} al ${fechaLarga(periodo.hasta)}`}.
-                Cuentan {num(camara.agregado.diputados)} diputados{fuera && `; quedan fuera ${fuera}`}.
+                {periodo.desde && periodo.hasta && ` · ${fechaCorta(periodo.desde)} – ${fechaCorta(periodo.hasta)}`}
+                {` · ${num(camara.agregado.diputados)} diputados`}{fuera && `; fuera, ${fuera}`}
               </p>
 
               <section class="seccion" aria-labelledby={`indice-${periodo.id}`}>
                 <h2 id={`indice-${periodo.id}`}>El índice de sus diputados</h2>
-                <p class="nota">
-                  Cada fila es un grupo, del más numeroso al menos. Muestra dónde cae el índice de cada uno de sus
-                  diputados, de 0 a 100, y no una nota del grupo.
-                </p>
+                <p class="nota">Dónde cae el índice de cada diputado. No es una nota del grupo.</p>
                 <Distribucion filas={grupos} camara={camara} />
                 <TablaDistribucion filas={grupos} camara={camara} />
               </section>
 
               <section class="seccion" aria-labelledby={`metricas-${periodo.id}`}>
                 <h2 id={`metricas-${periodo.id}`}>Métrica a métrica</h2>
-                <p class="nota">
-                  La media por diputado de cada grupo. La última fila de cada tarjeta, en gris, es la de toda la Cámara.
-                  Cada barra se mide contra el valor más alto de su tarjeta.
-                </p>
-                <TarjetasMetricas filas={grupos} camara={camara} />
+                <p class="nota">Media por diputado. La última fila, en gris, es toda la Cámara.</p>
+                <TarjetasMetricas periodo={periodo.id} filas={grupos} camara={camara} />
               </section>
 
-              <section class="seccion" aria-labelledby={`candidaturas-${periodo.id}`}>
-                <h2 id={`candidaturas-${periodo.id}`}>Por candidatura electoral</h2>
-                <p class="nota">{reglaCandidatura?.texto}</p>
-                <TablaCandidaturas filas={candidaturas} camara={camara} />
+              <section class="seccion">
+                <details class="acordeon">
+                  <summary><h2>Por candidatura electoral</h2></summary>
+                  <div class="acordeon-cuerpo">
+                    <p class="nota">{reglaCandidatura?.texto}</p>
+                    <TablaCandidaturas filas={candidaturas} camara={camara} />
+                  </div>
+                </details>
               </section>
             </section>
           );
@@ -157,4 +152,9 @@ const filaCamara = (periodo: string, agregado: Agregado): FilaGrupo => ({
       origen: <a href={site.fuente.url} rel="noopener">{site.fuente.nombre}</a>.
     </p>
   </div>
+  <script>
+    import { boot } from '../components/grupos-client.ts';
+
+    boot();
+  </script>
 </Base>

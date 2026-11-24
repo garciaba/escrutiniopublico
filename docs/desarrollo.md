@@ -30,6 +30,7 @@ La web se genera desde `data/derived/` y `config/`:
 pnpm web:dev       # servidor de desarrollo
 pnpm web:build     # páginas estáticas en web/dist
 pnpm web:audit     # comprueba la compilación: pie, fichas completas sin JavaScript, peso, enlaces, cabeceras
+pnpm web:compare A B   # compara capturas de dos compilaciones y lista las páginas que cambian de aspecto
 pnpm web:check     # navegador real: accesibilidad (axe-core), tabla y privacidad; necesita Playwright
 pnpm web:preview   # sirve web/dist como Cloudflare Pages, con las cabeceras de producción
 ```
