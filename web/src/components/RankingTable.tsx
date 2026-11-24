@@ -1,23 +1,29 @@
 /**
- * Ranking table of the home page. The same components render the static HTML at
- * build time (complete table, ordered by position, usable without JavaScript) and
- * run in the browser, where `RankingApp` adds search, filters, sorting and periods.
+ * Ranking list of the home page (decision D-038). The same component renders the
+ * static HTML at build time, with the first ten deputies, and runs in the browser,
+ * where it adds the search, the province, the filters, the sorting, the pages, the
+ * detail of each row and the selection to compare.
  *
- * To keep the page light, the browser only takes over the controls and the header
- * row. The 400 rows of the body stay as delivered until the visitor changes something.
+ * The list is read ten by ten. Whoever has no JavaScript gets the first ten and a
+ * link to the complete list, which is a plain page.
  */
-import { render } from 'preact';
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { fechaLarga, motivoPeriodo, num, rolEtiqueta } from '../lib/format.ts';
 import {
   aplicar,
   direccionPorDefecto,
   enumerar,
+  escribirComparar,
   escribirEstado,
   estadoInicial,
   filasDe,
+  filtrosActivos,
   leerEstado,
+  MAX_COMPARAR,
   opciones,
+  ordenes,
+  paginar,
+  rangoPaginas,
   type Estado,
   type Fila,
   type RankingData,
@@ -29,12 +35,13 @@ const SITUACION_ETIQUETA: Readonly<Record<string, string>> = {
   periodo_insuficiente: 'Periodo insuficiente',
 };
 
+/** Filters kept inside the panel; the search and the province are always in sight. */
+const EN_PANEL: ReadonlySet<string> = new Set(['grupo', 'partido', 'periodo', 'gobierno', 'orden']);
+
 function columnas(data: RankingData): { id: string; nombre: string; clase: string; titulo?: string }[] {
   return [
     { id: 'posicion', nombre: 'N.º', clase: 'c-pos', titulo: 'Posición en el ranking general' },
     { id: 'nombre', nombre: 'Diputado', clase: 'c-nom' },
-    { id: '', nombre: 'Grupo', clase: 'c-gru' },
-    { id: '', nombre: 'Circunscripción', clase: 'c-cir' },
     { id: 'indice', nombre: 'Índice', clase: 'c-num c-ind' },
     ...data.dimensiones.map((d) => ({ id: d.id, nombre: d.corto, clase: 'c-num c-dim', titulo: d.nombre })),
   ];
@@ -45,106 +52,137 @@ interface HeadProps {
   estado: Estado;
   /** False in the static HTML: the header buttons do nothing until the browser takes over. */
   activo: boolean;
-  onOrden?: (orden: string) => void;
+  onOrden: (orden: string) => void;
 }
 
-export function RankingHead({ data, estado, activo, onOrden }: HeadProps) {
+function RankingHead({ data, estado, activo, onOrden }: HeadProps) {
   return (
     <tr>
-      {columnas(data).map((columna) => {
-        const ordenada = columna.id !== '' && estado.orden === columna.id;
-        return (
+      {columnas(data).flatMap((columna) => {
+        const ordenada = estado.orden === columna.id;
+        const celda = (
           <th
             scope="col"
+            key={columna.id}
             class={columna.clase}
             title={columna.titulo}
             aria-sort={ordenada ? (estado.dir === 'asc' ? 'ascending' : 'descending') : undefined}
           >
-            {columna.id === '' ? (
-              columna.nombre
-            ) : (
-              <button type="button" class="orden" disabled={!activo} onClick={() => onOrden?.(columna.id)}>
-                {columna.nombre}
-                <svg viewBox="0 0 8 10" aria-hidden="true" focusable="false">
-                  <path class="sube" d="M4 0l4 4H0z" />
-                  <path class="baja" d="M4 10L0 6h8z" />
-                </svg>
-              </button>
-            )}
+            <button type="button" class="orden" disabled={!activo} onClick={() => onOrden(columna.id)}>
+              {columna.nombre}
+              <svg viewBox="0 0 8 10" aria-hidden="true" focusable="false">
+                <path class="sube" d="M4 0l4 4H0z" />
+                <path class="baja" d="M4 10L0 6h8z" />
+              </svg>
+            </button>
           </th>
         );
+        return columna.id === 'indice'
+          ? [
+              celda,
+              <th scope="col" class="c-mas" key="mas">
+                <span class="sr">Detalle</span>
+              </th>,
+            ]
+          : [celda];
       })}
+      <th scope="col" class="c-acc">
+        <span class="sr">Acciones</span>
+      </th>
     </tr>
   );
 }
 
-interface RowsProps {
+interface RowProps {
   data: RankingData;
-  filas: readonly Fila[];
+  fila: Fila;
+  activo: boolean;
+  abierta: boolean;
+  elegido: boolean;
+  /** The selection to compare is full: no more deputies can be added. */
+  lleno: boolean;
+  onAbrir: (slug: string) => void;
+  onComparar: (slug: string) => void;
 }
 
-export function RankingRows({ data, filas }: RowsProps) {
-  const grupos = new Map(data.grupos.map((grupo) => [grupo.id, grupo]));
-  if (filas.length === 0) {
-    return (
-      <tr>
-        <td class="vacio" colSpan={5 + data.dimensiones.length}>
-          Ningún diputado coincide con la búsqueda y los filtros.
-        </td>
-      </tr>
-    );
-  }
+function RankingRow({ data, fila, activo, abierta, elegido, lleno, onAbrir, onComparar }: RowProps) {
+  const grupo = data.grupos.find((g) => g.id === fila.grupo);
+  const situacion = SITUACION_ETIQUETA[fila.situacion];
+  const candidatura = fila.partido.toLowerCase() === (grupo?.nombre ?? '').toLowerCase() ? null : fila.partido;
+  const clases = [fila.situacion === 'ranking' ? '' : 'fuera', abierta ? 'abierta' : ''].filter(Boolean).join(' ');
   return (
-    <>
-      {filas.map((fila) => {
-        const grupo = grupos.get(fila.grupo);
-        const situacion = SITUACION_ETIQUETA[fila.situacion];
-        return (
-          <tr key={fila.slug} class={fila.situacion === 'ranking' ? undefined : 'fuera'}>
-            <td class="c-pos">
-              {fila.posicion === null ? (
-                <span class="nd">
-                  <span aria-hidden="true">—</span>
-                  <span class="sr">Sin posición</span>
-                </span>
-              ) : (
-                fila.posicion
-              )}
-            </td>
-            <th scope="row" class="c-nom">
-              <a href={`/diputados/${fila.slug}`}>{fila.nombre}</a>
-              {fila.roles
-                .filter((rol) => rol !== 'gobierno' || fila.situacion !== 'gobierno')
-                .map((rol) => (
-                  <span class="etiqueta" key={rol}>
-                    {rol === 'gobierno' ? 'Exmiembro del Gobierno' : rolEtiqueta(rol)}
-                  </span>
-                ))}
-              {situacion ? <span class="etiqueta rayada">{situacion}</span> : null}
-            </th>
-            <td class="c-gru">
-              <PuntoGrupo color={grupo?.color ?? '#9c9c9c'} />
-              {grupo?.nombre ?? fila.grupo}
-              {fila.partido.toLowerCase() === (grupo?.nombre ?? '').toLowerCase() ? null : (
-                <span class="partido" title="Candidatura electoral">
-                  {fila.partido}
-                </span>
-              )}
-              <span class="cir-movil"> · {fila.circunscripcion}</span>
-            </td>
-            <td class="c-cir">{fila.circunscripcion}</td>
-            <td class="c-num c-ind">
-              <Puntuacion valor={fila.indice} />
-            </td>
-            {data.dimensiones.map((dimension, i) => (
-              <td class="c-num c-dim" data-label={dimension.corto} key={dimension.id}>
-                <Puntuacion valor={fila.dims[i]} />
-              </td>
-            ))}
-          </tr>
-        );
-      })}
-    </>
+    <tr
+      class={clases || undefined}
+      onClick={(event) => {
+        // A tap anywhere on the card opens it, except on what already does something.
+        if (event.target instanceof Element && !event.target.closest('a, button')) onAbrir(fila.slug);
+      }}
+    >
+      <td class="c-pos">
+        {fila.posicion === null ? (
+          <span class="nd">
+            <span aria-hidden="true">—</span>
+            <span class="sr">Sin posición</span>
+          </span>
+        ) : (
+          fila.posicion
+        )}
+      </td>
+      <th scope="row" class="c-nom">
+        <a href={`/diputados/${fila.slug}`}>{fila.nombre}</a>
+        {fila.roles
+          .filter((rol) => rol !== 'gobierno' || fila.situacion !== 'gobierno')
+          .map((rol) => (
+            <span class="etiqueta" key={rol}>
+              {rol === 'gobierno' ? 'Exmiembro del Gobierno' : rolEtiqueta(rol)}
+            </span>
+          ))}
+        {situacion ? <span class="etiqueta rayada">{situacion}</span> : null}
+        <span class="meta">
+          <PuntoGrupo color={grupo?.color ?? '#9c9c9c'} />
+          {grupo?.nombre ?? fila.grupo}
+          {candidatura ? ` · ${candidatura}` : ''} · {fila.circunscripcion}
+        </span>
+      </th>
+      <td class="c-num c-ind">
+        <Puntuacion valor={fila.indice} />
+      </td>
+      <td class="c-mas">
+        <button
+          type="button"
+          class="abrir"
+          aria-expanded={abierta}
+          aria-label={`Dimensiones de ${fila.nombre}`}
+          disabled={!activo}
+          onClick={() => onAbrir(fila.slug)}
+        >
+          <svg viewBox="0 0 12 8" aria-hidden="true" focusable="false">
+            <path d="M1 1.5l5 5 5-5" />
+          </svg>
+        </button>
+      </td>
+      {data.dimensiones.map((dimension, i) => (
+        <td class="c-num c-dim" data-label={dimension.nombre} key={dimension.id}>
+          <Puntuacion valor={fila.dims[i]} />
+        </td>
+      ))}
+      <td class="c-acc">
+        <a class="ver-ficha" href={`/diputados/${fila.slug}`}>
+          Ver ficha<span class="sr"> de {fila.nombre}</span>
+        </a>
+        <button
+          type="button"
+          class="comparar"
+          aria-pressed={elegido}
+          disabled={!activo || (!elegido && lleno)}
+          title={!elegido && lleno ? `Se comparan ${MAX_COMPARAR} como máximo` : undefined}
+          onClick={() => onComparar(fila.slug)}
+        >
+          {elegido ? <span aria-hidden="true">✓ </span> : null}
+          Comparar<span class="sr"> a {fila.nombre}</span>
+        </button>
+      </td>
+    </tr>
   );
 }
 
@@ -156,20 +194,20 @@ export interface AppProps {
   horasAviso: number;
   /** The legislature is over: the short periods have no data and the note says why. */
   legislaturaFinalizada: boolean;
-  /** Elements of the static table the browser takes over (absent at build time). */
-  thead?: Element | null;
-  tbody?: Element | null;
 }
 
-export function RankingApp({ data, ejecutado, horasAviso, legislaturaFinalizada, thead, tbody }: AppProps) {
+export function RankingApp({ data, ejecutado, horasAviso, legislaturaFinalizada }: AppProps) {
   const inicial = useMemo(() => estadoInicial(data), [data]);
   const listas = useMemo(() => opciones(data), [data]);
   const [activo, setActivo] = useState(false);
   const [estado, setEstado] = useState<Estado>(inicial);
   const [antiguo, setAntiguo] = useState(false);
-  /** True once the browser has rendered that part of the table; from then on it is kept in sync. */
-  const cabeceraPropia = useRef(false);
-  const cuerpoPropio = useRef(false);
+  const [panel, setPanel] = useState(false);
+  const [abiertas, setAbiertas] = useState<readonly string[]>([]);
+  const [comparar, setComparar] = useState<readonly string[]>([]);
+  const lista = useRef<HTMLDivElement>(null);
+  /** Set by the pager: the next render brings the top of the list back into view. */
+  const subir = useRef(false);
 
   useEffect(() => {
     setEstado(leerEstado(window.location.search, data));
@@ -182,65 +220,66 @@ export function RankingApp({ data, ejecutado, horasAviso, legislaturaFinalizada,
 
   const filas = useMemo(() => filasDe(data, estado.periodo), [data, estado.periodo]);
   const visibles = useMemo(() => aplicar(filas, estado, data), [filas, estado, data]);
+  const pagina = useMemo(() => paginar(visibles, estado.pagina), [visibles, estado.pagina]);
   const total = useMemo(
     () => filas.filter((fila) => estado.gobierno || fila.situacion !== 'gobierno').length,
     [filas, estado.gobierno],
   );
-  const consulta = escribirEstado(estado, data);
+  const activos = useMemo(() => filtrosActivos(estado, data), [estado, data]);
+  const consulta = escribirEstado({ ...estado, pagina: pagina.pagina }, data);
 
-  const cambiar = (cambios: Partial<Estado>) => setEstado((previo) => ({ ...previo, ...cambios }));
+  /** Any change of search, filter or order starts again from the first page. */
+  const cambiar = (cambios: Partial<Estado>) => setEstado((previo) => ({ ...previo, ...cambios, pagina: 1 }));
   const ordenar = (orden: string) =>
     setEstado((previo) => ({
       ...previo,
       orden,
       dir: previo.orden === orden ? (previo.dir === 'asc' ? 'desc' : 'asc') : direccionPorDefecto(orden),
+      pagina: 1,
     }));
+  const irA = (numero: number) => {
+    subir.current = true;
+    setEstado((previo) => ({ ...previo, pagina: numero }));
+  };
+  const alternar = (lista: readonly string[], slug: string) =>
+    lista.includes(slug) ? lista.filter((otro) => otro !== slug) : [...lista, slug];
 
   useEffect(() => {
     if (!activo) return;
     if (consulta !== window.location.search) {
       window.history.replaceState(null, '', `${window.location.pathname}${consulta}${window.location.hash}`);
     }
-    // The static rows were not created by Preact, which would keep them next to its own:
-    // each part is emptied the first time the browser renders it.
-    if (thead) {
-      if (!cabeceraPropia.current) thead.replaceChildren();
-      cabeceraPropia.current = true;
-      render(<RankingHead data={data} estado={estado} activo onOrden={ordenar} />, thead);
-    }
-    if (tbody && (cuerpoPropio.current || consulta !== '')) {
-      if (!cuerpoPropio.current) tbody.replaceChildren();
-      cuerpoPropio.current = true;
-      render(<RankingRows data={data} filas={visibles} />, tbody);
-    }
-    // `ordenar` only uses the state setter, so it is safe to leave out.
-  }, [activo, consulta, data, estado, visibles, thead, tbody]);
+  }, [activo, consulta]);
+
+  useEffect(() => {
+    if (!subir.current) return;
+    subir.current = false;
+    if ((lista.current?.getBoundingClientRect().top ?? 0) < 0) lista.current?.scrollIntoView({ block: 'start' });
+  }, [pagina.pagina]);
 
   const periodo = data.periodos.find((p) => p.id === estado.periodo);
   const noDisponibles = data.periodos.filter((p) => !p.disponible);
-  const ordenes = [
-    { id: 'posicion', nombre: 'Posición' },
-    { id: 'nombre', nombre: 'Nombre' },
-    { id: 'indice', nombre: 'Índice' },
-    ...data.dimensiones.map((d) => ({ id: d.id, nombre: d.nombre })),
-  ];
+  const enPanel = activos.filter((filtro) => EN_PANEL.has(filtro.id)).length;
+  const nombres = new Map(data.diputados.map((d) => [d[0], d[1]]));
 
   return (
-    <div class="controles tarjeta" role="search" aria-label="Buscar y filtrar el ranking">
+    <div class="ranking-app">
       <div class="aviso" role="status" hidden={!antiguo}>
         <span>
           <strong>Datos sin actualizar.</strong> La última actualización es del {fechaLarga(ejecutado)}, hace más de{' '}
-          {horasAviso} horas. Puede que falte actividad reciente.
+          {horasAviso} horas.
         </span>
       </div>
 
-      <div class="controles-cabeza">
-        <div class="campo">
-          <label for="ranking-q">Buscar diputado</label>
+      <div class="herramientas" role="search" aria-label="Buscar y filtrar el ranking">
+        <div class="barra-buscar">
+          <label class="sr" for="ranking-q">
+            Buscar diputado
+          </label>
           <input
             id="ranking-q"
             type="search"
-            placeholder="Nombre o apellidos"
+            placeholder="Buscar diputado"
             autocomplete="off"
             spellcheck={false}
             maxLength={80}
@@ -249,7 +288,46 @@ export function RankingApp({ data, ejecutado, horasAviso, legislaturaFinalizada,
             onInput={(event) => cambiar({ q: event.currentTarget.value })}
           />
         </div>
+        <div class="barra-provincia">
+          <label class="sr" for="ranking-circunscripcion">
+            ¿Quién te representa? Elige tu provincia
+          </label>
+          <select
+            id="ranking-circunscripcion"
+            disabled={!activo}
+            value={estado.circunscripcion}
+            onChange={(event) => cambiar({ circunscripcion: event.currentTarget.value })}
+          >
+            <option value="">{estado.circunscripcion ? 'Todas las provincias' : 'Tu provincia'}</option>
+            {listas.circunscripciones.map((circunscripcion) => (
+              <option value={circunscripcion} key={circunscripcion}>
+                {circunscripcion}
+              </option>
+            ))}
+          </select>
+        </div>
+        <button
+          type="button"
+          class="boton barra-filtros"
+          aria-expanded={panel}
+          aria-controls="ranking-filtros"
+          disabled={!activo}
+          onClick={() => setPanel((abierto) => !abierto)}
+        >
+          <svg viewBox="0 0 16 12" aria-hidden="true" focusable="false">
+            <path d="M1 2h14M3.5 6h9M6 10h4" />
+          </svg>
+          Filtros
+          {enPanel > 0 ? (
+            <span class="cuenta">
+              {enPanel}
+              <span class="sr"> activos</span>
+            </span>
+          ) : null}
+        </button>
+      </div>
 
+      <div id="ranking-filtros" class="filtros tarjeta" hidden={!panel}>
         <fieldset class="segmento" disabled={!activo}>
           <legend>Periodo</legend>
           <div class="segmento-opciones">
@@ -268,120 +346,77 @@ export function RankingApp({ data, ejecutado, horasAviso, legislaturaFinalizada,
               </label>
             ))}
           </div>
-          <p class="segmento-nota">
-            {periodo?.desde && periodo.hasta ? (
-              <>
-                Del {fechaLarga(periodo.desde)} al {fechaLarga(periodo.hasta)}.{' '}
-              </>
-            ) : null}
-            {noDisponibles.length > 0 ? (
-              <>
-                Sin datos para {enumerar(noDisponibles.map((p) => p.nombre.toLowerCase()))}
-                {legislaturaFinalizada ? ': la legislatura ya ha terminado.' : '.'}
-              </>
-            ) : null}
-          </p>
+          {noDisponibles.length > 0 ? (
+            <p class="segmento-nota">
+              Sin datos para {enumerar(noDisponibles.map((p) => p.nombre.toLowerCase()))}
+              {legislaturaFinalizada ? ': la legislatura ha terminado.' : '.'}
+            </p>
+          ) : null}
         </fieldset>
-      </div>
-
-      <div class="controles-fila">
-        <div class="campo">
-          <label for="ranking-grupo">Grupo parlamentario</label>
-          <select
-            id="ranking-grupo"
-            disabled={!activo}
-            value={estado.grupo}
-            onChange={(event) => cambiar({ grupo: event.currentTarget.value })}
-          >
-            <option value="">Todos</option>
-            {listas.grupos.map((grupo) => (
-              <option value={grupo.id} key={grupo.id}>
-                {grupo.nombre}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div class="campo">
-          <label for="ranking-partido">Candidatura</label>
-          <select
-            id="ranking-partido"
-            disabled={!activo}
-            value={estado.partido}
-            onChange={(event) => cambiar({ partido: event.currentTarget.value })}
-          >
-            <option value="">Todos</option>
-            {listas.partidos.map((partido) => (
-              <option value={partido} key={partido}>
-                {partido}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div class="campo">
-          <label for="ranking-circunscripcion">Circunscripción</label>
-          <select
-            id="ranking-circunscripcion"
-            disabled={!activo}
-            value={estado.circunscripcion}
-            onChange={(event) => cambiar({ circunscripcion: event.currentTarget.value })}
-          >
-            <option value="">Todas</option>
-            {listas.circunscripciones.map((circunscripcion) => (
-              <option value={circunscripcion} key={circunscripcion}>
-                {circunscripcion}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div class="campo">
-          <label for="ranking-orden">Ordenar por</label>
-          <select
-            id="ranking-orden"
-            disabled={!activo}
-            value={`${estado.orden}:${estado.dir}`}
-            onChange={(event) => {
-              const [orden = 'posicion', dir] = event.currentTarget.value.split(':');
-              cambiar({ orden, dir: dir === 'desc' ? 'desc' : 'asc' });
-            }}
-          >
-            {ordenes.flatMap((orden) => {
-              const natural = direccionPorDefecto(orden.id);
-              const inversa = natural === 'asc' ? 'desc' : 'asc';
-              const sufijo = (dir: string) =>
-                orden.id === 'nombre'
-                  ? dir === 'asc'
-                    ? 'A → Z'
-                    : 'Z → A'
-                  : dir === 'desc'
-                    ? 'de mayor a menor'
-                    : 'de menor a mayor';
-              const etiqueta = (dir: string) =>
-                orden.id === 'posicion'
-                  ? dir === 'asc'
-                    ? 'Posición'
-                    : 'Posición, del último al primero'
-                  : `${orden.nombre}, ${sufijo(dir)}`;
-              return [natural, inversa].map((dir) => (
-                <option value={`${orden.id}:${dir}`} key={`${orden.id}:${dir}`}>
-                  {etiqueta(dir)}
+        <div class="filtros-fila">
+          <div class="campo">
+            <label for="ranking-grupo">Grupo parlamentario</label>
+            <select
+              id="ranking-grupo"
+              disabled={!activo}
+              value={estado.grupo}
+              onChange={(event) => cambiar({ grupo: event.currentTarget.value })}
+            >
+              <option value="">Todos</option>
+              {listas.grupos.map((grupo) => (
+                <option value={grupo.id} key={grupo.id}>
+                  {grupo.nombre}
                 </option>
-              ));
-            })}
-          </select>
+              ))}
+            </select>
+          </div>
+          <div class="campo">
+            <label for="ranking-partido">Candidatura</label>
+            <select
+              id="ranking-partido"
+              disabled={!activo}
+              value={estado.partido}
+              onChange={(event) => cambiar({ partido: event.currentTarget.value })}
+            >
+              <option value="">Todas</option>
+              {listas.partidos.map((partido) => (
+                <option value={partido} key={partido}>
+                  {partido}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div class="campo">
+            <label for="ranking-orden">Ordenar por</label>
+            <select
+              id="ranking-orden"
+              disabled={!activo}
+              value={`${estado.orden}:${estado.dir}`}
+              onChange={(event) => {
+                const [orden = 'posicion', dir] = event.currentTarget.value.split(':');
+                cambiar({ orden, dir: dir === 'desc' ? 'desc' : 'asc' });
+              }}
+            >
+              {ordenes(data).map((opcion) => (
+                <option value={`${opcion.orden}:${opcion.dir}`} key={`${opcion.orden}:${opcion.dir}`}>
+                  {opcion.etiqueta}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
+        <label class="casilla">
+          <input
+            type="checkbox"
+            disabled={!activo}
+            checked={estado.gobierno}
+            onChange={(event) => cambiar({ gobierno: event.currentTarget.checked })}
+          />
+          Incluir a los miembros del Gobierno (fuera del ranking)
+        </label>
       </div>
 
-      <label class="casilla">
-        <input
-          type="checkbox"
-          disabled={!activo}
-          checked={estado.gobierno}
-          onChange={(event) => cambiar({ gobierno: event.currentTarget.checked })}
-        />
-        Incluir a los miembros del Gobierno, que quedan fuera del ranking general
-      </label>
-
-      <div class="controles-pie">
+      <div class="estado">
         <p class="recuento" role="status">
           {visibles.length === total ? (
             <>
@@ -392,14 +427,134 @@ export function RankingApp({ data, ejecutado, horasAviso, legislaturaFinalizada,
               <strong>{num(visibles.length)}</strong> de {num(total)} diputados
             </>
           )}
-          <span class="muted"> · la posición es siempre la del ranking general</span>
+          {periodo && periodo.id !== inicial.periodo ? (
+            <span class="muted"> · {periodo.nombre.toLowerCase()}</span>
+          ) : null}
         </p>
-        {consulta !== '' ? (
-          <button type="button" class="boton" onClick={() => setEstado(inicial)}>
-            Quitar filtros
-          </button>
+        {activos.length > 0 ? (
+          <ul class="chips" aria-label="Filtros activos">
+            {activos.map((filtro) => (
+              <li key={filtro.id}>
+                <button type="button" class="chip" onClick={() => cambiar(filtro.quitar)}>
+                  {filtro.etiqueta}
+                  <span aria-hidden="true">✕</span>
+                  <span class="sr"> (quitar)</span>
+                </button>
+              </li>
+            ))}
+            {activos.length > 1 ? (
+              <li>
+                <button type="button" class="chip todo" onClick={() => setEstado(inicial)}>
+                  Quitar todo
+                </button>
+              </li>
+            ) : null}
+          </ul>
         ) : null}
       </div>
+
+      <div class="lista tarjeta" ref={lista}>
+        <table class="tabla" id="ranking-tabla">
+          <caption class="sr">
+            Ranking de actividad parlamentaria: posición, diputado, índice global y puntuación por dimensión
+          </caption>
+          <thead>
+            <RankingHead data={data} estado={estado} activo={activo} onOrden={ordenar} />
+          </thead>
+          <tbody>
+            {pagina.filas.length === 0 ? (
+              <tr>
+                <td class="vacio" colSpan={5 + data.dimensiones.length}>
+                  Ningún diputado coincide.
+                </td>
+              </tr>
+            ) : (
+              pagina.filas.map((fila) => (
+                <RankingRow
+                  key={fila.slug}
+                  data={data}
+                  fila={fila}
+                  activo={activo}
+                  abierta={abiertas.includes(fila.slug)}
+                  elegido={comparar.includes(fila.slug)}
+                  lleno={comparar.length >= MAX_COMPARAR}
+                  onAbrir={(slug) => setAbiertas((previas) => alternar(previas, slug))}
+                  onComparar={(slug) => setComparar((previos) => alternar(previos, slug))}
+                />
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      {pagina.paginas > 1 ? (
+        <nav class="paginas" aria-label="Páginas del ranking">
+          <button
+            type="button"
+            class="boton"
+            disabled={!activo || pagina.pagina <= 1}
+            onClick={() => irA(pagina.pagina - 1)}
+          >
+            <span aria-hidden="true">←</span> Anterior
+          </button>
+          <ol>
+            {rangoPaginas(pagina.pagina, pagina.paginas).map((numero, i) =>
+              numero === null ? (
+                <li class="hueco" aria-hidden="true" key={`hueco-${i}`}>
+                  …
+                </li>
+              ) : (
+                <li key={numero}>
+                  <button
+                    type="button"
+                    class="numero"
+                    aria-label={`Página ${numero}`}
+                    aria-current={numero === pagina.pagina ? 'page' : undefined}
+                    disabled={!activo}
+                    onClick={() => irA(numero)}
+                  >
+                    {numero}
+                  </button>
+                </li>
+              ),
+            )}
+          </ol>
+          <p class="paginas-estado">
+            {num(pagina.desde)}–{num(pagina.hasta)} de {num(visibles.length)}
+          </p>
+          <button
+            type="button"
+            class="boton"
+            disabled={!activo || pagina.pagina >= pagina.paginas}
+            onClick={() => irA(pagina.pagina + 1)}
+          >
+            Siguiente <span aria-hidden="true">→</span>
+          </button>
+        </nav>
+      ) : null}
+
+      {comparar.length > 0 ? (
+        <div class="bandeja tarjeta" role="region" aria-label="Diputados para comparar">
+          <ul class="chips">
+            {comparar.map((slug) => (
+              <li key={slug}>
+                <button type="button" class="chip" onClick={() => setComparar((previos) => alternar(previos, slug))}>
+                  {nombres.get(slug) ?? slug}
+                  <span aria-hidden="true">✕</span>
+                  <span class="sr"> (quitar)</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+          {comparar.length >= 2 ? (
+            <a class="boton principal" href={`/comparar${escribirComparar(comparar)}`}>
+              Comparar
+            </a>
+          ) : (
+            <span class="muted">Elige otro</span>
+          )}
+        </div>
+      ) : null}
     </div>
   );
 }

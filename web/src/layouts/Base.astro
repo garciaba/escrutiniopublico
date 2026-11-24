@@ -30,7 +30,8 @@ const nav = [
   { href: '/cambios', label: 'Cambios' },
   { href: '/acerca', label: 'Acerca' },
 ];
-const esActual = (href: string) => (href === '/' ? path === '/' || path.startsWith('/diputados/') : path === href);
+const delRanking = (ruta: string) => ruta === '/' || ruta === '/comparar' || ruta.startsWith('/diputados');
+const esActual = (href: string) => (href === '/' ? delRanking(path) : path === href);
 ---
 
 <!doctype html>

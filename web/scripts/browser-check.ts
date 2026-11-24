@@ -2,7 +2,8 @@
  * Checks the built site in a real browser, served with the production headers:
  *
  *   - axe-core (WCAG 2.2 A and AA rules) on every kind of page, desktop and mobile;
- *   - the ranking table: search, filters, sorting, periods and the state in the URL;
+ *   - the ranking list: search, province, filters, sorting, periods, pages, the detail of
+ *     a row on a phone and the state in the URL; and the comparison it leads to;
  *   - privacy and security: no cookies, no storage, no other origins, no CSP violations.
  *
  *   pnpm web:build && pnpm web:check
@@ -55,6 +56,8 @@ interface Browser {
 const require = createRequire(import.meta.url);
 const DIST = join(process.cwd(), 'web', 'dist');
 const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice'];
+/** Deputies the home page shows at a time (decision D-038). */
+const PER_PAGE = 10;
 const VIEWPORTS = [
   { name: 'desktop', width: 1280, height: 900 },
   { name: 'mobile', width: 390, height: 844 },
@@ -80,6 +83,9 @@ const sample = [profiles[0], 'oscar-puente-santiago', 'meritxell-batet-lamana'].
 );
 const paths = [
   '/',
+  '/diputados',
+  '/comparar',
+  `/comparar?d=${sample.join(',')}`,
   '/grupos',
   '/metodologia',
   '/datos',
@@ -114,9 +120,13 @@ for (const viewport of VIEWPORTS) {
     await page.goto(`${origin}${path}`, { waitUntil: 'networkidle' });
     await check(page, `${viewport.name} ${path}`);
     if (path === '/') {
+      // Everything the visitor can open at once: filters, labels, a row and the tray.
       await page.waitForSelector('#ranking-q:not([disabled])');
       await page.fill('#ranking-q', 'mar');
+      await page.click('.barra-filtros');
       await page.selectOption('#ranking-orden', 'indice:desc');
+      if (viewport.name === 'mobile') await page.click('#ranking-tabla tbody tr:first-child .abrir');
+      await page.click('#ranking-tabla tbody tr:first-child .comparar');
       await check(page, `${viewport.name} ${path} (filtered)`);
     }
     await page.close();
@@ -141,8 +151,12 @@ function expectEqual(what: string, actual: unknown, expected: unknown): void {
 
 interface TableState {
   headRows: number;
+  /** Rows shown: one page of the list. */
   rows: number;
+  /** Deputies that match, as the counter announces. */
   counted: number;
+  /** Page marked as current in the pager; 1 when the list fits in one page. */
+  current: number;
   first: string;
   query: string;
   sort: string | null;
@@ -155,18 +169,20 @@ const tableState = (): Promise<TableState> =>
       headRows: table.querySelectorAll('thead tr').length,
       rows: rows.length,
       counted: Number(document.querySelector('.recuento strong').textContent.replace(/[^0-9]/g, '')),
+      current: Number(document.querySelector('.paginas [aria-current="page"]')?.textContent ?? 1),
       first: rows[0]?.querySelector('a')?.getAttribute('href') ?? '',
       query: location.search,
       sort: table.querySelector('th[aria-sort]')?.getAttribute('aria-sort') ?? null,
     };
   })()`);
-/** Applies a change and checks that the table shows exactly the rows the counter announces. */
+/** Applies a change and checks that the list shows exactly the page the counter and the pager announce. */
 async function step(what: string, action: () => Promise<unknown>, query: string): Promise<TableState> {
   await action();
   await page.waitForTimeout(150);
   const state = await tableState();
   expectEqual(`${what}: header rows`, state.headRows, 1);
-  expectEqual(`${what}: rows shown vs counted`, state.rows, state.counted);
+  const expected = Math.max(0, Math.min(PER_PAGE, state.counted - (state.current - 1) * PER_PAGE));
+  expectEqual(`${what}: rows shown vs counted`, state.rows, expected);
   expectEqual(`${what}: URL`, state.query, query);
   return state;
 }
@@ -174,13 +190,22 @@ async function step(what: string, action: () => Promise<unknown>, query: string)
 await page.goto(`${origin}/`, { waitUntil: 'networkidle' });
 await page.waitForSelector('#ranking-q:not([disabled])');
 const initial = await step('initial view', () => Promise.resolve(), '');
+expectEqual('the first page has ten deputies', initial.rows, PER_PAGE);
 const searched = await step('search', () => page.fill('#ranking-q', 'garcia'), '?q=garcia');
-if (searched.rows >= initial.rows) expectEqual('search narrows the table', searched.rows, `< ${initial.rows}`);
+if (searched.counted >= initial.counted)
+  expectEqual('search narrows the list', searched.counted, `< ${initial.counted}`);
+await page.click('.barra-filtros');
 const grouped = await step('group filter', () => page.selectOption('#ranking-grupo', 'GP'), '?q=garcia&grupo=GP');
-if (grouped.rows > searched.rows) expectEqual('filter narrows the table', grouped.rows, `<= ${searched.rows}`);
+if (grouped.counted > searched.counted)
+  expectEqual('filter narrows the list', grouped.counted, `<= ${searched.counted}`);
+const labels = await page.evaluate<string[]>(
+  `[...document.querySelectorAll('.estado .chip:not(.todo)')].map((chip) => chip.firstChild.textContent)`,
+);
+expectEqual('active filters are shown as labels', labels, ['«garcia»', 'Grupo: Popular']);
 await step('empty search', () => page.fill('#ranking-q', 'zzzz'), '?q=zzzz&grupo=GP');
-const cleared = await step('clear filters', () => page.click('.controles-pie button'), '');
-expectEqual('clear filters restores every row', cleared.rows, initial.rows);
+await step('remove one label', () => page.click('.estado .chip'), '?grupo=GP');
+const cleared = await step('clear filters', () => page.click('.estado .chip'), '');
+expectEqual('clear filters restores every deputy', cleared.counted, initial.counted);
 expectEqual('clear filters restores the order', cleared.first, initial.first);
 const byIndex = await step('sort by a header', () => page.click('th.c-ind button'), '?orden=indice');
 expectEqual('sorted column is announced', byIndex.sort, 'descending');
@@ -191,19 +216,129 @@ const government = await step(
   () => page.check('.casilla input'),
   '?orden=indice&dir=asc&gobierno=1',
 );
-if (government.rows <= initial.rows) expectEqual('the Government adds rows', government.rows, `> ${initial.rows}`);
+if (government.counted <= initial.counted) {
+  expectEqual('the Government adds deputies', government.counted, `> ${initial.counted}`);
+}
 await step(
   'another period',
   () => page.check('input[name="ranking-periodo"][value="12m"]'),
   '?periodo=12m&orden=indice&dir=asc&gobierno=1',
 );
+await step('all labels removed at once', () => page.click('.estado .chip.todo'), '');
 
-// A shared link opens on the same view.
-await page.goto(`${origin}/?periodo=12m&grupo=GS&orden=nombre`, { waitUntil: 'networkidle' });
+// Ten by ten: the pager moves through the list and any other change goes back to the start.
+const second = await step('next page', () => page.click('.paginas > button:last-of-type'), '?pagina=2');
+expectEqual('the pager marks the second page', second.current, 2);
+if (second.first === initial.first) expectEqual('the second page shows other deputies', second.first, 'another');
+const lastPage = Math.ceil(initial.counted / PER_PAGE);
+const last = await step(
+  'last page',
+  () => page.click(`.paginas .numero[aria-label="Página ${lastPage}"]`),
+  `?pagina=${lastPage}`,
+);
+expectEqual('the last page holds the rest', last.rows, initial.counted - (lastPage - 1) * PER_PAGE);
+const nextDisabled = await page.evaluate<boolean>(`document.querySelector('.paginas > button:last-of-type').disabled`);
+expectEqual('no next page after the last', nextDisabled, true);
+await step('previous page', () => page.click('.paginas > button:first-of-type'), `?pagina=${lastPage - 1}`);
+const province = await step(
+  'province',
+  () => page.selectOption('#ranking-circunscripcion', 'Madrid'),
+  '?circunscripcion=Madrid',
+);
+expectEqual('a new filter goes back to the first page', province.current, 1);
+const places = await page.evaluate<string[]>(
+  `[...new Set([...document.querySelectorAll('#ranking-tabla tbody .meta')].map((meta) => meta.textContent.split(' · ').pop()))]`,
+);
+expectEqual('the province shows only its deputies', places, ['Madrid']);
+
+// A shared link opens on the same view; a page beyond the end becomes the last one.
+await page.goto(`${origin}/?periodo=12m&grupo=GS&orden=nombre&pagina=2`, { waitUntil: 'networkidle' });
 await page.waitForSelector('#ranking-q:not([disabled])');
-await step('shared link', () => Promise.resolve(), '?periodo=12m&grupo=GS&orden=nombre');
+const shared = await step('shared link', () => Promise.resolve(), '?periodo=12m&grupo=GS&orden=nombre&pagina=2');
+expectEqual('shared link opens on its page', shared.current, 2);
 const selected = await page.evaluate<string>(`document.getElementById('ranking-grupo').value`);
 expectEqual('shared link fills the controls', selected, 'GS');
+await page.goto(`${origin}/?grupo=GS&pagina=999`, { waitUntil: 'networkidle' });
+await page.waitForSelector('#ranking-q:not([disabled])');
+const beyond = await tableState();
+await step('page beyond the end', () => Promise.resolve(), `?grupo=GS&pagina=${Math.ceil(beyond.counted / PER_PAGE)}`);
+
+// Comparison: two deputies chosen in the list travel to the comparison page in the URL.
+await page.goto(`${origin}/`, { waitUntil: 'networkidle' });
+await page.waitForSelector('#ranking-q:not([disabled])');
+const chosen = await page.evaluate<{ slug: string; indice: string }[]>(
+  `[...document.querySelectorAll('#ranking-tabla tbody tr')].slice(0, 2).map((row) => ({
+    slug: row.querySelector('a').getAttribute('href').split('/').pop(),
+    indice: row.querySelector('.c-ind .valor').textContent,
+  }))`,
+);
+await page.click('#ranking-tabla tbody tr:nth-child(1) .comparar');
+const alone = await page.evaluate<number>(`document.querySelectorAll('.bandeja a').length`);
+expectEqual('one deputy alone cannot be compared', alone, 0);
+await page.click('#ranking-tabla tbody tr:nth-child(2) .comparar');
+await page.click('.bandeja a');
+await page.waitForSelector('#comparacion');
+const compared = await page.evaluate<{ query: string; indices: string[] }>(
+  `({
+    query: location.pathname + location.search,
+    indices: [...document.querySelectorAll('#comparacion .principal .valor')].map((cell) => cell.textContent),
+  })`,
+);
+expectEqual('comparison URL', compared.query, `/comparar?d=${chosen.map((d) => d.slug).join(',')}`);
+expectEqual(
+  'comparison shows the same indices as the list',
+  compared.indices,
+  chosen.map((d) => d.indice),
+);
+await page.fill('#comparar-q', 'garcia');
+await page.waitForSelector('.sugerencias button');
+await page.click('.sugerencias button');
+await page.waitForTimeout(150);
+const three = await page.evaluate<{ columns: number; full: boolean; slugs: number }>(
+  `({
+    columns: document.querySelectorAll('#comparacion thead th').length,
+    full: document.getElementById('comparar-q').disabled,
+    slugs: new URLSearchParams(location.search).get('d').split(',').length,
+  })`,
+);
+expectEqual('a third deputy can be added, and no more', three, { columns: 3, full: true, slugs: 3 });
+await page.click('#comparacion thead .chip');
+await page.waitForTimeout(150);
+const two = await page.evaluate<number>(`document.querySelectorAll('#comparacion thead th').length`);
+expectEqual('a deputy can be removed from the comparison', two, 2);
+
+// On a phone each deputy takes one line; a tap opens the dimensions.
+const phone = await browser.newContext({ viewport: VIEWPORTS[1] });
+const phonePage = await phone.newPage();
+await phonePage.goto(`${origin}/`, { waitUntil: 'networkidle' });
+await phonePage.waitForSelector('#ranking-q:not([disabled])');
+const shownDimensions = () =>
+  phonePage.evaluate<number>(
+    `[...document.querySelectorAll('#ranking-tabla tbody tr:first-child .c-dim')].filter((cell) => cell.offsetParent !== null).length`,
+  );
+expectEqual('phone: dimensions folded at first', await shownDimensions(), 0);
+await phonePage.click('#ranking-tabla tbody tr:first-child .abrir');
+const opened = await shownDimensions();
+if (opened === 0) expectEqual('phone: a tap opens the dimensions', opened, '> 0');
+const pressed = await phonePage.evaluate<string | null>(
+  `document.querySelector('#ranking-tabla tbody tr:first-child .abrir').getAttribute('aria-expanded')`,
+);
+expectEqual('phone: the open state is announced', pressed, 'true');
+const overflow = await phonePage.evaluate<boolean>(`document.documentElement.scrollWidth > window.innerWidth`);
+expectEqual('phone: no horizontal scroll', overflow, false);
+// The folded rest of a list in a profile takes the width of its card (a style of the
+// home page once squeezed it into a circle).
+const folded = sample[0];
+if (folded) {
+  await phonePage.goto(`${origin}/diputados/${folded}`, { waitUntil: 'networkidle' });
+  const widths = await phonePage.evaluate<number[]>(
+    `[...document.querySelectorAll('details.mas')].map((rest) => Math.round(rest.getBoundingClientRect().width))`,
+  );
+  if (widths.length === 0) expectEqual('phone: the sample profile has a folded list', widths.length, '> 0');
+  if (widths.some((width) => width < 250))
+    expectEqual('phone: folded lists of a profile span the card', widths, '>= 250 each');
+}
+await phone.close();
 
 // Stale-data warning (specification, section 6): the browser compares the date of the
 // last run with its own clock and warns after the configured number of hours.
@@ -219,7 +354,7 @@ for (const [hours, visible] of [
   await clockPage.clock.setFixedTime(new Date(Date.parse(ejecutado) + hours * 3_600_000));
   await clockPage.goto(`${origin}/`, { waitUntil: 'networkidle' });
   await clockPage.waitForSelector('#ranking-q:not([disabled])');
-  const shown = await clockPage.evaluate<boolean>(`!document.querySelector('.controles .aviso').hidden`);
+  const shown = await clockPage.evaluate<boolean>(`!document.querySelector('.ranking-app > .aviso').hidden`);
   expectEqual(`stale-data warning ${hours} h after the last run`, shown, visible);
   await clockContext.close();
 }
@@ -236,6 +371,6 @@ await context.close();
 await browser.close();
 server.close();
 console.log(
-  `${paths.length} pages × ${VIEWPORTS.length} viewports with axe-core, ranking interactions and privacy: ${failures} problems`,
+  `${paths.length} pages × ${VIEWPORTS.length} viewports with axe-core, ranking and comparison interactions and privacy: ${failures} problems`,
 );
 process.exit(failures > 0 ? 1 : 0);

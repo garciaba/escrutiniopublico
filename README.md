@@ -8,7 +8,7 @@ Es un proyecto independiente. No tiene vinculación con el Congreso de los Diput
 
 ## Qué encontrarás en la web
 
-- **[Ranking](https://escrutiniopublico.es).** Los diputados, ordenados por un índice de actividad de 0 a 100. Se puede buscar por nombre y filtrar por grupo parlamentario, candidatura y circunscripción.
+- **[Ranking](https://escrutiniopublico.es).** Los diputados, ordenados por un índice de actividad de 0 a 100. Se puede buscar por nombre, ver quién representa a tu provincia, filtrar por grupo parlamentario y candidatura, y comparar hasta tres diputados.
 - **Ficha de cada diputado.** Su índice y su posición, cada cifra con el dato oficial detrás, la evolución mes a mes, sus cargos, sus últimas votaciones e intervenciones y las leyes de las que fue ponente.
 - **[Grupos](https://escrutiniopublico.es/grupos).** Las mismas cifras sumadas por grupo parlamentario y por candidatura electoral, sin dar una nota a ningún grupo.
 - **[Metodología](https://escrutiniopublico.es/metodologia).** Cómo se calcula el índice, con sus fórmulas, sus reglas y lo que no mide.
