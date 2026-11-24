@@ -55,13 +55,10 @@ const jsonLd = {
 <Base title="Ranking de actividad de los diputados del Congreso" description={descripcion} path="/" jsonLd={jsonLd}>
   <div class="wrap">
     <section class="portada">
-      <p class="antetitulo">
-        {legislatura.nombre} Legislatura{legislatura.finalizada ? ' · balance final' : ''}
-      </p>
       <h1 class="titular">Ranking de actividad de los diputados</h1>
       <p class="entradilla">
         Cuánto vota, interviene, pregunta y legisla cada diputado, en un índice de 0 a 100 hecho con datos oficiales del
-        Congreso.
+        Congreso. {legislatura.nombre} Legislatura{legislatura.finalizada ? ', balance final' : ''}.
       </p>
       <details class="plegable">
         <summary>Qué mide el índice</summary>

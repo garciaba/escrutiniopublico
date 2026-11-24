@@ -3160,3 +3160,881 @@ code {
   margin-top: 2.5rem;
   font-size: 0.92rem;
 }
+
+/* ==========================================================================
+ * TRIAL REDESIGN: "ink on cold stone". Not final: a layer on top of everything
+ * above, so that it can be dropped or folded in later.
+ *
+ * Direction: no hue of its own. Black ink on white and cool grey, so that the only
+ * colour on a page is the dot of each parliamentary group and no accent can be read
+ * as a party's. One typeface, Archivo, condensed and heavy for display and figures.
+ * Flat surfaces divided by hairlines instead of shadowed cards; no eyebrows, no
+ * decorative badges; three text sizes below the page title.
+ * ========================================================================== */
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  src: url('/fonts/archivo.woff2') format('woff2-variations');
+}
+
+:root {
+  --paper: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #eef0ed;
+  --rule: #d6dad5;
+  --rule-strong: #7b827c;
+  --ink: #0c0e0d;
+  --muted: #555b56;
+  --accent: #0c0e0d;
+  --accent-strong: #000000;
+  --meter: #0c0e0d;
+  --meter-soft: #7b827c;
+  --track: #e1e4df;
+  --hover: #f3f5f2;
+  --ink-suave: #2b302c;
+  --pie-fondo: #0c0e0d;
+  --pie-texto: #c6cbc5;
+  --pie-fuerte: #ffffff;
+  --font: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --radius: 0px;
+  --radius-s: 0px;
+  --shadow: none;
+  /* The only three sizes below a page title. */
+  --t-titulo: 1.375rem;
+  --t-cuerpo: 1rem;
+  --t-nota: 0.875rem;
+  --suave: cubic-bezier(0.22, 1, 0.36, 1);
+  --icono-flecha: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%230c0e0d' stroke-width='1.6' stroke-linecap='square'/%3E%3C/svg%3E");
+  --icono-lupa: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg fill='none' stroke='%230c0e0d' stroke-width='1.6' stroke-linecap='square'%3E%3Ccircle cx='7' cy='7' r='4.6'/%3E%3Cpath d='M10.6 10.6L14 14'/%3E%3C/g%3E%3C/svg%3E");
+  --icono-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg fill='none' stroke='%230c0e0d' stroke-width='1.6' stroke-linejoin='miter'%3E%3Cpath d='M8 14.5s4.5-4.1 4.5-7.7a4.5 4.5 0 0 0-9 0c0 3.6 4.5 7.7 4.5 7.7z'/%3E%3Ccircle cx='8' cy='6.8' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0c0e0d;
+    --surface: #0c0e0d;
+    --surface-2: #181b19;
+    --rule: #2b302c;
+    --rule-strong: #7b827c;
+    --ink: #f1f3f0;
+    --muted: #a5aba6;
+    --accent: #f1f3f0;
+    --accent-strong: #ffffff;
+    --meter: #f1f3f0;
+    --meter-soft: #7b827c;
+    --track: #2b302c;
+    --hover: #151816;
+    --ink-suave: #d4d8d3;
+    --pie-fondo: #181b19;
+    --pie-texto: #a5aba6;
+    --pie-fuerte: #f1f3f0;
+    --shadow: none;
+    --icono-flecha: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23f1f3f0' stroke-width='1.6' stroke-linecap='square'/%3E%3C/svg%3E");
+    --icono-lupa: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg fill='none' stroke='%23f1f3f0' stroke-width='1.6' stroke-linecap='square'%3E%3Ccircle cx='7' cy='7' r='4.6'/%3E%3Cpath d='M10.6 10.6L14 14'/%3E%3C/g%3E%3C/svg%3E");
+    --icono-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg fill='none' stroke='%23f1f3f0' stroke-width='1.6' stroke-linejoin='miter'%3E%3Cpath d='M8 14.5s4.5-4.1 4.5-7.7a4.5 4.5 0 0 0-9 0c0 3.6 4.5 7.7 4.5 7.7z'/%3E%3Ccircle cx='8' cy='6.8' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+/* ---- Type: one family, three sizes, display condensed and heavy ---- */
+
+body {
+  font-size: var(--t-cuerpo);
+  line-height: 1.5;
+}
+
+h1,
+.titular,
+.pagina-cabeza h1,
+.portada .titular,
+.titular.pequeno,
+.ficha-cabecera h1 {
+  max-width: none;
+  margin-top: 0;
+  font-size: clamp(2.6rem, 9.5vw, 5.25rem);
+  font-weight: 800;
+  font-stretch: 70%;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.ficha-cabecera h1 {
+  font-size: clamp(2.4rem, 8.5vw, 4.5rem);
+}
+
+h2,
+.bloque > h2,
+.bloque > h3,
+.seccion > h2,
+.ficha .panel > h2,
+.acordeon > summary h2,
+.prosa h2 {
+  font-size: var(--t-titulo);
+  font-weight: 750;
+  font-stretch: 88%;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h3,
+.prosa h3,
+.subseccion > h3,
+.dimension-bloque h3 {
+  font-size: var(--t-cuerpo);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.entradilla,
+.portada .entradilla {
+  max-width: 62ch;
+  margin-top: 0.9rem;
+  color: var(--ink);
+  font-size: var(--t-cuerpo);
+}
+
+.prosa,
+.acordeon-cuerpo > :where(p, ul, ol, dl, h3, pre, .formula) {
+  max-width: 65ch;
+}
+
+.prosa:has(> .acordeon) {
+  max-width: none;
+}
+
+a {
+  color: var(--ink);
+}
+
+a:hover {
+  color: var(--ink);
+}
+
+/* Eyebrows are gone: what they said goes under the title, as plain text. */
+.pagina-cabeza {
+  display: flex;
+  flex-direction: column;
+}
+
+.pagina-cabeza > * {
+  order: 2;
+}
+
+.pagina-cabeza > h1 {
+  order: 0;
+}
+
+.antetitulo {
+  order: 1;
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-size: var(--t-nota);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ---- Header and footer ---- */
+
+.cabecera {
+  border-bottom: 1px solid var(--ink);
+}
+
+.cabecera .wrap {
+  padding-block: 0.6rem;
+}
+
+.marca {
+  gap: 0.5rem;
+  font-size: 1.45rem;
+  font-weight: 800;
+  font-stretch: 75%;
+  letter-spacing: -0.02em;
+}
+
+.marca svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.marca .punto {
+  fill: var(--ink);
+}
+
+.nav a {
+  border-radius: 0;
+  font-size: var(--t-nota);
+  font-weight: 500;
+}
+
+.nav a:hover {
+  background: none;
+  text-decoration: underline;
+}
+
+.nav a[aria-current='page'] {
+  box-shadow: inset 0 -2px 0 var(--ink);
+  font-weight: 700;
+}
+
+main {
+  padding-block: clamp(1.5rem, 4vw, 2.75rem) clamp(3rem, 8vw, 5rem);
+}
+
+.pie {
+  border-top: 0;
+  background: var(--pie-fondo);
+  color: var(--pie-texto);
+  font-size: var(--t-nota);
+}
+
+.pie strong,
+.pie a {
+  color: var(--pie-fuerte);
+}
+
+.pie a:hover {
+  color: var(--pie-fuerte);
+}
+
+/* ---- Surfaces: flat, divided by hairlines ---- */
+
+.tarjeta {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.bloque {
+  padding: 1rem 0 0;
+  border-top: 2px solid var(--ink);
+}
+
+.aviso {
+  border: 0;
+  border-left: 3px solid var(--ink);
+  border-radius: 0;
+  background: var(--surface-2);
+  font-size: var(--t-nota);
+}
+
+.filtros.tarjeta {
+  padding: 1rem;
+  background: var(--surface-2);
+}
+
+.sugerencias.tarjeta,
+.glosa {
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--surface);
+  box-shadow: 6px 6px 0 rgb(12 14 13 / 12%);
+}
+
+.bandeja.tarjeta {
+  padding: 0.6rem 0.75rem;
+  border: 2px solid var(--ink);
+  background: var(--surface);
+  box-shadow: none;
+}
+
+.plegable > summary {
+  color: var(--ink);
+  font-size: var(--t-nota);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.plegable-cuerpo,
+.indice .plegable-cuerpo {
+  padding: 0.25rem 0 0.25rem 1rem;
+  border: 0;
+  border-left: 2px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+  font-size: var(--t-nota);
+}
+
+/* A label that does nothing is text, not a capsule. */
+.etiqueta,
+.etiqueta.solida,
+.etiqueta.rayada {
+  display: inline;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--muted);
+  font-size: var(--t-nota);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: inherit;
+  white-space: normal;
+  vertical-align: baseline;
+}
+
+.c-nom .etiqueta,
+.mide .etiqueta {
+  margin-left: 0;
+}
+
+.c-nom .etiqueta::before,
+.mide .etiqueta::before {
+  content: ' · ';
+}
+
+.medidor,
+.medidor.grueso,
+.percentil .medidor,
+.comparacion .principal .medidor {
+  border-radius: 0;
+}
+
+.medidor {
+  height: 3px;
+}
+
+.medidor.grueso {
+  height: 10px;
+}
+
+/* ---- Controls: square, ink borders, one connected switch per choice ---- */
+
+input[type='search'],
+select {
+  border: 1px solid var(--ink);
+  border-radius: 0;
+}
+
+.boton,
+.chip,
+.comparar,
+.numero {
+  border-radius: 0;
+}
+
+.boton,
+.chip,
+.comparar {
+  border-color: var(--ink);
+}
+
+.boton {
+  font-size: var(--t-nota);
+  font-weight: 600;
+}
+
+.chip,
+.comparar {
+  font-size: var(--t-nota);
+}
+
+.chip [aria-hidden='true'] {
+  color: var(--ink);
+  font-size: 0.8125rem;
+}
+
+.chip.todo {
+  border-style: solid;
+  border-color: transparent;
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.comparar:disabled,
+.boton:disabled {
+  border-color: var(--rule-strong);
+}
+
+.cuenta {
+  border-radius: 0;
+}
+
+.campo > label,
+.campo > legend,
+.segmento > legend {
+  color: var(--ink);
+  font-size: var(--t-nota);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+/* The choices of a switch touch each other: one control, not a row of buttons. */
+.segmento-opciones {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 1px;
+  background: var(--ink);
+}
+
+.segmento label {
+  flex: 1 1 auto;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: 0.35rem 0.9rem;
+  border: 0;
+  border-radius: 0;
+  background: var(--paper);
+  font-size: var(--t-nota);
+}
+
+.segmento label:has(input:checked) {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.segmento label:has(input:disabled) {
+  background: var(--surface-2);
+  color: var(--muted);
+}
+
+.segmento-nota,
+.recuento,
+.paginas-estado,
+.ranking-pie,
+.grupos-pie {
+  font-size: var(--t-nota);
+}
+
+.numero[aria-current='page'] {
+  border-color: var(--ink);
+}
+
+/* ---- Ranking: a ledger, not a stack of cards ---- */
+
+.portada .plegable {
+  margin-top: 0.25rem;
+}
+
+.lista.tarjeta {
+  border-top: 2px solid var(--ink);
+}
+
+.tabla {
+  font-size: var(--t-cuerpo);
+}
+
+.tabla thead th {
+  background: transparent;
+  border-bottom: 1px solid var(--ink);
+  color: var(--ink);
+  font-size: var(--t-nota);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.tabla th,
+.tabla td {
+  border-bottom-color: var(--rule);
+}
+
+.c-pos {
+  color: var(--ink);
+  font-size: var(--t-titulo);
+  font-weight: 800;
+  font-stretch: 70%;
+}
+
+.c-nom .meta {
+  font-size: var(--t-nota);
+}
+
+.c-ind .valor {
+  font-size: var(--t-titulo);
+  font-weight: 800;
+  font-stretch: 75%;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 54rem) {
+  .tabla tbody tr {
+    margin-bottom: 0;
+    padding: 0.75rem 0;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .tabla tbody tr:hover {
+    background: transparent;
+  }
+
+  .tabla tbody .c-pos {
+    font-size: var(--t-titulo);
+  }
+
+  .c-ind .valor {
+    font-size: 1.75rem;
+  }
+
+  .tabla tbody .abierta .c-dim,
+  .ver-ficha {
+    font-size: var(--t-nota);
+  }
+
+  .completa .tabla tbody tr {
+    padding-right: 0;
+  }
+}
+
+/* ---- Profile ---- */
+
+.avatar {
+  border: 0;
+  border-radius: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 800;
+  font-stretch: 70%;
+}
+
+.ficha-grupo {
+  font-size: var(--t-cuerpo);
+}
+
+.ficha-datos,
+.ficha-extra,
+.miga {
+  font-size: var(--t-nota);
+}
+
+.ficha-resumen {
+  color: var(--ink);
+  font-size: var(--t-cuerpo);
+}
+
+.pestanas {
+  border-bottom: 1px solid var(--ink);
+}
+
+.pestanas a {
+  font-size: var(--t-nota);
+}
+
+.pestanas a[aria-selected='true'] {
+  box-shadow: inset 0 -3px 0 var(--ink);
+}
+
+.indice-cifra .valor {
+  font-size: clamp(5rem, 22vw, 8.5rem);
+  font-weight: 800;
+  font-stretch: 66%;
+  letter-spacing: -0.04em;
+  line-height: 0.82;
+}
+
+.indice-cifra .de,
+.indice-posicion {
+  font-size: var(--t-cuerpo);
+}
+
+.indice-fuera {
+  font-size: var(--t-titulo);
+}
+
+.indice-nota {
+  font-size: var(--t-nota);
+}
+
+.dimension-cabeza .valor,
+.grupo-dimension > h3 .valor,
+.m-percentil .cifra {
+  font-size: var(--t-titulo);
+  font-weight: 800;
+  font-stretch: 75%;
+}
+
+.grupo-dimension.tarjeta {
+  border-top: 2px solid var(--ink);
+}
+
+.grupo-dimension > h3 {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--rule);
+  background: transparent;
+  color: var(--ink);
+  font-size: var(--t-cuerpo);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.linea > summary,
+.linea-cuerpo {
+  padding-inline: 0;
+}
+
+.linea > summary:hover {
+  background: var(--hover);
+}
+
+.leyenda-metricas {
+  padding: 0 1.8rem 0 0;
+  color: var(--muted);
+  font-size: var(--t-nota);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.m-bruto,
+.m-secundario,
+.percentil,
+.linea-pie,
+.motivos,
+.evolucion figcaption,
+.chispa-lectura {
+  font-size: var(--t-nota);
+}
+
+.chispa rect {
+  fill: var(--meter-soft);
+}
+
+.linea.sin-dato {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  border-radius: 0;
+}
+
+.linea.sin-dato > summary {
+  padding-inline: 0;
+}
+
+.ficha .panel > .tarjeta,
+.subseccion > .tarjeta {
+  border-top: 2px solid var(--ink);
+}
+
+.lista-tabla {
+  margin-top: 0;
+  font-size: var(--t-cuerpo);
+}
+
+.lista-tabla thead th {
+  background: transparent;
+  border-bottom: 1px solid var(--ink);
+  color: var(--ink);
+  font-size: var(--t-nota);
+  letter-spacing: 0;
+}
+
+.lista-tabla .secundario,
+.lista-tabla .enlaces {
+  font-size: var(--t-nota);
+}
+
+details.mas > summary {
+  color: var(--ink);
+  font-size: var(--t-nota);
+  text-decoration: underline;
+}
+
+/* A vote is a word, not a pill. */
+.voto,
+.voto.si,
+.voto.no,
+.voto.abstencion,
+.voto.no_vota {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--ink);
+  font-size: var(--t-cuerpo);
+  font-weight: 700;
+}
+
+.voto.abstencion,
+.voto.no_vota {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ---- Groups, comparison and text pages ---- */
+
+.dist.tarjeta {
+  padding-inline: 0;
+  border-top: 2px solid var(--ink);
+}
+
+.raya {
+  stroke: var(--ink);
+  stroke-opacity: 0.4;
+}
+
+.dist-fila.camara .raya {
+  stroke: var(--muted);
+}
+
+.dist-clave,
+.dist-eje,
+.dist-lectura,
+.dist-nombre .cuantos,
+.panel-resumen,
+.comp-unidad {
+  font-size: var(--t-nota);
+}
+
+.dist-mediana {
+  font-size: var(--t-titulo);
+  font-weight: 800;
+  font-stretch: 75%;
+}
+
+.metrica.tarjeta {
+  padding: 1rem 0 0;
+  border-top: 2px solid var(--ink);
+}
+
+.metrica h3 {
+  font-size: var(--t-titulo);
+  font-weight: 750;
+  font-stretch: 88%;
+}
+
+.metrica .dim,
+.metrica-pie {
+  font-size: var(--t-nota);
+}
+
+.metrica.contexto {
+  background: transparent;
+}
+
+.comparacion-marco {
+  border-top: 2px solid var(--ink);
+}
+
+.comparacion thead th,
+.comparacion thead td {
+  background: transparent;
+  border-bottom: 1px solid var(--ink);
+}
+
+.comparacion .principal .valor {
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-stretch: 70%;
+}
+
+.comparar-vacio {
+  border: 1px dashed var(--rule-strong);
+}
+
+.prosa > .acordeon {
+  border-bottom-color: var(--rule);
+}
+
+.pagina-cabeza + .prosa > .acordeon:first-child {
+  border-top: 2px solid var(--ink);
+}
+
+.acordeon > summary::after,
+.plegable > summary::after {
+  border-color: var(--ink);
+}
+
+.formula {
+  border: 0;
+  border-left: 3px solid var(--ink);
+  border-radius: 0;
+  background: var(--surface-2);
+}
+
+.sin-metricas {
+  border: 0;
+  background: var(--surface-2);
+}
+
+.termino {
+  text-decoration-color: var(--ink);
+}
+
+/* ---- Motion: brisk, named properties only ---- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .boton,
+  .chip,
+  .comparar,
+  .numero,
+  .segmento label,
+  .nav a,
+  .linea > summary,
+  .tabla tbody tr,
+  .sugerencias a,
+  .sugerencias button {
+    transition:
+      background-color 160ms var(--suave),
+      color 160ms var(--suave),
+      border-color 160ms var(--suave);
+  }
+
+  .acordeon > summary::after,
+  .plegable > summary::after,
+  .linea > summary::after,
+  .abrir svg {
+    transition: transform 200ms var(--suave);
+  }
+}
+
+/* Trial redesign, second pass: the sizes that were still off the three-step scale. */
+
+.comparacion th,
+.comparacion td,
+.comparacion th a,
+.comparacion td .valor,
+.comp-tabla,
+.comp-tabla th,
+.comp-tabla td,
+.seccion > .nota {
+  font-size: var(--t-cuerpo);
+}
+
+.comparacion tbody th,
+.comparacion th .meta,
+.completa .c-gru,
+.completa .c-cir,
+.grupos-pie code {
+  font-size: var(--t-nota);
+}
+
+.comparacion .principal td .valor {
+  font-size: 2.5rem;
+}
+
+/* Ten of these stand in a column: a quiet outline until one is chosen. */
+.comparar {
+  border-color: var(--rule-strong);
+}
+
+.comparar:hover:not(:disabled),
+.comparar[aria-pressed='true'] {
+  border-color: var(--ink);
+}
+
+/* On a wide screen the tab rule ends where the text does. */
+@media (min-width: 54rem) {
+  .pestanas {
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .pestanas a {
+    padding-inline: 0;
+  }
+
+  .pestanas ul {
+    gap: 1.6rem;
+  }
+}
