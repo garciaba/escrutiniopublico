@@ -271,7 +271,7 @@ export function RankingApp({ data, ejecutado, horasAviso, legislaturaFinalizada 
         </span>
       </div>
 
-      <div class="barra" role="search" aria-label="Buscar y filtrar el ranking">
+      <div class="herramientas" role="search" aria-label="Buscar y filtrar el ranking">
         <div class="barra-buscar">
           <label class="sr" for="ranking-q">
             Buscar diputado
