@@ -34,199 +34,219 @@ const commits = commitsDeDatos(15);
     </header>
 
     <div class="prosa">
-      <h2 id="metodologia">Versiones de la metodología</h2>
-      {
-        scoring.historial.map((version) => (
-          <section>
-            <h3>
-              Versión {version.version} <span class="muted">· {fechaLarga(version.fecha)}</span>
-            </h3>
-            <ul>
-              {version.cambios.map((cambio) => (
-                <li>{cambio}</li>
-              ))}
-            </ul>
-          </section>
-        ))
-      }
-
-      <h2 id="datos">Cambios en los datos</h2>
-      <p>
-        Última ejecución: <time datetime={meta.ejecutado}>{fechaLarga(meta.ejecutado)}</time>. El historial completo, cambio
-        a cambio, es el de los ficheros de <a href={`${site.repositoryUrl}/commits/${site.dataBranch}/data`} rel="noopener"
-          >datos del repositorio</a
-        >.
-      </p>
-      <dl class="definiciones">
-        {
-          registro
-            .filter((entrada) => entrada.tipo !== 'rectificacion')
-            .map((entrada) => (
-              <div>
-                <dt>
-                  <time datetime={entrada.fecha}>{fechaLarga(entrada.fecha)}</time>{' '}
-                  <span class="etiqueta">{tipos[entrada.tipo]}</span>
-                </dt>
-                <dd>{entrada.texto}</dd>
-              </div>
+      <details class="acordeon" id="metodologia">
+        <summary><h2>Versiones de la metodología</h2></summary>
+        <div class="acordeon-cuerpo">
+          {
+            scoring.historial.map((version) => (
+              <section>
+                <h3>
+                  Versión {version.version} <span class="muted">· {fechaLarga(version.fecha)}</span>
+                </h3>
+                <ul>
+                  {version.cambios.map((cambio) => (
+                    <li>{cambio}</li>
+                  ))}
+                </ul>
+              </section>
             ))
-        }
-      </dl>
+          }
 
-      <h3>Últimas actualizaciones de las tablas</h3>
-      {
-        commits.length === 0 ? (
-          <p class="muted">El historial no está disponible en esta compilación.</p>
-        ) : (
-          <>
-            <p class="muted">
-              Cada actualización enlaza a sus cambios fila a fila en el repositorio. El resumen lo escribe la ejecución
-              diaria, en inglés.
-            </p>
-            <ul class="commits">
-              {commits.map((commit) => (
-                <li>
-                  <time datetime={commit.fecha}>{fechaCorta(commit.fecha)}</time>{' '}
-                  <a href={`${site.repositoryUrl}/commit/${commit.sha}`} rel="noopener">
-                    <span lang="en">{commit.asunto}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </>
-        )
-      }
-
-      <h2 id="rectificaciones">Rectificaciones</h2>
-      {
-        rectificaciones.length === 0 ? (
+        </div>
+      </details>
+      <details class="acordeon" id="datos" open>
+        <summary><h2>Cambios en los datos</h2></summary>
+        <div class="acordeon-cuerpo">
           <p>
-            No se ha aceptado ninguna rectificación hasta ahora. La vía para pedir una está en <a href="/acerca#rectificaciones"
-              >Acerca</a
+            Última ejecución: <time datetime={meta.ejecutado}>{fechaLarga(meta.ejecutado)}</time>. El historial completo, cambio
+            a cambio, es el de los ficheros de <a href={`${site.repositoryUrl}/commits/${site.dataBranch}/data`} rel="noopener"
+              >datos del repositorio</a
             >.
           </p>
-        ) : (
           <dl class="definiciones">
-            {rectificaciones.map((entrada) => (
-              <div>
-                <dt>
-                  <time datetime={entrada.fecha}>{fechaLarga(entrada.fecha)}</time>
-                </dt>
-                <dd>{entrada.texto}</dd>
-              </div>
-            ))}
+            {
+              registro
+                .filter((entrada) => entrada.tipo !== 'rectificacion')
+                .map((entrada) => (
+                  <div>
+                    <dt>
+                      <time datetime={entrada.fecha}>{fechaLarga(entrada.fecha)}</time>{' '}
+                      <span class="etiqueta">{tipos[entrada.tipo]}</span>
+                    </dt>
+                    <dd>{entrada.texto}</dd>
+                  </div>
+                ))
+            }
           </dl>
-        )
-      }
 
-      <h2 id="incidencias">Incidencias de las fuentes</h2>
-      {
-        meta.incidencias.length === 0 ? (
-          <p>Ninguna incidencia abierta.</p>
-        ) : (
-          <ul>
-            {meta.incidencias.map((incidencia) => (
-              <li>
-                El buscador de iniciativas del Congreso no sirve {num(incidencia.faltan)} de las {num(incidencia.total_oficial)}{' '}
-                {tiposIniciativa[incidencia.tipo] ?? `iniciativas del tipo ${incidencia.tipo}`}: responde con un error.
-                Afecta como máximo a {num(incidencia.consultas_fallidas.length)}{' '}
-                {plural(incidencia.consultas_fallidas.length, 'diputado', 'diputados')}, que pueden tener una pregunta menos
-                de las que constan en la web del Congreso.
-              </li>
-            ))}
-          </ul>
-        )
-      }
+          <h3>Últimas actualizaciones de las tablas</h3>
+          {
+            commits.length === 0 ? (
+              <p class="muted">El historial no está disponible en esta compilación.</p>
+            ) : (
+              <>
+                <p class="muted">
+                  Cada actualización enlaza a sus cambios fila a fila en el repositorio. El resumen lo escribe la ejecución
+                  diaria, en inglés.
+                </p>
+                <ul class="commits">
+                  {commits.map((commit) => (
+                    <li>
+                      <time datetime={commit.fecha}>{fechaCorta(commit.fecha)}</time>{' '}
+                      <a href={`${site.repositoryUrl}/commit/${commit.sha}`} rel="noopener">
+                        <span lang="en">{commit.asunto}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )
+          }
+
+        </div>
+      </details>
+      <details class="acordeon" id="rectificaciones">
+        <summary><h2>Rectificaciones</h2></summary>
+        <div class="acordeon-cuerpo">
+          {
+            rectificaciones.length === 0 ? (
+              <p>
+                No se ha aceptado ninguna rectificación hasta ahora. La vía para pedir una está en <a href="/acerca#rectificaciones"
+                  >Acerca</a
+                >.
+              </p>
+            ) : (
+              <dl class="definiciones">
+                {rectificaciones.map((entrada) => (
+                  <div>
+                    <dt>
+                      <time datetime={entrada.fecha}>{fechaLarga(entrada.fecha)}</time>
+                    </dt>
+                    <dd>{entrada.texto}</dd>
+                  </div>
+                ))}
+              </dl>
+            )
+          }
+
+        </div>
+      </details>
+      <details class="acordeon" id="incidencias">
+        <summary><h2>Incidencias de las fuentes</h2></summary>
+        <div class="acordeon-cuerpo">
+          {
+            meta.incidencias.length === 0 ? (
+              <p>Ninguna incidencia abierta.</p>
+            ) : (
+              <ul>
+                {meta.incidencias.map((incidencia) => (
+                  <li>
+                    El buscador de iniciativas del Congreso no sirve {num(incidencia.faltan)} de las {num(incidencia.total_oficial)}{' '}
+                    {tiposIniciativa[incidencia.tipo] ?? `iniciativas del tipo ${incidencia.tipo}`}: responde con un error.
+                    Afecta como máximo a {num(incidencia.consultas_fallidas.length)}{' '}
+                    {plural(incidencia.consultas_fallidas.length, 'diputado', 'diputados')}, que pueden tener una pregunta menos
+                    de las que constan en la web del Congreso.
+                  </li>
+                ))}
+              </ul>
+            )
+          }
+        </div>
+      </details>
     </div>
 
     <div class="prosa ancho">
-      <h2 id="correcciones">Correcciones manuales</h2>
-      <p class="muted">
-        Los ficheros oficiales nunca se editan. Cuando un nombre o un cargo no casa con el censo de diputados, la
-        equivalencia se revisa a mano y se anota aquí con su motivo.
-      </p>
+      <details class="acordeon" id="correcciones">
+        <summary><h2>Correcciones manuales</h2></summary>
+        <div class="acordeon-cuerpo">
+          <p class="muted">
+            Los ficheros oficiales nunca se editan. Cuando un nombre o un cargo no casa con el censo de diputados, la
+            equivalencia se revisa a mano y se anota aquí con su motivo.
+          </p>
 
-      <h3>Nombres escritos de otra forma</h3>
-      <div class="tarjeta desborde">
-        <table class="lista-tabla apilable">
-          <thead>
-            <tr>
-              <th scope="col">En el fichero oficial</th>
-              <th scope="col">Diputado del censo</th>
-              <th scope="col">Motivo</th>
-              <th scope="col">Fecha</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              nameAliases.map((alias) => (
+          <h3>Nombres escritos de otra forma</h3>
+          <div class="tarjeta desborde">
+            <table class="lista-tabla apilable">
+              <thead>
                 <tr>
-                  <th scope="row">{alias.variant}</th>
-                  <td data-label="Censo">{alias.canonical}</td>
-                  <td>{alias.reason}</td>
-                  <td class="fecha">{fechaLarga(alias.added)}</td>
+                  <th scope="col">En el fichero oficial</th>
+                  <th scope="col">Diputado del censo</th>
+                  <th scope="col">Motivo</th>
+                  <th scope="col">Fecha</th>
                 </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
+              </thead>
+              <tbody>
+                {
+                  nameAliases.map((alias) => (
+                    <tr>
+                      <th scope="row">{alias.variant}</th>
+                      <td data-label="Censo">{alias.canonical}</td>
+                      <td>{alias.reason}</td>
+                      <td class="fecha">{fechaLarga(alias.added)}</td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
 
-      <h3>Personas que los ficheros rotulan como diputados y no lo son</h3>
-      <div class="tarjeta desborde">
-        <table class="lista-tabla apilable">
-          <thead>
-            <tr>
-              <th scope="col">Nombre en el fichero</th>
-              <th scope="col">Motivo de la exclusión</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              notDeputies.map((persona) => (
+          <h3>Personas que los ficheros rotulan como diputados y no lo son</h3>
+          <div class="tarjeta desborde">
+            <table class="lista-tabla apilable">
+              <thead>
                 <tr>
-                  <th scope="row">{persona.name}</th>
-                  <td>{persona.reason}</td>
+                  <th scope="col">Nombre en el fichero</th>
+                  <th scope="col">Motivo de la exclusión</th>
                 </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
+              </thead>
+              <tbody>
+                {
+                  notDeputies.map((persona) => (
+                    <tr>
+                      <th scope="row">{persona.name}</th>
+                      <td>{persona.reason}</td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
 
-      <h3>Miembros del Gobierno</h3>
-      <p class="muted">
-        Los datos del Congreso no dicen quién es miembro del Gobierno ni desde cuándo. Las fechas salen de los reales
-        decretos de nombramiento y cese publicados en el BOE.
-      </p>
-      <div class="tarjeta desborde">
-        <table class="lista-tabla apilable">
-          <thead>
-            <tr>
-              <th scope="col">Diputado</th>
-              <th scope="col">Cargo</th>
-              <th scope="col">Fechas</th>
-              <th scope="col">Fuente</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              governmentMembers.map((miembro) => (
+          <h3>Miembros del Gobierno</h3>
+          <p class="muted">
+            Los datos del Congreso no dicen quién es miembro del Gobierno ni desde cuándo. Las fechas salen de los reales
+            decretos de nombramiento y cese publicados en el BOE.
+          </p>
+          <div class="tarjeta desborde">
+            <table class="lista-tabla apilable">
+              <thead>
                 <tr>
-                  <th scope="row">{nombreNatural(miembro.name)}</th>
-                  <td>{miembro.posts}</td>
-                  <td class="fecha" data-label="Fechas">
-                    {miembro.inOfficeBeforeLegislature ? 'Antes de la legislatura' : fechaLarga(miembro.from)} – {
-                      miembro.until ? fechaLarga(miembro.until) : 'fin de la legislatura'
-                    }
-                  </td>
-                  <td>{miembro.evidence.join('; ')}</td>
+                  <th scope="col">Diputado</th>
+                  <th scope="col">Cargo</th>
+                  <th scope="col">Fechas</th>
+                  <th scope="col">Fuente</th>
                 </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
+              </thead>
+              <tbody>
+                {
+                  governmentMembers.map((miembro) => (
+                    <tr>
+                      <th scope="row">{nombreNatural(miembro.name)}</th>
+                      <td>{miembro.posts}</td>
+                      <td class="fecha" data-label="Fechas">
+                        {miembro.inOfficeBeforeLegislature ? 'Antes de la legislatura' : fechaLarga(miembro.from)} – {
+                          miembro.until ? fechaLarga(miembro.until) : 'fin de la legislatura'
+                        }
+                      </td>
+                      <td>{miembro.evidence.join('; ')}</td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
     </div>
   </div>
 </Base>

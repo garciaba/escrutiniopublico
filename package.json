@@ -22,6 +22,7 @@
     "web:preview": "node web/scripts/serve.ts",
     "web:audit": "node web/scripts/audit.ts",
     "web:check": "node web/scripts/browser-check.ts",
+    "web:compare": "node web/scripts/compare.ts",
     "sanity": "node pipeline/sanity/run-sanity.ts",
     "test:coverage": "vitest run --coverage"
   },

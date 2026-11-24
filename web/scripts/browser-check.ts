@@ -6,6 +6,8 @@
  *     a row on a phone and the state in the URL; and the comparison it leads to;
  *   - a profile: tabs, period switch, a metric and its chart, the folded rest of a list,
  *     and the same page without JavaScript;
+ *   - the rest of the site: the search box of the header, the glossary, the folded
+ *     sections and their anchors, the groups page, and the dark theme;
  *   - privacy and security: no cookies, no storage, no other origins, no CSP violations.
  *
  *   pnpm web:build && pnpm web:check
@@ -106,6 +108,10 @@ const origin = `http://127.0.0.1:${typeof address === 'object' && address ? addr
 const browser = await chromium.launch();
 let failures = 0;
 
+/** Shows every tab and opens every folded block, so that axe sees the whole page. */
+const OPEN_EVERYTHING = `document.querySelectorAll('.panel').forEach((panel) => (panel.hidden = false));
+  document.querySelectorAll('details').forEach((details) => (details.open = true));`;
+
 async function check(page: Page, label: string): Promise<void> {
   await page.addScriptTag({ path: require.resolve('axe-core/axe.min.js') });
   const violations = await page.evaluate<AxeViolation[]>(
@@ -124,12 +130,9 @@ for (const viewport of VIEWPORTS) {
     const page = await browser.newPage({ viewport, bypassCSP: true });
     await page.goto(`${origin}${path}`, { waitUntil: 'networkidle' });
     await check(page, `${viewport.name} ${path}`);
-    if (path.startsWith('/diputados/')) {
-      // A profile shows one tab at a time: check it again with everything open.
-      await page.evaluate(
-        `document.querySelectorAll('.panel').forEach((panel) => (panel.hidden = false));
-         document.querySelectorAll('details').forEach((details) => (details.open = true));`,
-      );
+    if (path !== '/') {
+      // Tabs and folded sections hide most of a page: check it again with everything open.
+      await page.evaluate(OPEN_EVERYTHING);
       await check(page, `${viewport.name} ${path} (every section open)`);
     }
     if (path === '/') {
@@ -144,6 +147,15 @@ for (const viewport of VIEWPORTS) {
     }
     await page.close();
   }
+}
+
+// The dark theme follows the system setting: same pages, same rules, other colours.
+for (const path of ['/', '/grupos', '/metodologia', ...sample.slice(0, 1).map((slug) => `/diputados/${slug}`)]) {
+  const page = await browser.newPage({ viewport: VIEWPORTS[1], bypassCSP: true, colorScheme: 'dark' });
+  await page.goto(`${origin}${path}`, { waitUntil: 'networkidle' });
+  await page.evaluate(OPEN_EVERYTHING);
+  await check(page, `dark ${path}`);
+  await page.close();
 }
 
 // Ranking table, with the Content-Security-Policy of _headers in force.
@@ -461,6 +473,95 @@ expectEqual('profile without JavaScript: every section is on the page', sections
 ]);
 await plain.close();
 
+// The rest of the site. The header offers a search box everywhere but on the home page.
+await page.goto(`${origin}/metodologia`, { waitUntil: 'networkidle' });
+await page.waitForSelector('#buscador-q');
+await page.fill('#buscador-q', 'garcia');
+await page.waitForSelector('#buscador-lista a');
+const found = await page.evaluate<{ links: string[]; names: string[] }>(
+  `({
+    links: [...document.querySelectorAll('#buscador-lista a')].map((link) => link.getAttribute('href')),
+    names: [...document.querySelectorAll('#buscador-lista .nombre')].map((name) => name.textContent),
+  })`,
+);
+if (found.links.length === 0 || found.links.length > 6 || found.links.some((link) => !link.startsWith('/diputados/'))) {
+  expectEqual('header search: up to six links to profiles', found.links, 'profiles');
+}
+if (found.names.some((name) => !/garc[ií]a/i.test(name))) {
+  expectEqual('header search: every suggestion matches', found.names, 'names with «garcía»');
+}
+await page.keyboard.press('Enter');
+await page.waitForSelector('.ficha');
+const landed = await page.evaluate<string>('location.pathname');
+expectEqual('header search: Enter opens the first suggestion', landed, found.links[0]);
+await page.goto(`${origin}/`, { waitUntil: 'networkidle' });
+const onHome = await page.evaluate<number>(`document.querySelectorAll('[data-buscador], #buscador-q').length`);
+expectEqual('header search: not on the home page, which is itself a search', onHome, 0);
+
+// A term of the glossary opens its definition.
+await page.goto(`${origin}/diputados/${profile}#actividad`, { waitUntil: 'networkidle' });
+await page.waitForSelector('.ficha.con-pestanas');
+await page.click('.leyenda-metricas .termino');
+const defined = await page.evaluate<boolean>(`document.getElementById('glosa-percentil').matches(':popover-open')`);
+expectEqual('glossary: a term opens its definition', defined, true);
+await page.keyboard.press('Escape');
+
+// Text pages: one section open, the rest folded; a link to an anchor opens its section.
+await page.goto(`${origin}/metodologia`, { waitUntil: 'networkidle' });
+const sectionsOpen = await page.evaluate<{ open: string[]; total: number; loose: number }>(
+  `({
+    open: [...document.querySelectorAll('details.acordeon[open]')].map((section) => section.id),
+    total: document.querySelectorAll('details.acordeon').length,
+    loose: [...document.querySelectorAll('.prosa > *')].filter((block) => !block.matches('details.acordeon')).length,
+  })`,
+);
+expectEqual('methodology: only the summary is open', sectionsOpen.open, ['resumen']);
+if (sectionsOpen.total < 8) expectEqual('methodology: its sections fold', sectionsOpen.total, '>= 8');
+expectEqual('methodology: nothing is left outside the sections', sectionsOpen.loose, 0);
+for (const [anchor, section] of [
+  ['agregados', 'agregados'],
+  ['dimension-debates', 'dimensiones'],
+] as const) {
+  await page.goto(`${origin}/metodologia#${anchor}`, { waitUntil: 'networkidle' });
+  const opened = await page.evaluate<boolean>(`document.getElementById('${section}').open`);
+  expectEqual(`methodology: a link to #${anchor} opens its section`, opened, true);
+}
+
+// Groups: one metric at a time, and a strip names the deputy under the pointer.
+await page.goto(`${origin}/grupos`, { waitUntil: 'networkidle' });
+const cardsShown = () =>
+  page.evaluate<string[]>(
+    `[...document.querySelectorAll('.vista-periodos .panel:nth-of-type(1) .metricas > .metrica')].filter((card) => card.offsetParent !== null).map((card) => card.querySelector('h3').textContent)`,
+  );
+const firstCard = await cardsShown();
+expectEqual('groups: one metric card at a time', firstCard.length, 1);
+await page.check('.vista-periodos .panel:nth-of-type(1) .metricas-vista label:nth-of-type(3) input');
+const thirdCard = await cardsShown();
+expectEqual('groups: the switch still shows one card', thirdCard.length, 1);
+if (thirdCard[0] === firstCard[0]) expectEqual('groups: the switch changes the card', thirdCard[0], 'another metric');
+const stillPeriod = await page.evaluate<number>(
+  `[...document.querySelectorAll('.vista-periodos > .panel')].filter((panel) => panel.offsetParent !== null).length`,
+);
+expectEqual('groups: choosing a metric does not hide the period', stillPeriod, 1);
+const strip = await page.evaluate<{ x: number; y: number; width: number; height: number }>(
+  `(() => {
+    const svg = document.querySelector('.vista-periodos .panel:nth-of-type(1) .dist-fila:nth-child(2) svg.dist-franja');
+    svg.scrollIntoView({ block: 'center' });
+    const box = svg.getBoundingClientRect();
+    return { x: box.x, y: box.y, width: box.width, height: box.height };
+  })()`,
+);
+await page.mouse.move(strip.x + strip.width * 0.5, strip.y + strip.height / 2);
+const named = await page.evaluate<{ href: string; lit: number }>(
+  `({
+    href: document.querySelector('.vista-periodos .panel:nth-of-type(1) .dist-lectura a')?.getAttribute('href') ?? '',
+    lit: document.querySelectorAll('.vista-periodos .panel:nth-of-type(1) .raya.activa').length,
+  })`,
+);
+if (!named.href.startsWith('/diputados/'))
+  expectEqual('groups: a strip links to the deputy under the pointer', named.href, 'a profile');
+expectEqual('groups: one tick is highlighted', named.lit, 1);
+
 // Stale-data warning (specification, section 6): the browser compares the date of the
 // last run with its own clock and warns after the configured number of hours.
 const { ejecutado } = JSON.parse(readFileSync(join(process.cwd(), 'data', 'derived', 'meta.json'), 'utf-8')) as {
@@ -492,6 +593,6 @@ await context.close();
 await browser.close();
 server.close();
 console.log(
-  `${paths.length} pages × ${VIEWPORTS.length} viewports with axe-core, ranking, comparison and profile interactions and privacy: ${failures} problems`,
+  `${paths.length} pages × ${VIEWPORTS.length} viewports with axe-core (light and dark), interactions on every kind of page and privacy: ${failures} problems`,
 );
 process.exit(failures > 0 ? 1 : 0);

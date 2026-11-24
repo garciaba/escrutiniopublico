@@ -31,7 +31,7 @@ import {
   sentidoVoto,
 } from '../lib/format.ts';
 import { sparkBars } from '../lib/sparkline.ts';
-import { Medidor, PuntoGrupo } from './parts.tsx';
+import { Medidor, PuntoGrupo, Termino } from './parts.tsx';
 
 const ORDEN_PERIODOS = scoring.periodos.map((periodo) => periodo.id);
 const ESTADO_ETIQUETA = {
@@ -161,8 +161,8 @@ function Indice({ ficha, id, periodo }: { ficha: Ficha; id: string; periodo: Fic
         <div class="plegable-cuerpo">
           {periodo.cobertura != null ? (
             <p>
-              Cobertura del {porcentaje(periodo.cobertura, 0)}: se calcula con {conDato} de las {dimensiones.length}{' '}
-              dimensiones. Las que no tienen fuente oficial no cuentan como cero.
+              <Termino id="cobertura">Cobertura</Termino> del {porcentaje(periodo.cobertura, 0)}: se calcula con{' '}
+              {conDato} de las {dimensiones.length} dimensiones. Las que no tienen fuente oficial no cuentan como cero.
             </p>
           ) : null}
           {enRanking && periodo.indice == null ? (
@@ -742,9 +742,9 @@ export function FichaDiputado({ ficha }: { ficha: Ficha }) {
             </p>
           </div>
         </details>
-        <p class="leyenda-metricas" aria-hidden="true">
+        <p class="leyenda-metricas">
           <span>Dato oficial</span>
-          <span>Percentil</span>
+          <Termino id="percentil">Percentil</Termino>
         </p>
         {disponibles.map(({ clase, periodo }) => (
           <div class={`${clase} actividad`}>

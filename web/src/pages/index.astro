@@ -2,6 +2,7 @@
 import { groups } from '../../../config/parties.ts';
 import { scoring } from '../../../config/scoring.ts';
 import { site } from '../../../config/site.ts';
+import { Termino } from '../components/parts.tsx';
 import { RankingApp } from '../components/RankingTable.tsx';
 import Base from '../layouts/Base.astro';
 import { loadMeta, loadRanking } from '../lib/data.ts';
@@ -52,7 +53,7 @@ const conDato = data.dimensiones.length;
             }
           </ul>
           <p>
-            Cubre el {porcentaje(periodo?.cobertura ?? 0, 0)}: {conDato} de las {ranking.dimensiones.length} dimensiones
+            <Termino id="cobertura">Cobertura</Termino> del {porcentaje(periodo?.cobertura ?? 0, 0)}: {conDato} de las {ranking.dimensiones.length} dimensiones
             tienen fuente oficial, y la que falta no cuenta como cero. Mide cantidad, no calidad.
             <a href="/metodologia">Metodología</a>
           </p>

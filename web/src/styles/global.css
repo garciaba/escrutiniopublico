@@ -24,7 +24,39 @@
   --width: 74rem;
   --gutter: clamp(1rem, 4vw, 2rem);
   --shadow: 0 1px 2px rgb(27 27 24 / 4%), 0 8px 24px -12px rgb(27 27 24 / 12%);
-  color-scheme: light;
+  --hover: #faf8f2;
+  --ink-suave: #33332e;
+  --icono-flecha: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%235e5b52' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --icono-lupa: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg fill='none' stroke='%235e5b52' stroke-width='1.6' stroke-linecap='round'%3E%3Ccircle cx='7' cy='7' r='4.6'/%3E%3Cpath d='M10.6 10.6L14 14'/%3E%3C/g%3E%3C/svg%3E");
+  --icono-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg fill='none' stroke='%235e5b52' stroke-width='1.6' stroke-linejoin='round'%3E%3Cpath d='M8 14.5s4.5-4.1 4.5-7.7a4.5 4.5 0 0 0-9 0c0 3.6 4.5 7.7 4.5 7.7z'/%3E%3Ccircle cx='8' cy='6.8' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+  color-scheme: light dark;
+}
+
+/*
+ * Dark theme: follows the system setting. There is no switch on the page because a
+ * switch would have to be remembered, and the site stores nothing in the browser.
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #151410;
+    --surface: #1d1c17;
+    --surface-2: #26241d;
+    --rule: #35322a;
+    --rule-strong: #57534a;
+    --ink: #f1eee5;
+    --muted: #aaa698;
+    --accent: #dcb75e;
+    --accent-strong: #ecd08a;
+    --meter: #cfa84f;
+    --meter-soft: #8c7743;
+    --track: #33302a;
+    --shadow: 0 1px 2px rgb(0 0 0 / 30%);
+    --hover: #24221c;
+    --ink-suave: #d9d5ca;
+    --icono-flecha: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23aaa698' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    --icono-lupa: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg fill='none' stroke='%23aaa698' stroke-width='1.6' stroke-linecap='round'%3E%3Ccircle cx='7' cy='7' r='4.6'/%3E%3Cpath d='M10.6 10.6L14 14'/%3E%3C/g%3E%3C/svg%3E");
+    --icono-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg fill='none' stroke='%23aaa698' stroke-width='1.6' stroke-linejoin='round'%3E%3Cpath d='M8 14.5s4.5-4.1 4.5-7.7a4.5 4.5 0 0 0-9 0c0 3.6 4.5 7.7 4.5 7.7z'/%3E%3Ccircle cx='8' cy='6.8' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+  }
 }
 
 *,
@@ -218,6 +250,169 @@ a:hover {
   font-weight: 600;
   box-shadow: inset 0 -2px 0 var(--accent);
   border-radius: 0;
+}
+
+/* Search box of the header. Without JavaScript it is a link to the complete list. */
+.buscador-cabecera {
+  position: relative;
+  margin-left: auto;
+}
+
+.buscador-cabecera > a {
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--icono-lupa) center / 1.1rem no-repeat;
+}
+
+.buscador-cabecera > a:hover {
+  background-color: var(--surface-2);
+}
+
+.buscador-cabecera input[type='search'] {
+  width: 13rem;
+  min-height: 2.5rem;
+  padding-left: 2.3rem;
+  background-image: var(--icono-lupa);
+  background-repeat: no-repeat;
+  background-position: left 0.75rem center;
+  background-size: 1rem;
+}
+
+/* On a narrow screen the box is a round button until it is used; then it covers the header row. */
+@media (max-width: 51.99rem) {
+  .buscador-cabecera.activo {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .buscador-cabecera input[type='search'] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2.75rem;
+    min-height: 2.75rem;
+    padding: 0;
+    border-color: transparent;
+    border-radius: 50%;
+    background-color: transparent;
+    background-position: center;
+    background-size: 1.1rem;
+    color: transparent;
+    cursor: pointer;
+  }
+
+  .buscador-cabecera input[type='search']::placeholder {
+    color: transparent;
+  }
+
+  .buscador-cabecera input[type='search']:focus,
+  .buscador-cabecera input[type='search']:not(:placeholder-shown) {
+    z-index: 3;
+    width: calc(100vw - 2 * var(--gutter));
+    padding: 0.5rem 0.75rem 0.5rem 2.3rem;
+    border-color: var(--rule-strong);
+    border-radius: var(--radius-s);
+    background-color: var(--surface);
+    background-position: left 0.75rem center;
+    background-size: 1rem;
+    color: var(--ink);
+    cursor: text;
+  }
+
+  .buscador-cabecera input[type='search']:focus::placeholder {
+    color: var(--muted);
+  }
+}
+
+.buscador-cabecera .sugerencias {
+  left: auto;
+  right: 0;
+  width: min(22rem, calc(100vw - 2 * var(--gutter)));
+}
+
+.sugerencias a {
+  display: block;
+  padding: 0.5rem 0.65rem;
+  border-radius: var(--radius-s);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.sugerencias a:hover,
+.sugerencias a:focus-visible {
+  background: var(--surface-2);
+}
+
+.sugerencias .vacio {
+  padding: 0.6rem 0.65rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+@media (min-width: 52rem) {
+  .buscador-cabecera {
+    order: 2;
+    margin-left: 0;
+  }
+
+  .cabecera .nav {
+    margin-left: auto;
+  }
+}
+
+/* A term of the glossary: looks like the text around it, with a dotted line. */
+.termino {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-decoration: underline dotted var(--muted);
+  text-underline-offset: 0.2em;
+  cursor: help;
+}
+
+.termino:hover {
+  text-decoration-color: currentColor;
+}
+
+.glosa {
+  max-width: min(24rem, calc(100vw - 2rem));
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 12px 40px -12px rgb(0 0 0 / 35%);
+  font-size: 0.95rem;
+}
+
+.glosa p + p {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+}
+
+.glosa::backdrop {
+  background: rgb(0 0 0 / 25%);
+}
+
+/* A browser without pop-ups shows the glossary as a short list at the end of the page. */
+@supports not selector(:popover-open) {
+  .glosario {
+    width: min(100% - 2 * var(--gutter), var(--width));
+    margin: 0 auto;
+    padding-block: 1.5rem;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .glosa {
+    max-width: none;
+    box-shadow: none;
+  }
 }
 
 /* ---------- Main and footer ---------- */
@@ -538,7 +733,7 @@ select {
 select {
   appearance: none;
   padding-right: 2.2rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%235e5b52' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: var(--icono-flecha);
   background-repeat: no-repeat;
   background-position: right 0.8rem center;
   background-size: 0.7rem;
@@ -565,7 +760,7 @@ select:disabled {
 /* The two controls always in sight carry an icon: a magnifying glass and a map pin. */
 .barra-buscar input {
   padding-left: 2.5rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg fill='none' stroke='%235e5b52' stroke-width='1.6' stroke-linecap='round'%3E%3Ccircle cx='7' cy='7' r='4.6'/%3E%3Cpath d='M10.6 10.6L14 14'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: var(--icono-lupa);
   background-repeat: no-repeat;
   background-position: left 0.85rem center;
   background-size: 1rem;
@@ -573,9 +768,7 @@ select:disabled {
 
 .barra-provincia select {
   padding-left: 2.3rem;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg fill='none' stroke='%235e5b52' stroke-width='1.6' stroke-linejoin='round'%3E%3Cpath d='M8 14.5s4.5-4.1 4.5-7.7a4.5 4.5 0 0 0-9 0c0 3.6 4.5 7.7 4.5 7.7z'/%3E%3Ccircle cx='8' cy='6.8' r='1.6'/%3E%3C/g%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%235e5b52' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: var(--icono-pin), var(--icono-flecha);
   background-position:
     left 0.8rem center,
     right 0.8rem center;
@@ -615,7 +808,7 @@ select:disabled {
 }
 
 .boton.principal:hover {
-  background: #33332e;
+  background: var(--ink-suave);
   color: var(--paper);
 }
 
@@ -879,7 +1072,7 @@ th[aria-sort='descending'] .orden .baja {
 }
 
 .tabla tbody tr:hover {
-  background: #faf8f2;
+  background: var(--hover);
 }
 
 .c-pos {
@@ -1851,7 +2044,7 @@ th[aria-sort='descending'] .orden .baja {
 }
 
 .linea > summary:hover {
-  background: #faf8f2;
+  background: var(--hover);
 }
 
 .m-nombre {
@@ -2358,6 +2551,87 @@ details.mas[open] > summary {
   max-width: none;
 }
 
+/*
+ * Folded sections of the text pages. Each is a <details> that keeps the anchor of its
+ * heading: it opens without JavaScript, and the page script opens it for a link.
+ */
+.prosa > .acordeon {
+  margin-top: 0;
+  border-bottom: 1px solid var(--rule);
+  scroll-margin-top: 0.5rem;
+}
+
+.pagina-cabeza + .prosa > .acordeon:first-child {
+  margin-top: 1.75rem;
+  border-top: 1px solid var(--rule);
+}
+
+.prosa:has(> .acordeon) + .prosa:has(> .acordeon) {
+  margin-top: 0;
+}
+
+/* The dividing lines run the whole width; the text inside keeps a comfortable measure. */
+.prosa:has(> .acordeon) {
+  max-width: none;
+}
+
+.acordeon-cuerpo > :where(p, ul, ol, dl, h3, pre, .formula) {
+  max-width: 46rem;
+}
+
+.acordeon > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.5rem;
+  padding: 0.6rem 0.15rem 0.6rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.acordeon > summary::-webkit-details-marker {
+  display: none;
+}
+
+.acordeon > summary::after {
+  content: '';
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-right: 0.35rem;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: translateY(-0.15rem) rotate(45deg);
+}
+
+.acordeon[open] > summary::after {
+  transform: translateY(0.15rem) rotate(225deg);
+}
+
+.acordeon > summary h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1.2rem;
+}
+
+.acordeon > summary:hover h2 {
+  color: var(--accent-strong);
+}
+
+.acordeon-cuerpo {
+  padding-bottom: 1.75rem;
+}
+
+.acordeon-cuerpo > * + * {
+  margin-top: 1rem;
+}
+
+.acordeon-cuerpo > :first-child {
+  margin-top: 0.25rem;
+}
+
 .formula {
   display: block;
   padding: 0.85rem 1rem;
@@ -2503,20 +2777,9 @@ code {
 
 /* ---------- Groups ---------- */
 
-.lectura {
-  margin-top: 1.75rem;
-  max-width: 62rem;
-}
-
-.lectura h2 {
-  font-size: 1rem;
-  letter-spacing: 0;
-}
-
 .lectura ul {
   display: grid;
   gap: 0.4rem;
-  margin-top: 0.5rem;
   padding-left: 1.1rem;
 }
 
@@ -2529,7 +2792,7 @@ code {
 }
 
 .vista-periodos {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 /* The period switch needs no JavaScript: the checked radio decides which panel shows. */
@@ -2542,13 +2805,13 @@ code {
 }
 
 @supports selector(:has(*)) {
-  .vista-periodos:has(label:nth-of-type(n + 2) input:checked) .panel:nth-of-type(1) {
+  .vista-periodos:has(> .segmento label:nth-of-type(n + 2) input:checked) .panel:nth-of-type(1) {
     display: none;
   }
 
-  .vista-periodos:has(label:nth-of-type(2) input:checked) .panel:nth-of-type(2),
-  .vista-periodos:has(label:nth-of-type(3) input:checked) .panel:nth-of-type(3),
-  .vista-periodos:has(label:nth-of-type(4) input:checked) .panel:nth-of-type(4) {
+  .vista-periodos:has(> .segmento label:nth-of-type(2) input:checked) .panel:nth-of-type(2),
+  .vista-periodos:has(> .segmento label:nth-of-type(3) input:checked) .panel:nth-of-type(3),
+  .vista-periodos:has(> .segmento label:nth-of-type(4) input:checked) .panel:nth-of-type(4) {
     display: block;
   }
 }
@@ -2688,10 +2951,83 @@ code {
   stroke-width: 1.5;
 }
 
-.dist-franja .raya:hover {
+.dist-franja .raya:hover,
+.dist-franja .raya.activa {
   stroke: var(--ink);
   stroke-opacity: 1;
   stroke-width: 3;
+}
+
+.dist-franja:has(.raya[data-slug]) {
+  touch-action: pan-y;
+  cursor: crosshair;
+}
+
+/* Who the tick under the pointer is; written by the script, empty without it. */
+.dist-lectura {
+  min-height: 1.5rem;
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.dist-lectura:empty {
+  display: none;
+}
+
+.dist-lectura a {
+  font-weight: 600;
+}
+
+/* One metric at a time. The checked radio decides (CSS only); without :has() all of them show. */
+.metricas-vista {
+  margin-top: 0.9rem;
+}
+
+@supports selector(:has(*)) {
+  .metricas-vista .metricas {
+    grid-template-columns: minmax(0, 46rem);
+    margin-top: 0.75rem;
+  }
+
+  .metricas-vista .metricas > .metrica {
+    display: none;
+  }
+
+  .metricas-vista:has(label:nth-of-type(1) input:checked) .metricas > .metrica:nth-of-type(1),
+  .metricas-vista:has(label:nth-of-type(2) input:checked) .metricas > .metrica:nth-of-type(2),
+  .metricas-vista:has(label:nth-of-type(3) input:checked) .metricas > .metrica:nth-of-type(3),
+  .metricas-vista:has(label:nth-of-type(4) input:checked) .metricas > .metrica:nth-of-type(4),
+  .metricas-vista:has(label:nth-of-type(5) input:checked) .metricas > .metrica:nth-of-type(5),
+  .metricas-vista:has(label:nth-of-type(6) input:checked) .metricas > .metrica:nth-of-type(6),
+  .metricas-vista:has(label:nth-of-type(7) input:checked) .metricas > .metrica:nth-of-type(7),
+  .metricas-vista:has(label:nth-of-type(8) input:checked) .metricas > .metrica:nth-of-type(8),
+  .metricas-vista:has(label:nth-of-type(9) input:checked) .metricas > .metrica:nth-of-type(9),
+  .metricas-vista:has(label:nth-of-type(10) input:checked) .metricas > .metrica:nth-of-type(10),
+  .metricas-vista:has(label:nth-of-type(11) input:checked) .metricas > .metrica:nth-of-type(11),
+  .metricas-vista:has(label:nth-of-type(12) input:checked) .metricas > .metrica:nth-of-type(12) {
+    display: flex;
+  }
+}
+
+@supports not selector(:has(*)) {
+  .metricas-vista > .segmento {
+    display: none;
+  }
+}
+
+.seccion > .acordeon {
+  border-block: 1px solid var(--rule);
+}
+
+.seccion > .acordeon .nota {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.pagina-cabeza .plegable {
+  margin-top: 0.4rem;
 }
 
 .mediana {
