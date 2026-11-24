@@ -1,9 +1,15 @@
 /**
- * Logic of the ranking table, shared by the server render, the Preact island and the
- * tests: compact data for the page, URL state, filters and sorting. Pure functions.
+ * Logic of the ranking list, shared by the server render, the Preact island and the
+ * tests: compact data for the page, URL state, filters, sorting, pages and the
+ * selection to compare. Pure functions.
  */
 import type { Ranking } from './data.ts';
 import { sinAcentos } from './format.ts';
+
+/** Deputies shown at a time: the list is read ten by ten (decision D-038). */
+export const POR_PAGINA = 10;
+/** Deputies that can be compared side by side. */
+export const MAX_COMPARAR = 3;
 
 export type Situacion = 'ranking' | 'gobierno' | 'periodo_insuficiente';
 const SITUACIONES: readonly Situacion[] = ['ranking', 'gobierno', 'periodo_insuficiente'];
@@ -135,6 +141,8 @@ export interface Estado {
   dir: 'asc' | 'desc';
   /** Include members of the Government, who are outside the general ranking. */
   gobierno: boolean;
+  /** Page of the list, from 1. Any other change of state goes back to the first. */
+  pagina: number;
 }
 
 export function estadoInicial(data: RankingData): Estado {
@@ -147,6 +155,7 @@ export function estadoInicial(data: RankingData): Estado {
     orden: 'posicion',
     dir: 'asc',
     gobierno: false,
+    pagina: 1,
   };
 }
 
@@ -192,7 +201,14 @@ export function leerEstado(search: string, data: RankingData): Estado {
     orden,
     dir: dir === 'asc' || dir === 'desc' ? dir : direccionPorDefecto(orden),
     gobierno: params.get('gobierno') === '1',
+    pagina: enteroPositivo(params.get('pagina')) ?? 1,
   };
+}
+
+function enteroPositivo(text: string | null): number | undefined {
+  if (!text || !/^[0-9]{1,4}$/.test(text)) return undefined;
+  const value = Number(text);
+  return value >= 1 ? value : undefined;
 }
 
 export function direccionPorDefecto(orden: string): 'asc' | 'desc' {
@@ -211,6 +227,7 @@ export function escribirEstado(estado: Estado, data: RankingData): string {
   if (estado.orden !== inicial.orden) params.set('orden', estado.orden);
   if (estado.dir !== direccionPorDefecto(estado.orden)) params.set('dir', estado.dir);
   if (estado.gobierno) params.set('gobierno', '1');
+  if (estado.pagina > 1) params.set('pagina', String(estado.pagina));
   const text = params.toString();
   return text ? `?${text}` : '';
 }
@@ -242,6 +259,128 @@ export function aplicar(filas: readonly Fila[], estado: Estado, data: RankingDat
     if (va === null || vb === null) return va === vb ? porNombre(a, b) : va === null ? 1 : -1;
     return sentido * (va - vb) || porNombre(a, b);
   });
+}
+
+export interface Pagina<T> {
+  /** Page actually shown: the one asked for, brought inside the range. */
+  pagina: number;
+  paginas: number;
+  /** Position in the whole list of the first and the last row shown, from 1; 0 when empty. */
+  desde: number;
+  hasta: number;
+  filas: T[];
+}
+
+export function paginar<T>(filas: readonly T[], pagina: number, porPagina: number = POR_PAGINA): Pagina<T> {
+  const paginas = Math.max(1, Math.ceil(filas.length / porPagina));
+  const actual = Math.min(Math.max(1, Math.trunc(pagina) || 1), paginas);
+  const inicio = (actual - 1) * porPagina;
+  const visibles = filas.slice(inicio, inicio + porPagina);
+  return {
+    pagina: actual,
+    paginas,
+    desde: visibles.length === 0 ? 0 : inicio + 1,
+    hasta: inicio + visibles.length,
+    filas: visibles,
+  };
+}
+
+/**
+ * Page numbers the pager offers: the first, the last and those around the current
+ * one; `null` marks a gap. With seven pages or fewer, all of them.
+ */
+export function rangoPaginas(pagina: number, paginas: number): (number | null)[] {
+  if (paginas <= 7) return Array.from({ length: paginas }, (_, i) => i + 1);
+  let desde = Math.max(2, Math.min(pagina - 1, paginas - 4));
+  let hasta = Math.min(paginas - 1, Math.max(pagina + 1, 5));
+  // A gap that would hide a single page shows that page instead.
+  if (desde === 3) desde = 2;
+  if (hasta === paginas - 2) hasta = paginas - 1;
+  const centro = Array.from({ length: hasta - desde + 1 }, (_, i) => desde + i);
+  return [1, ...(desde > 2 ? [null] : []), ...centro, ...(hasta < paginas - 1 ? [null] : []), paginas];
+}
+
+export interface FiltroActivo {
+  id: string;
+  etiqueta: string;
+  /** Change of state that removes it. */
+  quitar: Partial<Estado>;
+}
+
+/** What narrows or reorders the list right now, to show as removable labels. */
+export function filtrosActivos(estado: Estado, data: RankingData): FiltroActivo[] {
+  const inicial = estadoInicial(data);
+  const activos: FiltroActivo[] = [];
+  if (estado.q.trim()) activos.push({ id: 'q', etiqueta: `«${estado.q.trim()}»`, quitar: { q: '' } });
+  if (estado.circunscripcion) {
+    activos.push({ id: 'circunscripcion', etiqueta: estado.circunscripcion, quitar: { circunscripcion: '' } });
+  }
+  if (estado.grupo) {
+    const grupo = data.grupos.find((g) => g.id === estado.grupo);
+    activos.push({ id: 'grupo', etiqueta: `Grupo: ${grupo?.nombre ?? estado.grupo}`, quitar: { grupo: '' } });
+  }
+  if (estado.partido) {
+    activos.push({ id: 'partido', etiqueta: `Candidatura: ${estado.partido}`, quitar: { partido: '' } });
+  }
+  if (estado.periodo !== inicial.periodo) {
+    const periodo = data.periodos.find((p) => p.id === estado.periodo);
+    activos.push({ id: 'periodo', etiqueta: periodo?.nombre ?? estado.periodo, quitar: { periodo: inicial.periodo } });
+  }
+  if (estado.gobierno) activos.push({ id: 'gobierno', etiqueta: 'Con el Gobierno', quitar: { gobierno: false } });
+  if (estado.orden !== inicial.orden || estado.dir !== direccionPorDefecto(estado.orden)) {
+    activos.push({
+      id: 'orden',
+      etiqueta: `Orden: ${etiquetaOrden(estado.orden, estado.dir, data)}`,
+      quitar: { orden: inicial.orden, dir: inicial.dir },
+    });
+  }
+  return activos;
+}
+
+/** Sort options of the list, each in its natural direction first. */
+export function ordenes(data: RankingData): { orden: string; dir: 'asc' | 'desc'; etiqueta: string }[] {
+  const ids = ['posicion', 'nombre', 'indice', ...data.dimensiones.map((d) => d.id)];
+  return ids.flatMap((orden) => {
+    const natural = direccionPorDefecto(orden);
+    return [natural, natural === 'asc' ? 'desc' : 'asc'].map((dir) => ({
+      orden,
+      dir: dir as 'asc' | 'desc',
+      etiqueta: etiquetaOrden(orden, dir as 'asc' | 'desc', data),
+    }));
+  });
+}
+
+export function etiquetaOrden(orden: string, dir: 'asc' | 'desc', data: RankingData): string {
+  if (orden === 'posicion') return dir === 'asc' ? 'Posición' : 'Posición, del último al primero';
+  if (orden === 'nombre') return dir === 'asc' ? 'Nombre, A → Z' : 'Nombre, Z → A';
+  const nombre = orden === 'indice' ? 'Índice' : (data.dimensiones.find((d) => d.id === orden)?.nombre ?? orden);
+  return `${nombre}, ${dir === 'desc' ? 'de mayor a menor' : 'de menor a mayor'}`;
+}
+
+/** Deputies chosen to compare, from the `d` parameter: known, distinct, three at most. */
+export function leerComparar(search: string, data: RankingData): string[] {
+  const conocidos = new Set(data.diputados.map((d) => d[0]));
+  const pedidos = (new URLSearchParams(search).get('d') ?? '').split(',').filter((slug) => conocidos.has(slug));
+  return [...new Set(pedidos)].slice(0, MAX_COMPARAR);
+}
+
+export function escribirComparar(slugs: readonly string[]): string {
+  return slugs.length === 0 ? '' : `?d=${slugs.map(encodeURIComponent).join(',')}`;
+}
+
+/** Deputies whose name contains every word typed, in alphabetical order. */
+export function buscarDiputados(data: RankingData, q: string, limite: number): DiputadoBase[] {
+  const palabras = sinAcentos(q)
+    .split(/[\s,]+/)
+    .filter(Boolean);
+  if (palabras.length === 0) return [];
+  return data.diputados
+    .filter((d) => {
+      const nombre = sinAcentos(d[1]);
+      return palabras.every((palabra) => nombre.includes(palabra));
+    })
+    .sort((a, b) => a[1].localeCompare(b[1], 'es'))
+    .slice(0, limite);
 }
 
 /** "A", "A y B", "A, B y C". */

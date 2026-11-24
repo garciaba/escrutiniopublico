@@ -2,11 +2,11 @@
 import { groups } from '../../../config/parties.ts';
 import { scoring } from '../../../config/scoring.ts';
 import { site } from '../../../config/site.ts';
-import { RankingApp, RankingHead, RankingRows } from '../components/RankingTable.tsx';
+import { RankingApp } from '../components/RankingTable.tsx';
 import Base from '../layouts/Base.astro';
 import { loadMeta, loadRanking } from '../lib/data.ts';
-import { fechaLarga, num, porcentaje } from '../lib/format.ts';
-import { aplicar, compactar, estadoInicial, filasDe } from '../lib/ranking.ts';
+import { fechaLarga, porcentaje } from '../lib/format.ts';
+import { compactar, estadoInicial } from '../lib/ranking.ts';
 
 const ranking = loadRanking();
 const meta = loadMeta();
@@ -14,9 +14,7 @@ const data = compactar(ranking, {
   colores: Object.fromEntries(groups.map((group) => [group.code, group.color])),
   nombresCortos: Object.fromEntries(scoring.dimensiones.map((d) => [d.id, d.nombreCorto])),
 });
-const estado = estadoInicial(data);
-const filas = aplicar(filasDe(data, estado.periodo), estado, data);
-const periodo = ranking.periodos.find((p) => p.id === estado.periodo);
+const periodo = ranking.periodos.find((p) => p.id === estadoInicial(data).periodo);
 const legislatura = ranking.legislatura;
 const app = {
   data,
@@ -31,22 +29,15 @@ const conDato = data.dimensiones.length;
 <Base title={site.lema} description={site.descripcion} path="/">
   <div class="wrap">
     <section class="portada">
-      <div class="portada-cabeza">
-        <div>
-          <p class="antetitulo">
-            {legislatura.nombre} Legislatura{legislatura.finalizada ? ' · balance final' : ''}
-          </p>
-          <h1 class="titular">{site.lema}</h1>
-          <p class="entradilla">
-            Un índice de 0 a 100 resume cuánto vota, interviene y pregunta cada diputado del Congreso, y en cuántas
-            leyes aprobadas ha sido ponente. Se calcula solo con los datos abiertos de la Cámara y con una <a
-              href="/metodologia">metodología pública</a
-            >.
-          </p>
-        </div>
-        <aside class="portada-mide tarjeta" aria-labelledby="mide-titulo">
-          <h2 id="mide-titulo">Qué mide el índice</h2>
-          <ul>
+      <p class="antetitulo">
+        {legislatura.nombre} Legislatura{legislatura.finalizada ? ' · balance final' : ''}
+      </p>
+      <h1 class="titular">{site.lema}</h1>
+      <p class="entradilla">Un índice de 0 a 100 por diputado: cuánto vota, interviene, pregunta y legisla.</p>
+      <details class="plegable">
+        <summary>Qué mide el índice</summary>
+        <div class="plegable-cuerpo">
+          <ul class="mide">
             {
               scoring.dimensiones.map((dimension) => {
                 const conFuente = data.dimensiones.some((d) => d.id === dimension.id);
@@ -60,66 +51,30 @@ const conDato = data.dimensiones.length;
               })
             }
           </ul>
-          <p><a href="/metodologia">Cómo se calcula y qué no mide</a></p>
-        </aside>
-      </div>
-      <dl class="portada-cifras">
-        <div>
-          <dt>Diputados en el ranking</dt>
-          <dd>{num(periodo?.total_ranking ?? 0)}</dd>
-        </div>
-        <div>
-          <dt>Votaciones del Pleno</dt>
-          <dd>{num(meta.registros.votaciones ?? 0)}</dd>
-        </div>
-        <div>
-          <dt>Intervenciones</dt>
-          <dd>{num(meta.registros.intervenciones ?? 0)}</dd>
-        </div>
-        <div>
-          <dt>Iniciativas</dt>
-          <dd>{num(meta.registros.iniciativas ?? 0)}</dd>
-        </div>
-      </dl>
-      {
-        legislatura.finalizada && legislatura.fin && (
-          <p class="aviso">
-            <span>
-              <strong>La {legislatura.nombre} Legislatura terminó el {fechaLarga(legislatura.fin)}.</strong> Este ranking
-              recoge su balance completo. Cuando empiece la siguiente, el seguimiento volverá a ser diario.
-            </span>
+          <p>
+            Cubre el {porcentaje(periodo?.cobertura ?? 0, 0)}: {conDato} de las {ranking.dimensiones.length} dimensiones
+            tienen fuente oficial, y la que falta no cuenta como cero. Mide cantidad, no calidad.
+            <a href="/metodologia">Metodología</a>
           </p>
-        )
-      }
+        </div>
+      </details>
     </section>
 
     <section class="ranking" aria-labelledby="ranking-titulo">
-      <h2 id="ranking-titulo">Ranking de actividad parlamentaria</h2>
-      <p class="seccion-nota muted">
-        Actualizado el <time datetime={meta.ejecutado}>{fechaLarga(meta.ejecutado)}</time>. El índice cubre el {
-          porcentaje(periodo?.cobertura ?? 0, 0)
-        }: {conDato} de las {ranking.dimensiones.length} dimensiones tienen fuente oficial, y las demás no cuentan como
-        cero. Las mismas cifras, sumadas por grupo parlamentario, están en <a href="/grupos">Grupos</a>.
-      </p>
-      <div id="ranking-controles"><RankingApp {...app} /></div>
+      <h2 id="ranking-titulo" class="sr">Ranking de actividad parlamentaria</h2>
+      <div id="ranking-app"><RankingApp {...app} /></div>
       <noscript>
         <p class="aviso">
           <span
-            >Sin JavaScript se muestra la tabla completa de la legislatura, ordenada por posición. Para buscar, filtrar
-            u ordenar hace falta activarlo.</span
+            >Sin JavaScript se ven los diez primeros. Todos están en la <a href="/diputados">lista completa</a>.</span
           >
         </p>
       </noscript>
-      <div class="tabla-marco tarjeta">
-        <table class="tabla" id="ranking-tabla">
-          <caption class="sr">
-            Ranking de actividad parlamentaria de los diputados: posición, grupo, circunscripción, índice global y
-            puntuación por dimensión
-          </caption>
-          <thead><RankingHead data={data} estado={estado} activo={false} /></thead>
-          <tbody><RankingRows data={data} filas={filas} /></tbody>
-        </table>
-      </div>
+      <p class="ranking-pie muted">
+        Datos del <time datetime={meta.ejecutado}>{fechaLarga(meta.ejecutado)}</time>{' · '}<a href="/diputados"
+          >Lista completa</a
+        >{' · '}<a href="/grupos">Por grupos</a>
+      </p>
     </section>
   </div>
   <script type="application/json" id="ranking-data" set:html={payload} />

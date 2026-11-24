@@ -1,0 +1,86 @@
+---
+/**
+ * Every deputy on one plain page, in the order of the ranking. It is what the home
+ * page links to for whoever has no JavaScript or wants to search with the browser.
+ */
+import { groups } from '../../../../config/parties.ts';
+import { scoring } from '../../../../config/scoring.ts';
+import { PuntoGrupo, Puntuacion } from '../../components/parts.tsx';
+import Base from '../../layouts/Base.astro';
+import { loadRanking } from '../../lib/data.ts';
+import { num } from '../../lib/format.ts';
+import { aplicar, compactar, estadoInicial, filasDe } from '../../lib/ranking.ts';
+
+const ranking = loadRanking();
+const data = compactar(ranking, {
+  colores: Object.fromEntries(groups.map((group) => [group.code, group.color])),
+  nombresCortos: Object.fromEntries(scoring.dimensiones.map((d) => [d.id, d.nombreCorto])),
+});
+const estado = { ...estadoInicial(data), gobierno: true };
+const filas = aplicar(filasDe(data, estado.periodo), estado, data);
+const grupos = new Map(data.grupos.map((grupo) => [grupo.id, grupo]));
+const periodo = data.periodos.find((p) => p.id === estado.periodo);
+const etiquetas: Record<string, string> = {
+  gobierno: 'Gobierno · fuera del ranking',
+  periodo_insuficiente: 'Periodo insuficiente',
+};
+---
+
+<Base
+  title="Todos los diputados"
+  description={`Los ${num(filas.length)} diputados de la legislatura, con su grupo, su circunscripción y su índice de actividad.`}
+  path="/diputados"
+>
+  <div class="wrap">
+    <p class="miga"><a href="/">← Ranking</a></p>
+    <h1 class="titular pequeno">Todos los diputados</h1>
+    <p class="entradilla">
+      {num(filas.length)} diputados, por posición en el ranking{periodo ? ` (${periodo.nombre.toLowerCase()})` : ''}.
+    </p>
+    <div class="lista tarjeta completa">
+      <table class="tabla">
+        <caption class="sr">Todos los diputados: posición, grupo, circunscripción e índice de actividad</caption>
+        <thead>
+          <tr>
+            <th scope="col" class="c-pos">N.º</th>
+            <th scope="col" class="c-nom">Diputado</th>
+            <th scope="col" class="c-gru">Grupo</th>
+            <th scope="col" class="c-cir">Circunscripción</th>
+            <th scope="col" class="c-num c-ind">Índice</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            filas.map((fila) => {
+              const grupo = grupos.get(fila.grupo);
+              return (
+                <tr class={fila.situacion === 'ranking' ? undefined : 'fuera'}>
+                  <td class="c-pos">
+                    {fila.posicion ?? (
+                      <span class="nd">
+                        <span aria-hidden="true">—</span>
+                        <span class="sr">Sin posición</span>
+                      </span>
+                    )}
+                  </td>
+                  <th scope="row" class="c-nom">
+                    <a href={`/diputados/${fila.slug}`}>{fila.nombre}</a>
+                    {etiquetas[fila.situacion] && <span class="etiqueta rayada">{etiquetas[fila.situacion]}</span>}
+                  </th>
+                  <td class="c-gru">
+                    <PuntoGrupo color={grupo?.color ?? '#9c9c9c'} />
+                    {grupo?.nombre ?? fila.grupo}
+                  </td>
+                  <td class="c-cir">{fila.circunscripcion}</td>
+                  <td class="c-num c-ind">
+                    <Puntuacion valor={fila.indice} />
+                  </td>
+                </tr>
+              );
+            })
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</Base>

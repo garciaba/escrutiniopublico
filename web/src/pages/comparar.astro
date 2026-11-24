@@ -1,0 +1,38 @@
+---
+/** Compares up to three deputies side by side. The selection travels in the URL. */
+import { groups } from '../../../config/parties.ts';
+import { scoring } from '../../../config/scoring.ts';
+import { CompararApp } from '../components/Comparar.tsx';
+import Base from '../layouts/Base.astro';
+import { loadRanking } from '../lib/data.ts';
+import { compactar } from '../lib/ranking.ts';
+
+const data = compactar(loadRanking(), {
+  colores: Object.fromEntries(groups.map((group) => [group.code, group.color])),
+  nombresCortos: Object.fromEntries(scoring.dimensiones.map((d) => [d.id, d.nombreCorto])),
+});
+const payload = JSON.stringify({ data }).replace(/</g, '\\u003c');
+---
+
+<Base
+  title="Comparar diputados"
+  description="Compara el índice de actividad y las dimensiones de hasta tres diputados del Congreso."
+  path="/comparar"
+>
+  <div class="wrap">
+    <p class="miga"><a href="/">← Ranking</a></p>
+    <h1 class="titular pequeno">Comparar diputados</h1>
+    <div id="comparar-app"><CompararApp data={data} /></div>
+    <noscript>
+      <p class="aviso">
+        <span>Para comparar hace falta JavaScript. Todos los diputados están en la <a href="/diputados">lista completa</a>.</span>
+      </p>
+    </noscript>
+  </div>
+  <script type="application/json" id="ranking-data" set:html={payload} />
+  <script>
+    import { boot } from '../components/comparar-client.tsx';
+
+    boot();
+  </script>
+</Base>

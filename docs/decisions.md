@@ -462,3 +462,41 @@ El mensaje del commit de datos lo escribe el mismo script: sesiones nuevas, fila
 - La página no lleva JavaScript. El cambio de periodo funciona con CSS (`:has()`); en un navegador que no lo admita se ve solo la legislatura.
 
 **Riesgo asumido:** es la página políticamente más delicada del sitio. Por eso abre con el aviso «Cómo leer esta página», no ordena por actividad y no da una nota por grupo.
+
+## D-038 · Interfaz: el dato primero, la explicación a un toque
+
+**Decidida por el propietario (24/11/2026)**, que pidió una web «mucho menos verbosa» y más interactiva, y aprobó la lista de mejoras propuesta. Se entrega en tres partes: portada y ranking, ficha, y grupos con el resto de páginas.
+
+**Punto de partida, medido en un móvil de 390 px:**
+
+| Página      | Alto antes | Antes del primer dato                 |
+| ----------- | ---------- | ------------------------------------- |
+| Portada     | 79.000 px  | 2.470 px de texto y filtros           |
+| Ficha       | 15.600 px  | 700 palabras repartidas por la página |
+| Grupos      | 11.200 px  | 1.440 px de «cómo leer esta página»   |
+| Metodología | 11.200 px  | 2.000 palabras, nada plegable         |
+
+**Reglas que valen para las tres entregas:**
+
+- **Ningún texto legal ni metodológico desaparece: se pliega.** Lo plegado usa `<details>`, que se abre sin JavaScript.
+- **«No disponible» sigue sin contar como cero y sigue a un toque.**
+- **Sin cookies, sin almacenamiento y sin terceros.** El estado de cada vista viaja en la URL.
+- **Una frase por bloque, como mucho.** Lo que necesite más va plegado o a `/metodologia`.
+
+**Primera entrega: portada y ranking.**
+
+- **Portada.** Un titular, una línea y el ranking. El bloque «Qué mide el índice» queda plegado y las cuatro cifras de cabecera desaparecen. El primer diputado pasa de 2.470 px a unos 600 px.
+- **De diez en diez** (`POR_PAGINA` en `web/src/lib/ranking.ts`), con paginador y la página en la URL (`pagina`). Cualquier cambio de búsqueda, filtro u orden vuelve a la primera. Una página que no existe se convierte en la última.
+- **Siempre a la vista:** el buscador y «Tu provincia», que es el filtro de circunscripción convertido en la entrada «¿quién me representa?».
+- **Tras el botón «Filtros»:** periodo, grupo, candidatura, orden y miembros del Gobierno. Lo que esté activo se ve como etiquetas que se quitan con un toque.
+- **Fila desplegable en el móvil.** Cada diputado ocupa una línea (posición, nombre, grupo, provincia e índice); un toque abre sus dimensiones. En pantallas anchas las dimensiones siguen siendo columnas ordenables.
+- **Comparar.** Se eligen hasta tres diputados (`MAX_COMPARAR`) y `/comparar?d=a,b,c` los pone lado a lado: índice, posición y dimensiones, por periodo. La selección viaja en la URL, así que una comparación se puede compartir.
+- **Lista completa en `/diputados`.** Página sin JavaScript con todos los diputados por posición, incluidos los miembros del Gobierno. Es lo que ve quien no tiene JavaScript o quiere buscar con el navegador, ahora que la portada solo enseña diez.
+
+**Qué cambia en las comprobaciones:**
+
+- `pnpm web:audit` exige diez filas en la portada, todas en `/diputados`, y solo permite JavaScript en la portada y en `/comparar`, con el mismo presupuesto.
+- `pnpm web:check` recorre el paginador, las etiquetas, la provincia, la comparación y la fila desplegable en el móvil.
+- La portada pesa 99 kB de HTML en lugar de 576 kB.
+
+**Riesgo asumido:** con diez por página, la búsqueda del navegador ya no encuentra a todos en la portada. Lo cubren el buscador propio y `/diputados`.

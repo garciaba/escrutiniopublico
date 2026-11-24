@@ -5,12 +5,18 @@
  *   pnpm web:build && pnpm web:audit            report problems and exit with 1
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { join, relative, sep } from 'node:path';
 import { gzipSync } from 'node:zlib';
 
 const DIST = join(process.cwd(), 'web', 'dist');
 const DERIVED = join(process.cwd(), 'data', 'derived');
 const HOME_JS_BUDGET = 60_000;
+/** Deputies the home page shows at a time (decision D-038). */
+const PER_PAGE = 10;
+/** Pages that run JavaScript: the ranking and the comparison. Every other page is plain HTML. */
+const INTERACTIVE = ['index.html', 'comparar.html'];
+/** Pages left out of the sitemap. */
+const NOT_IN_SITEMAP = ['404.html'];
 
 const errors: string[] = [];
 
@@ -62,7 +68,7 @@ if (!existsSync(DIST)) {
 }
 
 const pages = htmlFiles(DIST);
-const profiles = pages.filter((page) => relative(DIST, page).startsWith('diputados'));
+const profiles = pages.filter((page) => relative(DIST, page).startsWith(`diputados${sep}`));
 const footerMarks = ['Fuente:', 'Congreso de los Diputados', 'Última actualización', 'No tiene vinculación'];
 
 for (const page of pages) {
@@ -119,39 +125,54 @@ for (const page of profiles) {
   if (/<img[\s>]/.test(html)) errors.push(`${name}: profiles must not embed photographs`);
 }
 
-// Home: complete table without JavaScript, in ranking order, within the JavaScript budget.
+// Home: the first ten without JavaScript, in ranking order, within the JavaScript budget.
+// The complete list, with the members of the Government at the end, is a plain page.
 const home = readFileSync(join(DIST, 'index.html'), 'utf-8');
 const ranking = JSON.parse(readFileSync(join(DERIVED, 'ranking.json'), 'utf-8')) as {
   periodos: { id: string; estado: string }[];
   filas: { periodo: string; situacion: string; posicion: number | null }[];
 };
 const periodo = ranking.periodos.find((p) => p.estado === 'disponible')?.id;
-const expectedRows = ranking.filas.filter((fila) => fila.periodo === periodo && fila.situacion !== 'gobierno');
-const body = /<tbody>(.*?)<\/tbody>/s.exec(home)?.[1] ?? '';
-const positions = [...body.matchAll(/<td class="c-pos">(\d+)?/g)].map((match) => (match[1] ? Number(match[1]) : null));
-if (positions.length !== expectedRows.length) {
-  errors.push(`index.html: table has ${positions.length} rows, expected ${expectedRows.length}`);
+const ofPeriod = ranking.filas.filter((fila) => fila.periodo === periodo);
+const ranked = ofPeriod.filter((fila) => fila.situacion !== 'gobierno');
+
+function checkTable(name: string, html: string, expected: number): void {
+  const body = /<tbody>(.*?)<\/tbody>/s.exec(html)?.[1] ?? '';
+  const positions = [...body.matchAll(/<td class="c-pos">(\d+)?/g)].map((match) =>
+    match[1] ? Number(match[1]) : null,
+  );
+  if (positions.length !== expected) errors.push(`${name}: table has ${positions.length} rows, expected ${expected}`);
+  const numbered = positions.filter((position): position is number => position !== null);
+  if (numbered.some((position, i) => i > 0 && position < (numbered[i - 1] ?? 0))) {
+    errors.push(`${name}: table is not ordered by position`);
+  }
+  const firstEmpty = positions.indexOf(null);
+  if (firstEmpty !== -1 && positions.slice(firstEmpty).some((position) => position !== null)) {
+    errors.push(`${name}: rows without position must come last`);
+  }
 }
-const numbered = positions.filter((position): position is number => position !== null);
-if (numbered.some((position, i) => i > 0 && position < (numbered[i - 1] ?? 0))) {
-  errors.push('index.html: table is not ordered by position');
-}
-if (positions.indexOf(null) !== -1 && positions.slice(positions.indexOf(null)).some((position) => position !== null)) {
-  errors.push('index.html: rows without position must come last');
-}
+
+checkTable('index.html', home, Math.min(PER_PAGE, ranked.length));
+if (!home.includes('href="/diputados"')) errors.push('index.html: no link to the complete list');
+const completeList = join(DIST, 'diputados.html');
+if (existsSync(completeList)) checkTable('diputados.html', readFileSync(completeList, 'utf-8'), ofPeriod.length);
+else errors.push('missing diputados.html');
 const homeScripts = scriptsOf(home);
 const homeJs = [...homeScripts].reduce((sum, src) => sum + gzipSync(readFileSync(join(DIST, src))).length, 0);
-if (homeJs > HOME_JS_BUDGET)
-  errors.push(`index.html: ${homeJs} bytes of compressed JavaScript, budget ${HOME_JS_BUDGET}`);
 for (const page of pages) {
-  if (page !== join(DIST, 'index.html') && scriptsOf(readFileSync(page, 'utf-8')).size > 0) {
-    errors.push(`${relative(DIST, page)}: only the home page may load JavaScript`);
+  const name = relative(DIST, page);
+  const scripts = scriptsOf(readFileSync(page, 'utf-8'));
+  if (!INTERACTIVE.includes(name) && scripts.size > 0) {
+    errors.push(`${name}: only ${INTERACTIVE.join(' and ')} may load JavaScript`);
   }
+  const weight = [...scripts].reduce((sum, src) => sum + gzipSync(readFileSync(join(DIST, src))).length, 0);
+  if (weight > HOME_JS_BUDGET)
+    errors.push(`${name}: ${weight} bytes of compressed JavaScript, budget ${HOME_JS_BUDGET}`);
 }
 
 // Static files every deployment needs.
 const sitemap = existsSync(join(DIST, 'sitemap.xml')) ? readFileSync(join(DIST, 'sitemap.xml'), 'utf-8') : '';
-const expectedUrls = pages.length - 1; // every page except 404
+const expectedUrls = pages.filter((page) => !NOT_IN_SITEMAP.includes(relative(DIST, page))).length;
 if ((sitemap.match(/<loc>/g) ?? []).length !== expectedUrls) {
   errors.push(`sitemap.xml: ${(sitemap.match(/<loc>/g) ?? []).length} URLs, expected ${expectedUrls}`);
 }
@@ -162,6 +183,7 @@ for (const file of [
   'apple-touch-icon.png',
   '404.html',
   'grupos.html',
+  'comparar.html',
   'datos/ranking.json',
   'datos/grupos.json',
 ]) {

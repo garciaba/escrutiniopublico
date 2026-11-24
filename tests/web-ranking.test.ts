@@ -1,17 +1,26 @@
-/** Ranking table logic: compact data, URL state, filters and sorting. Every person is fictitious. */
+/** Ranking list logic: compact data, URL state, filters, sorting, pages and comparison. Every person is fictitious. */
 import { describe, expect, it } from 'vitest';
 
 import type { FilaRanking, Ranking } from '../web/src/lib/data.ts';
 import {
   aplicar,
+  buscarDiputados,
   compactar,
   direccionPorDefecto,
   enumerar,
+  escribirComparar,
   escribirEstado,
   estadoInicial,
   filasDe,
+  filtrosActivos,
+  leerComparar,
   leerEstado,
+  MAX_COMPARAR,
   opciones,
+  ordenes,
+  paginar,
+  POR_PAGINA,
+  rangoPaginas,
 } from '../web/src/lib/ranking.ts';
 
 function fila(
@@ -272,9 +281,12 @@ describe('state in the URL', () => {
       orden: 'dos',
       dir: 'asc' as const,
       gobierno: true,
+      pagina: 3,
     };
     const query = escribirEstado(estado, data);
-    expect(query).toBe('?periodo=12m&q=ana&grupo=GZ&candidatura=PA&circunscripcion=Norte&orden=dos&dir=asc&gobierno=1');
+    expect(query).toBe(
+      '?periodo=12m&q=ana&grupo=GZ&candidatura=PA&circunscripcion=Norte&orden=dos&dir=asc&gobierno=1&pagina=3',
+    );
     expect(leerEstado(query, data)).toEqual(estado);
   });
 
@@ -297,6 +309,149 @@ describe('state in the URL', () => {
 
   it('limits the length of the search text', () => {
     expect(leerEstado(`?q=${'a'.repeat(200)}`, data).q).toHaveLength(80);
+  });
+
+  it('reads the page and falls back to the first on anything that is not a positive number', () => {
+    expect(leerEstado('?pagina=4', data).pagina).toBe(4);
+    for (const texto of ['0', '-2', '1.5', 'dos', '', '99999']) {
+      expect(leerEstado(`?pagina=${texto}`, data).pagina).toBe(1);
+    }
+    expect(escribirEstado({ ...inicial, pagina: 1 }, data)).toBe('');
+  });
+});
+
+describe('paginar', () => {
+  const lista = Array.from({ length: 23 }, (_, i) => i + 1);
+
+  it('shows ten at a time by default', () => {
+    expect(POR_PAGINA).toBe(10);
+    expect(paginar(lista, 1)).toEqual({ pagina: 1, paginas: 3, desde: 1, hasta: 10, filas: lista.slice(0, 10) });
+    expect(paginar(lista, 3)).toEqual({ pagina: 3, paginas: 3, desde: 21, hasta: 23, filas: [21, 22, 23] });
+  });
+
+  it('brings a page outside the range back inside', () => {
+    expect(paginar(lista, 9).pagina).toBe(3);
+    expect(paginar(lista, 0).pagina).toBe(1);
+    expect(paginar(lista, Number.NaN).pagina).toBe(1);
+  });
+
+  it('has one empty page when nothing matches', () => {
+    expect(paginar([], 2)).toEqual({ pagina: 1, paginas: 1, desde: 0, hasta: 0, filas: [] });
+  });
+
+  it('accepts another page size', () => {
+    expect(paginar(lista, 2, 20)).toMatchObject({ paginas: 2, desde: 21, hasta: 23 });
+  });
+});
+
+describe('rangoPaginas', () => {
+  it('lists every page when there are few', () => {
+    expect(rangoPaginas(1, 1)).toEqual([1]);
+    expect(rangoPaginas(4, 7)).toEqual([1, 2, 3, 4, 5, 6, 7]);
+  });
+
+  it('keeps the first, the last and the neighbours of the current page', () => {
+    expect(rangoPaginas(1, 40)).toEqual([1, 2, 3, 4, 5, null, 40]);
+    expect(rangoPaginas(20, 40)).toEqual([1, null, 19, 20, 21, null, 40]);
+    expect(rangoPaginas(40, 40)).toEqual([1, null, 36, 37, 38, 39, 40]);
+  });
+
+  it('never hides a single page behind a gap', () => {
+    expect(rangoPaginas(4, 40)).toEqual([1, 2, 3, 4, 5, null, 40]);
+    expect(rangoPaginas(37, 40)).toEqual([1, null, 36, 37, 38, 39, 40]);
+    for (let pagina = 1; pagina <= 40; pagina += 1) {
+      const rango = rangoPaginas(pagina, 40);
+      expect(rango).toContain(pagina);
+      rango.forEach((numero, i) => {
+        if (numero !== null) return;
+        expect((rango[i + 1] ?? 0) - (rango[i - 1] ?? 0)).toBeGreaterThan(2);
+      });
+    }
+  });
+});
+
+describe('filtrosActivos', () => {
+  it('is empty on the default view', () => {
+    expect(filtrosActivos(inicial, data)).toEqual([]);
+  });
+
+  it('names each filter and says how to remove it', () => {
+    const activos = filtrosActivos(
+      {
+        ...inicial,
+        q: ' ana ',
+        circunscripcion: 'Norte',
+        grupo: 'GZ',
+        partido: 'PA',
+        periodo: '12m',
+        gobierno: true,
+        orden: 'dos',
+        dir: 'desc',
+      },
+      data,
+    );
+    expect(activos.map((filtro) => filtro.etiqueta)).toEqual([
+      '«ana»',
+      'Norte',
+      'Grupo: Zeta',
+      'Candidatura: PA',
+      'Último año',
+      'Con el Gobierno',
+      'Orden: Dimensión dos, de mayor a menor',
+    ]);
+    expect(activos.find((filtro) => filtro.id === 'periodo')?.quitar).toEqual({ periodo: 'legislatura' });
+    expect(activos.find((filtro) => filtro.id === 'orden')?.quitar).toEqual({ orden: 'posicion', dir: 'asc' });
+  });
+
+  it('counts a reversed default order as a filter', () => {
+    expect(filtrosActivos({ ...inicial, dir: 'desc' }, data).map((filtro) => filtro.etiqueta)).toEqual([
+      'Orden: Posición, del último al primero',
+    ]);
+  });
+});
+
+describe('ordenes', () => {
+  it('offers each column in its natural direction first', () => {
+    expect(ordenes(data).map((opcion) => `${opcion.orden}:${opcion.dir}`)).toEqual([
+      'posicion:asc',
+      'posicion:desc',
+      'nombre:asc',
+      'nombre:desc',
+      'indice:desc',
+      'indice:asc',
+      'uno:desc',
+      'uno:asc',
+      'dos:desc',
+      'dos:asc',
+    ]);
+    expect(ordenes(data).find((opcion) => opcion.orden === 'nombre' && opcion.dir === 'desc')?.etiqueta).toBe(
+      'Nombre, Z → A',
+    );
+  });
+});
+
+describe('comparison', () => {
+  const [primero = '', segundo = '', tercero = '', cuarto = ''] = data.diputados.map((d) => d[0]);
+
+  it('reads known deputies once each, three at most', () => {
+    expect(MAX_COMPARAR).toBe(3);
+    expect(leerComparar(`?d=${primero},nadie,${primero},${segundo}`, data)).toEqual([primero, segundo]);
+    expect(leerComparar(`?d=${primero},${segundo},${tercero},${cuarto}`, data)).toEqual([primero, segundo, tercero]);
+    expect(leerComparar('', data)).toEqual([]);
+  });
+
+  it('writes the selection as a short query', () => {
+    expect(escribirComparar([])).toBe('');
+    expect(escribirComparar([primero, segundo])).toBe(`?d=${primero},${segundo}`);
+    expect(leerComparar(escribirComparar([segundo, primero]), data)).toEqual([segundo, primero]);
+  });
+
+  it('finds deputies by any word of the name, without accents, in alphabetical order', () => {
+    const todos = buscarDiputados(data, 'a', 50).map((d) => d[1]);
+    expect(todos).toEqual([...todos].sort((a, b) => a.localeCompare(b, 'es')));
+    expect(buscarDiputados(data, 'a', 2)).toHaveLength(2);
+    expect(buscarDiputados(data, '   ', 5)).toEqual([]);
+    expect(buscarDiputados(data, 'zzzz', 5)).toEqual([]);
   });
 });
 
