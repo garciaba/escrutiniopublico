@@ -349,6 +349,13 @@ const pressed = await phonePage.evaluate<string | null>(
   `document.querySelector('#ranking-tabla tbody tr:first-child .abrir').getAttribute('aria-expanded')`,
 );
 expectEqual('phone: the open state is announced', pressed, 'true');
+// Every name is a target at least 24 px tall, whatever the fonts of the machine (WCAG 2.2).
+const smallTargets = await phonePage.evaluate<string[]>(
+  `[...document.querySelectorAll('#ranking-tabla tbody .c-nom > a')]
+    .filter((link) => link.getBoundingClientRect().height < 24)
+    .map((link) => link.textContent)`,
+);
+expectEqual('phone: names are targets of 24 px or more', smallTargets, []);
 const overflow = await phonePage.evaluate<boolean>(`document.documentElement.scrollWidth > window.innerWidth`);
 expectEqual('phone: no horizontal scroll', overflow, false);
 // The folded rest of a list in a profile takes the width of its card (a style of the

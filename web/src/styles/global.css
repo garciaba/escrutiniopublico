@@ -1087,7 +1087,10 @@ th[aria-sort='descending'] .orden .baja {
   font-weight: 600;
 }
 
+/* A name is a link to tap: one block at least 24 px tall (WCAG 2.2, target size). */
 .c-nom a {
+  display: inline-block;
+  min-height: 1.5rem;
   color: var(--ink);
   text-decoration: none;
 }
