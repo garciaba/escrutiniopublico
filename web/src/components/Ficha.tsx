@@ -342,7 +342,7 @@ function LineaMetrica({ metrica, config, ficha, periodo }: MetricaProps) {
   const serie = completa ? serieDelPeriodo(completa, ficha.evolucion.meses, periodo.desde, periodo.hasta) : undefined;
   return (
     <li>
-      <details class="metrica">
+      <details class="linea">
         <summary>
           <span class="m-nombre">{config.nombre}</span>
           <span class="m-bruto">{bruto.principal}</span>
@@ -363,12 +363,12 @@ function LineaMetrica({ metrica, config, ficha, periodo }: MetricaProps) {
             )}
           </span>
         </summary>
-        <div class="metrica-cuerpo">
+        <div class="linea-cuerpo">
           <p class="m-secundario">{bruto.secundario}</p>
           <Percentiles metrica={metrica} porGrupo={enGrupo} />
           {serie ? <Evolucion valores={serie.valores} meses={serie.meses} config={config} /> : null}
           {metrica.fuente ? (
-            <p class="metrica-pie">
+            <p class="linea-pie">
               <a href={metrica.fuente.url} rel="noopener">
                 Fuente<span class="sr">: {metrica.fuente.nombre}</span>
               </a>
@@ -390,7 +390,7 @@ function LineaTiempo({ periodo }: { periodo: FichaPeriodo }) {
   const conHora = Math.max(1, tiempo.intervenciones - tiempo.sin_hora);
   return (
     <li>
-      <details class="metrica contexto">
+      <details class="linea contexto">
         <summary>
           <span class="m-nombre">{contexto.nombre}</span>
           <span class="m-bruto">{duracion(tiempo.minutos)}</span>
@@ -398,7 +398,7 @@ function LineaTiempo({ periodo }: { periodo: FichaPeriodo }) {
             <span class="etiqueta rayada">No puntúa</span>
           </span>
         </summary>
-        <div class="metrica-cuerpo">
+        <div class="linea-cuerpo">
           <p class="m-secundario">
             En {num(tiempo.intervenciones)} {plural(tiempo.intervenciones, 'intervención', 'intervenciones')}
             {tiempo.intervenciones > 0 ? `, ${num(tiempo.minutos / conHora, 1)} minutos de media` : ''}
@@ -407,7 +407,7 @@ function LineaTiempo({ periodo }: { periodo: FichaPeriodo }) {
               : ''}
             .
           </p>
-          <p class="metrica-pie">{contexto.calculo}</p>
+          <p class="linea-pie">{contexto.calculo}</p>
         </div>
       </details>
     </li>
@@ -418,7 +418,7 @@ function LineaTiempo({ periodo }: { periodo: FichaPeriodo }) {
 function SinDato({ metricas }: { metricas: { metrica: Metrica; config: MetricConfig }[] }) {
   if (metricas.length === 0) return null;
   return (
-    <details class="metrica sin-dato">
+    <details class="linea sin-dato">
       <summary>
         <span class="m-nombre">
           {num(metricas.length)} {plural(metricas.length, 'métrica', 'métricas')} sin dato
@@ -428,7 +428,7 @@ function SinDato({ metricas }: { metricas: { metrica: Metrica; config: MetricCon
           cero
         </span>
       </summary>
-      <div class="metrica-cuerpo">
+      <div class="linea-cuerpo">
         <ul class="motivos">
           {metricas.map(({ metrica, config }) => (
             <li>

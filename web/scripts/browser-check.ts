@@ -412,8 +412,8 @@ if (periodsOffered > 1) {
 }
 
 await page.click('.pestanas a[href="#actividad"]');
-const metric = '#actividad .per-1 .grupo-dimension:nth-of-type(2) .metrica';
-const closed = await page.evaluate<boolean>(`!document.querySelector('${metric} .metrica-cuerpo').checkVisibility()`);
+const metric = '#actividad .per-1 .grupo-dimension:nth-of-type(2) .linea';
+const closed = await page.evaluate<boolean>(`!document.querySelector('${metric} .linea-cuerpo').checkVisibility()`);
 expectEqual('profile: a metric is one line until it is opened', closed, true);
 await page.click(`${metric} summary`);
 const chart = await page.evaluate<{ x: number; y: number; width: number; height: number; rest: string }>(

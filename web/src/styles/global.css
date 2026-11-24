@@ -1703,7 +1703,7 @@ th[aria-sort='descending'] .orden .baja {
   box-shadow: inset 0 -3px 0 var(--accent);
 }
 
-.panel {
+.ficha .panel {
   margin-top: clamp(1.75rem, 4vw, 2.5rem);
   scroll-margin-top: 4rem;
 }
@@ -1712,11 +1712,11 @@ th[aria-sort='descending'] .orden .baja {
   margin-top: 1.25rem;
 }
 
-.panel[hidden] {
+.ficha .panel[hidden] {
   display: none;
 }
 
-.panel > h2 {
+.ficha .panel > h2 {
   font-size: 1.2rem;
 }
 
@@ -1729,18 +1729,18 @@ th[aria-sort='descending'] .orden .baja {
   white-space: nowrap;
 }
 
-.panel > .tarjeta,
+.ficha .panel > .tarjeta,
 .subseccion > .tarjeta {
   margin-top: 0.9rem;
   overflow: clip;
 }
 
-.panel > .nota {
+.ficha .panel > .nota {
   margin-top: 0.5rem;
   color: var(--muted);
 }
 
-.panel .ficha-rejilla {
+.ficha .panel .ficha-rejilla {
   margin-top: 0;
 }
 
@@ -1821,7 +1821,7 @@ th[aria-sort='descending'] .orden .baja {
   border-top: 1px solid var(--rule);
 }
 
-.metrica > summary {
+.linea > summary {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 5.5rem 0.9rem;
   align-items: center;
@@ -1831,11 +1831,11 @@ th[aria-sort='descending'] .orden .baja {
   list-style: none;
 }
 
-.metrica > summary::-webkit-details-marker {
+.linea > summary::-webkit-details-marker {
   display: none;
 }
 
-.metrica > summary::after {
+.linea > summary::after {
   content: '';
   grid-column: 3;
   grid-row: 1 / span 2;
@@ -1846,11 +1846,11 @@ th[aria-sort='descending'] .orden .baja {
   transform: translateY(-0.12rem) rotate(45deg);
 }
 
-.metrica[open] > summary::after {
+.linea[open] > summary::after {
   transform: translateY(0.12rem) rotate(225deg);
 }
 
-.metrica > summary:hover {
+.linea > summary:hover {
   background: #faf8f2;
 }
 
@@ -1883,7 +1883,7 @@ th[aria-sort='descending'] .orden .baja {
   margin-top: 0.25rem;
 }
 
-.metrica-cuerpo {
+.linea-cuerpo {
   padding: 0.25rem 1rem 1rem;
 }
 
@@ -1979,32 +1979,32 @@ th[aria-sort='descending'] .orden .baja {
   vector-effect: non-scaling-stroke;
 }
 
-.metrica-pie {
+.linea-pie {
   margin-top: 0.9rem;
   color: var(--muted);
   font-size: 0.82rem;
 }
 
-.metrica.contexto .m-percentil .etiqueta {
+.linea.contexto .m-percentil .etiqueta {
   vertical-align: 0;
 }
 
-.metrica.sin-dato {
+.linea.sin-dato {
   margin-top: 0.9rem;
   border: 1px dashed var(--rule-strong);
   border-radius: var(--radius);
   color: var(--muted);
 }
 
-.metrica.sin-dato > summary {
+.linea.sin-dato > summary {
   grid-template-columns: minmax(0, 1fr) 0.9rem;
 }
 
-.metrica.sin-dato > summary::after {
+.linea.sin-dato > summary::after {
   grid-column: 2;
 }
 
-.metrica.sin-dato > summary:hover {
+.linea.sin-dato > summary:hover {
   background: none;
 }
 
@@ -2018,6 +2018,97 @@ th[aria-sort='descending'] .orden .baja {
 .motivos strong {
   color: var(--ink);
   font-weight: 600;
+}
+
+/* Metric cards: the groups page uses them. */
+.metricas {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 46rem) {
+  .metricas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.metrica {
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem 1.25rem 1.15rem;
+}
+
+.metrica-cabeza {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.metrica h3 {
+  font-size: 1.02rem;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+
+.metrica .dim {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 0.1rem;
+}
+
+.metrica .bruto {
+  margin-top: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.25;
+}
+
+.metrica .bruto small {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.metrica-pie {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.metrica.contexto {
+  background: var(--surface-2);
+  box-shadow: none;
+}
+
+.tiempo-media {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.metrica.sin-dato {
+  background: var(--surface-2);
+  box-shadow: none;
+  border-style: dashed;
+  color: var(--muted);
+}
+
+.metrica.sin-dato h3 {
+  color: var(--muted);
+}
+
+.metrica.sin-dato .motivo {
+  margin-top: 0.75rem;
+  font-size: 0.94rem;
 }
 
 .lista-tabla {
@@ -2158,11 +2249,7 @@ details.mas[open] > summary {
     display: block;
   }
 
-  /* The date and the links share the first line; the rest follows below. */
   .lista-tabla.apilable tr {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 0.25rem 0.75rem;
     padding: 0.8rem 1rem;
     border-bottom: 1px solid var(--rule);
   }
@@ -2173,19 +2260,39 @@ details.mas[open] > summary {
 
   .lista-tabla.apilable th,
   .lista-tabla.apilable td {
-    grid-column: 1 / -1;
     padding: 0;
     border: 0;
   }
 
+  .lista-tabla.apilable td + td,
+  .lista-tabla.apilable th + td {
+    margin-top: 0.3rem;
+  }
+
   .lista-tabla.apilable .fecha {
-    grid-column: 1;
-    grid-row: 1;
     color: var(--muted);
     font-size: 0.85rem;
   }
 
-  .lista-tabla.apilable .enlaces {
+  /* In a profile the date and the links share the first line; the rest follows below. */
+  .ficha .lista-tabla.apilable tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.25rem 0.75rem;
+  }
+
+  .ficha .lista-tabla.apilable th,
+  .ficha .lista-tabla.apilable td {
+    grid-column: 1 / -1;
+    margin-top: 0;
+  }
+
+  .ficha .lista-tabla.apilable .fecha {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .ficha .lista-tabla.apilable .enlaces {
     grid-column: 2;
     grid-row: 1;
     font-size: 0.88rem;
