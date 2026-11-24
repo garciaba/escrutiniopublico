@@ -150,7 +150,7 @@ function RankingRow({ data, fila, activo, abierta, elegido, lleno, onAbrir, onCo
       <td class="c-mas">
         <button
           type="button"
-          class="mas"
+          class="abrir"
           aria-expanded={abierta}
           aria-label={`Dimensiones de ${fila.nombre}`}
           disabled={!activo}

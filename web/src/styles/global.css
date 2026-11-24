@@ -1079,7 +1079,7 @@ th[aria-sort='descending'] .orden .baja {
     grid-row: 1;
   }
 
-  .mas {
+  .abrir {
     display: grid;
     place-items: center;
     width: 2.75rem;
@@ -1091,7 +1091,7 @@ th[aria-sort='descending'] .orden .baja {
     cursor: pointer;
   }
 
-  .mas svg {
+  .abrir svg {
     width: 0.85rem;
     height: 0.6rem;
     fill: none;
@@ -1101,7 +1101,7 @@ th[aria-sort='descending'] .orden .baja {
     stroke-linejoin: round;
   }
 
-  .mas[aria-expanded='true'] svg {
+  .abrir[aria-expanded='true'] svg {
     transform: rotate(180deg);
   }
 

@@ -125,7 +125,7 @@ for (const viewport of VIEWPORTS) {
       await page.fill('#ranking-q', 'mar');
       await page.click('.barra-filtros');
       await page.selectOption('#ranking-orden', 'indice:desc');
-      if (viewport.name === 'mobile') await page.click('#ranking-tabla tbody tr:first-child .mas');
+      if (viewport.name === 'mobile') await page.click('#ranking-tabla tbody tr:first-child .abrir');
       await page.click('#ranking-tabla tbody tr:first-child .comparar');
       await check(page, `${viewport.name} ${path} (filtered)`);
     }
@@ -317,15 +317,27 @@ const shownDimensions = () =>
     `[...document.querySelectorAll('#ranking-tabla tbody tr:first-child .c-dim')].filter((cell) => cell.offsetParent !== null).length`,
   );
 expectEqual('phone: dimensions folded at first', await shownDimensions(), 0);
-await phonePage.click('#ranking-tabla tbody tr:first-child .mas');
+await phonePage.click('#ranking-tabla tbody tr:first-child .abrir');
 const opened = await shownDimensions();
 if (opened === 0) expectEqual('phone: a tap opens the dimensions', opened, '> 0');
 const pressed = await phonePage.evaluate<string | null>(
-  `document.querySelector('#ranking-tabla tbody tr:first-child .mas').getAttribute('aria-expanded')`,
+  `document.querySelector('#ranking-tabla tbody tr:first-child .abrir').getAttribute('aria-expanded')`,
 );
 expectEqual('phone: the open state is announced', pressed, 'true');
 const overflow = await phonePage.evaluate<boolean>(`document.documentElement.scrollWidth > window.innerWidth`);
 expectEqual('phone: no horizontal scroll', overflow, false);
+// The folded rest of a list in a profile takes the width of its card (a style of the
+// home page once squeezed it into a circle).
+const folded = sample[0];
+if (folded) {
+  await phonePage.goto(`${origin}/diputados/${folded}`, { waitUntil: 'networkidle' });
+  const widths = await phonePage.evaluate<number[]>(
+    `[...document.querySelectorAll('details.mas')].map((rest) => Math.round(rest.getBoundingClientRect().width))`,
+  );
+  if (widths.length === 0) expectEqual('phone: the sample profile has a folded list', widths.length, '> 0');
+  if (widths.some((width) => width < 250))
+    expectEqual('phone: folded lists of a profile span the card', widths, '>= 250 each');
+}
 await phone.close();
 
 // Stale-data warning (specification, section 6): the browser compares the date of the
