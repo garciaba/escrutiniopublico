@@ -46,4 +46,9 @@ const jsonLd = {
   jsonLd={jsonLd}
 >
   <div class="wrap"><FichaDiputado ficha={ficha} /></div>
+  <script>
+    import { boot } from '../../components/ficha-client.ts';
+
+    boot();
+  </script>
 </Base>

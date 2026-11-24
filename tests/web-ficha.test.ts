@@ -4,11 +4,16 @@ import { describe, expect, it } from 'vitest';
 import { scoring, type MetricConfig } from '../config/scoring.ts';
 import type { Ficha, FichaPeriodo, Metrica } from '../web/src/lib/data.ts';
 import {
+  codificarSerie,
+  descodificarSerie,
   descripcionFicha,
   intervalo,
+  lecturaMensual,
+  mesSiguiente,
   periodoPrincipal,
   recortar,
   resumenEvolucion,
+  serieDelPeriodo,
   valorBruto,
   valorMensual,
 } from '../web/src/lib/ficha.ts';
@@ -175,6 +180,43 @@ describe('monthly evolution', () => {
 
   it('draws nothing for an empty series', () => {
     expect(sparkBars([], [], { width: 0, height: 32 })).toEqual([]);
+  });
+});
+
+describe('monthly chart in the browser', () => {
+  const meses = ['2024-11', '2024-12', '2025-01', '2025-02'];
+
+  it('keeps only the months of the period, both ends included', () => {
+    expect(serieDelPeriodo([1, 2, null, 4], meses, '2024-12-15', '2025-01-31')).toEqual({
+      valores: [2, null],
+      meses: ['2024-12', '2025-01'],
+    });
+    expect(serieDelPeriodo([1, 2, null, 4], meses, null, undefined)).toEqual({ valores: [1, 2, null, 4], meses });
+    expect(serieDelPeriodo([1, 2], meses, '2030-01-01', null)).toEqual({ valores: [], meses: [] });
+  });
+
+  it('sends a series to the page and reads it back, months without data included', () => {
+    const serie = [3, 0, null, 0.123456, 1];
+    expect(codificarSerie(serie)).toBe('3,0,,0.1235,1');
+    expect(descodificarSerie(codificarSerie(serie))).toEqual([3, 0, null, 0.1235, 1]);
+    expect(descodificarSerie('')).toEqual([]);
+    expect(descodificarSerie(codificarSerie([null, null]))).toEqual([null, null]);
+  });
+
+  it('counts months forward across the end of the year', () => {
+    expect(mesSiguiente('2024-11', 0)).toBe('2024-11');
+    expect(mesSiguiente('2024-11', 2)).toBe('2025-01');
+    expect(mesSiguiente('2023-08', 38)).toBe('2026-10');
+  });
+
+  it('says what a month holds, or that it has no data', () => {
+    expect(lecturaMensual('2025-03', 4, config('intervenciones_pleno'))).toBe('marzo de 2025: 4 intervenciones');
+    expect(lecturaMensual('2025-03', 0, config('intervenciones_pleno'))).toBe('marzo de 2025: 0 intervenciones');
+    expect(lecturaMensual('2025-08', null, config('votaciones_participacion'))).toBe('agosto de 2025: sin datos');
+    // The browser only knows the unit and the two words, which is all the text needs.
+    expect(lecturaMensual('2025-03', 1, { unidad: 'proporcion', objeto: ['votación', 'votaciones'] })).toBe(
+      'marzo de 2025: 100 % de participación',
+    );
   });
 });
 

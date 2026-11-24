@@ -4,6 +4,8 @@
  *   - axe-core (WCAG 2.2 A and AA rules) on every kind of page, desktop and mobile;
  *   - the ranking list: search, province, filters, sorting, periods, pages, the detail of
  *     a row on a phone and the state in the URL; and the comparison it leads to;
+ *   - a profile: tabs, period switch, a metric and its chart, the folded rest of a list,
+ *     and the same page without JavaScript;
  *   - privacy and security: no cookies, no storage, no other origins, no CSP violations.
  *
  *   pnpm web:build && pnpm web:check
@@ -38,6 +40,9 @@ interface Page {
   selectOption(selector: string, value: string): Promise<unknown>;
   waitForSelector(selector: string): Promise<unknown>;
   waitForTimeout(ms: number): Promise<void>;
+  focus(selector: string): Promise<void>;
+  keyboard: { press(key: string): Promise<void> };
+  mouse: { move(x: number, y: number): Promise<void> };
   clock: { setFixedTime(time: Date): Promise<void> };
   on(event: string, listener: (payload: { type(): string; text(): string; url(): string }) => void): void;
   close(): Promise<void>;
@@ -119,6 +124,14 @@ for (const viewport of VIEWPORTS) {
     const page = await browser.newPage({ viewport, bypassCSP: true });
     await page.goto(`${origin}${path}`, { waitUntil: 'networkidle' });
     await check(page, `${viewport.name} ${path}`);
+    if (path.startsWith('/diputados/')) {
+      // A profile shows one tab at a time: check it again with everything open.
+      await page.evaluate(
+        `document.querySelectorAll('.panel').forEach((panel) => (panel.hidden = false));
+         document.querySelectorAll('details').forEach((details) => (details.open = true));`,
+      );
+      await check(page, `${viewport.name} ${path} (every section open)`);
+    }
     if (path === '/') {
       // Everything the visitor can open at once: filters, labels, a row and the tray.
       await page.waitForSelector('#ranking-q:not([disabled])');
@@ -331,14 +344,122 @@ expectEqual('phone: no horizontal scroll', overflow, false);
 const folded = sample[0];
 if (folded) {
   await phonePage.goto(`${origin}/diputados/${folded}`, { waitUntil: 'networkidle' });
+  // Every tab open, so that each folded list has a size to measure.
   const widths = await phonePage.evaluate<number[]>(
-    `[...document.querySelectorAll('details.mas')].map((rest) => Math.round(rest.getBoundingClientRect().width))`,
+    `(() => {
+      document.querySelectorAll('.panel').forEach((panel) => (panel.hidden = false));
+      return [...document.querySelectorAll('details.mas')].map((rest) => Math.round(rest.getBoundingClientRect().width));
+    })()`,
   );
   if (widths.length === 0) expectEqual('phone: the sample profile has a folded list', widths.length, '> 0');
   if (widths.some((width) => width < 250))
     expectEqual('phone: folded lists of a profile span the card', widths, '>= 250 each');
 }
 await phone.close();
+
+// Profile: the sections are tabs, the period is a switch, a metric opens on its chart.
+const profile = sample[0] ?? '';
+const profileState = () =>
+  page.evaluate<{ shown: string[]; selected: string | null; address: string; periods: number }>(
+    `({
+      shown: [...document.querySelectorAll('.ficha .panel')].filter((panel) => !panel.hidden).map((panel) => panel.id),
+      selected: document.querySelector('.pestanas [aria-selected="true"]')?.getAttribute('href') ?? null,
+      address: location.pathname + location.hash,
+      periods: [...document.querySelectorAll('#resumen .per')].filter((block) => block.offsetParent !== null).length,
+    })`,
+  );
+await page.goto(`${origin}/diputados/${profile}`, { waitUntil: 'networkidle' });
+await page.waitForSelector('.ficha.con-pestanas');
+expectEqual('profile: opens on the summary, one period', await profileState(), {
+  shown: ['resumen'],
+  selected: '#resumen',
+  address: `/diputados/${profile}`,
+  periods: 1,
+});
+await page.click('.pestanas a[href="#actividad"]');
+expectEqual('profile: a tab shows its section and nothing else', await profileState(), {
+  shown: ['actividad'],
+  selected: '#actividad',
+  address: `/diputados/${profile}#actividad`,
+  periods: 0,
+});
+await page.focus('.pestanas a[href="#actividad"]');
+await page.keyboard.press('ArrowRight');
+expectEqual('profile: the arrow keys move between tabs', (await profileState()).shown, ['votaciones']);
+await page.keyboard.press('Home');
+expectEqual('profile: Home goes back to the first tab', (await profileState()).address, `/diputados/${profile}`);
+
+const periodsOffered = await page.evaluate<number>(`document.querySelectorAll('input[name="ficha-periodo"]').length`);
+if (periodsOffered > 1) {
+  const firstIndex = await page.evaluate<string>(
+    `document.querySelector('#resumen .per-1 .indice-cifra .valor')?.textContent ?? ''`,
+  );
+  await page.check('input[name="ficha-periodo"]:not(:checked)');
+  const switched = await page.evaluate<{ first: boolean; second: boolean }>(
+    `({
+      first: document.querySelector('#resumen .per-1').offsetParent !== null,
+      second: document.querySelector('#resumen .per-2').offsetParent !== null,
+    })`,
+  );
+  expectEqual('profile: the period switch swaps the figures', switched, { first: false, second: true });
+  await page.check('input[name="ficha-periodo"]');
+  const back = await page.evaluate<string>(
+    `[...document.querySelectorAll('#resumen .per')].find((block) => block.offsetParent !== null)?.querySelector('.indice-cifra .valor')?.textContent ?? ''`,
+  );
+  expectEqual('profile: and back', back, firstIndex);
+} else {
+  expectEqual('profile: the sample has two periods to switch between', periodsOffered, '> 1');
+}
+
+await page.click('.pestanas a[href="#actividad"]');
+const metric = '#actividad .per-1 .grupo-dimension:nth-of-type(2) .linea';
+const closed = await page.evaluate<boolean>(`!document.querySelector('${metric} .linea-cuerpo').checkVisibility()`);
+expectEqual('profile: a metric is one line until it is opened', closed, true);
+await page.click(`${metric} summary`);
+const chart = await page.evaluate<{ x: number; y: number; width: number; height: number; rest: string }>(
+  `(() => {
+    const svg = document.querySelector('${metric} svg.chispa');
+    svg.scrollIntoView({ block: 'center' });
+    const box = svg.getBoundingClientRect();
+    return { x: box.x, y: box.y, width: box.width, height: box.height, rest: document.querySelector('${metric} .chispa-lectura').textContent };
+  })()`,
+);
+await page.mouse.move(chart.x + chart.width * 0.5, chart.y + chart.height / 2);
+const reading = await page.evaluate<string>(`document.querySelector('${metric} .chispa-lectura').textContent`);
+if (reading === chart.rest || !/^[a-z]+ de \d{4}: /.test(reading)) {
+  expectEqual('profile: the chart names the month under the pointer', reading, 'a month and its value');
+}
+const lit = await page.evaluate<number>(`document.querySelectorAll('${metric} svg.chispa rect.activa').length`);
+if (lit > 1) expectEqual('profile: one column at most is highlighted', lit, '<= 1');
+
+await page.click('.pestanas a[href="#votaciones"]');
+const votes = () =>
+  page.evaluate<number>(
+    `[...document.querySelectorAll('#votaciones tbody tr')].filter((row) => row.checkVisibility()).length`,
+  );
+expectEqual('profile: five votes at first', await votes(), 5);
+await page.click('#votaciones details.mas summary');
+if ((await votes()) <= 5) expectEqual('profile: the rest of the votes opens', await votes(), '> 5');
+
+// A link to a section opens on its tab.
+await page.goto(`${origin}/diputados/${profile}#intervenciones`, { waitUntil: 'networkidle' });
+await page.waitForSelector('.ficha.con-pestanas');
+expectEqual('profile: a link to a section opens its tab', (await profileState()).shown, ['intervenciones']);
+
+// Without JavaScript the profile is the same content, one section after another.
+const plain = await browser.newContext({ viewport: VIEWPORTS[1], javaScriptEnabled: false });
+const plainPage = await plain.newPage();
+await plainPage.goto(`${origin}/diputados/${profile}`, { waitUntil: 'load' });
+const sections = await plainPage.evaluate<string[]>(
+  `[...document.querySelectorAll('.ficha .panel')].filter((panel) => panel.offsetParent !== null).map((panel) => panel.id)`,
+);
+expectEqual('profile without JavaScript: every section is on the page', sections.slice(0, 4), [
+  'resumen',
+  'actividad',
+  'votaciones',
+  'intervenciones',
+]);
+await plain.close();
 
 // Stale-data warning (specification, section 6): the browser compares the date of the
 // last run with its own clock and warns after the configured number of hours.
@@ -371,6 +492,6 @@ await context.close();
 await browser.close();
 server.close();
 console.log(
-  `${paths.length} pages × ${VIEWPORTS.length} viewports with axe-core, ranking and comparison interactions and privacy: ${failures} problems`,
+  `${paths.length} pages × ${VIEWPORTS.length} viewports with axe-core, ranking, comparison and profile interactions and privacy: ${failures} problems`,
 );
 process.exit(failures > 0 ? 1 : 0);

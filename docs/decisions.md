@@ -500,3 +500,19 @@ El mensaje del commit de datos lo escribe el mismo script: sesiones nuevas, fila
 - La portada pesa 99 kB de HTML en lugar de 576 kB.
 
 **Riesgo asumido:** con diez por página, la búsqueda del navegador ya no encuentra a todos en la portada. Lo cubren el buscador propio y `/diputados`.
+
+**Segunda entrega: ficha del diputado.** En un móvil pasa de 15.600 px a 1.500 px.
+
+- **Arriba, solo el resumen:** el índice, la posición y las dimensiones, cada una en una línea. Las notas (cobertura, etapa en el Gobierno, periodo insuficiente) quedan plegadas en «Cómo leer este índice». Quien está fuera del ranking lo ve en una frase.
+- **Pestañas:** Resumen, Actividad, Votaciones, Intervenciones y Cargos. La pestaña viaja en la URL (`#actividad`) y se maneja con las flechas del teclado.
+- **Una línea por métrica**, agrupadas por dimensión: nombre, dato oficial y el percentil que puntúa. Un toque abre los dos percentiles, la gráfica mensual y la fuente.
+- **Gráficas que responden.** Al pasar el puntero o tocar, la gráfica dice el mes y su valor; en reposo dice el máximo. En un periodo que no sea la legislatura solo muestra sus meses.
+- **Cambio de periodo sin recargar**, con el mismo mecanismo de CSS que la página de grupos. Solo se ofrecen los periodos con datos; la tabla «Por periodo» desaparece.
+- **Listas de cinco en cinco:** votaciones, intervenciones, cargos y ponencias enseñan cinco filas y pliegan el resto.
+- **Las métricas sin dato ocupan una línea** al final, con los motivos plegados y el recordatorio de que no cuentan como cero.
+
+**Las fichas llevan ahora un script, y siguen completas sin él.** La especificación pedía fichas sin JavaScript y el hito 3 lo cumplía. Las pestañas y la lectura de las gráficas lo necesitan, así que se cambia la regla por otra que protege lo mismo:
+
+- El HTML contiene todas las secciones y ninguna nace oculta: sin JavaScript, la ficha es la misma página con una sección tras otra y los enlaces de las pestañas saltan a cada una.
+- El script (`web/src/components/ficha-client.ts`) no usa ninguna librería y pesa 1,3 kB comprimido. `pnpm web:audit` le pone un tope de 4 kB y comprueba las dos condiciones anteriores en las 412 fichas.
+- `pnpm web:check` recorre una ficha (pestañas, teclado, periodo, métrica, gráfica, «ver más»), la abre sin JavaScript y pasa axe con todas las secciones desplegadas.

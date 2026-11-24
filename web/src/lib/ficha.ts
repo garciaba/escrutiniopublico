@@ -53,18 +53,58 @@ export function valorBruto(metrica: Metrica, config: MetricConfig): Bruto | unde
   };
 }
 
-/** Text of one month of a sparkline, for its tooltip. */
-export function valorMensual(valor: number, config: MetricConfig): string {
+/** What a monthly value needs to be put in words; the browser gets it as data attributes. */
+export type UnidadMensual = Pick<MetricConfig, 'unidad' | 'objeto'>;
+
+/** Text of one month of a monthly chart, for its read-out. */
+export function valorMensual(valor: number, config: UnidadMensual): string {
   if (config.unidad === 'proporcion') return `${porcentaje(valor, 0)} de participación`;
   const [singular, variosObjetos] = config.objeto;
   return `${numFlexible(valor, 2)} ${Number.isInteger(valor) ? plural(valor, singular, variosObjetos) : variosObjetos}`;
 }
 
-/** Text alternative of a sparkline: range of months, peak and how many months have data. */
+/** "marzo de 2025: 4 intervenciones"; a month without data says so. */
+export function lecturaMensual(yearMonth: string, valor: number | null, config: UnidadMensual): string {
+  return `${mes(yearMonth)}: ${valor === null ? 'sin datos' : valorMensual(valor, config)}`;
+}
+
+/** Months of a series that fall inside a period, both ends included. */
+export function serieDelPeriodo(
+  valores: readonly (number | null)[],
+  meses: readonly string[],
+  desde: string | null | undefined,
+  hasta: string | null | undefined,
+): { valores: (number | null)[]; meses: string[] } {
+  const primero = desde ? desde.slice(0, 7) : '';
+  const ultimo = hasta ? hasta.slice(0, 7) : '9999-12';
+  const dentro = meses.flatMap((yearMonth, i) => (yearMonth >= primero && yearMonth <= ultimo ? [i] : []));
+  return { valores: dentro.map((i) => valores[i] ?? null), meses: dentro.map((i) => meses[i] ?? '') };
+}
+
+/**
+ * "3,0,,5": the values of a series for a data attribute; an empty field is a month
+ * without data. A chart has two months or more, so the empty text is the empty series.
+ */
+export function codificarSerie(valores: readonly (number | null)[]): string {
+  return valores.map((valor) => (valor === null ? '' : String(Math.round(valor * 10000) / 10000))).join(',');
+}
+
+export function descodificarSerie(texto: string): (number | null)[] {
+  return texto === '' ? [] : texto.split(',').map((campo) => (campo === '' ? null : Number(campo)));
+}
+
+/** "2023-08" plus two months is "2023-10". */
+export function mesSiguiente(yearMonth: string, pasos: number): string {
+  const [year = '0', month = '1'] = yearMonth.split('-');
+  const total = Number(year) * 12 + (Number(month) - 1) + pasos;
+  return `${Math.floor(total / 12)}-${String((total % 12) + 1).padStart(2, '0')}`;
+}
+
+/** Text alternative of a monthly chart: range of months and peak. */
 export function resumenEvolucion(
   valores: readonly (number | null)[],
   meses: readonly string[],
-  config: MetricConfig,
+  config: UnidadMensual,
 ): string {
   const conDato = valores.flatMap((valor, i) => (valor === null ? [] : [{ valor, mes: meses[i] ?? '' }]));
   if (conDato.length === 0) return 'Sin datos mensuales.';
