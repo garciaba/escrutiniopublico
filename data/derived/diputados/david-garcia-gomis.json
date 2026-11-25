@@ -1,6 +1,6 @@
 {
  "metodologia_version": "1.2.0",
- "fecha_calculo": "2026-11-23",
+ "fecha_calculo": "2026-11-25",
  "legislatura": {
   "numero": 15,
   "nombre": "XV",
@@ -187,7 +187,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -204,7 +204,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -322,11 +322,11 @@
    "estado": "disponible",
    "situacion": "ranking",
    "etapa_gobierno_excluida": false,
-   "desde": "2025-11-24",
+   "desde": "2025-11-26",
    "hasta": "2026-10-06",
-   "dias_activo": 317,
+   "dias_activo": 315,
    "dias_gobierno": 0,
-   "dias_evaluados": 317,
+   "dias_evaluados": 315,
    "grupo": "GVOX",
    "roles": [],
    "indice": 86.5,
@@ -340,7 +340,7 @@
     },
     {
      "id": "debates",
-     "puntuacion": 88.8
+     "puntuacion": 88.9
     },
     {
      "id": "iniciativa",
@@ -377,26 +377,26 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 2.2082,
+     "valor": 2.2222,
      "numerador": 7,
-     "denominador": 317,
-     "percentil": 78.5,
-     "percentil_grupo": 42.2,
+     "denominador": 315,
+     "percentil": 78.8,
+     "percentil_grupo": 45.3,
      "n_grupo": 32,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 17.9811,
-     "numerador": 57,
-     "denominador": 317,
+     "valor": 17.4603,
+     "numerador": 55,
+     "denominador": 315,
      "percentil": 99,
      "percentil_grupo": 98.4,
      "n_grupo": 32,
@@ -404,22 +404,22 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 41.8745,
-     "numerador": 132.7421,
-     "denominador": 317,
+     "valor": 41.188,
+     "numerador": 129.7421,
+     "denominador": 315,
      "percentil": 95.8,
      "percentil_grupo": 98.4,
      "n_grupo": 32,
      "comparacion": "camara",
      "detalle": {
-      "firmadas": 470,
+      "firmadas": 460,
       "primer_firmante": 101
      },
      "fuente": {
@@ -432,9 +432,9 @@
      "id": "preguntas_orales",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 3.6278,
+     "valor": 3.6508,
      "numerador": 11.5,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 95.7,
      "percentil_grupo": 92.2,
      "n_grupo": 32,
@@ -453,9 +453,9 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 11.0519,
+     "valor": 11.1221,
      "numerador": 35.0346,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 99.3,
      "percentil_grupo": 95.3,
      "n_grupo": 32,
@@ -486,9 +486,9 @@
      "id": "leyes_ponente",
      "dimension": "resultados",
      "estado": "observado",
-     "valor": 0.6309,
+     "valor": 0.6349,
      "numerador": 2,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 95.2,
      "percentil_grupo": 89.1,
      "n_grupo": 32,
@@ -513,8 +513,8 @@
     }
    ],
    "tiempo_palabra": {
-    "minutos": 357,
-    "intervenciones": 66,
+    "minutos": 352,
+    "intervenciones": 64,
     "sin_hora": 0
    }
   },
@@ -1244,7 +1244,7 @@
    "intervencion_id": "1576511I",
    "fecha": "2026-06-25",
    "organo": "Comisión de Sanidad",
-   "tipo_iniciativa": "Comparecencia del Gobierno en Comisión (art. 44).",
+   "tipo_iniciativa": "Comparecencia de autoridades y funcionarios en Comisión.",
    "cuenta": true,
    "motivo_exclusion": null,
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-599.CODI.)#(P%C3%A1gina25)",

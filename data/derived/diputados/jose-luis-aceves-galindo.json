@@ -1,6 +1,6 @@
 {
  "metodologia_version": "1.2.0",
- "fecha_calculo": "2026-11-23",
+ "fecha_calculo": "2026-11-25",
  "legislatura": {
   "numero": 15,
   "nombre": "XV",
@@ -203,7 +203,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -220,7 +220,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -338,16 +338,16 @@
    "estado": "disponible",
    "situacion": "ranking",
    "etapa_gobierno_excluida": false,
-   "desde": "2025-11-24",
+   "desde": "2025-11-26",
    "hasta": "2026-10-06",
-   "dias_activo": 317,
+   "dias_activo": 315,
    "dias_gobierno": 0,
-   "dias_evaluados": 317,
+   "dias_evaluados": 315,
    "grupo": "GS",
    "roles": [],
-   "indice": 52.2,
+   "indice": 51.8,
    "cobertura": 0.8,
-   "posicion": 150,
+   "posicion": 152,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -356,11 +356,11 @@
     },
     {
      "id": "debates",
-     "puntuacion": 59
+     "puntuacion": 57.3
     },
     {
      "id": "iniciativa",
-     "puntuacion": 26.3
+     "puntuacion": 26.5
     },
     {
      "id": "resultados",
@@ -393,45 +393,45 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 1.2618,
+     "valor": 1.2698,
      "numerador": 4,
-     "denominador": 317,
-     "percentil": 68,
-     "percentil_grupo": 89.8,
+     "denominador": 315,
+     "percentil": 68.6,
+     "percentil_grupo": 90.3,
      "n_grupo": 118,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 2.8391,
-     "numerador": 9,
-     "denominador": 317,
-     "percentil": 50,
-     "percentil_grupo": 61.4,
+     "valor": 2.5397,
+     "numerador": 8,
+     "denominador": 315,
+     "percentil": 46.1,
+     "percentil_grupo": 58.1,
      "n_grupo": 118,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.6552,
+     "valor": 0.6593,
      "numerador": 2.0769,
-     "denominador": 317,
-     "percentil": 34.3,
-     "percentil_grupo": 85.6,
+     "denominador": 315,
+     "percentil": 34.4,
+     "percentil_grupo": 86,
      "n_grupo": 118,
      "comparacion": "camara",
      "detalle": {
@@ -450,8 +450,8 @@
      "estado": "calculado",
      "valor": 0,
      "numerador": 0,
-     "denominador": 317,
-     "percentil": 24.9,
+     "denominador": 315,
+     "percentil": 25.2,
      "percentil_grupo": 45.3,
      "n_grupo": 118,
      "comparacion": "camara",
@@ -471,7 +471,7 @@
      "estado": "calculado",
      "valor": 0,
      "numerador": 0,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 19.7,
      "percentil_grupo": 45.3,
      "n_grupo": 118,
@@ -502,9 +502,9 @@
      "id": "leyes_ponente",
      "dimension": "resultados",
      "estado": "observado",
-     "valor": 0.3155,
+     "valor": 0.3175,
      "numerador": 1,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 83.6,
      "percentil_grupo": 89.4,
      "n_grupo": 118,
@@ -529,8 +529,8 @@
     }
    ],
    "tiempo_palabra": {
-    "minutos": 74,
-    "intervenciones": 13,
+    "minutos": 70,
+    "intervenciones": 12,
     "sin_hora": 0
    }
   },

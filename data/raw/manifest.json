@@ -90,10 +90,10 @@
   "sha256": "543a1f44b2ed1b65b76d1a9a227b1224e6d55fa8933c76532c56fbfb19b9cfba"
  },
  "intervenciones/IntervencionesCronologicamente": {
-  "url": "https://www.congreso.es/webpublica/opendata/intervenciones/IntervencionesCronologicamente__20261123050120.json",
-  "descargado": "2026-11-23",
-  "bytes": 56849646,
-  "sha256": "f698b4994bfacd8c29fa5acfd4e354c10aa25a9632c02378e456538c1079e867"
+  "url": "https://www.congreso.es/webpublica/opendata/intervenciones/IntervencionesCronologicamente__20261125050232.json",
+  "descargado": "2026-11-25",
+  "bytes": 53987741,
+  "sha256": "9e0136e024f82e9575a7d1a0c3f32951323f848c3859e47cf4a677cef3f3d165"
  },
  "organos/composicion": {
   "url": "https://www.congreso.es/es/opendata/organos",

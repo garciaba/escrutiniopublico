@@ -1,6 +1,6 @@
 {
  "metodologia_version": "1.2.0",
- "fecha_calculo": "2026-11-23",
+ "fecha_calculo": "2026-11-25",
  "legislatura": {
   "numero": 15,
   "nombre": "XV",
@@ -299,7 +299,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -316,7 +316,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -434,11 +434,11 @@
    "estado": "disponible",
    "situacion": "ranking",
    "etapa_gobierno_excluida": false,
-   "desde": "2025-11-24",
+   "desde": "2025-11-26",
    "hasta": "2026-10-06",
-   "dias_activo": 317,
+   "dias_activo": 315,
    "dias_gobierno": 0,
-   "dias_evaluados": 317,
+   "dias_evaluados": 315,
    "grupo": "GR",
    "roles": [],
    "indice": 57.9,
@@ -452,11 +452,11 @@
     },
     {
      "id": "debates",
-     "puntuacion": 97.1
+     "puntuacion": 97.2
     },
     {
      "id": "iniciativa",
-     "puntuacion": 41.8
+     "puntuacion": 41.9
     },
     {
      "id": "resultados",
@@ -489,43 +489,43 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 10.4101,
+     "valor": 10.4762,
      "numerador": 33,
-     "denominador": 317,
-     "percentil": 97.1,
-     "percentil_grupo": 78.6,
+     "denominador": 315,
+     "percentil": 97.8,
+     "percentil_grupo": 85.7,
      "n_grupo": 7,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 16.0883,
-     "numerador": 51,
-     "denominador": 317,
-     "percentil": 97.1,
-     "percentil_grupo": 71.4,
+     "valor": 14.6032,
+     "numerador": 46,
+     "denominador": 315,
+     "percentil": 96.5,
+     "percentil_grupo": 64.3,
      "n_grupo": 7,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 2.3133,
+     "valor": 2.328,
      "numerador": 7.3333,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 42.2,
      "percentil_grupo": 21.4,
      "n_grupo": 7,
@@ -544,10 +544,10 @@
      "id": "preguntas_orales",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.3155,
+     "valor": 0.3175,
      "numerador": 1,
-     "denominador": 317,
-     "percentil": 63.4,
+     "denominador": 315,
+     "percentil": 63.7,
      "percentil_grupo": 14.3,
      "n_grupo": 7,
      "comparacion": "camara",
@@ -567,7 +567,7 @@
      "estado": "calculado",
      "valor": 0,
      "numerador": 0,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 19.7,
      "percentil_grupo": 21.4,
      "n_grupo": 7,
@@ -600,7 +600,7 @@
      "estado": "observado",
      "valor": 0,
      "numerador": 0,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 37.5,
      "percentil_grupo": 21.4,
      "n_grupo": 7,
@@ -625,8 +625,8 @@
     }
    ],
    "tiempo_palabra": {
-    "minutos": 738,
-    "intervenciones": 86,
+    "minutos": 687,
+    "intervenciones": 81,
     "sin_hora": 0
    }
   },
@@ -1205,6 +1205,56 @@
  ],
  "ultimas_intervenciones": [
   {
+   "intervencion_id": "1580189I",
+   "fecha": "2026-11-18",
+   "organo": "Diputación Permanente",
+   "tipo_iniciativa": "Real Decreto-Ley.",
+   "cuenta": false,
+   "motivo_exclusion": "diputacion_permanente",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-214.CODI.)#(P%C3%A1gina100)",
+   "url_video": "https://app.congreso.es/v1/1580189I"
+  },
+  {
+   "intervencion_id": "1580176I",
+   "fecha": "2026-11-18",
+   "organo": "Diputación Permanente",
+   "tipo_iniciativa": "Real Decreto-Ley.",
+   "cuenta": false,
+   "motivo_exclusion": "diputacion_permanente",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-214.CODI.)#(P%C3%A1gina83)",
+   "url_video": "https://app.congreso.es/v1/1580176I"
+  },
+  {
+   "intervencion_id": "1580167I",
+   "fecha": "2026-11-18",
+   "organo": "Diputación Permanente",
+   "tipo_iniciativa": "Real Decreto-Ley.",
+   "cuenta": false,
+   "motivo_exclusion": "diputacion_permanente",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-214.CODI.)#(P%C3%A1gina71)",
+   "url_video": "https://app.congreso.es/v1/1580167I"
+  },
+  {
+   "intervencion_id": "1580145I",
+   "fecha": "2026-11-18",
+   "organo": "Diputación Permanente",
+   "tipo_iniciativa": "Real Decreto-Ley.",
+   "cuenta": false,
+   "motivo_exclusion": "diputacion_permanente",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-214.CODI.)#(P%C3%A1gina39)",
+   "url_video": "https://app.congreso.es/v1/1580145I"
+  },
+  {
+   "intervencion_id": "1580134I",
+   "fecha": "2026-11-18",
+   "organo": "Diputación Permanente",
+   "tipo_iniciativa": "Real Decreto-Ley.",
+   "cuenta": false,
+   "motivo_exclusion": "diputacion_permanente",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-214.CODI.)#(P%C3%A1gina23)",
+   "url_video": "https://app.congreso.es/v1/1580134I"
+  },
+  {
    "intervencion_id": "1579651I",
    "fecha": "2026-09-30",
    "organo": "Pleno",
@@ -1353,56 +1403,6 @@
    "motivo_exclusion": "diputacion_permanente",
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-200.CODI.)#(P%C3%A1gina39)",
    "url_video": "https://app.congreso.es/v1/1577593I"
-  },
-  {
-   "intervencion_id": "1577450I",
-   "fecha": "2026-07-23",
-   "organo": "Pleno",
-   "tipo_iniciativa": "Objetivo de estabilidad presupuestaria",
-   "cuenta": true,
-   "motivo_exclusion": null,
-   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-199.CODI.)#(P%C3%A1gina144)",
-   "url_video": "https://app.congreso.es/v1/1577450I"
-  },
-  {
-   "intervencion_id": "1577438I",
-   "fecha": "2026-07-23",
-   "organo": "Pleno",
-   "tipo_iniciativa": "Proyecto de ley.",
-   "cuenta": true,
-   "motivo_exclusion": null,
-   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-199.CODI.)#(P%C3%A1gina129)",
-   "url_video": "https://app.congreso.es/v1/1577438I"
-  },
-  {
-   "intervencion_id": "1577360I",
-   "fecha": "2026-07-23",
-   "organo": "Pleno",
-   "tipo_iniciativa": "Real Decreto-Ley.",
-   "cuenta": true,
-   "motivo_exclusion": null,
-   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-199.CODI.)#(P%C3%A1gina23)",
-   "url_video": "https://app.congreso.es/v1/1577360I"
-  },
-  {
-   "intervencion_id": "1577192I",
-   "fecha": "2026-07-14",
-   "organo": "Pleno",
-   "tipo_iniciativa": "Objetivo de estabilidad presupuestaria",
-   "cuenta": true,
-   "motivo_exclusion": null,
-   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-198.CODI.)#(P%C3%A1gina16)",
-   "url_video": "https://app.congreso.es/v1/1577192I"
-  },
-  {
-   "intervencion_id": "1576701I",
-   "fecha": "2026-06-30",
-   "organo": "Comisión de Agricultura, Pesca y Alimentación",
-   "tipo_iniciativa": "Comparecencia del Gobierno en Comisión (arts. 202 y 203).",
-   "cuenta": true,
-   "motivo_exclusion": null,
-   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-CO-602.CODI.)#(P%C3%A1gina44)",
-   "url_video": "https://app.congreso.es/v1/1576701I"
   }
  ]
 }

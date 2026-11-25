@@ -1,6 +1,6 @@
 {
  "metodologia_version": "1.2.0",
- "fecha_calculo": "2026-11-23",
+ "fecha_calculo": "2026-11-25",
  "legislatura": {
   "numero": 15,
   "nombre": "XV",
@@ -123,7 +123,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -140,7 +140,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -258,16 +258,16 @@
    "estado": "disponible",
    "situacion": "ranking",
    "etapa_gobierno_excluida": false,
-   "desde": "2025-11-24",
+   "desde": "2025-11-26",
    "hasta": "2026-10-06",
    "dias_activo": 118,
    "dias_gobierno": 0,
    "dias_evaluados": 118,
    "grupo": "GS",
    "roles": [],
-   "indice": 33.8,
+   "indice": 33.9,
    "cobertura": 0.8,
-   "posicion": 318,
+   "posicion": 317,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -276,11 +276,11 @@
     },
     {
      "id": "debates",
-     "puntuacion": 6
+     "puntuacion": 6.3
     },
     {
      "id": "iniciativa",
-     "puntuacion": 17.5
+     "puntuacion": 17.6
     },
     {
      "id": "resultados",
@@ -316,14 +316,14 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 118,
-     "percentil": 8.2,
-     "percentil_grupo": 9.7,
+     "percentil": 8.8,
+     "percentil_grupo": 10.6,
      "n_grupo": 118,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -340,7 +340,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -371,7 +371,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 118,
-     "percentil": 24.9,
+     "percentil": 25.2,
      "percentil_grupo": 45.3,
      "n_grupo": 118,
      "comparacion": "camara",

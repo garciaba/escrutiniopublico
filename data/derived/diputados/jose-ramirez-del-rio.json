@@ -1,6 +1,6 @@
 {
  "metodologia_version": "1.2.0",
- "fecha_calculo": "2026-11-23",
+ "fecha_calculo": "2026-11-25",
  "legislatura": {
   "numero": 15,
   "nombre": "XV",
@@ -171,7 +171,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -188,7 +188,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -306,16 +306,16 @@
    "estado": "disponible",
    "situacion": "ranking",
    "etapa_gobierno_excluida": false,
-   "desde": "2025-11-24",
+   "desde": "2025-11-26",
    "hasta": "2026-10-06",
-   "dias_activo": 317,
+   "dias_activo": 315,
    "dias_gobierno": 0,
-   "dias_evaluados": 317,
+   "dias_evaluados": 315,
    "grupo": "GVOX",
    "roles": [],
    "indice": 68.1,
    "cobertura": 0.8,
-   "posicion": 27,
+   "posicion": 26,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -324,7 +324,7 @@
     },
     {
      "id": "debates",
-     "puntuacion": 82.3
+     "puntuacion": 82.2
     },
     {
      "id": "iniciativa",
@@ -361,49 +361,49 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 1.2618,
+     "valor": 1.2698,
      "numerador": 4,
-     "denominador": 317,
-     "percentil": 68,
-     "percentil_grupo": 21.9,
+     "denominador": 315,
+     "percentil": 68.6,
+     "percentil_grupo": 23.4,
      "n_grupo": 32,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 15.4574,
-     "numerador": 49,
-     "denominador": 317,
-     "percentil": 96.5,
-     "percentil_grupo": 87.5,
+     "valor": 14.2857,
+     "numerador": 45,
+     "denominador": 315,
+     "percentil": 95.8,
+     "percentil_grupo": 81.3,
      "n_grupo": 32,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 35.9513,
-     "numerador": 113.9657,
-     "denominador": 317,
+     "valor": 35.8357,
+     "numerador": 112.8824,
+     "denominador": 315,
      "percentil": 94.7,
      "percentil_grupo": 92.2,
      "n_grupo": 32,
      "comparacion": "camara",
      "detalle": {
-      "firmadas": 425,
+      "firmadas": 421,
       "primer_firmante": 96
      },
      "fuente": {
@@ -416,9 +416,9 @@
      "id": "preguntas_orales",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.6046,
+     "valor": 0.6085,
      "numerador": 1.9167,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 71.3,
      "percentil_grupo": 45.3,
      "n_grupo": 32,
@@ -437,9 +437,9 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 1.0802,
+     "valor": 1.087,
      "numerador": 3.4242,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 83.1,
      "percentil_grupo": 35.9,
      "n_grupo": 32,
@@ -472,7 +472,7 @@
      "estado": "observado",
      "valor": 0,
      "numerador": 0,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 37.5,
      "percentil_grupo": 35.9,
      "n_grupo": 32,
@@ -497,8 +497,8 @@
     }
    ],
    "tiempo_palabra": {
-    "minutos": 199,
-    "intervenciones": 53,
+    "minutos": 186,
+    "intervenciones": 49,
     "sin_hora": 0
    }
   },

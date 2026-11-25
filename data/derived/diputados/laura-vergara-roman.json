@@ -1,6 +1,6 @@
 {
  "metodologia_version": "1.2.0",
- "fecha_calculo": "2026-11-23",
+ "fecha_calculo": "2026-11-25",
  "legislatura": {
   "numero": 15,
   "nombre": "XV",
@@ -179,7 +179,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -196,7 +196,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -314,16 +314,16 @@
    "estado": "disponible",
    "situacion": "ranking",
    "etapa_gobierno_excluida": false,
-   "desde": "2025-11-24",
+   "desde": "2025-11-26",
    "hasta": "2026-10-06",
    "dias_activo": 239,
    "dias_gobierno": 0,
    "dias_evaluados": 239,
    "grupo": "GSUMAR",
    "roles": [],
-   "indice": 61.8,
+   "indice": 61.9,
    "cobertura": 0.8,
-   "posicion": 55,
+   "posicion": 53,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -332,11 +332,11 @@
     },
     {
      "id": "debates",
-     "puntuacion": 87.3
+     "puntuacion": 87.8
     },
     {
      "id": "iniciativa",
-     "puntuacion": 58.5
+     "puntuacion": 58.8
     },
     {
      "id": "resultados",
@@ -372,14 +372,14 @@
      "valor": 1.6736,
      "numerador": 4,
      "denominador": 239,
-     "percentil": 74.8,
-     "percentil_grupo": 18,
+     "percentil": 75.6,
+     "percentil_grupo": 26,
      "n_grupo": 25,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -396,7 +396,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -406,8 +406,8 @@
      "valor": 17.9916,
      "numerador": 43,
      "denominador": 239,
-     "percentil": 78.2,
-     "percentil_grupo": 82,
+     "percentil": 78.5,
+     "percentil_grupo": 86,
      "n_grupo": 25,
      "comparacion": "camara",
      "detalle": {
@@ -427,7 +427,7 @@
      "valor": 0,
      "numerador": 0,
      "denominador": 239,
-     "percentil": 24.9,
+     "percentil": 25.2,
      "percentil_grupo": 30,
      "n_grupo": 25,
      "comparacion": "camara",
@@ -448,8 +448,8 @@
      "valor": 0.4533,
      "numerador": 1.0833,
      "denominador": 239,
-     "percentil": 72.5,
-     "percentil_grupo": 62,
+     "percentil": 72.8,
+     "percentil_grupo": 66,
      "n_grupo": 25,
      "comparacion": "camara",
      "detalle": {

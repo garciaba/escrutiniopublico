@@ -1,6 +1,6 @@
 {
  "metodologia_version": "1.2.0",
- "fecha_calculo": "2026-11-23",
+ "fecha_calculo": "2026-11-25",
  "legislatura": {
   "numero": 15,
   "nombre": "XV",
@@ -227,7 +227,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -244,7 +244,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -362,16 +362,16 @@
    "estado": "disponible",
    "situacion": "ranking",
    "etapa_gobierno_excluida": false,
-   "desde": "2025-11-24",
+   "desde": "2025-11-26",
    "hasta": "2026-10-06",
-   "dias_activo": 317,
+   "dias_activo": 315,
    "dias_gobierno": 0,
-   "dias_evaluados": 317,
+   "dias_evaluados": 315,
    "grupo": "GJxCAT",
    "roles": [],
-   "indice": 47.5,
+   "indice": 44.9,
    "cobertura": 0.8,
-   "posicion": 195,
+   "posicion": 220,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -380,7 +380,7 @@
     },
     {
      "id": "debates",
-     "puntuacion": 70.6
+     "puntuacion": 60.4
     },
     {
      "id": "iniciativa",
@@ -417,43 +417,43 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 10.0946,
+     "valor": 10.1587,
      "numerador": 32,
-     "denominador": 317,
-     "percentil": 96.7,
+     "denominador": 315,
+     "percentil": 97,
      "percentil_grupo": 92.9,
      "n_grupo": 7,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 2.5237,
-     "numerador": 8,
-     "denominador": 317,
-     "percentil": 44.5,
+     "valor": 1.2698,
+     "numerador": 4,
+     "denominador": 315,
+     "percentil": 23.9,
      "percentil_grupo": 21.4,
      "n_grupo": 7,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 9.7792,
+     "valor": 9.8413,
      "numerador": 31,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 65.4,
      "percentil_grupo": 35.7,
      "n_grupo": 7,
@@ -472,9 +472,9 @@
      "id": "preguntas_orales",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 1.5773,
+     "valor": 1.5873,
      "numerador": 5,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 83.9,
      "percentil_grupo": 92.9,
      "n_grupo": 7,
@@ -493,9 +493,9 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.3155,
+     "valor": 0.3175,
      "numerador": 1,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 63.4,
      "percentil_grupo": 42.9,
      "n_grupo": 7,
@@ -526,9 +526,9 @@
      "id": "leyes_ponente",
      "dimension": "resultados",
      "estado": "observado",
-     "valor": 0.3155,
+     "valor": 0.3175,
      "numerador": 1,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 83.6,
      "percentil_grupo": 42.9,
      "n_grupo": 7,
@@ -553,8 +553,8 @@
     }
    ],
    "tiempo_palabra": {
-    "minutos": 239,
-    "intervenciones": 44,
+    "minutos": 227,
+    "intervenciones": 40,
     "sin_hora": 0
    }
   },
@@ -1133,6 +1133,16 @@
  ],
  "ultimas_intervenciones": [
   {
+   "intervencion_id": "1580155I",
+   "fecha": "2026-11-18",
+   "organo": "Diputación Permanente",
+   "tipo_iniciativa": "Real Decreto-Ley.",
+   "cuenta": false,
+   "motivo_exclusion": "diputacion_permanente",
+   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-214.CODI.)#(P%C3%A1gina57)",
+   "url_video": "https://app.congreso.es/v1/1580155I"
+  },
+  {
    "intervencion_id": "1580081I",
    "fecha": "2026-11-12",
    "organo": "Diputación Permanente",
@@ -1321,16 +1331,6 @@
    "motivo_exclusion": null,
    "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-194.CODI.)#(P%C3%A1gina11)",
    "url_video": "https://app.congreso.es/v1/1575769I"
-  },
-  {
-   "intervencion_id": "1575679I",
-   "fecha": "2026-06-17",
-   "organo": "Pleno",
-   "tipo_iniciativa": "Moción consecuencia de interpelación urgente.",
-   "cuenta": true,
-   "motivo_exclusion": null,
-   "url_fuente": "https://www.congreso.es/busqueda-de-intervenciones?p_p_id=intervenciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_intervenciones_mode=mostrarTextoIntegro&_intervenciones_legislatura=XV&_intervenciones_id_texto=(DSCD-15-PL-193.CODI.)#(P%C3%A1gina134)",
-   "url_video": "https://app.congreso.es/v1/1575679I"
   }
  ]
 }

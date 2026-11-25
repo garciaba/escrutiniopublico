@@ -1,7 +1,7 @@
 {
- "ejecutado": "2026-11-23T20:10:46.500Z",
+ "ejecutado": "2026-11-25T16:25:27.261Z",
  "metodologia_version": "1.2.0",
- "fecha_calculo": "2026-11-23",
+ "fecha_calculo": "2026-11-25",
  "legislatura": {
   "numero": 15,
   "nombre": "XV",
@@ -9,7 +9,7 @@
   "fin": "2026-10-06",
   "finalizada": true
  },
- "commit": "066ae7e28d0a63124ffb5b7e2727132e70e965f2",
+ "commit": "9f49b2a669cd656b0ce3920352e982f5f7605145",
  "periodos": [
   {
    "id": "legislatura",
@@ -37,7 +37,7 @@
    "nombre": "Último año",
    "estado": "disponible",
    "motivo": null,
-   "desde": "2025-11-24",
+   "desde": "2025-11-26",
    "hasta": "2026-10-06",
    "dias_minimos": 90,
    "poblacion_referencia": 347,
@@ -58,7 +58,7 @@
    "nombre": "Último trimestre",
    "estado": "no_disponible",
    "motivo": "periodo_demasiado_corto",
-   "desde": "2026-08-25",
+   "desde": "2026-08-27",
    "hasta": "2026-10-06",
    "dias_minimos": 46,
    "poblacion_referencia": 0,
@@ -173,9 +173,9 @@
   },
   {
    "id": "intervenciones/IntervencionesCronologicamente",
-   "url": "https://www.congreso.es/webpublica/opendata/intervenciones/IntervencionesCronologicamente__20261123050120.json",
-   "descargado": "2026-11-23",
-   "fecha_fichero": "2026-11-23"
+   "url": "https://www.congreso.es/webpublica/opendata/intervenciones/IntervencionesCronologicamente__20261125050232.json",
+   "descargado": "2026-11-25",
+   "fecha_fichero": "2026-11-25"
   },
   {
    "id": "organos/composicion",
@@ -186,7 +186,7 @@
  ],
  "fechas_dato": {
   "votaciones": "2026-09-30",
-  "intervenciones": "2026-11-23",
+  "intervenciones": "2026-11-25",
   "iniciativas": "2026-11-23",
   "leyes": "2026-11-23"
  },
@@ -197,7 +197,7 @@
   "pertenencias": 3724,
   "votaciones": 2175,
   "votos": 760518,
-  "intervenciones": 26524,
+  "intervenciones": 26575,
   "iniciativas": 54182,
   "firmantes": 288528,
   "ponentes": 688

@@ -1,6 +1,6 @@
 {
  "metodologia_version": "1.2.0",
- "fecha_calculo": "2026-11-23",
+ "fecha_calculo": "2026-11-25",
  "legislatura": {
   "numero": 15,
   "nombre": "XV",
@@ -147,7 +147,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -164,7 +164,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -282,16 +282,16 @@
    "estado": "disponible",
    "situacion": "ranking",
    "etapa_gobierno_excluida": false,
-   "desde": "2025-11-24",
+   "desde": "2025-11-26",
    "hasta": "2026-10-06",
-   "dias_activo": 317,
+   "dias_activo": 315,
    "dias_gobierno": 0,
-   "dias_evaluados": 317,
+   "dias_evaluados": 315,
    "grupo": "GP",
    "roles": [],
-   "indice": 44,
+   "indice": 44.4,
    "cobertura": 0.8,
-   "posicion": 235,
+   "posicion": 229,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -300,11 +300,11 @@
     },
     {
      "id": "debates",
-     "puntuacion": 48.4
+     "puntuacion": 49.7
     },
     {
      "id": "iniciativa",
-     "puntuacion": 70
+     "puntuacion": 70.2
     },
     {
      "id": "resultados",
@@ -337,49 +337,49 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 0.3155,
+     "valor": 0.3175,
      "numerador": 1,
-     "denominador": 317,
-     "percentil": 26.5,
-     "percentil_grupo": 36.6,
+     "denominador": 315,
+     "percentil": 27.5,
+     "percentil_grupo": 37.7,
      "n_grupo": 138,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 4.1009,
+     "valor": 4.127,
      "numerador": 13,
-     "denominador": 317,
-     "percentil": 70.3,
-     "percentil_grupo": 85.5,
+     "denominador": 315,
+     "percentil": 71.9,
+     "percentil_grupo": 88.8,
      "n_grupo": 138,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 9.5093,
-     "numerador": 30.1444,
-     "denominador": 317,
+     "valor": 9.5073,
+     "numerador": 29.948,
+     "denominador": 315,
      "percentil": 64.4,
      "percentil_grupo": 43.1,
      "n_grupo": 138,
      "comparacion": "camara",
      "detalle": {
-      "firmadas": 204,
+      "firmadas": 201,
       "primer_firmante": 36
      },
      "fuente": {
@@ -392,11 +392,11 @@
      "id": "preguntas_orales",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.1928,
+     "valor": 0.194,
      "numerador": 0.6111,
-     "denominador": 317,
-     "percentil": 56.9,
-     "percentil_grupo": 40.9,
+     "denominador": 315,
+     "percentil": 57.5,
+     "percentil_grupo": 42.4,
      "n_grupo": 138,
      "comparacion": "camara",
      "detalle": {
@@ -413,9 +413,9 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 1.5187,
+     "valor": 1.5283,
      "numerador": 4.8143,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 88.6,
      "percentil_grupo": 92.4,
      "n_grupo": 138,
@@ -448,7 +448,7 @@
      "estado": "observado",
      "valor": 0,
      "numerador": 0,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 37.5,
      "percentil_grupo": 42.8,
      "n_grupo": 138,

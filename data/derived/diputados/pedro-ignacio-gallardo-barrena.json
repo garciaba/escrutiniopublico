@@ -1,6 +1,6 @@
 {
  "metodologia_version": "1.2.0",
- "fecha_calculo": "2026-11-23",
+ "fecha_calculo": "2026-11-25",
  "legislatura": {
   "numero": 15,
   "nombre": "XV",
@@ -139,7 +139,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -156,7 +156,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
@@ -274,16 +274,16 @@
    "estado": "disponible",
    "situacion": "ranking",
    "etapa_gobierno_excluida": false,
-   "desde": "2025-11-24",
+   "desde": "2025-11-26",
    "hasta": "2026-10-06",
-   "dias_activo": 317,
+   "dias_activo": 315,
    "dias_gobierno": 0,
-   "dias_evaluados": 317,
+   "dias_evaluados": 315,
    "grupo": "GP",
    "roles": [],
-   "indice": 59.7,
+   "indice": 59.4,
    "cobertura": 0.8,
-   "posicion": 75,
+   "posicion": 77,
    "total_ranking": 347,
    "dimensiones": [
     {
@@ -292,11 +292,11 @@
     },
     {
      "id": "debates",
-     "puntuacion": 43.7
+     "puntuacion": 42.4
     },
     {
      "id": "iniciativa",
-     "puntuacion": 81.1
+     "puntuacion": 81.2
     },
     {
      "id": "resultados",
@@ -329,49 +329,49 @@
      "id": "intervenciones_pleno",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 0.3155,
+     "valor": 0.3175,
      "numerador": 1,
-     "denominador": 317,
-     "percentil": 26.5,
-     "percentil_grupo": 36.6,
+     "denominador": 315,
+     "percentil": 27.5,
+     "percentil_grupo": 37.7,
      "n_grupo": 138,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
      "id": "intervenciones_comision",
      "dimension": "debates",
      "estado": "observado",
-     "valor": 3.47,
-     "numerador": 11,
-     "denominador": 317,
-     "percentil": 60.8,
-     "percentil_grupo": 71,
+     "valor": 3.1746,
+     "numerador": 10,
+     "denominador": 315,
+     "percentil": 57.3,
+     "percentil_grupo": 66.7,
      "n_grupo": 138,
      "comparacion": "camara",
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-25"
      }
     },
     {
      "id": "preguntas_escritas",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 25.0824,
-     "numerador": 79.5113,
-     "denominador": 317,
-     "percentil": 87.5,
-     "percentil_grupo": 81.5,
+     "valor": 25.1782,
+     "numerador": 79.3113,
+     "denominador": 315,
+     "percentil": 87.8,
+     "percentil_grupo": 82.2,
      "n_grupo": 138,
      "comparacion": "camara",
      "detalle": {
-      "firmadas": 746,
+      "firmadas": 743,
       "primer_firmante": 72
      },
      "fuente": {
@@ -384,9 +384,9 @@
      "id": "preguntas_orales",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 0.482,
+     "valor": 0.485,
      "numerador": 1.5278,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 68.7,
      "percentil_grupo": 59.8,
      "n_grupo": 138,
@@ -405,9 +405,9 @@
      "id": "solicitudes_informe",
      "dimension": "iniciativa",
      "estado": "calculado",
-     "valor": 1.3772,
+     "valor": 1.3859,
      "numerador": 4.3656,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 87.2,
      "percentil_grupo": 90.2,
      "n_grupo": 138,
@@ -440,7 +440,7 @@
      "estado": "observado",
      "valor": 0,
      "numerador": 0,
-     "denominador": 317,
+     "denominador": 315,
      "percentil": 37.5,
      "percentil_grupo": 42.8,
      "n_grupo": 138,
@@ -465,8 +465,8 @@
     }
    ],
    "tiempo_palabra": {
-    "minutos": 46,
-    "intervenciones": 12,
+    "minutos": 42,
+    "intervenciones": 11,
     "sin_hora": 0
    }
   },
