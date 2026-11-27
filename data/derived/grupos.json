@@ -1,6 +1,6 @@
 {
  "metodologia_version": "1.2.0",
- "fecha_calculo": "2026-11-25",
+ "fecha_calculo": "2026-11-27",
  "legislatura": {
   "numero": 15,
   "nombre": "XV",
@@ -2332,7 +2332,7 @@
    "nombre": "Último año",
    "estado": "disponible",
    "motivo": null,
-   "desde": "2025-11-26",
+   "desde": "2025-11-28",
    "hasta": "2026-10-06",
    "camara": {
     "id": "camara",
@@ -2341,26 +2341,26 @@
     "diputados": 347,
     "gobierno": 5,
     "periodo_insuficiente": 5,
-    "dias_evaluados": 108536,
+    "dias_evaluados": 107852,
     "indice": {
-     "min": 18.5,
+     "min": 17.3,
      "p25": 41.3,
-     "mediana": 50,
+     "mediana": 49.8,
      "p75": 58.5,
      "max": 87.7
     },
     "dimensiones": [
      {
       "id": "dedicacion",
-      "mediana": 71.2
+      "mediana": 70.9
      },
      {
       "id": "debates",
-      "mediana": 47.6
+      "mediana": 47.4
      },
      {
       "id": "iniciativa",
-      "mediana": 51.7
+      "mediana": 51.8
      },
      {
       "id": "resultados",
@@ -2375,44 +2375,44 @@
      {
       "id": "votaciones_participacion",
       "estado": "observado",
-      "total": 202755,
-      "denominador": 203817,
+      "total": 196624,
+      "denominador": 197661,
       "valor": 0.9948
      },
      {
       "id": "intervenciones_pleno",
       "estado": "observado",
-      "total": 2002,
-      "denominador": 108536,
-      "valor": 1.8445
+      "total": 1971,
+      "denominador": 107852,
+      "valor": 1.8275
      },
      {
       "id": "intervenciones_comision",
       "estado": "observado",
-      "total": 4269,
-      "denominador": 108536,
-      "valor": 3.9333
+      "total": 4103,
+      "denominador": 107852,
+      "valor": 3.8043
      },
      {
       "id": "preguntas_escritas",
       "estado": "calculado",
-      "total": 13988.4287,
-      "denominador": 108536,
-      "valor": 12.8883
+      "total": 13907.7614,
+      "denominador": 107852,
+      "valor": 12.8952
      },
      {
       "id": "preguntas_orales",
       "estado": "calculado",
       "total": 746.9999,
-      "denominador": 108536,
-      "valor": 0.6883
+      "denominador": 107852,
+      "valor": 0.6926
      },
      {
       "id": "solicitudes_informe",
       "estado": "calculado",
-      "total": 734.9235,
-      "denominador": 108536,
-      "valor": 0.6771
+      "total": 727.9235,
+      "denominador": 107852,
+      "valor": 0.6749
      },
      {
       "id": "iniciativas_legislativas",
@@ -2425,8 +2425,8 @@
       "id": "leyes_ponente",
       "estado": "observado",
       "total": 120,
-      "denominador": 108536,
-      "valor": 0.1106
+      "denominador": 107852,
+      "valor": 0.1113
      },
      {
       "id": "iniciativas_aprobadas",
@@ -2437,9 +2437,9 @@
      }
     ],
     "tiempo_palabra": {
-     "minutos": 36698,
-     "intervenciones": 6918,
-     "minutos_por_100_dias": 33.81
+     "minutos": 35879,
+     "intervenciones": 6695,
+     "minutos_por_100_dias": 33.27
     }
    },
    "grupos": [
@@ -2450,22 +2450,22 @@
      "diputados": 138,
      "gobierno": 0,
      "periodo_insuficiente": 2,
-     "dias_evaluados": 43070,
+     "dias_evaluados": 42798,
      "indice": {
       "min": 20.9,
-      "p25": 44.4,
+      "p25": 44.5,
       "mediana": 51.7,
-      "p75": 58.8,
-      "max": 73.8
+      "p75": 58.5,
+      "max": 74
      },
      "dimensiones": [
       {
        "id": "dedicacion",
-       "mediana": 71.2
+       "mediana": 70.9
       },
       {
        "id": "debates",
-       "mediana": 40
+       "mediana": 39.9
       },
       {
        "id": "iniciativa",
@@ -2484,44 +2484,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 80520,
-       "denominador": 80797,
-       "valor": 0.9966
+       "total": 78075,
+       "denominador": 78349,
+       "valor": 0.9965
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 272,
-       "denominador": 43070,
-       "valor": 0.6315
+       "total": 267,
+       "denominador": 42798,
+       "valor": 0.6239
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 1012,
-       "denominador": 43070,
-       "valor": 2.3497
+       "total": 972,
+       "denominador": 42798,
+       "valor": 2.2711
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
-       "total": 6840.6515,
-       "denominador": 43070,
-       "valor": 15.8826
+       "total": 6777.651,
+       "denominador": 42798,
+       "valor": 15.8364
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 398.0001,
-       "denominador": 43070,
-       "valor": 0.9241
+       "denominador": 42798,
+       "valor": 0.93
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
-       "total": 246.9237,
-       "denominador": 43070,
-       "valor": 0.5733
+       "total": 245.9237,
+       "denominador": 42798,
+       "valor": 0.5746
       },
       {
        "id": "iniciativas_legislativas",
@@ -2534,8 +2534,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 24,
-       "denominador": 43070,
-       "valor": 0.0557
+       "denominador": 42798,
+       "valor": 0.0561
       },
       {
        "id": "iniciativas_aprobadas",
@@ -2546,9 +2546,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 7788,
-      "intervenciones": 1653,
-      "minutos_por_100_dias": 18.08
+      "minutos": 7577,
+      "intervenciones": 1593,
+      "minutos_por_100_dias": 17.7
      }
     },
     {
@@ -2558,22 +2558,22 @@
      "diputados": 118,
      "gobierno": 4,
      "periodo_insuficiente": 1,
-     "dias_evaluados": 36877,
+     "dias_evaluados": 36645,
      "indice": {
-      "min": 24.6,
-      "p25": 38.3,
-      "mediana": 43.4,
-      "p75": 50.3,
-      "max": 66
+      "min": 24.5,
+      "p25": 38.2,
+      "mediana": 43.5,
+      "p75": 49.9,
+      "max": 66.1
      },
      "dimensiones": [
       {
        "id": "dedicacion",
-       "mediana": 71.2
+       "mediana": 70.9
       },
       {
        "id": "debates",
-       "mediana": 41.8
+       "mediana": 41.6
       },
       {
        "id": "iniciativa",
@@ -2592,44 +2592,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 69270,
-       "denominador": 69294,
-       "valor": 0.9997
+       "total": 67182,
+       "denominador": 67206,
+       "valor": 0.9996
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 222,
-       "denominador": 36877,
-       "valor": 0.602
+       "total": 219,
+       "denominador": 36645,
+       "valor": 0.5976
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 860,
-       "denominador": 36877,
-       "valor": 2.3321
+       "total": 824,
+       "denominador": 36645,
+       "valor": 2.2486
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
        "total": 164.9994,
-       "denominador": 36877,
-       "valor": 0.4474
+       "denominador": 36645,
+       "valor": 0.4503
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 46,
-       "denominador": 36877,
-       "valor": 0.1247
+       "denominador": 36645,
+       "valor": 0.1255
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 11,
-       "denominador": 36877,
-       "valor": 0.0298
+       "denominador": 36645,
+       "valor": 0.03
       },
       {
        "id": "iniciativas_legislativas",
@@ -2642,8 +2642,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 24,
-       "denominador": 36877,
-       "valor": 0.0651
+       "denominador": 36645,
+       "valor": 0.0655
       },
       {
        "id": "iniciativas_aprobadas",
@@ -2654,9 +2654,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 5997,
-      "intervenciones": 1108,
-      "minutos_por_100_dias": 16.26
+      "minutos": 5846,
+      "intervenciones": 1069,
+      "minutos_por_100_dias": 15.95
      }
     },
     {
@@ -2666,26 +2666,26 @@
      "diputados": 32,
      "gobierno": 0,
      "periodo_insuficiente": 0,
-     "dias_evaluados": 10080,
+     "dias_evaluados": 10016,
      "indice": {
-      "min": 20.7,
-      "p25": 52.1,
-      "mediana": 59.6,
-      "p75": 68.2,
+      "min": 20.9,
+      "p25": 52,
+      "mediana": 59.4,
+      "p75": 68.3,
       "max": 87.7
      },
      "dimensiones": [
       {
        "id": "dedicacion",
-       "mediana": 34
+       "mediana": 33.6
       },
       {
        "id": "debates",
-       "mediana": 81.3
+       "mediana": 80.8
       },
       {
        "id": "iniciativa",
-       "mediana": 75.7
+       "mediana": 75.9
       },
       {
        "id": "resultados",
@@ -2700,44 +2700,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 18766,
-       "denominador": 18912,
-       "valor": 0.9923
+       "total": 18191,
+       "denominador": 18336,
+       "valor": 0.9921
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 257,
-       "denominador": 10080,
-       "valor": 2.5496
+       "total": 253,
+       "denominador": 10016,
+       "valor": 2.526
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 855,
-       "denominador": 10080,
-       "valor": 8.4821
+       "total": 822,
+       "denominador": 10016,
+       "valor": 8.2069
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
-       "total": 1841.7612,
-       "denominador": 10080,
-       "valor": 18.2714
+       "total": 1836.7611,
+       "denominador": 10016,
+       "valor": 18.3383
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 133.9999,
-       "denominador": 10080,
-       "valor": 1.3294
+       "denominador": 10016,
+       "valor": 1.3379
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 310.8889,
-       "denominador": 10080,
-       "valor": 3.0842
+       "denominador": 10016,
+       "valor": 3.1039
       },
       {
        "id": "iniciativas_legislativas",
@@ -2750,8 +2750,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 16,
-       "denominador": 10080,
-       "valor": 0.1587
+       "denominador": 10016,
+       "valor": 0.1597
       },
       {
        "id": "iniciativas_aprobadas",
@@ -2762,9 +2762,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 6397,
-      "intervenciones": 1195,
-      "minutos_por_100_dias": 63.46
+      "minutos": 6255,
+      "intervenciones": 1155,
+      "minutos_por_100_dias": 62.45
      }
     },
     {
@@ -2774,10 +2774,10 @@
      "diputados": 25,
      "gobierno": 1,
      "periodo_insuficiente": 1,
-     "dias_evaluados": 7799,
+     "dias_evaluados": 7751,
      "indice": {
-      "min": 33.5,
-      "p25": 44.6,
+      "min": 33.7,
+      "p25": 44.7,
       "mediana": 55.5,
       "p75": 59.6,
       "max": 70.2
@@ -2793,7 +2793,7 @@
       },
       {
        "id": "iniciativa",
-       "mediana": 51.2
+       "mediana": 50.9
       },
       {
        "id": "resultados",
@@ -2808,44 +2808,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 14405,
-       "denominador": 14720,
-       "valor": 0.9786
+       "total": 13993,
+       "denominador": 14288,
+       "valor": 0.9794
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 237,
-       "denominador": 7799,
-       "valor": 3.0389
+       "total": 234,
+       "denominador": 7751,
+       "valor": 3.019
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 766,
-       "denominador": 7799,
-       "valor": 9.8218
+       "total": 734,
+       "denominador": 7751,
+       "valor": 9.4697
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
-       "total": 775,
-       "denominador": 7799,
-       "valor": 9.9372
+       "total": 764.3333,
+       "denominador": 7751,
+       "valor": 9.8611
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 38.9999,
-       "denominador": 7799,
-       "valor": 0.5001
+       "denominador": 7751,
+       "valor": 0.5032
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
-       "total": 73.4998,
-       "denominador": 7799,
-       "valor": 0.9424
+       "total": 67.4998,
+       "denominador": 7751,
+       "valor": 0.8709
       },
       {
        "id": "iniciativas_legislativas",
@@ -2858,8 +2858,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 16,
-       "denominador": 7799,
-       "valor": 0.2052
+       "denominador": 7751,
+       "valor": 0.2064
       },
       {
        "id": "iniciativas_aprobadas",
@@ -2870,9 +2870,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 5205,
-      "intervenciones": 1021,
-      "minutos_por_100_dias": 66.74
+      "minutos": 5089,
+      "intervenciones": 986,
+      "minutos_por_100_dias": 65.66
      }
     },
     {
@@ -2882,13 +2882,13 @@
      "diputados": 9,
      "gobierno": 0,
      "periodo_insuficiente": 1,
-     "dias_evaluados": 2835,
+     "dias_evaluados": 2817,
      "indice": {
-      "min": 18.5,
-      "p25": 45.9,
-      "mediana": 61.7,
+      "min": 17.3,
+      "p25": 46,
+      "mediana": 61.3,
       "p75": 62.8,
-      "max": 71.2
+      "max": 71.1
      },
      "dimensiones": [
       {
@@ -2897,7 +2897,7 @@
       },
       {
        "id": "debates",
-       "mediana": 89.8
+       "mediana": 90.1
       },
       {
        "id": "iniciativa",
@@ -2916,44 +2916,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 5237,
-       "denominador": 5319,
-       "valor": 0.9846
+       "total": 5076,
+       "denominador": 5157,
+       "valor": 0.9843
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 414,
-       "denominador": 2835,
-       "valor": 14.6032
+       "total": 405,
+       "denominador": 2817,
+       "valor": 14.377
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 172,
-       "denominador": 2835,
-       "valor": 6.067
+       "total": 162,
+       "denominador": 2817,
+       "valor": 5.7508
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
-       "total": 3733.35,
-       "denominador": 2835,
-       "valor": 131.6878
+       "total": 3732.35,
+       "denominador": 2817,
+       "valor": 132.4938
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 40,
-       "denominador": 2835,
-       "valor": 1.4109
+       "denominador": 2817,
+       "valor": 1.42
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 54.6111,
-       "denominador": 2835,
-       "valor": 1.9263
+       "denominador": 2817,
+       "valor": 1.9386
       },
       {
        "id": "iniciativas_legislativas",
@@ -2966,8 +2966,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 8,
-       "denominador": 2835,
-       "valor": 0.2822
+       "denominador": 2817,
+       "valor": 0.284
       },
       {
        "id": "iniciativas_aprobadas",
@@ -2978,9 +2978,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 3115,
-      "intervenciones": 617,
-      "minutos_por_100_dias": 109.88
+      "minutos": 3036,
+      "intervenciones": 597,
+      "minutos_por_100_dias": 107.77
      }
     },
     {
@@ -2990,13 +2990,13 @@
      "diputados": 7,
      "gobierno": 0,
      "periodo_insuficiente": 0,
-     "dias_evaluados": 2205,
+     "dias_evaluados": 2191,
      "indice": {
       "min": 29.2,
-      "p25": 47.4,
-      "mediana": 51.5,
+      "p25": 47.3,
+      "mediana": 51.6,
       "p75": 61.3,
-      "max": 83.5
+      "max": 83.6
      },
      "dimensiones": [
       {
@@ -3005,11 +3005,11 @@
       },
       {
        "id": "debates",
-       "mediana": 88.9
+       "mediana": 89.5
       },
       {
        "id": "iniciativa",
-       "mediana": 70.9
+       "mediana": 71
       },
       {
        "id": "resultados",
@@ -3024,44 +3024,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 4030,
-       "denominador": 4137,
-       "valor": 0.9741
+       "total": 3904,
+       "denominador": 4011,
+       "valor": 0.9733
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 164,
-       "denominador": 2205,
-       "valor": 7.4376
+       "total": 163,
+       "denominador": 2191,
+       "valor": 7.4395
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 164,
-       "denominador": 2205,
-       "valor": 7.4376
+       "total": 163,
+       "denominador": 2191,
+       "valor": 7.4395
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
-       "total": 424.9999,
-       "denominador": 2205,
-       "valor": 19.2744
+       "total": 423.9999,
+       "denominador": 2191,
+       "valor": 19.3519
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 20,
-       "denominador": 2205,
-       "valor": 0.907
+       "denominador": 2191,
+       "valor": 0.9128
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 14,
-       "denominador": 2205,
-       "valor": 0.6349
+       "denominador": 2191,
+       "valor": 0.639
       },
       {
        "id": "iniciativas_legislativas",
@@ -3074,8 +3074,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 8,
-       "denominador": 2205,
-       "valor": 0.3628
+       "denominador": 2191,
+       "valor": 0.3651
       },
       {
        "id": "iniciativas_aprobadas",
@@ -3086,9 +3086,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 2203,
-      "intervenciones": 351,
-      "minutos_por_100_dias": 99.91
+      "minutos": 2192,
+      "intervenciones": 348,
+      "minutos_por_100_dias": 100.05
      }
     },
     {
@@ -3098,10 +3098,10 @@
      "diputados": 7,
      "gobierno": 0,
      "periodo_insuficiente": 0,
-     "dias_evaluados": 2205,
+     "dias_evaluados": 2191,
      "indice": {
-      "min": 30.5,
-      "p25": 59.9,
+      "min": 30.7,
+      "p25": 59.8,
       "mediana": 62,
       "p75": 63.3,
       "max": 77.2
@@ -3109,11 +3109,11 @@
      "dimensiones": [
       {
        "id": "dedicacion",
-       "mediana": 34
+       "mediana": 33.6
       },
       {
        "id": "debates",
-       "mediana": 93.7
+       "mediana": 93.9
       },
       {
        "id": "iniciativa",
@@ -3132,44 +3132,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 4080,
-       "denominador": 4137,
-       "valor": 0.9862
+       "total": 3954,
+       "denominador": 4011,
+       "valor": 0.9858
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 178,
-       "denominador": 2205,
-       "valor": 8.0726
+       "total": 176,
+       "denominador": 2191,
+       "valor": 8.0329
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 231,
-       "denominador": 2205,
-       "valor": 10.4762
+       "total": 225,
+       "denominador": 2191,
+       "valor": 10.2693
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
        "total": 145.6667,
-       "denominador": 2205,
-       "valor": 6.6062
+       "denominador": 2191,
+       "valor": 6.6484
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 29,
-       "denominador": 2205,
-       "valor": 1.3152
+       "denominador": 2191,
+       "valor": 1.3236
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 5,
-       "denominador": 2205,
-       "valor": 0.2268
+       "denominador": 2191,
+       "valor": 0.2282
       },
       {
        "id": "iniciativas_legislativas",
@@ -3182,8 +3182,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 8,
-       "denominador": 2205,
-       "valor": 0.3628
+       "denominador": 2191,
+       "valor": 0.3651
       },
       {
        "id": "iniciativas_aprobadas",
@@ -3194,9 +3194,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 2813,
-      "intervenciones": 445,
-      "minutos_por_100_dias": 127.57
+      "minutos": 2762,
+      "intervenciones": 435,
+      "minutos_por_100_dias": 126.06
      }
     },
     {
@@ -3206,26 +3206,26 @@
      "diputados": 6,
      "gobierno": 0,
      "periodo_insuficiente": 0,
-     "dias_evaluados": 1890,
+     "dias_evaluados": 1878,
      "indice": {
-      "min": 36.1,
+      "min": 36.3,
       "p25": 47.6,
-      "mediana": 57.2,
-      "p75": 63,
+      "mediana": 57.1,
+      "p75": 63.1,
       "max": 71.6
      },
      "dimensiones": [
       {
        "id": "dedicacion",
-       "mediana": 27.4
+       "mediana": 27.1
       },
       {
        "id": "debates",
-       "mediana": 73.7
+       "mediana": 74
       },
       {
        "id": "iniciativa",
-       "mediana": 61.8
+       "mediana": 61.9
       },
       {
        "id": "resultados",
@@ -3240,44 +3240,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 3533,
-       "denominador": 3546,
-       "valor": 0.9963
+       "total": 3425,
+       "denominador": 3438,
+       "valor": 0.9962
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 105,
-       "denominador": 1890,
-       "valor": 5.5556
+       "total": 103,
+       "denominador": 1878,
+       "valor": 5.4846
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 94,
-       "denominador": 1890,
-       "valor": 4.9735
+       "total": 91,
+       "denominador": 1878,
+       "valor": 4.8456
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
        "total": 49,
-       "denominador": 1890,
-       "valor": 2.5926
+       "denominador": 1878,
+       "valor": 2.6092
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 23,
-       "denominador": 1890,
-       "valor": 1.2169
+       "denominador": 1878,
+       "valor": 1.2247
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 16,
-       "denominador": 1890,
-       "valor": 0.8466
+       "denominador": 1878,
+       "valor": 0.852
       },
       {
        "id": "iniciativas_legislativas",
@@ -3290,8 +3290,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 8,
-       "denominador": 1890,
-       "valor": 0.4233
+       "denominador": 1878,
+       "valor": 0.426
       },
       {
        "id": "iniciativas_aprobadas",
@@ -3302,9 +3302,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 1623,
-      "intervenciones": 234,
-      "minutos_por_100_dias": 85.87
+      "minutos": 1593,
+      "intervenciones": 227,
+      "minutos_por_100_dias": 84.82
      }
     },
     {
@@ -3314,12 +3314,12 @@
      "diputados": 5,
      "gobierno": 0,
      "periodo_insuficiente": 0,
-     "dias_evaluados": 1575,
+     "dias_evaluados": 1565,
      "indice": {
-      "min": 33.4,
-      "p25": 41.5,
-      "mediana": 53.2,
-      "p75": 55.2,
+      "min": 33.6,
+      "p25": 41.6,
+      "mediana": 53.3,
+      "p75": 55,
       "max": 56.3
      },
      "dimensiones": [
@@ -3329,7 +3329,7 @@
       },
       {
        "id": "debates",
-       "mediana": 89
+       "mediana": 89.3
       },
       {
        "id": "iniciativa",
@@ -3348,44 +3348,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 2914,
-       "denominador": 2955,
-       "valor": 0.9861
+       "total": 2824,
+       "denominador": 2865,
+       "valor": 0.9857
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 153,
-       "denominador": 1575,
-       "valor": 9.7143
+       "total": 151,
+       "denominador": 1565,
+       "valor": 9.6486
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 115,
-       "denominador": 1575,
-       "valor": 7.3016
+       "total": 110,
+       "denominador": 1565,
+       "valor": 7.0288
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
        "total": 13,
-       "denominador": 1575,
-       "valor": 0.8254
+       "denominador": 1565,
+       "valor": 0.8307
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 18,
-       "denominador": 1575,
-       "valor": 1.1429
+       "denominador": 1565,
+       "valor": 1.1502
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 3,
-       "denominador": 1575,
-       "valor": 0.1905
+       "denominador": 1565,
+       "valor": 0.1917
       },
       {
        "id": "iniciativas_legislativas",
@@ -3398,8 +3398,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 8,
-       "denominador": 1575,
-       "valor": 0.5079
+       "denominador": 1565,
+       "valor": 0.5112
       },
       {
        "id": "iniciativas_aprobadas",
@@ -3410,9 +3410,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 1557,
-      "intervenciones": 294,
-      "minutos_por_100_dias": 98.86
+      "minutos": 1529,
+      "intervenciones": 285,
+      "minutos_por_100_dias": 97.7
      }
     }
    ],
@@ -3427,22 +3427,22 @@
      "diputados": 138,
      "gobierno": 0,
      "periodo_insuficiente": 2,
-     "dias_evaluados": 43070,
+     "dias_evaluados": 42798,
      "indice": {
       "min": 20.9,
-      "p25": 44.4,
+      "p25": 44.5,
       "mediana": 51.7,
-      "p75": 58.8,
-      "max": 73.8
+      "p75": 58.5,
+      "max": 74
      },
      "dimensiones": [
       {
        "id": "dedicacion",
-       "mediana": 71.2
+       "mediana": 70.9
       },
       {
        "id": "debates",
-       "mediana": 40
+       "mediana": 39.9
       },
       {
        "id": "iniciativa",
@@ -3461,44 +3461,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 80520,
-       "denominador": 80797,
-       "valor": 0.9966
+       "total": 78075,
+       "denominador": 78349,
+       "valor": 0.9965
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 272,
-       "denominador": 43070,
-       "valor": 0.6315
+       "total": 267,
+       "denominador": 42798,
+       "valor": 0.6239
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 1012,
-       "denominador": 43070,
-       "valor": 2.3497
+       "total": 972,
+       "denominador": 42798,
+       "valor": 2.2711
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
-       "total": 6840.6515,
-       "denominador": 43070,
-       "valor": 15.8826
+       "total": 6777.651,
+       "denominador": 42798,
+       "valor": 15.8364
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 398.0001,
-       "denominador": 43070,
-       "valor": 0.9241
+       "denominador": 42798,
+       "valor": 0.93
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
-       "total": 246.9237,
-       "denominador": 43070,
-       "valor": 0.5733
+       "total": 245.9237,
+       "denominador": 42798,
+       "valor": 0.5746
       },
       {
        "id": "iniciativas_legislativas",
@@ -3511,8 +3511,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 24,
-       "denominador": 43070,
-       "valor": 0.0557
+       "denominador": 42798,
+       "valor": 0.0561
       },
       {
        "id": "iniciativas_aprobadas",
@@ -3523,9 +3523,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 7788,
-      "intervenciones": 1653,
-      "minutos_por_100_dias": 18.08
+      "minutos": 7577,
+      "intervenciones": 1593,
+      "minutos_por_100_dias": 17.7
      }
     },
     {
@@ -3543,22 +3543,22 @@
      "diputados": 118,
      "gobierno": 4,
      "periodo_insuficiente": 2,
-     "dias_evaluados": 36877,
+     "dias_evaluados": 36645,
      "indice": {
-      "min": 24.6,
-      "p25": 38.3,
-      "mediana": 43.4,
-      "p75": 50.3,
-      "max": 66
+      "min": 24.5,
+      "p25": 38.2,
+      "mediana": 43.5,
+      "p75": 49.9,
+      "max": 66.1
      },
      "dimensiones": [
       {
        "id": "dedicacion",
-       "mediana": 71.2
+       "mediana": 70.9
       },
       {
        "id": "debates",
-       "mediana": 41.8
+       "mediana": 41.6
       },
       {
        "id": "iniciativa",
@@ -3577,44 +3577,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 69270,
-       "denominador": 69294,
-       "valor": 0.9997
+       "total": 67182,
+       "denominador": 67206,
+       "valor": 0.9996
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 222,
-       "denominador": 36877,
-       "valor": 0.602
+       "total": 219,
+       "denominador": 36645,
+       "valor": 0.5976
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 860,
-       "denominador": 36877,
-       "valor": 2.3321
+       "total": 824,
+       "denominador": 36645,
+       "valor": 2.2486
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
        "total": 164.9994,
-       "denominador": 36877,
-       "valor": 0.4474
+       "denominador": 36645,
+       "valor": 0.4503
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 46,
-       "denominador": 36877,
-       "valor": 0.1247
+       "denominador": 36645,
+       "valor": 0.1255
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 11,
-       "denominador": 36877,
-       "valor": 0.0298
+       "denominador": 36645,
+       "valor": 0.03
       },
       {
        "id": "iniciativas_legislativas",
@@ -3627,8 +3627,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 24,
-       "denominador": 36877,
-       "valor": 0.0651
+       "denominador": 36645,
+       "valor": 0.0655
       },
       {
        "id": "iniciativas_aprobadas",
@@ -3639,9 +3639,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 5997,
-      "intervenciones": 1108,
-      "minutos_por_100_dias": 16.26
+      "minutos": 5846,
+      "intervenciones": 1069,
+      "minutos_por_100_dias": 15.95
      }
     },
     {
@@ -3654,9 +3654,9 @@
      "diputados": 33,
      "gobierno": 0,
      "periodo_insuficiente": 0,
-     "dias_evaluados": 10395,
+     "dias_evaluados": 10329,
      "indice": {
-      "min": 18.5,
+      "min": 17.3,
       "p25": 51,
       "mediana": 59.4,
       "p75": 68.1,
@@ -3665,15 +3665,15 @@
      "dimensiones": [
       {
        "id": "dedicacion",
-       "mediana": 34
+       "mediana": 33.6
       },
       {
        "id": "debates",
-       "mediana": 80.5
+       "mediana": 79.2
       },
       {
        "id": "iniciativa",
-       "mediana": 75.5
+       "mediana": 75.6
       },
       {
        "id": "resultados",
@@ -3688,44 +3688,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 19324,
-       "denominador": 19503,
-       "valor": 0.9908
+       "total": 18731,
+       "denominador": 18909,
+       "valor": 0.9906
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 257,
-       "denominador": 10395,
-       "valor": 2.4723
+       "total": 253,
+       "denominador": 10329,
+       "valor": 2.4494
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 858,
-       "denominador": 10395,
-       "valor": 8.254
+       "total": 823,
+       "denominador": 10329,
+       "valor": 7.9679
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
-       "total": 1865.1112,
-       "denominador": 10395,
-       "valor": 17.9424
+       "total": 1860.1111,
+       "denominador": 10329,
+       "valor": 18.0086
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 133.9999,
-       "denominador": 10395,
-       "valor": 1.2891
+       "denominador": 10329,
+       "valor": 1.2973
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 311,
-       "denominador": 10395,
-       "valor": 2.9918
+       "denominador": 10329,
+       "valor": 3.0109
       },
       {
        "id": "iniciativas_legislativas",
@@ -3738,8 +3738,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 16,
-       "denominador": 10395,
-       "valor": 0.1539
+       "denominador": 10329,
+       "valor": 0.1549
       },
       {
        "id": "iniciativas_aprobadas",
@@ -3750,9 +3750,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 6415,
-      "intervenciones": 1198,
-      "minutos_por_100_dias": 61.71
+      "minutos": 6265,
+      "intervenciones": 1156,
+      "minutos_por_100_dias": 60.65
      }
     },
     {
@@ -3765,11 +3765,11 @@
      "diputados": 30,
      "gobierno": 1,
      "periodo_insuficiente": 1,
-     "dias_evaluados": 9374,
+     "dias_evaluados": 9316,
      "indice": {
-      "min": 33.5,
-      "p25": 44.7,
-      "mediana": 55.2,
+      "min": 33.7,
+      "p25": 44.8,
+      "mediana": 55,
       "p75": 61.1,
       "max": 70.2
      },
@@ -3780,11 +3780,11 @@
       },
       {
        "id": "debates",
-       "mediana": 86.1
+       "mediana": 86.2
       },
       {
        "id": "iniciativa",
-       "mediana": 51
+       "mediana": 50.8
       },
       {
        "id": "resultados",
@@ -3799,44 +3799,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 17345,
-       "denominador": 17675,
-       "valor": 0.9813
+       "total": 16843,
+       "denominador": 17153,
+       "valor": 0.9819
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 437,
-       "denominador": 9374,
-       "valor": 4.6618
+       "total": 430,
+       "denominador": 9316,
+       "valor": 4.6157
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 856,
-       "denominador": 9374,
-       "valor": 9.1316
+       "total": 822,
+       "denominador": 9316,
+       "valor": 8.8235
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
-       "total": 890,
-       "denominador": 9374,
-       "valor": 9.4943
+       "total": 878.3333,
+       "denominador": 9316,
+       "valor": 9.4282
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 49.9999,
-       "denominador": 9374,
-       "valor": 0.5334
+       "denominador": 9316,
+       "valor": 0.5367
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
-       "total": 98.9998,
-       "denominador": 9374,
-       "valor": 1.0561
+       "total": 92.9998,
+       "denominador": 9316,
+       "valor": 0.9983
       },
       {
        "id": "iniciativas_legislativas",
@@ -3849,8 +3849,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 20,
-       "denominador": 9374,
-       "valor": 0.2134
+       "denominador": 9316,
+       "valor": 0.2147
       },
       {
        "id": "iniciativas_aprobadas",
@@ -3861,9 +3861,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 6957,
-      "intervenciones": 1327,
-      "minutos_por_100_dias": 74.22
+      "minutos": 6818,
+      "intervenciones": 1286,
+      "minutos_por_100_dias": 73.19
      }
     },
     {
@@ -3876,10 +3876,10 @@
      "diputados": 7,
      "gobierno": 0,
      "periodo_insuficiente": 0,
-     "dias_evaluados": 2205,
+     "dias_evaluados": 2191,
      "indice": {
-      "min": 30.5,
-      "p25": 59.9,
+      "min": 30.7,
+      "p25": 59.8,
       "mediana": 62,
       "p75": 63.3,
       "max": 77.2
@@ -3887,11 +3887,11 @@
      "dimensiones": [
       {
        "id": "dedicacion",
-       "mediana": 34
+       "mediana": 33.6
       },
       {
        "id": "debates",
-       "mediana": 93.7
+       "mediana": 93.9
       },
       {
        "id": "iniciativa",
@@ -3910,44 +3910,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 4080,
-       "denominador": 4137,
-       "valor": 0.9862
+       "total": 3954,
+       "denominador": 4011,
+       "valor": 0.9858
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 178,
-       "denominador": 2205,
-       "valor": 8.0726
+       "total": 176,
+       "denominador": 2191,
+       "valor": 8.0329
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 231,
-       "denominador": 2205,
-       "valor": 10.4762
+       "total": 225,
+       "denominador": 2191,
+       "valor": 10.2693
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
        "total": 145.6667,
-       "denominador": 2205,
-       "valor": 6.6062
+       "denominador": 2191,
+       "valor": 6.6484
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 29,
-       "denominador": 2205,
-       "valor": 1.3152
+       "denominador": 2191,
+       "valor": 1.3236
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 5,
-       "denominador": 2205,
-       "valor": 0.2268
+       "denominador": 2191,
+       "valor": 0.2282
       },
       {
        "id": "iniciativas_legislativas",
@@ -3960,8 +3960,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 8,
-       "denominador": 2205,
-       "valor": 0.3628
+       "denominador": 2191,
+       "valor": 0.3651
       },
       {
        "id": "iniciativas_aprobadas",
@@ -3972,9 +3972,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 2813,
-      "intervenciones": 445,
-      "minutos_por_100_dias": 127.57
+      "minutos": 2762,
+      "intervenciones": 435,
+      "minutos_por_100_dias": 126.06
      }
     },
     {
@@ -3987,13 +3987,13 @@
      "diputados": 7,
      "gobierno": 0,
      "periodo_insuficiente": 0,
-     "dias_evaluados": 2205,
+     "dias_evaluados": 2191,
      "indice": {
       "min": 29.2,
-      "p25": 47.4,
-      "mediana": 51.5,
+      "p25": 47.3,
+      "mediana": 51.6,
       "p75": 61.3,
-      "max": 83.5
+      "max": 83.6
      },
      "dimensiones": [
       {
@@ -4002,11 +4002,11 @@
       },
       {
        "id": "debates",
-       "mediana": 88.9
+       "mediana": 89.5
       },
       {
        "id": "iniciativa",
-       "mediana": 70.9
+       "mediana": 71
       },
       {
        "id": "resultados",
@@ -4021,44 +4021,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 4030,
-       "denominador": 4137,
-       "valor": 0.9741
+       "total": 3904,
+       "denominador": 4011,
+       "valor": 0.9733
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 164,
-       "denominador": 2205,
-       "valor": 7.4376
+       "total": 163,
+       "denominador": 2191,
+       "valor": 7.4395
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 164,
-       "denominador": 2205,
-       "valor": 7.4376
+       "total": 163,
+       "denominador": 2191,
+       "valor": 7.4395
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
-       "total": 424.9999,
-       "denominador": 2205,
-       "valor": 19.2744
+       "total": 423.9999,
+       "denominador": 2191,
+       "valor": 19.3519
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 20,
-       "denominador": 2205,
-       "valor": 0.907
+       "denominador": 2191,
+       "valor": 0.9128
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 14,
-       "denominador": 2205,
-       "valor": 0.6349
+       "denominador": 2191,
+       "valor": 0.639
       },
       {
        "id": "iniciativas_legislativas",
@@ -4071,8 +4071,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 8,
-       "denominador": 2205,
-       "valor": 0.3628
+       "denominador": 2191,
+       "valor": 0.3651
       },
       {
        "id": "iniciativas_aprobadas",
@@ -4083,9 +4083,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 2203,
-      "intervenciones": 351,
-      "minutos_por_100_dias": 99.91
+      "minutos": 2192,
+      "intervenciones": 348,
+      "minutos_por_100_dias": 100.05
      }
     },
     {
@@ -4098,26 +4098,26 @@
      "diputados": 6,
      "gobierno": 0,
      "periodo_insuficiente": 0,
-     "dias_evaluados": 1890,
+     "dias_evaluados": 1878,
      "indice": {
-      "min": 36.1,
+      "min": 36.3,
       "p25": 47.6,
-      "mediana": 57.2,
-      "p75": 63,
+      "mediana": 57.1,
+      "p75": 63.1,
       "max": 71.6
      },
      "dimensiones": [
       {
        "id": "dedicacion",
-       "mediana": 27.4
+       "mediana": 27.1
       },
       {
        "id": "debates",
-       "mediana": 73.7
+       "mediana": 74
       },
       {
        "id": "iniciativa",
-       "mediana": 61.8
+       "mediana": 61.9
       },
       {
        "id": "resultados",
@@ -4132,44 +4132,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 3533,
-       "denominador": 3546,
-       "valor": 0.9963
+       "total": 3425,
+       "denominador": 3438,
+       "valor": 0.9962
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 105,
-       "denominador": 1890,
-       "valor": 5.5556
+       "total": 103,
+       "denominador": 1878,
+       "valor": 5.4846
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 94,
-       "denominador": 1890,
-       "valor": 4.9735
+       "total": 91,
+       "denominador": 1878,
+       "valor": 4.8456
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
        "total": 49,
-       "denominador": 1890,
-       "valor": 2.5926
+       "denominador": 1878,
+       "valor": 2.6092
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 23,
-       "denominador": 1890,
-       "valor": 1.2169
+       "denominador": 1878,
+       "valor": 1.2247
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 16,
-       "denominador": 1890,
-       "valor": 0.8466
+       "denominador": 1878,
+       "valor": 0.852
       },
       {
        "id": "iniciativas_legislativas",
@@ -4182,8 +4182,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 8,
-       "denominador": 1890,
-       "valor": 0.4233
+       "denominador": 1878,
+       "valor": 0.426
       },
       {
        "id": "iniciativas_aprobadas",
@@ -4194,9 +4194,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 1623,
-      "intervenciones": 234,
-      "minutos_por_100_dias": 85.87
+      "minutos": 1593,
+      "intervenciones": 227,
+      "minutos_por_100_dias": 84.82
      }
     },
     {
@@ -4209,12 +4209,12 @@
      "diputados": 5,
      "gobierno": 0,
      "periodo_insuficiente": 0,
-     "dias_evaluados": 1575,
+     "dias_evaluados": 1565,
      "indice": {
-      "min": 33.4,
-      "p25": 41.5,
-      "mediana": 53.2,
-      "p75": 55.2,
+      "min": 33.6,
+      "p25": 41.6,
+      "mediana": 53.3,
+      "p75": 55,
       "max": 56.3
      },
      "dimensiones": [
@@ -4224,7 +4224,7 @@
       },
       {
        "id": "debates",
-       "mediana": 89
+       "mediana": 89.3
       },
       {
        "id": "iniciativa",
@@ -4243,44 +4243,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 2914,
-       "denominador": 2955,
-       "valor": 0.9861
+       "total": 2824,
+       "denominador": 2865,
+       "valor": 0.9857
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 153,
-       "denominador": 1575,
-       "valor": 9.7143
+       "total": 151,
+       "denominador": 1565,
+       "valor": 9.6486
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 115,
-       "denominador": 1575,
-       "valor": 7.3016
+       "total": 110,
+       "denominador": 1565,
+       "valor": 7.0288
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
        "total": 13,
-       "denominador": 1575,
-       "valor": 0.8254
+       "denominador": 1565,
+       "valor": 0.8307
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 18,
-       "denominador": 1575,
-       "valor": 1.1429
+       "denominador": 1565,
+       "valor": 1.1502
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 3,
-       "denominador": 1575,
-       "valor": 0.1905
+       "denominador": 1565,
+       "valor": 0.1917
       },
       {
        "id": "iniciativas_legislativas",
@@ -4293,8 +4293,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 8,
-       "denominador": 1575,
-       "valor": 0.5079
+       "denominador": 1565,
+       "valor": 0.5112
       },
       {
        "id": "iniciativas_aprobadas",
@@ -4305,9 +4305,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 1557,
-      "intervenciones": 294,
-      "minutos_por_100_dias": 98.86
+      "minutos": 1529,
+      "intervenciones": 285,
+      "minutos_por_100_dias": 97.7
      }
     },
     {
@@ -4320,22 +4320,22 @@
      "diputados": 1,
      "gobierno": 0,
      "periodo_insuficiente": 0,
-     "dias_evaluados": 315,
+     "dias_evaluados": 313,
      "indice": {
-      "min": 61.7,
-      "p25": 61.7,
-      "mediana": 61.7,
-      "p75": 61.7,
-      "max": 61.7
+      "min": 61.3,
+      "p25": 61.3,
+      "mediana": 61.3,
+      "p75": 61.3,
+      "max": 61.3
      },
      "dimensiones": [
       {
        "id": "dedicacion",
-       "mediana": 2.4
+       "mediana": 2.3
       },
       {
        "id": "debates",
-       "mediana": 92.7
+       "mediana": 91.5
       },
       {
        "id": "iniciativa",
@@ -4354,44 +4354,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 561,
-       "denominador": 591,
-       "valor": 0.9492
+       "total": 544,
+       "denominador": 573,
+       "valor": 0.9494
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 90,
-       "denominador": 315,
-       "valor": 28.5714
+       "total": 87,
+       "denominador": 313,
+       "valor": 27.7955
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 22,
-       "denominador": 315,
-       "valor": 6.9841
+       "total": 19,
+       "denominador": 313,
+       "valor": 6.0703
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
        "total": 2820,
-       "denominador": 315,
-       "valor": 895.2381
+       "denominador": 313,
+       "valor": 900.9585
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 8,
-       "denominador": 315,
-       "valor": 2.5397
+       "denominador": 313,
+       "valor": 2.5559
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 11,
-       "denominador": 315,
-       "valor": 3.4921
+       "denominador": 313,
+       "valor": 3.5144
       },
       {
        "id": "iniciativas_legislativas",
@@ -4404,8 +4404,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 1,
-       "denominador": 315,
-       "valor": 0.3175
+       "denominador": 313,
+       "valor": 0.3195
       },
       {
        "id": "iniciativas_aprobadas",
@@ -4416,9 +4416,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 555,
-      "intervenciones": 116,
-      "minutos_por_100_dias": 176.19
+      "minutos": 518,
+      "intervenciones": 110,
+      "minutos_por_100_dias": 165.5
      }
     },
     {
@@ -4431,7 +4431,7 @@
      "diputados": 1,
      "gobierno": 0,
      "periodo_insuficiente": 0,
-     "dias_evaluados": 315,
+     "dias_evaluados": 313,
      "indice": {
       "min": 69,
       "p25": 69,
@@ -4446,11 +4446,11 @@
       },
       {
        "id": "debates",
-       "mediana": 89.8
+       "mediana": 90.1
       },
       {
        "id": "iniciativa",
-       "mediana": 82.1
+       "mediana": 82.2
       },
       {
        "id": "resultados",
@@ -4465,44 +4465,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 588,
-       "denominador": 591,
-       "valor": 0.9949
+       "total": 570,
+       "denominador": 573,
+       "valor": 0.9948
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 58,
-       "denominador": 315,
-       "valor": 18.4127
+       "total": 57,
+       "denominador": 313,
+       "valor": 18.2109
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
        "total": 18,
-       "denominador": 315,
-       "valor": 5.7143
+       "denominador": 313,
+       "valor": 5.7508
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
        "total": 82,
-       "denominador": 315,
-       "valor": 26.0317
+       "denominador": 313,
+       "valor": 26.1981
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 2,
-       "denominador": 315,
-       "valor": 0.6349
+       "denominador": 313,
+       "valor": 0.639
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 4,
-       "denominador": 315,
-       "valor": 1.2698
+       "denominador": 313,
+       "valor": 1.278
       },
       {
        "id": "iniciativas_legislativas",
@@ -4515,8 +4515,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 2,
-       "denominador": 315,
-       "valor": 0.6349
+       "denominador": 313,
+       "valor": 0.639
       },
       {
        "id": "iniciativas_aprobadas",
@@ -4527,9 +4527,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 333,
-      "intervenciones": 79,
-      "minutos_por_100_dias": 105.71
+      "minutos": 331,
+      "intervenciones": 77,
+      "minutos_por_100_dias": 105.75
      }
     },
     {
@@ -4542,22 +4542,22 @@
      "diputados": 1,
      "gobierno": 0,
      "periodo_insuficiente": 0,
-     "dias_evaluados": 315,
+     "dias_evaluados": 313,
      "indice": {
-      "min": 71.2,
-      "p25": 71.2,
-      "mediana": 71.2,
-      "p75": 71.2,
-      "max": 71.2
+      "min": 71.1,
+      "p25": 71.1,
+      "mediana": 71.1,
+      "p75": 71.1,
+      "max": 71.1
      },
      "dimensiones": [
       {
        "id": "dedicacion",
-       "mediana": 34
+       "mediana": 33.6
       },
       {
        "id": "debates",
-       "mediana": 96
+       "mediana": 95.9
       },
       {
        "id": "iniciativa",
@@ -4576,44 +4576,44 @@
       {
        "id": "votaciones_participacion",
        "estado": "observado",
-       "total": 590,
-       "denominador": 591,
+       "total": 572,
+       "denominador": 573,
        "valor": 0.9983
       },
       {
        "id": "intervenciones_pleno",
        "estado": "observado",
-       "total": 66,
-       "denominador": 315,
-       "valor": 20.9524
+       "total": 65,
+       "denominador": 313,
+       "valor": 20.7668
       },
       {
        "id": "intervenciones_comision",
        "estado": "observado",
-       "total": 39,
-       "denominador": 315,
-       "valor": 12.381
+       "total": 36,
+       "denominador": 313,
+       "valor": 11.5016
       },
       {
        "id": "preguntas_escritas",
        "estado": "calculado",
        "total": 693,
-       "denominador": 315,
-       "valor": 220
+       "denominador": 313,
+       "valor": 221.4058
       },
       {
        "id": "preguntas_orales",
        "estado": "calculado",
        "total": 19,
-       "denominador": 315,
-       "valor": 6.0317
+       "denominador": 313,
+       "valor": 6.0703
       },
       {
        "id": "solicitudes_informe",
        "estado": "calculado",
        "total": 14,
-       "denominador": 315,
-       "valor": 4.4444
+       "denominador": 313,
+       "valor": 4.4728
       },
       {
        "id": "iniciativas_legislativas",
@@ -4626,8 +4626,8 @@
        "id": "leyes_ponente",
        "estado": "observado",
        "total": 1,
-       "denominador": 315,
-       "valor": 0.3175
+       "denominador": 313,
+       "valor": 0.3195
       },
       {
        "id": "iniciativas_aprobadas",
@@ -4638,9 +4638,9 @@
       }
      ],
      "tiempo_palabra": {
-      "minutos": 457,
-      "intervenciones": 113,
-      "minutos_por_100_dias": 145.08
+      "minutos": 448,
+      "intervenciones": 109,
+      "minutos_por_100_dias": 143.13
      }
     }
    ]
@@ -4650,7 +4650,7 @@
    "nombre": "Último trimestre",
    "estado": "no_disponible",
    "motivo": "periodo_demasiado_corto",
-   "desde": "2026-08-27",
+   "desde": "2026-08-29",
    "hasta": "2026-10-06",
    "camara": null,
    "grupos": [],

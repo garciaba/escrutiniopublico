@@ -1,6 +1,6 @@
 {
  "metodologia_version": "1.2.0",
- "fecha_calculo": "2026-11-25",
+ "fecha_calculo": "2026-11-27",
  "legislatura": {
   "numero": 15,
   "nombre": "XV",
@@ -147,7 +147,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-25"
+      "fecha_dato": "2026-11-27"
      }
     },
     {
@@ -164,7 +164,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-25"
+      "fecha_dato": "2026-11-27"
      }
     },
     {
@@ -256,7 +256,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Iniciativas legislativas",
       "url": "https://www.congreso.es/es/opendata/iniciativas",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-27"
      }
     },
     {
@@ -282,11 +282,11 @@
    "estado": "disponible",
    "situacion": "periodo_insuficiente",
    "etapa_gobierno_excluida": false,
-   "desde": "2025-11-26",
+   "desde": "2025-11-28",
    "hasta": "2026-10-06",
-   "dias_activo": 64,
+   "dias_activo": 62,
    "dias_gobierno": 0,
-   "dias_evaluados": 64,
+   "dias_evaluados": 62,
    "grupo": "GMx",
    "roles": [],
    "indice": null,
@@ -322,7 +322,7 @@
      "estado": "observado",
      "valor": 0,
      "numerador": 0,
-     "denominador": 55,
+     "denominador": 37,
      "percentil": null,
      "percentil_grupo": null,
      "n_grupo": null,
@@ -339,7 +339,7 @@
      "estado": "observado",
      "valor": 0,
      "numerador": 0,
-     "denominador": 64,
+     "denominador": 62,
      "percentil": null,
      "percentil_grupo": null,
      "n_grupo": null,
@@ -347,7 +347,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-25"
+      "fecha_dato": "2026-11-27"
      }
     },
     {
@@ -356,7 +356,7 @@
      "estado": "observado",
      "valor": 0,
      "numerador": 0,
-     "denominador": 64,
+     "denominador": 62,
      "percentil": null,
      "percentil_grupo": null,
      "n_grupo": null,
@@ -364,7 +364,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Intervenciones",
       "url": "https://www.congreso.es/es/opendata/intervenciones",
-      "fecha_dato": "2026-11-25"
+      "fecha_dato": "2026-11-27"
      }
     },
     {
@@ -373,7 +373,7 @@
      "estado": "calculado",
      "valor": 0,
      "numerador": 0,
-     "denominador": 64,
+     "denominador": 62,
      "percentil": null,
      "percentil_grupo": null,
      "n_grupo": null,
@@ -394,7 +394,7 @@
      "estado": "calculado",
      "valor": 0,
      "numerador": 0,
-     "denominador": 64,
+     "denominador": 62,
      "percentil": null,
      "percentil_grupo": null,
      "n_grupo": null,
@@ -415,7 +415,7 @@
      "estado": "calculado",
      "valor": 0,
      "numerador": 0,
-     "denominador": 64,
+     "denominador": 62,
      "percentil": null,
      "percentil_grupo": null,
      "n_grupo": null,
@@ -448,7 +448,7 @@
      "estado": "observado",
      "valor": 0,
      "numerador": 0,
-     "denominador": 64,
+     "denominador": 62,
      "percentil": null,
      "percentil_grupo": null,
      "n_grupo": null,
@@ -456,7 +456,7 @@
      "fuente": {
       "nombre": "Congreso de los Diputados · Iniciativas legislativas",
       "url": "https://www.congreso.es/es/opendata/iniciativas",
-      "fecha_dato": "2026-11-23"
+      "fecha_dato": "2026-11-27"
      }
     },
     {

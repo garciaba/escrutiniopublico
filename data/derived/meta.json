@@ -1,7 +1,7 @@
 {
- "ejecutado": "2026-11-25T16:25:27.261Z",
+ "ejecutado": "2026-11-27T15:56:31.587Z",
  "metodologia_version": "1.2.0",
- "fecha_calculo": "2026-11-25",
+ "fecha_calculo": "2026-11-27",
  "legislatura": {
   "numero": 15,
   "nombre": "XV",
@@ -9,7 +9,7 @@
   "fin": "2026-10-06",
   "finalizada": true
  },
- "commit": "9f49b2a669cd656b0ce3920352e982f5f7605145",
+ "commit": "2eae220ab367e5c9a7e68922d2cead0a7570339b",
  "periodos": [
   {
    "id": "legislatura",
@@ -37,7 +37,7 @@
    "nombre": "Último año",
    "estado": "disponible",
    "motivo": null,
-   "desde": "2025-11-26",
+   "desde": "2025-11-28",
    "hasta": "2026-10-06",
    "dias_minimos": 90,
    "poblacion_referencia": 347,
@@ -58,7 +58,7 @@
    "nombre": "Último trimestre",
    "estado": "no_disponible",
    "motivo": "periodo_demasiado_corto",
-   "desde": "2026-08-27",
+   "desde": "2026-08-29",
    "hasta": "2026-10-06",
    "dias_minimos": 46,
    "poblacion_referencia": 0,
@@ -138,7 +138,7 @@
   {
    "id": "iniciativas/buscador-187",
    "url": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_cacheability=cacheLevelPage&p_p_resource_id=resourceIDopendataExport",
-   "descargado": "2026-11-23",
+   "descargado": "2026-11-27",
    "fecha_fichero": null
   },
   {
@@ -155,9 +155,9 @@
   },
   {
    "id": "iniciativas/ProposicionesDeLey",
-   "url": "https://www.congreso.es/webpublica/opendata/iniciativas/ProposicionesDeLey__20261123050130.json",
-   "descargado": "2026-11-23",
-   "fecha_fichero": "2026-11-23"
+   "url": "https://www.congreso.es/webpublica/opendata/iniciativas/ProposicionesDeLey__20261127050127.json",
+   "descargado": "2026-11-27",
+   "fecha_fichero": "2026-11-27"
   },
   {
    "id": "iniciativas/PropuestasDeReforma",
@@ -167,15 +167,15 @@
   },
   {
    "id": "iniciativas/ProyectosDeLey",
-   "url": "https://www.congreso.es/webpublica/opendata/iniciativas/ProyectosDeLey__20261123050027.json",
-   "descargado": "2026-11-23",
-   "fecha_fichero": "2026-11-23"
+   "url": "https://www.congreso.es/webpublica/opendata/iniciativas/ProyectosDeLey__20261127050024.json",
+   "descargado": "2026-11-27",
+   "fecha_fichero": "2026-11-27"
   },
   {
    "id": "intervenciones/IntervencionesCronologicamente",
-   "url": "https://www.congreso.es/webpublica/opendata/intervenciones/IntervencionesCronologicamente__20261125050232.json",
-   "descargado": "2026-11-25",
-   "fecha_fichero": "2026-11-25"
+   "url": "https://www.congreso.es/webpublica/opendata/intervenciones/IntervencionesCronologicamente__20261127050118.json",
+   "descargado": "2026-11-27",
+   "fecha_fichero": "2026-11-27"
   },
   {
    "id": "organos/composicion",
@@ -186,9 +186,9 @@
  ],
  "fechas_dato": {
   "votaciones": "2026-09-30",
-  "intervenciones": "2026-11-25",
+  "intervenciones": "2026-11-27",
   "iniciativas": "2026-11-23",
-  "leyes": "2026-11-23"
+  "leyes": "2026-11-27"
  },
  "registros": {
   "diputados": 412,
